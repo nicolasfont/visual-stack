@@ -1,0 +1,27 @@
+import './Panel.css';
+
+import React, { PropTypes } from 'react';
+
+export const Panel = ({ children }) =>
+  <div className="cj-panel panel panel-default">
+    {children}
+  </div>;
+
+export const Footer = ({ children }) =>
+  <div className="cj-panel panel-footer">
+    {children}
+  </div>;
+
+export const Body = ({ children }) =>
+  <div className="cj-panel panel-body">
+    {children}
+  </div>;
+
+export const Header = ({ title, children }) =>
+  <div className="cj-panel panel-heading">
+    {title && <legend>{title}</legend>}
+    {children}
+  </div>;
+Header.propTypes = {
+  title: PropTypes.string,
+};
