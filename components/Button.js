@@ -3,7 +3,7 @@ import './Button.css';
 import { concat, omit } from 'ramda';
 import React, { PropTypes } from 'react';
 
-export const Button = props => {
+const mkButton = buttonType => props => {
   const { children, className, type, large } = props;
   const otherProps = omit(['children', 'className', 'type', 'large'], props);
 
@@ -15,7 +15,7 @@ export const Button = props => {
 
   return (
     <button
-      type="button"
+      type={buttonType}
       {...otherProps}
       className={classes.join(' ')}>
       {children}
@@ -23,7 +23,10 @@ export const Button = props => {
   );
 };
 
-Button.propTypes = {
+export const Button = mkButton('button');
+export const SubmitButton = mkButton('submit');
+
+Button.propTypes = SubmitButton.propTypes = {
   type: PropTypes.oneOf(['primary', 'success', 'info', 'default', 'warning', 'danger']).isRequired,
   large: PropTypes.bool,
 };
