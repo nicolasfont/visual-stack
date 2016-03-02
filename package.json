@@ -1,0 +1,11 @@
+{
+  "name": "@cjdev/visual-stack",
+  "version": "0.0.0",
+  "peerDependencies": {
+    "bootstrap-loader": "^1.0.8",
+    "bootstrap-sass": "^3.3.6"
+  },
+  "dependencies": {
+    "ramda": "^0.19.1"
+  }
+}

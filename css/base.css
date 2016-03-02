@@ -1,0 +1,19 @@
+@import url('//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800');
+
+body, p, div, td, th, span {
+  font-size: small;
+  font-family: "Open Sans",sans-serif;
+}
+
+body, p, td, th, h1, h2, h3, h4, h5 {
+  color: #585858;
+}
+
+h1, ul, li {
+  margin:0;
+  padding:0;
+}
+
+th, b, strong {
+  font-weight: 600;
+}
