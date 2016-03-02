@@ -1,0 +1,50 @@
+.list-toolbar {
+  padding: 0 15px 0 15px;
+  border-bottom-width: 0;
+}
+
+.list-toolbar-title {
+  height: 45px;
+  line-height: 45px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.list-header {
+  background-color: #f7f7f7;
+  border: 1px solid #CCC;
+  border-bottom: 0 transparent;
+  pointer-events:none;
+}
+
+.list-header-label {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-rows {
+  border: 1px solid #CCC;
+}
+
+.list-row {
+  padding: 15px 0;
+  border-top: 1px dashed #CCC;
+}
+
+.list-row:first-child {
+  border-top-width: 0;
+}
+
+.list-row:hover {
+  background: #F9F9F9;
+}
+
+.list-cell {
+  border-right: 1px solid #CCC;
+}
+
+.list-cell:last-child  {
+  border-right-width: 0;
+}
