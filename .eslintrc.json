@@ -6,21 +6,12 @@
     "require": true
   },
   "plugins": ["react"],
-  "ecmaFeatures": {
-    "arrowFunctions": true,
-    "blockBindings": true,
-    "classes": true,
-    "defaultParams": true,
-    "destructuring": true,
-    "generators": true,
-    "modules": true,
-    "objectLiteralComputedProperties": true,
-    "objectLiteralShorthandMethods": true,
-    "objectLiteralShorthandProperties": true,
-    "restParams": true,
-    "spread": true,
-    "templateStrings": true,
-    "jsx": true
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
   },
   "rules": {
     "array-bracket-spacing": 1,
@@ -41,6 +32,7 @@
     "indent": [1, 2, { "SwitchCase": 1 }],
     "jsx-quotes": 1,
     "key-spacing": 1,
+    "keyword-spacing": 1,
     "new-parens": 1,
     "no-alert": 1,
     "no-caller": 1,
@@ -57,7 +49,6 @@
     "no-dupe-keys": 2,
     "no-duplicate-case": 2,
     "no-empty-character-class": 1,
-    "no-empty-label": 2,
     "no-empty-pattern": 1,
     "no-empty": 1,
     "no-eval": 2,
@@ -71,6 +62,7 @@
     "no-implied-eval": 2,
     "no-invalid-this": 2,
     "no-irregular-whitespace": 1,
+    "no-labels": [2, { "allowLoop": true, "allowSwitch": true }],
     "no-lone-blocks": 1,
     "no-lonely-if": 1,
     "no-multiple-empty-lines": 1,
@@ -111,12 +103,9 @@
     "radix": 1,
     "semi-spacing": 1,
     "semi": 2,
-    "space-after-keywords": 1,
     "space-before-blocks": 1,
     "space-before-function-paren": [1, { "anonymous": "always", "named": "never" }],
-    "space-before-keywords": 1,
     "space-in-parens": 1,
-    "space-return-throw-case": 1,
     "space-unary-ops": 1,
     "spaced-comment": 1,
     "use-isnan": 1,
