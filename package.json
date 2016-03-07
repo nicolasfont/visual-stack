@@ -7,10 +7,11 @@
   ],
   "scripts": {
     "build": "gulp build",
-    "watch": "gulp watch",
     "clean": "rimraf lib",
     "lint": "eslint src",
-    "prepublish": "npm run clean && npm run lint && npm run build"
+    "prepublish": "npm run clean && npm run lint && npm run build",
+    "test": "true",
+    "watch": "gulp watch"
   },
   "peerDependencies": {
     "bootstrap-loader": "^1.0.8",
