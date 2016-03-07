@@ -1,12 +1,9 @@
 import './Button.css';
 
-import { concat, omit } from 'ramda';
+import { concat } from 'ramda';
 import React, { PropTypes } from 'react';
 
-const mkButton = buttonType => props => {
-  const { children, className, type, large } = props;
-  const otherProps = omit(['children', 'className', 'type', 'large'], props);
-
+const mkButton = buttonType => ({ children, className, type, large, ...otherProps }) => {
   const classes = concat(
     ['btn-d', `${type}-btn`],
     large ? ['lrg-btn'] : [],
