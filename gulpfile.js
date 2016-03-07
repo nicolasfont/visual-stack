@@ -1,15 +1,23 @@
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 
-gulp.task('build', () => {
+const build = watch => {
   const js = $.filter(['**/*.js'], { restore: true });
-  return gulp.src('src/**')
+
+  const src = gulp.src('src/**');
+  const plumbed = watch
+    ? src.pipe($.plumber())
+    : src;
+
+  return plumbed
     .pipe(js)
     .pipe($.babel())
     .pipe(js.restore)
     .pipe(gulp.dest('lib'));
-});
+};
+
+gulp.task('build', () => build(false));
+gulp.task('build:watch', () => build(true));
 
 gulp.task('watch', () =>
-  gulp.watch('src/**', ['build']));
-
+  gulp.watch('src/**', ['build:watch']));
