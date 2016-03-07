@@ -27,7 +27,4 @@ node_js:
   - 5.7.1
   - stable
 
-script:
-  - npm run lint
-  - npm run build
-  - npm test
+script: npm test
