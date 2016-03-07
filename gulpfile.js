@@ -9,3 +9,7 @@ gulp.task('build', () => {
     .pipe(js.restore)
     .pipe(gulp.dest('lib'));
 });
+
+gulp.task('watch', () =>
+  gulp.watch('src/**', ['build']));
+
