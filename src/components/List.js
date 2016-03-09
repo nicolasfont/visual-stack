@@ -47,6 +47,21 @@ export const Row = ({ children }) =>
     </div>
   </div>;
 
+const ExpandedRowPanel = ({ children }) =>
+  <div className="list-row-expanded">
+    {children}
+  </div>;
+
+export const ExpandedRow = ({ children, expansion }) =>
+  <div className="list-row">
+    <div className="container-fluid">
+      <div className="row">
+        {children}
+      </div>
+      {expansion && <ExpandedRowPanel>{expansion}</ExpandedRowPanel>}
+    </div>
+  </div>;
+
 export const Cell = ({ width, children }) =>
   <div className={`list-cell col-xs-${width || 1}`}>
     {children}
