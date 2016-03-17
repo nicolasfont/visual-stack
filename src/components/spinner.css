@@ -1,0 +1,28 @@
+.spinner.spinner-small {
+    padding: 1em;
+}
+
+.spinner.spinner-large {
+    padding: 1.2em;
+}
+
+.spinner.spinner-extra-large {
+    padding: 1.4em;
+}
+
+.spinner-small i {
+    font-size: 1em;
+}
+
+.spinner-large i {
+    font-size: 2em;
+}
+
+.spinner-extra-large i {
+    font-size: 3em;
+}
+
+.spinner-button {
+    padding: .3em;
+}
+
