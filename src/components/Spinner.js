@@ -2,9 +2,9 @@ import React from "react";
 import _ from "underscore";
 import "./spinner.css";
 
-export const Spinner = (props) => {
+const Spinner = (props) => {
     const propsToPassOn = _.omit(props, ["className"]);
-    const className = "spinner spinner-" + (_.isUndefined(props.size))?"small":props.size;
+    const className = "spinner spinner-" + (_.isUndefined(props.size)?"small":props.size);
 
     return (
         <span className={className} {...propsToPassOn}>
@@ -16,3 +16,5 @@ export const Spinner = (props) => {
 Spinner.propTypes = {
     "size": React.PropTypes.oneOf(['small', 'large', 'extra-large', 'button'])
 };
+
+export default Spinner;
