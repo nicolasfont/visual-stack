@@ -17,6 +17,7 @@
   "rules": {
     "array-bracket-spacing": 1,
     "arrow-parens": [1, "as-needed"],
+    "arrow-spacing": 1,
     "block-spacing": 1,
     "brace-style": [1, "1tbs", { "allowSingleLine": true }],
     "camelcase": 1,
