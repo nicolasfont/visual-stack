@@ -20,8 +20,7 @@
   "dependencies": {
     "ramda": "^0.19.1",
     "react": "^0.14.7",
-    "react-dom": "^0.14.7",
-    "underscore": "^1.8.3"
+    "react-dom": "^0.14.7"
   },
   "devDependencies": {
     "babel-cli": "^6.6.4",

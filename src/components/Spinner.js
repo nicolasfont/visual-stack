@@ -1,10 +1,9 @@
-import React from 'react';
-import _ from 'underscore';
 import './spinner.css';
 
-const Spinner = props => {
-  const propsToPassOn = _.omit(props, ['className']);
-  const className = 'spinner spinner-' + (_.isUndefined(props.size)?'small':props.size);
+import React from 'react';
+
+const Spinner = ({ size, ...propsToPassOn }) => {
+  const className = `spinner spinner-${size || 'small'}`;
 
   return (
      <span className={className} {...propsToPassOn}>
