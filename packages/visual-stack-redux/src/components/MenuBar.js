@@ -6,6 +6,9 @@ import * as Base from '@cjdev/visual-stack/lib/components/MenuBar';
 import { openDropdown, closeDropdown } from '../index.js';
 
 export class MenuBar extends Component {
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+  };
   static childContextTypes = {
     menuBarName: PropTypes.string,
   };
@@ -23,6 +26,13 @@ export class MenuBar extends Component {
 }
 
 class InternalMenuBarDropdown extends Component {
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+  };
+  static contextTypes = {
+    menuBarName: PropTypes.string.isRequired,
+  };
+
   constructor() {
     super();
     this.handleClick = e => {
