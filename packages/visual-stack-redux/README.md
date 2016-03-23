@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/cjdev/visual-stack-redux.svg?branch=master)](https://travis-ci.org/cjdev/visual-stack-redux)
 
-This package provides [Redux][redux] bindings around the React components provided in the CJ Affiliate Visual Stack. Not all components have wrapped counterparts—components that have no need to have stateful interactions do not need to be wrapped to be usefully consumed by a Redux application.
+This package provides [Redux][redux] bindings around the React components provided in the [CJ Affiliate Visual Stack][visual-stack]. Not all components have wrapped counterparts—components that have no need to have stateful interactions do not need to be wrapped to be usefully consumed by a Redux application.
 
 ## Installation
 
@@ -51,3 +51,4 @@ ReactDOM.render(
 To work on this project locally, use `npm link` to create a local link to your working package. Run `npm run watch` to automatically rebuild the project as the source changes, which will also copy assets.
 
 [redux]: https://github.com/reactjs/redux
+[visual-stack]: https://github.com/cjdev/visual-stack
