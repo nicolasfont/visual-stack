@@ -15,7 +15,7 @@ MenuBarItem.propTypes = {
 
 export const MenuBarDropdown = ({ children, title, open }) =>
   <li className={`dropdown ${open ? 'open' : ''}`}>
-    <a href="#" className="dropdown-toggle">
+    <a href="#" className="dropdown-toggle" onClick={e => { e.preventDefault(); }}>
       <span className="navbar-menu--title">{title}</span>
       <span className="caret" />
     </a>
