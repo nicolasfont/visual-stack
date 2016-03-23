@@ -38,21 +38,7 @@ export const Rows = ({ children }) =>
     {children}
   </div>;
 
-export const Row = ({ children }) =>
-  <div className="list-row">
-    <div className="container-fluid">
-      <div className="row">
-        {children}
-      </div>
-    </div>
-  </div>;
-
-const ExpandedRowPanel = ({ children }) =>
-  <div className="list-row-expanded">
-    {children}
-  </div>;
-
-export const ExpandedRow = ({ children, expansion }) =>
+export const Row = ({ children, expansion }) =>
   <div className="list-row">
     <div className="container-fluid">
       <div className="row">
@@ -60,6 +46,11 @@ export const ExpandedRow = ({ children, expansion }) =>
       </div>
       {expansion && <ExpandedRowPanel>{expansion}</ExpandedRowPanel>}
     </div>
+  </div>;
+
+const ExpandedRowPanel = ({ children }) =>
+  <div className="list-row-expanded">
+    {children}
   </div>;
 
 export const Cell = ({ width, children }) =>
