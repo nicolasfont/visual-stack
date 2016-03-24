@@ -6,13 +6,29 @@ import React, { PropTypes } from 'react';
 export const List = ({ children }) =>
   <div>{children}</div>;
 
-export const Toolbar = ({ title }) =>
+export const Toolbar = ({ title, children }) =>
   <div className="list-toolbar toolbar-widget-header">
     {title && <span className="list-toolbar-title">{title}</span>}
+    {children}
   </div>;
 Toolbar.propTypes = {
   title: PropTypes.string,
 };
+
+export const ActionButton = ({ icon, additionalClassNames, onClick }) => {
+  return (
+    <span className={`${icon} ${additionalClassNames}`} onClick={onClick} ></span>
+  );
+};
+ActionButton.propTypes = {
+  icon: React.PropTypes.string.isRequired,
+  additionalClassNames: React.PropTypes.string,
+  onClick: React.PropTypes.func.isRequired,
+};
+ActionButton.defaultProps = {
+  additionalClassNames: 'pull-right list-header-pull-down',
+};
+
 
 const renderHeaderCell = ({ width, alignment, text }) =>
   <Cell key={text} width={width}>

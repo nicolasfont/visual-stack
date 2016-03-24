@@ -1,3 +1,9 @@
+# 0.3.1 (March 23, 2016)
+
+## New Features
+
+- Added `ActionButton` component to be used by `Toolbar` for actions within a List Toolbar.
+
 # 0.3.0 (March 23, 2016)
 
 ## Breaking Changes
