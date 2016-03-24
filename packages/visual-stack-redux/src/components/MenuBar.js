@@ -1,3 +1,4 @@
+import { omit } from 'ramda';
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
@@ -40,7 +41,7 @@ class InternalMenuBarDropdown extends Component {
       const { menuBarName } = this.context;
       const { name, closeDropdown, openDropdown } = this.props;
 
-      if (node.contains(e.target)) {
+      if (node.contains(e.target) && !this.isOpen()) {
         openDropdown(menuBarName, name);
       } else {
         closeDropdown(menuBarName, name);
@@ -57,14 +58,21 @@ class InternalMenuBarDropdown extends Component {
   }
 
   render() {
-    const { children, menuBars, name, closeDropdown: _closeDropdown, openDropdown: _openDropdown, ...otherProps } = this.props;
-    const { menuBarName } = this.context;
-    const dropDownState = (menuBars[menuBarName] || {})[name] || {};
+    const { children } = this.props;
+    const otherProps = omit(['children', 'menuBars', 'name', 'closeDropdown', 'openDropdown'], this.props);
     return (
-      <Base.MenuBarDropdown open={dropDownState.open} {...otherProps}>
+      <Base.MenuBarDropdown open={this.isOpen()} {...otherProps}>
         {children}
       </Base.MenuBarDropdown>
     );
+  }
+
+  isOpen() {
+    const { menuBars, name: dropdownName } = this.props;
+    const { menuBarName } = this.context;
+    const menuBarState = menuBars[menuBarName] || {};
+    const dropdownState = menuBarState[dropdownName] || {};
+    return !!dropdownState.open;
   }
 }
 
