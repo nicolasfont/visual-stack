@@ -1,3 +1,9 @@
+# 0.4.1 (March 24, 2016)
+
+## Other Changes
+
+- Added a proper margin to the bottom of the `PageHeader` component that matches the original source component.
+
 # 0.4.0 (March 24, 2016)
 
 ## New Features
