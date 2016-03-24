@@ -1,3 +1,9 @@
+# 0.4.0 (March 24, 2016)
+
+## New Features
+
+- Added various form components, including `Form`, `FormGroup`, `Input`, `Label`, and `Legend`.
+
 # 0.3.1 (March 23, 2016)
 
 ## New Features
