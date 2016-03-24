@@ -1,9 +1,5 @@
 /*! --- START CJ Bootstrap Overrides --- */
 
-* {
-  box-sizing: content-box;
-}
-
 .nav {
   margin-left: 0;
 }
