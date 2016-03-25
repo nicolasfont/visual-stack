@@ -1,6 +1,6 @@
 import './List.css';
 
-import { map } from 'ramda';
+import { map, omit } from 'ramda';
 import React, { PropTypes } from 'react';
 
 export const List = ({ children }) =>
@@ -54,13 +54,13 @@ export const Rows = ({ children }) =>
     {children}
   </div>;
 
-export const Row = ({ children, expansion }) =>
-  <div className="list-row">
+export const Row = props =>
+  <div className="list-row" {...omit(['children', 'expansion'], props)}>
     <div className="container-fluid">
       <div className="row">
-        {children}
+        {props.children}
       </div>
-      {expansion && <ExpandedRowPanel>{expansion}</ExpandedRowPanel>}
+      {props.expansion && <ExpandedRowPanel>{props.expansion}</ExpandedRowPanel>}
     </div>
   </div>;
 

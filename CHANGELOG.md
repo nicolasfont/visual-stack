@@ -1,3 +1,9 @@
+# 0.4.2 (March 25, 2016)
+
+## Other Changes
+
+- `Row` can now accept props like id, onClick, and so on.
+
 # 0.4.1 (March 24, 2016)
 
 ## Other Changes
