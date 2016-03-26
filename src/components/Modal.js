@@ -1,8 +1,27 @@
 import React, { PropTypes } from 'react';
 
+/* export const ModalMountPoint =({ component, opts }) =>
+  <div id="modal-mount-point">
+    <div Component isShown={ props } />
+  </div>; */
 
-export const Modal = ({ isShown, children }) =>
-   <div className="modal" style={{display:isShown?'block':'none'}}>
+export const ModalRaw = ({isShown}) =>
+  <Modal id="ConfirmationModal" isShown2={ isShown } >
+    <Dialog>
+      <Content>
+        <Header title="Confirm Application Delete">
+          </Header>
+          <Body>
+
+          </Body>
+          <Footer></Footer>
+      </Content>
+    </Dialog>
+   </Modal>;
+
+
+export const Modal = ({ isShown2, children }) =>
+   <div className="modal" style={{display:isShown2?'block':'none'}}>
      {children}
    </div>;
  Modal.propTypes = {
@@ -40,30 +59,8 @@ export const Footer = ({ children }) =>
     <button type="button" className="btn btn-primary">Delete Application</button>
   </div>;
 
-export const FFooter = ({ children }) =>
-  <div className="modal-footer">
-    {children}
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-primary">Save changes</button>
-  </div>;
 
 export const Title = ({ children }) =>
   <div className="modal-title">
     {children}
   </div>;
-
-// <!-- Modal -->
-// <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-//   <div class="modal-dialog" role="document">
-//     <div class="modal-content">
-//
-//       <div class="modal-body">
-//         ...
-//       </div>
-//       <div class="modal-footer">
-//         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-//         <button type="button" class="btn btn-primary">Save changes</button>
-//       </div>
-//     </div>
-//   </div>
-// </div>
