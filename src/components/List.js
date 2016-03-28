@@ -15,18 +15,18 @@ Toolbar.propTypes = {
   title: PropTypes.string,
 };
 
-export const ActionButton = ({ icon, additionalClassNames, onClick }) => {
+export const ActionButton = ({ icon, className, onClick }) => {
   return (
-    <span className={`${icon} ${additionalClassNames}`} onClick={onClick} ></span>
+    <span className={`${icon} ${className}`} onClick={onClick} ></span>
   );
 };
 ActionButton.propTypes = {
   icon: React.PropTypes.string.isRequired,
-  additionalClassNames: React.PropTypes.string,
+  className: React.PropTypes.string,
   onClick: React.PropTypes.func.isRequired,
 };
 ActionButton.defaultProps = {
-  additionalClassNames: 'pull-right list-header-pull-down',
+  className: '',
 };
 
 

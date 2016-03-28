@@ -1,3 +1,9 @@
+# 0.4.3 (March 28, 2016)
+
+## Breaking Changes
+
+- `ActionButton` `additionalClassNames` prop has been changed to `className`. Change the prop accordingly.
+
 # 0.4.2 (March 25, 2016)
 
 ## Other Changes

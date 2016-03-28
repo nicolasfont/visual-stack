@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row } from '../../src/components/List';
+import { Row, ActionButton } from '../../src/components/List';
 import { shallow } from 'enzyme';
 import { equal, ok } from 'assert';
 
@@ -29,6 +29,24 @@ describe('List', () => {
         shallowWrapper = shallow(<Row expansion={expansion}><div>Hi</div></Row>);
         ok(shallowWrapper.contains(expansion));
       });
+    });
+  });
+
+  describe("Action Button", () => {
+    let shallowWrapper, hasBeenClicked = false;
+    const onClick = () => { hasBeenClicked = true; }, icon = "fa fa-plus", className = "some-class other-class";
+    beforeEach(() => {
+       hasBeenClicked = false;
+       shallowWrapper = shallow(<ActionButton icon={icon} className={className} onClick={onClick} />);
+    });
+
+    it("should append icon and className together", () => {
+      equal(shallowWrapper.find('span').prop('className'), `${icon} ${className}`);
+    });
+
+    it("should have onClick prop registered", () => {
+      shallowWrapper.simulate('click');
+      equal(hasBeenClicked, true);
     });
   });
 });
