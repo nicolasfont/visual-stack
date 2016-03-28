@@ -1,32 +1,29 @@
 import React, { PropTypes } from 'react';
+import { Button } from 'vs/components/Button';
 
 /* export const ModalMountPoint =({ component, opts }) =>
   <div id="modal-mount-point">
     <div Component isShown={ props } />
   </div>; */
 
-export const ModalRaw = ({isShown}) =>
-  <Modal id="ConfirmationModal" isShown2={ isShown } >
+export const Modal =({ isShown, title, removeApp }) =>
+  <ModalContainer id="ConfirmationModal" isShown={ isShown } >
     <Dialog>
       <Content>
-        <Header title="Confirm Application Delete">
-          </Header>
-          <Body>
-
-          </Body>
-          <Footer></Footer>
+        <Header title={ title }></Header>
+          <Body></Body>
+          <Footer removeApp={ removeApp }></Footer>
       </Content>
     </Dialog>
-   </Modal>;
+   </ModalContainer>;
 
-
-export const Modal = ({ isShown2, children }) =>
-   <div className="modal" style={{display:isShown2?'block':'none'}}>
+export const ModalContainer = ({ isShown, children }) =>
+   <div className="modal" style={ { display: isShown?'block':'none' } }>
      {children}
    </div>;
- Modal.propTypes = {
-     isShown: PropTypes.bool,
- };
+Modal.propTypes ={
+  isShown: PropTypes.bool,
+};
 
 export const Header = ({ title, children }) =>
   <div className="modal-header">
@@ -34,7 +31,7 @@ export const Header = ({ title, children }) =>
     {children}
   </div>;
 Header.propTypes = {
-    title: PropTypes.string,
+  title: PropTypes.string,
 };
 
 export const Dialog = ({ children }) =>
@@ -52,11 +49,11 @@ export const Body = ({ children }) =>
     {children}
   </div>;
 
-export const Footer = ({ children }) =>
+export const Footer = ({ children, removeApp }) =>
   <div className="modal-footer">
     {children}
-    <button type="button" className="btn btn-default" data-dismiss="modal">Cancel</button>
-    <button type="button" className="btn btn-primary">Delete Application</button>
+    <Button type="info">Cancel</Button>
+    <Button type="danger" onClick={() => removeApp()}>Delete Application</Button>
   </div>;
 
 
