@@ -6,13 +6,13 @@ import { Button } from 'vs/components/Button';
     <div Component isShown={ props } />
   </div>; */
 
-export const Modal =({ isShown, title, removeApp }) =>
+export const Modal =({ isShown, title, removeApp, cancel }) =>
   <ModalContainer id="ConfirmationModal" isShown={ isShown } >
-    <Dialog>
+    <Dialog >
       <Content>
         <Header title={ title }></Header>
           <Body></Body>
-          <Footer removeApp={ removeApp }></Footer>
+          <Footer removeApp={ removeApp } cancel={ () => cancel() }></Footer>
       </Content>
     </Dialog>
    </ModalContainer>;
@@ -49,10 +49,10 @@ export const Body = ({ children }) =>
     {children}
   </div>;
 
-export const Footer = ({ children, removeApp }) =>
+export const Footer = ({ children, removeApp, cancel }) =>
   <div className="modal-footer">
     {children}
-    <Button type="info">Cancel</Button>
+    <Button type="info" onClick={() => cancel()}>Cancel</Button>
     <Button type="danger" onClick={() => removeApp()}>Delete Application</Button>
   </div>;
 
