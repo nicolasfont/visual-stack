@@ -1,3 +1,9 @@
+# 0.0.4 (March 28, 2016)
+
+## Other Changes
+
+- Made the version constraint on visual-stack considerably more relaxed. Until the API stabilizes, it is the responsibility of client packages to provide a reasonable version of visual-stack.
+
 # 0.0.3 (March 24, 2016)
 
 ## Bugfixes
