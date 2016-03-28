@@ -26,7 +26,7 @@ export class MenuBar extends Component {
   }
 }
 
-class InternalMenuBarDropdown extends Component {
+export class InternalMenuBarDropdown extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
   };
