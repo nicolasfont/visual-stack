@@ -32,19 +32,19 @@ describe('List', () => {
     });
   });
 
-  describe("Action Button", () => {
+  describe('Action Button', () => {
     let shallowWrapper, hasBeenClicked = false;
-    const onClick = () => { hasBeenClicked = true; }, icon = "fa fa-plus", className = "some-class other-class";
+    const onClick = () => { hasBeenClicked = true; }, icon = 'fa fa-plus', className = 'some-class other-class';
     beforeEach(() => {
-       hasBeenClicked = false;
-       shallowWrapper = shallow(<ActionButton icon={icon} className={className} onClick={onClick} />);
+      hasBeenClicked = false;
+      shallowWrapper = shallow(<ActionButton icon={icon} className={className} onClick={onClick} />);
     });
 
-    it("should append icon and className together", () => {
+    it('should append icon and className together', () => {
       equal(shallowWrapper.find('span').prop('className'), `${icon} ${className}`);
     });
 
-    it("should have onClick prop registered", () => {
+    it('should have onClick prop registered', () => {
       shallowWrapper.simulate('click');
       equal(hasBeenClicked, true);
     });
