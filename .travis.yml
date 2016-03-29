@@ -14,4 +14,9 @@ node_js:
   - 5.7.1
   - stable
 
+install:
+  # install peer deps before running install + postinstall steps
+  - npm install react
+  - npm install
+
 script: npm test

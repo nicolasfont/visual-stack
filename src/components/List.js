@@ -1,18 +1,34 @@
 import './List.css';
 
-import { map } from 'ramda';
+import { map, omit } from 'ramda';
 import React, { PropTypes } from 'react';
 
 export const List = ({ children }) =>
   <div>{children}</div>;
 
-export const Toolbar = ({ title }) =>
+export const Toolbar = ({ title, children }) =>
   <div className="list-toolbar toolbar-widget-header">
     {title && <span className="list-toolbar-title">{title}</span>}
+    {children}
   </div>;
 Toolbar.propTypes = {
   title: PropTypes.string,
 };
+
+export const ActionButton = ({ icon, className, onClick }) => {
+  return (
+    <span className={`${icon} ${className}`} onClick={onClick} ></span>
+  );
+};
+ActionButton.propTypes = {
+  icon: React.PropTypes.string.isRequired,
+  className: React.PropTypes.string,
+  onClick: React.PropTypes.func.isRequired,
+};
+ActionButton.defaultProps = {
+  className: '',
+};
+
 
 const renderHeaderCell = ({ width, alignment, text }) =>
   <Cell key={text} width={width}>
@@ -38,28 +54,19 @@ export const Rows = ({ children }) =>
     {children}
   </div>;
 
-export const Row = ({ children }) =>
-  <div className="list-row">
+export const Row = props =>
+  <div className="list-row" {...omit(['children', 'expansion'], props)}>
     <div className="container-fluid">
       <div className="row">
-        {children}
+        {props.children}
       </div>
+      {props.expansion && <ExpandedRowPanel>{props.expansion}</ExpandedRowPanel>}
     </div>
   </div>;
 
 const ExpandedRowPanel = ({ children }) =>
   <div className="list-row-expanded">
     {children}
-  </div>;
-
-export const ExpandedRow = ({ children, expansion }) =>
-  <div className="list-row">
-    <div className="container-fluid">
-      <div className="row">
-        {children}
-      </div>
-      {expansion && <ExpandedRowPanel>{expansion}</ExpandedRowPanel>}
-    </div>
   </div>;
 
 export const Cell = ({ width, children }) =>

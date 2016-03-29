@@ -1,6 +1,7 @@
 .page-heading {
   background-color: rgb(247, 247, 247);
   border-bottom: 1px solid #E2E2E2;
+  margin-bottom: 1em;
 }
 
 .page-heading--title, .page-heading--title span:first-child {

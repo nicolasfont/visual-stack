@@ -1,6 +1,6 @@
 {
   "name": "@cjdev/visual-stack",
-  "version": "0.1.2",
+  "version": "0.4.3",
   "files": [
     "lib",
     "src"
@@ -8,21 +8,18 @@
   "scripts": {
     "build": "gulp build",
     "clean": "rimraf lib",
-    "lint": "eslint src",
-    "prepublish": "npm run clean && npm run lint && npm run build",
-    "test": "true",
-    "test:mocha": "mocha --compilers js:babel-register,css:./test/utils/css-null-compiler --recursive test/components",
+    "lint": "eslint src test",
+    "prepublish": "npm run clean && npm run lint && npm run build && npm run test",
+    "test": "mocha --compilers js:babel-register,css:./test/utils/css-null-compiler --recursive test/components",
     "watch": "gulp watch"
   },
   "peerDependencies": {
     "bootstrap-loader": "^1.0.8",
-    "bootstrap-sass": "^3.3.6"
+    "bootstrap-sass": "^3.3.6",
+    "react": "^0.14.7"
   },
   "dependencies": {
-    "ramda": "^0.19.1",
-    "react": "^0.14.7",
-    "react-dom": "^0.14.7",
-    "underscore": "^1.8.3"
+    "ramda": "^0.19.1"
   },
   "devDependencies": {
     "babel-cli": "^6.6.4",
@@ -40,7 +37,9 @@
     "gulp-filter": "^4.0.0",
     "gulp-load-plugins": "^1.2.0",
     "gulp-plumber": "^1.1.0",
+    "mocha": "^2.4.5",
     "react-addons-test-utils": "^0.14.7",
+    "react-dom": "^0.14.7",
     "rimraf": "^2.5.2"
   }
 }

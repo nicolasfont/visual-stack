@@ -40,6 +40,11 @@
 
 .list-row:hover {
   background: #F9F9F9;
+  cursor: hand;
+}
+
+.list-header-pull-down {
+  margin-top: 1em;
 }
 
 .list-cell {
