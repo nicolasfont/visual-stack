@@ -1,3 +1,9 @@
+# 0.0.6 (April 1, 2016)
+
+## New Features
+
+- Added support for managing modals using the `ModalMountPoint` component and the `openModal` and `closeModal` actions.
+
 # 0.0.5 (March 28, 2016)
 
 ## Other Changes
