@@ -1,3 +1,9 @@
+# 0.4.4 (April 1, 2016)
+
+## New Features
+
+- Added support for modal components in `visual-stack/lib/components/Modal`.
+
 # 0.4.3 (March 28, 2016)
 
 ## Breaking Changes
