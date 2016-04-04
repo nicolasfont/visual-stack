@@ -53,6 +53,10 @@
   margin-top: 11px;
 }
 
+.navbar-brand--button {
+  cursor: pointer;
+}
+
 .navbar-nav>li, .navbar-nav {
   float: left !important;
 }
@@ -71,7 +75,7 @@
   border: 0;
 }
 
-.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > li .navbar-menu--title > a,
 .navbar--user {
   color: #b6b9ba;
   text-decoration: none;
@@ -80,26 +84,34 @@
   height: 65px;
   padding-bottom: 0;
   padding-top: 0;
+}
+
+.navbar-default .navbar-nav > li a {
   -webkit-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
+.nav > li .navbar-menu--title > a {
+  padding: 10px 15px;
+}
+
+.navbar-nav span a,
 .navbar-nav a span {
   font-size: 14px;
 }
 
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > div:hover,
+.navbar-default .navbar-nav > li .navbar-menu--title > a:hover,
+.navbar-default .navbar-nav > li .navbar-menu--title > div:hover,
 .navbar-nav > li.active:hover {
   cursor: pointer;
 }
 
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > div:hover,
-.navbar-default .navbar-nav > li > a:focus,
-.navbar-default .navbar-nav > li > div:focus {
+.navbar-default .navbar-nav > li .navbar-menu--title > a:hover,
+.navbar-default .navbar-nav > li .navbar-menu--title > div:hover,
+.navbar-default .navbar-nav > li .navbar-menu--title > a:focus,
+.navbar-default .navbar-nav > li .navbar-menu--title > div:focus {
   color: #ECECEC;
   outline: none;
 }

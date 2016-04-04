@@ -1,24 +1,21 @@
 import './MenuBar.css';
 
 import React, { PropTypes, createElement } from 'react';
-import { Link } from 'react-router';
+import { always } from 'ramda';
 
-export const MenuBarItem = ({ children, to }) =>
+export const MenuBarItem = ({ children }) =>
   <li>
-    <Link to={to}>
-      <span className="navbar-menu--title">{children}</span>
-    </Link>
+    <span className="navbar-menu--title">{children}</span>
   </li>;
-MenuBarItem.propTypes = {
-  to: PropTypes.string.isRequired,
-};
 
 export const MenuBarDropdown = ({ children, title, open }) =>
   <li className={`dropdown ${open ? 'open' : ''}`}>
-    <a href="#" className="dropdown-toggle" onClick={e => { e.preventDefault(); }}>
-      <span className="navbar-menu--title">{title}</span>
-      <span className="caret" />
-    </a>
+    <span className="navbar-menu--title">
+      <a href="#" className="dropdown-toggle" onClick={e => { e.preventDefault(); }}>
+        {title}
+        <span className="caret" />
+      </a>
+    </span>
     <ul className="dropdown-menu user-menu">
       {children}
     </ul>
@@ -28,18 +25,15 @@ MenuBarDropdown.propTypes = {
   open: PropTypes.bool,
 };
 
-export const MenuBarDropdownItem = ({ children, to }) =>
-  <li><Link to={to}>{children}</Link></li>;
-MenuBarDropdownItem.propTypes = {
-  to: PropTypes.string.isRequired,
-};
+export const MenuBarDropdownItem = ({ children }) =>
+  <li>{children}</li>;
 
-export const MenuBar = ({ children, leftItems, rightItems, titleHref }) =>
+export const MenuBar = ({ children, leftItems, rightItems, onTitleClick }) =>
   <nav className="navbar navbar-default navbar-container">
     <div className="container-fluid">
       <div className="row">
         <div className="navbar-header navbar-header--logo">
-          <Link to={titleHref || '#'} className="navbar-brand" />
+          <span onClick={onTitleClick || always(undefined)} className={`navbar-brand ${onTitleClick && 'navbar-brand--button'}`} />
           <span className="navbar-divider" />
 
           {/* silence missing `key` warnings by using spread with createElement instead of interpolating an array */}
@@ -52,5 +46,5 @@ export const MenuBar = ({ children, leftItems, rightItems, titleHref }) =>
 MenuBar.propTypes = {
   leftItems: PropTypes.arrayOf(PropTypes.element),
   rightItems: PropTypes.arrayOf(PropTypes.element),
-  titleHref: PropTypes.string,
+  onTitleClick: PropTypes.func,
 };

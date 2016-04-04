@@ -1,3 +1,23 @@
+# 0.5.0 (April 4, 2016)
+
+## Breaking Changes
+
+- The way `MenuBar` components are structured has been modified to remove the (previously undeclared) dependency on `react-router`. Instead of providing a link URL via `to` props, a HTML anchor element must be provided as a child. For example, given the following style from previous versions:
+
+   ```js
+   <MenuBarItem to="/">Home</MenuBarItem>
+   ```
+
+   Starting in version 0.5.0, the link must be passed as a child component:
+
+   ```js
+   <MenuBarItem><Link to="/">Home</Link></MenuBarItem>
+   ```
+
+   As a side-effect, this allows ordinary HTML anchor elements to be used in place of react-router `Link` components.
+
+   Also, the `MenuBar` component’s API has been altered to accept an optional `onTitleClick` callback prop instead of directly using `Link` within its implementation.
+
 # 0.4.4 (April 1, 2016)
 
 ## New Features
