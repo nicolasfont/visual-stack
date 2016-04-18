@@ -1,3 +1,9 @@
+# 0.6.0 (April 18, 2016)
+
+## Breaking Changes
+
+- Removed an overly specific global `font-size: small` rule that caused significant problems when attempting to create text styles.
+
 # 0.5.0 (April 4, 2016)
 
 ## Breaking Changes
