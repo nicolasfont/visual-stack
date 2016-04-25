@@ -1,3 +1,9 @@
+# 0.7.0 (April 25, 2016)
+
+## Breaking Changes
+
+- Removed `bootstrap-loader` in favor of just using the plain `bootstrap` package. Including the relevant peer dependencies is no longer necessary. This fixes an issue where a `.bootstraprc` file was required to disable Bootstrap JavaScript to avoid an implicit dependency on jQuery.
+
 # 0.6.0 (April 18, 2016)
 
 ## Breaking Changes
