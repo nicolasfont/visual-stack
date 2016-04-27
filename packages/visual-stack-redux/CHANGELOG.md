@@ -1,3 +1,9 @@
+# 0.0.7 (April 27, 2016)
+
+## Other Changes
+
+- Loosened version constraints on peer dependencies, mostly to permit usage with React 15. The tests still run on React 0.14 to make ensure nothing depends on React 15 features.
+
 # 0.0.6 (April 1, 2016)
 
 ## New Features
