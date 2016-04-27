@@ -1,3 +1,9 @@
+# 0.7.2 (April 27, 2016)
+
+## Bugfixes
+
+- Reinstated some `PageHeader` padding that was removed in 0.7.1.
+
 # 0.7.1 (April 27, 2016)
 
 ## Other Changes
