@@ -1,3 +1,9 @@
+# 0.7.1 (April 27, 2016)
+
+## Other Changes
+
+- Adjusted the `PageHeader` CSS to work with React 15, which no longer generates `span` wrappers for text interpolation and simply includes text nodes delimited by comment nodes.
+
 # 0.7.0 (April 25, 2016)
 
 ## Breaking Changes

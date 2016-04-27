@@ -4,15 +4,11 @@
   margin-bottom: 1em;
 }
 
-.page-heading--title, .page-heading--title span:first-child {
+.page-heading--title {
   font-size: 18px;
   color: #777;
   font-weight: 400;
-  padding: .5em 0 .7em 0;
   min-height: 25px;
-}
-
-.page-heading--title {
   padding-left: 1.2em;
   padding-top: 0.8em;
 }
