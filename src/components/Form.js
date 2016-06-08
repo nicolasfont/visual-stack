@@ -12,8 +12,8 @@ Input.propTypes = {
   type: PropTypes.string,
 };
 
-export const Label = ({ className, required, children, ...otherProps }) =>
-  <label className={`form-label control-label form-label-horizontal ${className || ''}`} {...otherProps}>
+export const Label = ({ children, className, required, vertical, ...otherProps }) =>
+  <label className={`form-label control-label form-label-${vertical ? 'vertical' : 'horizontal'} ${className || ''}`} {...otherProps}>
     {children}
     {required && <span className="form-group-required-sign">*</span>}
   </label>;
@@ -25,17 +25,17 @@ Label.propTypes = {
 export const Legend = ({ children, ...otherProps }) =>
   <legend {...otherProps}>{children}</legend>;
 
-export const Form = ({ children, ...otherProps }) =>
-  <form className="form-horizontal" {...otherProps}>{children}</form>;
+export const Form = ({ children, vertical, ...otherProps }) =>
+  <form className={vertical ? "form-vertical" : "form-horizontal"} {...otherProps}>{children}</form>;
 
-export const FormGroup = ({ children, error, label, required }) =>
+export const FormGroup = ({ children, error, label, required, vertical }) =>
   <div className={`form-group ${error ? 'has-error' : ''}`}>
-    {label ? <Label className="col-sm-3" required={required}>{label}</Label>
-           : <div className="col-sm-3" />}
-    <div className="col-sm-5">
+    {label ? <Label vertical={vertical} className={!vertical ? 'col-sm-3' : ''} required={required}>{label}</Label>
+           : <div className={!vertical ? "col-sm-3" : ''} />}
+    <div className={!vertical ? 'col-sm-5' : ''}>
       {children}
     </div>
-    <div className="error-container col-xs-4">
+    <div className={`error-container ${!vertical ? 'col-xs-4' : ''}`}>
       {error && <div className="form-group-error-span">{error}</div>}
     </div>
   </div>;
