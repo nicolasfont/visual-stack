@@ -1,3 +1,9 @@
+# 0.7.3 (June 29, 2016)
+
+## New Features
+
+- Added new style for Button component.
+
 # 0.7.2 (April 27, 2016)
 
 ## Bugfixes
