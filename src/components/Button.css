@@ -36,6 +36,13 @@
   outline: none;
 }
 
+.solid-primary-btn {
+  background: #00AF66;
+  border: 2px solid #00AF66;
+  color: #eee;
+  border: none;
+}
+
 a.btn-d:hover, .btn-d a:hover {
   text-decoration: none;
 }
