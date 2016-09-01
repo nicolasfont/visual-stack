@@ -1,3 +1,9 @@
+# 0.7.5 (September 1, 2016)
+
+## New Features
+
+- Added Sidebar component.
+
 # 0.7.3 (June 29, 2016)
 
 ## New Features
