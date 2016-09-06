@@ -1,3 +1,9 @@
+# 0.0.8 (September 6, 2016)
+
+## New Features 
+
+- Added Sidebar component. 
+
 # 0.0.7 (April 27, 2016)
 
 ## Other Changes
