@@ -1,3 +1,9 @@
+# 0.7.6 (September 28, 2016)
+
+## Bugfixes
+
+- Fixed malformed CSS.
+
 # 0.7.5 (September 1, 2016)
 
 ## New Features
