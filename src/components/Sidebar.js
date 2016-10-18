@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React, { PropTypes } from 'react';
 import './Sidebar.css';
 
-export const NavItem = ({ label, grouped = false, expanded = false, linkTo }) => {
+export const NavItem = ({ label, grouped = false, expanded = false /* , linkTo */ }) => {
   const classes = classNames({
     indent: grouped,
     collapse: grouped && !expanded,
