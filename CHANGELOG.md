@@ -1,3 +1,9 @@
+# 0.7.7 (October 21, 2016)
+
+## New Features
+
+- Added a UMD build to allow for usage of the library in a variety of environments.
+
 # 0.7.6 (September 28, 2016)
 
 ## Bugfixes
