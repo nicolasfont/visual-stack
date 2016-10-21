@@ -2,9 +2,9 @@ import { omit } from 'ramda';
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import * as Base from '@cjdev/visual-stack/lib/components/MenuBar';
+import { MenuBar as Base } from '@cjdev/visual-stack';
 
-import { openDropdown, closeDropdown } from '../index.js';
+import { openDropdown, closeDropdown } from '../actions.js';
 
 export class MenuBar extends Component {
   static propTypes = {

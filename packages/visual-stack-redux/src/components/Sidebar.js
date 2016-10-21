@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as Nav from '@cjdev/visual-stack/lib/components/Sidebar';
-import { toggleNavGroup, createNavGroupKey } from '../index.js';
+import { Sidebar as Nav } from '@cjdev/visual-stack';
+import { toggleNavGroup, createNavGroupKey } from '../actions.js';
 
 export class InternalNavGroup extends Component {
   constructor(props) {

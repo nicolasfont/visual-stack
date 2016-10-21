@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-import { Backdrop } from '@cjdev/visual-stack/lib/components/Modal';
+import { Modal } from '@cjdev/visual-stack';
+const Backdrop = Modal.Backdrop;
 
 const ModalMountPointPure = ({ component: Component, props }) =>
   Component

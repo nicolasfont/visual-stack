@@ -24,8 +24,8 @@ import { Provider } from 'react-redux';
 
 import '@cjdev/visual-stack/lib/global';
 
-import visualStackReducer from '@cjdev/visual-stack-redux';
-import { MenuBar, MenuBarItem, MenuBarDropdown, MenuBarDropdownItem } from '@cjdev/visual-stack-redux/lib/components/MenuBar';
+import { reducer as visualStackReducer, MenuBar as visualStackMenuBar } from '@cjdev/visual-stack-redux';
+const { MenuBar, MenuBarItem, MenuBarDropdown, MenuBarDropdownItem } = visualStackMenuBar;
 
 const reducer = combineReducers({
   visualStack: visualStackReducer,

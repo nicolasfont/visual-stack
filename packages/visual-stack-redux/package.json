@@ -3,11 +3,15 @@
   "version": "0.0.8",
   "main": "lib/index.js",
   "files": [
+    "dist",
     "lib",
     "src"
   ],
   "scripts": {
-    "build": "gulp build",
+    "build": "gulp build && npm run dist",
+    "dist": "npm run dist:umd && npm run dist:min",
+    "dist:umd": "NODE_ENV=dev webpack src/index.js dist/visual-stack-redux.js",
+    "dist:min": "NODE_ENV=production webpack src/index.js dist/visual-stack-redux.min.js",
     "clean": "rimraf lib",
     "lint": "eslint src test",
     "prepublish": "npm run clean && npm run lint && npm run build && npm run test",
@@ -28,6 +32,7 @@
     "@cjdev/visual-stack": "^0.7.0",
     "babel-core": "^6.7.4",
     "babel-eslint": "^6.0.0-beta.6",
+    "babel-loader": "^6.2.5",
     "babel-plugin-transform-class-properties": "^6.6.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.7.4",
     "babel-plugin-transform-object-rest-spread": "^6.6.5",
@@ -54,6 +59,7 @@
     "redux": "^3.3.1",
     "rimraf": "^2.5.2",
     "sinon": "^1.17.3",
-    "sinon-chai": "^2.8.0"
+    "sinon-chai": "^2.8.0",
+    "webpack": "^1.13.2"
   }
 }
