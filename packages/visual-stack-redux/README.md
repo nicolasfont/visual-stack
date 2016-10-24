@@ -52,3 +52,4 @@ To work on this project locally, use `npm link` to create a local link to your w
 
 [redux]: https://github.com/reactjs/redux
 [visual-stack]: https://github.com/cjdev/visual-stack
+
