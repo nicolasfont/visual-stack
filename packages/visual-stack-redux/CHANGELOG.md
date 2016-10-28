@@ -1,8 +1,14 @@
+# 0.0.9 (October 28, 2016)
+
+## New Features
+
+- Added a UMD build to allow for usage of the library in a variety of environments.
+
 # 0.0.8 (September 6, 2016)
 
-## New Features 
+## New Features
 
-- Added Sidebar component. 
+- Added Sidebar component.
 
 # 0.0.7 (April 27, 2016)
 
