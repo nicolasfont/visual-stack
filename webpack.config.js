@@ -18,8 +18,7 @@ var config = {
     libraryTarget: 'umd'
   },
   externals: {
-    'react': 'React',
-    'react-dom': 'ReactDOM'
+    'react': 'umd react'
   },
 
   // quiet the log output from the ExtractTextPlugin
