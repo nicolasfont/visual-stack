@@ -1,3 +1,14 @@
+# 0.7.8 (November 7, 2016)
+
+## New Features
+
+- UMD build can now be used with require.js.
+- Solid button text color is now white.
+
+## Bugfixes
+
+- Fixed appending og classNames in Button component.
+
 # 0.7.7 (October 21, 2016)
 
 ## New Features
