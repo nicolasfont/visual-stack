@@ -1,3 +1,9 @@
+# 0.7.9 (December 2, 2016)
+
+## New Features
+
+- New Side Navigation Component.
+
 # 0.7.8 (November 7, 2016)
 
 ## New Features
