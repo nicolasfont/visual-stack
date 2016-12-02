@@ -1,0 +1,82 @@
+
+.sidenav {
+  background-color: #263238;
+  border-right: 0px solid #d0d0d0;
+  list-style: none;
+  width: 200px;
+  height: 100%;
+  overflow-y: scroll;
+  left: 0;
+  transform: translateX(-100%);
+  position: fixed;
+  z-index: 200;
+  transition: transform 0.3s;
+}
+
+.sidenav.active {
+  transform: translateX(0);
+}
+
+@media (min-width: 40em) {
+  .sidenav {
+    transform: inherit;
+    position: inherit;
+  }
+}
+
+.sidenav>li ul {
+  list-style: none;
+}
+
+.sidenav .sidenav-container ul li a {
+  padding-left: 30px;
+}
+
+.sidenav a {
+  padding: 7px 15px;
+  text-decoration: none;
+  display: block;
+  color: #bbb;
+}
+
+.sidenav a:focus,
+.sidenav a:hover {
+  background-color: rgba(0,0,0,.1);
+  color: #FFFFFF;
+}
+
+.sidenav .expanded>a {
+  background-color: #34c6d8;
+  color: #FFFFFF;
+}
+
+.sidenav a.sidenav-container-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidenav .sidenav-container-label i {
+  transform: rotate(0);
+  transition: -webkit-transform .2s ease-in-out;
+}
+.sidenav .expanded .sidenav-container-label i {
+  transform: rotate(90deg);
+}
+
+.sidenav .sidenav-container ul {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease-out;
+}
+
+.sidenav .sidenav-container.expanded ul {
+  max-height: 500px;
+}
+
+.sidenav .sidenav-header {
+  padding: 10px 20px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  font-size: 11px;
+}
