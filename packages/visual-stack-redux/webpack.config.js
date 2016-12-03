@@ -1,10 +1,13 @@
+/* eslint-disable */
 var webpack = require('webpack');
 var env = process.env.NODE_ENV;
 
 var config = {
   module: {
     loaders: [
-      { test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules/ }
+      { test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules/ },
+      { test: /\.css$/, loader: 'ignore-loader' }
+
     ]
   },
   output: {
