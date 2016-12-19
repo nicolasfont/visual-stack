@@ -1,6 +1,14 @@
 import React, { PropTypes } from 'react';
 import './SideNav.css';
 
+export const ToggleIcon = ({ onClick }) => {
+  return (
+    <a className=" sidenav-toggle-icon" onClick={onClick}>
+      <i className="fa fa-bars"></i>
+    </a>
+  );
+};
+
 export const Header = ({ children }) =>
   <li className="sidenav-entry sidenav-header">{children}</li>;
 Header.propTypes = {
