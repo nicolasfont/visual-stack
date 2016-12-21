@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link as RRLink } from 'react-router';
 import './App.css';
 import { SideNav, Header, LinkGroup, Link } from '../../lib/components/SideNav';
-import { TopNav, UserMenu, DropdownItem, UserDropdownItem } from '../../lib/components/TopNav'
+import { TopNav, UserMenu, DropdownItem, UserDropdownItem, SecondaryNav } from '../../lib/components/TopNav';
 
 
 class App extends Component {
@@ -38,6 +38,7 @@ class App extends Component {
     });
   }
 
+  // kebab
   onSecondNavActiveClick(e) {
     e.preventDefault();
     this.setState({
@@ -46,6 +47,7 @@ class App extends Component {
     });
   }
 
+  // usermenu
   onUserMenuClick(e) {
     e.preventDefault();
     this.setState({
@@ -61,20 +63,22 @@ class App extends Component {
       <UserMenu onClick={this.onUserMenuClick} open={this.state.userMenuOpen} title="First Last" name="First Name" email="email@cj.com">
         <UserDropdownItem name="First Name" email="email@cj.com"></UserDropdownItem>
         <DropdownItem logo={settingsIcon} title='Account Settings'></DropdownItem>
-        <DropdownItem logo={logoutIcon} title='Logout'></DropdownItem>
+        <DropdownItem logo={logoutIcon} title="Logout"></DropdownItem>
       </UserMenu>
     );
 
+    const secondaryNav =
+      <SecondaryNav active={this.state.secondNavActive}>
+        Hello there!
+      </SecondaryNav>;
     return (
       <div className="app">
         <TopNav
           logo={logoComponent}
           appName="visual stack"
           onSideNavToggle={this.onSideNavActiveClick}
-
-          secondNavActive={this.state.secondNavActive}
+          secondaryNav={secondaryNav}
           onSecondNavToggle={this.onSecondNavActiveClick}
-
           userMenu={userMenu}
         >
         </TopNav>

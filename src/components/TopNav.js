@@ -1,4 +1,5 @@
 import React from 'react';
+import R from 'ramda';
 import { ToggleIcon } from './SideNav';
 import './TopNav.css';
 
@@ -40,16 +41,18 @@ export const UserMenu = ({ title, open, onClick, children }) => {
   );
 };
 
-const SecondaryNav = ({ active }) => {
+export const SecondaryNav = ({ active, children }) => {
+  console.log('sn', active);
   return (
     <div className={`topnav topnav-secondary ${active ? 'active' : ''}`}>
       <div className="topnav-secondary-left">
-        Secondary Nav
+        {children}
       </div>
     </div>
   );
 };
-const MainNav = ({ logo, appName, userMenu, onSideNavToggle, onSecondNavToggle }) => {
+
+const MainNav = ({ logo, appName, userMenu, hasSecondaryNav, onSideNavToggle, onSecondNavToggle }) => {
   return (
     <div className="topnav topnav-main">
 
@@ -62,33 +65,33 @@ const MainNav = ({ logo, appName, userMenu, onSideNavToggle, onSecondNavToggle }
       </ul>
 
       <ul className="topnav-nav">
-        <li className="topnav-icon"><i className="fa fa-bell"></i></li>
-        <li className="topnav-icon"><i className="fa fa-envelope"></i></li>
       </ul>
 
       <ul className="topnav-nav topnav-nav-right">
-        <li className="secondarynav-toggle-icon topnav-icon">
-          <a onClick={onSecondNavToggle}><i className="fa fa-ellipsis-v"></i></a>
-        </li>
+        { hasSecondaryNav &&
+          <li className="secondarynav-toggle-icon topnav-icon">
+            <a onClick={onSecondNavToggle}><i className="fa fa-ellipsis-v"></i></a>
+          </li>
+        }
         {userMenu}
       </ul>
-
     </div>
-
   );
 };
 
-export const TopNav = ({ logo, appName, userMenu, onSideNavToggle, secondNavActive, onSecondNavToggle }) => {
+export const TopNav = ({ logo, appName, userMenu, onSideNavToggle, secondaryNav, onSecondNavToggle }) => {
   return (
     <div className="topnav-wrapper">
       <MainNav
         logo={logo}
         appName={appName}
         onSideNavToggle={onSideNavToggle}
+        hasSecondaryNav={!R.isNil(secondaryNav)}
         onSecondNavToggle={onSecondNavToggle}
         userMenu={userMenu}
       />
-      <SecondaryNav active={secondNavActive} />
+      { secondaryNav }
+
     </div>
   );
 };
