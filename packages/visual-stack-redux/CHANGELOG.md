@@ -1,3 +1,9 @@
+# 0.0.11 (January 2, 2017)
+
+## New Features
+
+- Added TopNav component.
+
 # 0.0.10 (December 2, 2016)
 
 ## New Features
