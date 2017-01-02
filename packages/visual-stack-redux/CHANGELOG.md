@@ -1,4 +1,4 @@
-# 0.0.11 (January 2, 2017)
+# 0.0.12 (January 2, 2017)
 
 ## New Features
 
