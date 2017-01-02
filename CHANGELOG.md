@@ -1,3 +1,9 @@
+# 0.7.10 (January 2, 2017)
+
+## New Features
+
+- New Top Navigation Component.
+
 # 0.7.9 (December 2, 2016)
 
 ## New Features
