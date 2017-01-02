@@ -75,6 +75,7 @@ export default handleActions({
 
   [TOGGLE_TOPNAV_DROPDOWN]: (state, { payload: { dropDownName } }) =>
     over(lensPath(['topNav', dropDownName, 'open']), not, state),
+
 }, {
   menuBar: {},
   modal: emptyModalState,

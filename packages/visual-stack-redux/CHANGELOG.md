@@ -1,3 +1,9 @@
+# 0.0.10 (December 2, 2016)
+
+## New Features
+
+- Added SideNav component.
+
 # 0.0.9 (October 28, 2016)
 
 ## New Features
