@@ -1,4 +1,11 @@
-import reducer, { toggleSideNav, toggleSideNavLinkGroup } from '../src/actions';
+import reducer, {
+  toggleSideNav,
+  toggleSideNavLinkGroup,
+  toggleSecondNav,
+  openTopNavDropdown,
+  closeTopNavDropdown,
+  toggleTopNavDropDown,
+} from '../src/actions';
 
 describe('reducer', () => {
   it('should toggle SideNav', () => {
@@ -39,5 +46,73 @@ describe('reducer', () => {
       },
     };
     expect(reducer(beforeState, toggleSideNavLinkGroup('linkGroup1'))).to.deep.equal(afterState);
+  });
+
+  it('should toggle SecondNav', () => {
+    const beforeState = {
+      topNav: {
+        secondNavActive: false,
+      },
+    };
+    const afterState = {
+      topNav: {
+        secondNavActive: true,
+      },
+    };
+    expect(reducer(beforeState, toggleSecondNav())).to.deep.equal(afterState);
+    expect(reducer(afterState, toggleSecondNav())).to.deep.equal(beforeState);
+  });
+
+  it('should open userMenu', () => {
+    const beforeState = {
+      topNav: {
+        userMenu: {
+          open: false,
+        },
+      },
+    };
+
+    const afterState = {
+      topNav: {
+        userMenu: {
+          open: true,
+        },
+      },
+    };
+    expect(reducer(beforeState, openTopNavDropdown('userMenu'))).to.deep.equal(afterState);
+  });
+
+  it('should close userMenu', () => {
+    const beforeState = {
+      topNav: {
+        userMenu: {
+          open: true,
+        },
+      },
+    };
+
+    const afterState = {
+      topNav: {
+        userMenu: {
+          open: false,
+        },
+      },
+    };
+    expect(reducer(beforeState, closeTopNavDropdown('userMenu'))).to.deep.equal(afterState);
+  });
+
+  it('should toggle userMenu when no initial state', () => {
+    const beforeState = {
+      topNav: {},
+    };
+
+    const afterState = {
+      topNav: {
+        userMenu: {
+          open: true,
+        },
+      },
+    };
+    expect(reducer(beforeState, toggleTopNavDropDown('userMenu'))).to.deep.equal(afterState);
   });
 });

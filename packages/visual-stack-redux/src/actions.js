@@ -27,6 +27,18 @@ export const toggleSideNav = createAction(TOGGLE_SIDENAV);
 const TOGGLE_SIDENAV_LINKGROUP = '@cjdev/visual-stack-redux/TOGGLE_SIDENAV_LINKGROUP';
 export const toggleSideNavLinkGroup= createAction(TOGGLE_SIDENAV_LINKGROUP, linkGroupName => ({ linkGroupName }));
 
+const TOGGLE_SECONDNAV = '@cjdev/visual-stack-redux/TOGGLE_SECONDNAV';
+export const toggleSecondNav = createAction(TOGGLE_SECONDNAV);
+
+const OPEN_TOPNAV_DROPDOWN = '@cjdev/visual-stack-redux/OPEN_TOPNAV_DROPDOWN';
+export const openTopNavDropdown = createAction(OPEN_TOPNAV_DROPDOWN, dropDownName => ({ dropDownName }));
+
+const CLOSE_TOPNAV_DROPDOWN = '@cjdev/visual-stack-redux/CLOSE_TOPNAV_DROPDOWN';
+export const closeTopNavDropdown = createAction(CLOSE_TOPNAV_DROPDOWN, dropDownName => ({ dropDownName }));
+
+const TOGGLE_TOPNAV_DROPDOWN = '@cjdev/visual-stack-redux/TOGGLE_TOPNAV_DROPDOWN';
+export const toggleTopNavDropDown = createAction(TOGGLE_TOPNAV_DROPDOWN, dropDownName => ({ dropDownName }));
+
 export default handleActions({
   [OPEN_DROPDOWN]: (state, { payload: { menuBarName, dropDownName } }) =>
     set(lensPath(['menuBar', menuBarName, dropDownName, 'open']), true, state),
@@ -52,10 +64,22 @@ export default handleActions({
   [TOGGLE_SIDENAV_LINKGROUP]: (state, { payload: { linkGroupName } }) =>
     over(lensPath(['sideNav', 'linkGroups', linkGroupName, 'expanded']), not, state),
 
+  [TOGGLE_SECONDNAV]: state =>
+    over(lensPath(['topNav', 'secondNavActive']), not, state),
+
+  [OPEN_TOPNAV_DROPDOWN]: (state, { payload: { dropDownName } }) =>
+    set(lensPath(['topNav', dropDownName, 'open']), true, state),
+
+  [CLOSE_TOPNAV_DROPDOWN]: (state, { payload: { dropDownName } }) =>
+    set(lensPath(['topNav', dropDownName, 'open']), false, state),
+
+  [TOGGLE_TOPNAV_DROPDOWN]: (state, { payload: { dropDownName } }) =>
+    over(lensPath(['topNav', dropDownName, 'open']), not, state),
 }, {
   menuBar: {},
   modal: emptyModalState,
   navGroupDropdown: {},
   sideNav: {},
+  topNav: {},
 });
 
