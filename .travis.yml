@@ -15,5 +15,5 @@ node_js:
   - stable
 
 script:
-  - npm bootstrap
+  - npm run bootstrap
   - npm test
