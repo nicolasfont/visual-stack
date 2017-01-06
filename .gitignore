@@ -1,5 +1,1 @@
-/dist
-/lib
-/node_modules
-npm-debug.log
-.idea/
+lerna-debug.log

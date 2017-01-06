@@ -1,0 +1,61 @@
+{
+  "name": "@cjdev/visual-stack",
+  "version": "0.7.11",
+  "files": [
+    "dist",
+    "lib",
+    "src"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "gulp build && npm run dist",
+    "dist": "npm run dist:umd && npm run dist:min",
+    "dist:umd": "NODE_ENV=dev webpack",
+    "dist:min": "NODE_ENV=production webpack",
+    "clean": "rimraf lib && rimraf dist",
+    "lint": "eslint src test",
+    "prepublish": "npm run clean && npm run lint && npm run build && npm run test",
+    "test": "mocha --compilers js:babel-register,css:./test/utils/css-null-compiler -r jsdom-global/register --recursive test/components",
+    "watch": "gulp watch"
+  },
+  "peerDependencies": {
+    "react": ">=0.14.7"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "classnames": "^2.2.5",
+    "font-awesome": "^4.7.0",
+    "ramda": "^0.19.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.6.4",
+    "babel-core": "^6.6.4",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.6.4",
+    "babel-plugin-transform-object-rest-spread": "^6.6.4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-register": "^6.7.2",
+    "css-loader": "^0.25.0",
+    "enzyme": "^2.1.0",
+    "eslint": "^2.2.0",
+    "eslint-plugin-react": "^4.1.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-filter": "^4.0.0",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-plumber": "^1.1.0",
+    "jsdom": "^9.9.1",
+    "jsdom-global": "^2.1.0",
+    "mocha": "^2.4.5",
+    "react": "^0.14.7",
+    "react-addons-test-utils": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "rimraf": "^2.5.2",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.2"
+  }
+}
