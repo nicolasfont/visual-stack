@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Link as RRLink } from 'react-router';
+import { Link } from 'react-router';
 import { TopNav } from '@cjdev/visual-stack/lib/components/TopNav';
-import { SideNav, Link } from '@cjdev/visual-stack/lib/components/SideNav';
-import Layout from '@cjdev/visual-stack/lib/layouts/ApplicationLayout';
+import { SideNav, Link as SideNavLink, LinkGroup } from '@cjdev/visual-stack-redux/lib/components/SideNav';
+
+import Layout from '@cjdev/visual-stack/lib/layouts/ApplicationLayout/index.js';
 
 import './styles.css';
 
@@ -11,9 +12,11 @@ const AppTopNav = () =>
 
 const AppSideNav = () =>
   <SideNav>
-    <Link><RRLink to="components">Components</RRLink></Link>
-    <Link><RRLink to="icons">Icons</RRLink></Link>
-    <Link><RRLink to="layouts">Layouts</RRLink></Link>
+    <LinkGroup label="Components">
+      <SideNavLink><Link to="components/button">Button</Link></SideNavLink>
+    </LinkGroup>
+    <SideNavLink><Link to="icons">Icons</Link></SideNavLink>
+    <SideNavLink><Link to="layouts">Layouts</Link></SideNavLink>
   </SideNav>;
 
 class App extends Component {
