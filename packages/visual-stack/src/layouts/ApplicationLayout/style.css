@@ -1,0 +1,13 @@
+.application-layout {
+  height: 100%;
+}
+
+.application-layout-container {
+  display: flex;
+  height: 100%;
+}
+
+.application-layout-content {
+  flex: 1;
+}
+
