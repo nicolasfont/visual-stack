@@ -9,6 +9,7 @@
   "dependencies": {
     "@cjdev/visual-stack": "^0.8.0",
     "@cjdev/visual-stack-redux": "^0.8.0",
+    "ramda": "^0.23.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",

@@ -4,12 +4,15 @@ import { Route, Router, browserHistory, IndexRoute } from 'react-router';
 import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-
 import { reducer as vsReducer } from '@cjdev/visual-stack-redux';
+import '@cjdev/visual-stack/lib/global';
+
 import App from './containers/App/';
 import Home from './containers/Home/';
-
-import '@cjdev/visual-stack/lib/global';
+import Components from './containers/Components/';
+import ComponentDocs from './containers/Components/Docs/';
+import Icons from './containers/Icons/';
+import Layouts from './containers/Layouts/';
 import './index.css';
 
 const reducer = combineReducers({
@@ -17,13 +20,21 @@ const reducer = combineReducers({
 });
 const store = createStore(reducer);
 
+  // <IndexRoute component={ComponentsHome} />
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
+        <Route path="components" component={Components}>
+          <Route path=":componentName" component={ComponentDocs} />
+        </Route>
+        <Route path="icons" component={Icons}/>
+        <Route path="layouts" component={Layouts}/>
       </Route>
     </Router>
   </Provider>,
   document.getElementById('root')
 );
+
