@@ -1,7 +1,19 @@
 import React from 'react';
-
+import { Panel, Body, Header, Footer } from '@cjdev/visual-stack/lib/components/Panel';
 
 const Button = () =>
-  <h1>Button</h1>;
+  <div>
+    <Panel>
+      <Header>
+        Default Buttons
+      </Header>
+      <Body>
+        buttonssssssssssss
+      </Body>
+      <Footer>
+        footer
+      </Footer>
+    </Panel>
+  </div>;
 
 export default Button;
