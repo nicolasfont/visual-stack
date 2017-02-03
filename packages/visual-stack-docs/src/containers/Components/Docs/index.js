@@ -1,4 +1,7 @@
 import React from 'react';
+import { PageHeader, PageTitle } from '@cjdev/visual-stack/lib/components/PageHeader';
+import PageContent from '@cjdev/visual-stack/lib/components/PageContent';
+
 
 import ButtonDocs from './button';
 import TopNavDocs from './topnav';
@@ -9,9 +12,15 @@ export const routeComponentMap = {
 };
 
 const ComponentDocs = ({ params }) => {
+  const routeData = routeComponentMap[params.componentName];
   return (
     <div>
-      { routeComponentMap[params.componentName].component }
+      <PageHeader>
+        <PageTitle>{routeData.linkName}</PageTitle>
+      </PageHeader>
+      <PageContent>
+        { routeData.component }
+      </PageContent>
     </div>
   );
 };
