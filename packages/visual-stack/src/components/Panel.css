@@ -1,3 +1,7 @@
+.cj-panel {
+  border-radius: 0;
+}
+
 .cj-panel.panel-heading {
     background-color: #ffffff;
 }
@@ -16,3 +20,4 @@
     border-bottom: 1px solid transparent;
     border-color: #ddd;
 }
+
