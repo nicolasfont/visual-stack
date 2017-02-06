@@ -2,14 +2,19 @@ import React from 'react';
 import { PageHeader, PageTitle } from '@cjdev/visual-stack/lib/components/PageHeader';
 import PageContent from '@cjdev/visual-stack/lib/components/PageContent';
 
-
+// 1. add an import for your demo
 import ButtonDocs from './button';
 import TopNavDocs from './topnav';
 
-export const routeComponentMap = {
-  topnav: { path: 'topnav', linkName: 'TopNav', component: <TopNavDocs /> },
-  button: { path: 'button', linkName: 'Button', component: <ButtonDocs /> },
+const routeComponentMap = {};
+const addComponentRoute = (path, linkName, component) => {
+  routeComponentMap[path] = { path, linkName, component };
 };
+
+// 2. add your demo to the routeComponentMap
+addComponentRoute('topnav', 'TopNav', <TopNavDocs />);
+addComponentRoute('button', 'Button', <ButtonDocs />);
+
 
 const ComponentDocs = ({ params }) => {
   const routeData = routeComponentMap[params.componentName];
@@ -25,4 +30,5 @@ const ComponentDocs = ({ params }) => {
   );
 };
 
+export { routeComponentMap };
 export default ComponentDocs;
