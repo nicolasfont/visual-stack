@@ -1,8 +1,6 @@
 import React from 'react';
 
 const Layouts = () =>
-  <div>
-    <h1>Layouts</h1>
-  </div>;
+    <div>Layouts</div>;
 
 export default Layouts;
