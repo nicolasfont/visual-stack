@@ -54,6 +54,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
+  user-select:none;
 }
 
 .sidenav .sidenav-container-label i {
