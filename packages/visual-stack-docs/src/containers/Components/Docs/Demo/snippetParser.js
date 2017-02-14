@@ -1,7 +1,7 @@
 import R from 'ramda';
 
 export const parse = (src = '') => {
-  const a = R.pipe(
+  const parseResult = R.pipe(
     R.split('\n'),
     R.reduce((acc, line) => {
       // match start
@@ -43,11 +43,11 @@ export const parse = (src = '') => {
 
   // if anything is left in the 'currentSnippet' value,
   // the snippet wasn't ended correctly
-  if (a.currentSnippet) {
+  if (parseResult.currentSnippet) {
     throw new Error('Invalid');
   }
 
-  return a.parsed;
+  return parseResult.parsed;
 };
 
 const getLeftWhiteSpaceLength = str => {
