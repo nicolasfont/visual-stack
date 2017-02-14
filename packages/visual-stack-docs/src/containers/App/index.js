@@ -14,8 +14,7 @@ class App extends Component {
     return (
       <Layout
         topNav={<AppTopNav />}
-        sideNav={<AppSideNav/>}
-      >
+        sideNav={<AppSideNav/>} >
         { this.props.children }
       </Layout>
     );
