@@ -9,15 +9,17 @@ const addComponentRoute = (path, linkName, component) => {
 };
 
 // 1. add an import for your demo
+import BlankSlateDocs from './blankslate';
 import ButtonDocs from './button';
 import SpinnerDocs from './spinner';
 import TopNavDocs from './topnav';
 
 
 // 2. add your demo to the routeComponentMap
-addComponentRoute('topnav', 'TopNav', <TopNavDocs />);
-addComponentRoute('spinner', 'Spinner', <SpinnerDocs />);
+addComponentRoute('blankslate', 'Blank Slate', <BlankSlateDocs />);
 addComponentRoute('button', 'Button', <ButtonDocs />);
+addComponentRoute('spinner', 'Spinner', <SpinnerDocs />);
+addComponentRoute('topnav', 'TopNav', <TopNavDocs />);
 
 
 const ComponentDocs = ({ params }) => {
