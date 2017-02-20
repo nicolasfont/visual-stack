@@ -32,6 +32,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint src",
-    "server": "concurrently npm-watch \"node ./server\""
+    "server": "concurrently npm-watch \"node ./server\"",
+    "docs": "concurrently \"npm run start\" \"npm run server\""
   }
 }

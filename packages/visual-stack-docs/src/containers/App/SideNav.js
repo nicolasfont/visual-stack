@@ -1,6 +1,5 @@
 import React from 'react';
 import R from 'ramda';
-
 import { Link } from 'react-router';
 import { SideNav, Link as SideNavLink, LinkGroup } from '@cjdev/visual-stack-redux/lib/components/SideNav';
 import { routeComponentMap } from '../Components/Docs/';

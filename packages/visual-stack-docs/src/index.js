@@ -20,8 +20,6 @@ const reducer = combineReducers({
 });
 const store = createStore(reducer);
 
-  // <IndexRoute component={ComponentsHome} />
-
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
