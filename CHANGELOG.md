@@ -1,3 +1,19 @@
+# 0.9.0 (February 20, 2017)
+
+## New Features
+
+- New documentation package.
+- New Application Layout component.
+
+## Bugfixes
+
+- Fix SideNav overflow CSS.
+- Fix SideNav LinkGroup cursor CSS.
+
+## Other Changes
+
+- Add test step to precommit hook.
+
 # 0.7.10 (January 2, 2017)
 
 ## New Features
