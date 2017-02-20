@@ -4,7 +4,7 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "test": "lerna run test",
-    "precommit": "lerna run lint"
+    "precommit": "CI=true lerna run test && lerna run lint"
   },
   "devDependencies": {
     "husky": "^0.12.0",
