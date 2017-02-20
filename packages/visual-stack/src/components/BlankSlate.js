@@ -48,3 +48,5 @@ Button.propTypes = {
   onClick: PropTypes.func.isRequired,
   text: PropTypes.string,
 };
+
+export default Wrapper;
