@@ -1,6 +1,5 @@
 .sidenav {
   background-color: #263238;
-  border-right: 0px solid #d0d0d0;
   list-style: none;
   width: 200px;
   height: 100%;
@@ -19,6 +18,7 @@
 
 @media (min-width: 40em) {
   .sidenav {
+    overflow-y: hidden;
     transform: inherit;
     position: inherit;
   }
@@ -54,6 +54,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
+  user-select:none;
 }
 
 .sidenav .sidenav-container-label i {

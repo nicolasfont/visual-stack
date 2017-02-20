@@ -42,7 +42,6 @@ export const UserMenu = ({ title, open, onClick, children }) => {
 };
 
 export const SecondaryNav = ({ active, children }) => {
-  console.log('sn', active);
   return (
     <div className={`topnav topnav-secondary ${active ? 'active' : ''}`}>
       <div className="topnav-secondary-left">
