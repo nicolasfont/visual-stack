@@ -9,6 +9,9 @@ export const ToggleIcon = ({ onClick }) => {
     </a>
   );
 };
+ToggleIcon.propTypes = {
+  onClick: React.PropTypes.func.isRequired,
+};
 
 export const SlidingPanelHeader = ({ children }) => {
   return (
