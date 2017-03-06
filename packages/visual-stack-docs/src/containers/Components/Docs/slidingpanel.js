@@ -3,6 +3,9 @@ import { Panel, Body, Header } from '@cjdev/visual-stack/lib/components/Panel';
 import { Demo, Snippet } from './Demo';
 
 import { SlidingPanel, SlidingPanelSection, SlidingPanelHeader, ToggleIcon } from '@cjdev/visual-stack/lib/components/SlidingPanel';
+/* s5:start */
+import { SlidingPanel as VSRSlidingPanel, ToggleIcon as VSRToggleIcon } from '@cjdev/visual-stack-redux/lib/components/SlidingPanel';
+/* s5:end */
 
 class SlidingPanelDemo extends React.Component {
   constructor() {
@@ -65,5 +68,44 @@ class SlidingPanelDemo extends React.Component {
   }
 }
 
-export default SlidingPanelDemo;
+
+class VSRSlidingPanelDemo extends React.Component {
+  render() {
+    return (
+      <Demo srcFile="/samples/slidingpanel.js">
+        {
+          snippets => {
+            return (
+              <div>
+                <Panel>
+                  <Header>
+                    SlidingPanel (redux)
+                  </Header>
+                  <Body>
+                    { /* s4:start */ }
+                    <VSRToggleIcon />
+                    <VSRSlidingPanel>
+                      <SlidingPanelHeader>
+                        reduxified sliding panel header
+                      </SlidingPanelHeader>
+                    </VSRSlidingPanel>
+                    { /* s4:end */ }
+                    <Snippet tag="s5" src={snippets} />
+                    <Snippet tag="s4" src={snippets} />
+                  </Body>
+                </Panel>
+              </div>
+            );
+          }
+        }
+      </Demo>
+    );
+  }
+}
+
+export default () =>
+  <div>
+    <SlidingPanelDemo />
+    <VSRSlidingPanelDemo />
+  </div>;
 

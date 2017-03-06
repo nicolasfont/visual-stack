@@ -8,6 +8,7 @@
 }
 
 .application-layout-content {
+  width: 100%;
   flex: 1;
   background-color: #FDFDFD;
 }

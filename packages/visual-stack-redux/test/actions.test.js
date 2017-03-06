@@ -5,6 +5,7 @@ import reducer, {
   openTopNavDropdown,
   closeTopNavDropdown,
   toggleTopNavDropDown,
+  toggleSlidingPanel,
 } from '../src/actions';
 
 describe('reducer', () => {
@@ -114,5 +115,20 @@ describe('reducer', () => {
       },
     };
     expect(reducer(beforeState, toggleTopNavDropDown('userMenu'))).to.deep.equal(afterState);
+  });
+
+  it('should toggle SlidingPanel', () => {
+    const beforeState = {
+      slidingPanel: {
+        active: false,
+      },
+    };
+    const afterState = {
+      slidingPanel: {
+        active: true,
+      },
+    };
+    expect(reducer(beforeState, toggleSlidingPanel())).to.deep.equal(afterState);
+    expect(reducer(afterState, toggleSlidingPanel())).to.deep.equal(beforeState);
   });
 });

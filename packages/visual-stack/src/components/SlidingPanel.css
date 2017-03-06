@@ -4,9 +4,9 @@
   border-left: 1px solid #ddd;
   width: 250px;
   height: 100%;
-  position: absolute;
+  position: fixed;
   right: -250px;
-  top: 50px;
+  top: 47px;
   z-index: 200;
   padding: 0;
   transform: translateX(0);
@@ -20,8 +20,6 @@
 .sliding-panel ul {
   list-style: none;
 }
-
-
 
 .sliding-panel-header,
 .sliding-panel-section {
@@ -37,8 +35,6 @@
 }
 
 .sliding-panel-section {
-  /* background-color: blue; */
-
 }
 
 .sliding-panel-section:not(:last-child) {
