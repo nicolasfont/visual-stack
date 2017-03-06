@@ -13,6 +13,7 @@ import BlankSlateDocs from './blankslate';
 import ButtonDocs from './button';
 import ListDocs from './list';
 import PanelDocs from './panel';
+import SlidingPanelDocs from './slidingpanel';
 import SpinnerDocs from './spinner';
 import TopNavDocs from './topnav';
 
@@ -21,6 +22,7 @@ addComponentRoute('blankslate', 'Blank Slate', <BlankSlateDocs />);
 addComponentRoute('button', 'Button', <ButtonDocs />);
 addComponentRoute('list', 'List', <ListDocs />);
 addComponentRoute('panel', 'Panel', <PanelDocs />);
+addComponentRoute('slidingpanel', 'Sliding Panel', <SlidingPanelDocs />);
 addComponentRoute('spinner', 'Spinner', <SpinnerDocs />);
 addComponentRoute('topnav', 'TopNav', <TopNavDocs />);
 
