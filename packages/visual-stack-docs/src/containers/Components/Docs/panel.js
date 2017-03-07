@@ -1,6 +1,6 @@
 import React from 'react';
 import { Panel, Body, Header, Footer } from '@cjdev/visual-stack/lib/components/Panel';
-import { Demo, Snippet } from './Demo';
+import { Demo, Snippet } from '../../../components/Demo';
 
 export default () =>
   <Demo srcFile="/samples/panel.js">

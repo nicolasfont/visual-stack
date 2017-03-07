@@ -1,10 +1,16 @@
 import React from 'react';
 
-import { Button } from '@cjdev/visual-stack/lib/components/Button';
+import PageContent from '@cjdev/visual-stack/lib/components/PageContent';
+import { PageHeader, PageTitle } from '@cjdev/visual-stack/lib/components/PageHeader';
+
 const Home = () =>
   <div>
-    HOME
-        <Button type="primary">Visual Stack Docs</Button>
+    <PageHeader>
+      <PageTitle>Home</PageTitle>
+    </PageHeader>
+    <PageContent>
+    </PageContent>
   </div>;
+
 
 export default Home;

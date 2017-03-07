@@ -1,6 +1,6 @@
 import React from 'react';
 import { Panel, Body, Header } from '@cjdev/visual-stack/lib/components/Panel';
-import { Demo, Snippet } from './Demo';
+import { Demo, Snippet } from '../../../components/Demo';
 
 import { SlidingPanel, SlidingPanelSection, SlidingPanelHeader, ToggleIcon } from '@cjdev/visual-stack/lib/components/SlidingPanel';
 /* s5:start */
