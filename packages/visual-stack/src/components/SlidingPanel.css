@@ -1,0 +1,47 @@
+.sliding-panel {
+  background-color: #EFF4F7;
+  border-top: 1px solid #666;
+  border-left: 1px solid #ddd;
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  right: -250px;
+  top: 50px;
+  z-index: 200;
+  padding: 0;
+  transform: translateX(0);
+  transition: transform 0.3s;
+}
+
+.sliding-panel.active {
+  transform: translateX(-100%);
+}
+
+.sliding-panel ul {
+  list-style: none;
+}
+
+.sliding-panel-header,
+.sliding-panel-section {
+  padding: 10px 15px;
+}
+
+.sliding-panel-header {
+  background-color: rgb(56, 71, 79);
+  color: #bbb;
+  font-variant: small-caps;
+  font-size: 1.2em;
+  font-weight: 300;
+}
+
+.sliding-panel-section {
+}
+
+.sliding-panel-section:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}
+
+.sliding-panel-toggle-icon:hover {
+  cursor: pointer;
+}
+

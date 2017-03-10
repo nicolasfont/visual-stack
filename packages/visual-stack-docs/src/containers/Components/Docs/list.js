@@ -1,6 +1,6 @@
 import React from 'react';
 import { Panel, Body, Header as PanelHeader } from '@cjdev/visual-stack/lib/components/Panel';
-import { Demo, Snippet } from './Demo';
+import { Demo, Snippet } from '../../../components/Demo';
 
 import { List, Header, Rows, Row, Cell } from '@cjdev/visual-stack/lib/components/List';
 

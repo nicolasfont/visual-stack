@@ -1,9 +1,13 @@
-import './PageHeader.css';
-
 import React from 'react';
+import './PageHeader.css';
 
 export const PageTitle = ({ children }) =>
   <div className="page-heading--title">
+    {children}
+  </div>;
+
+export const PageHeaderSection = ({ children }) =>
+  <div className="page-heading--section">
     {children}
   </div>;
 

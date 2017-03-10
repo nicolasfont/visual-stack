@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TopNav } from '@cjdev/visual-stack/lib/components/TopNav';
-import Layout from '@cjdev/visual-stack/lib/layouts/ApplicationLayout/index.js';
+import Layout from '@cjdev/visual-stack/lib/layouts/ApplicationLayout';
 import AppSideNav from './SideNav';
 import './styles.css';
 
