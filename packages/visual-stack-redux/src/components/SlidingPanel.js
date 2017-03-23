@@ -1,13 +1,14 @@
 import React, { Component, PropTypes } from 'react';
-import R  from 'ramda';
+import R from 'ramda';
 import { connect } from 'react-redux';
 import {
   SlidingPanel as BaseSlidingPanel,
   SlidingPanelHeader as BaseSlidingPanelHeader,
   SlidingPanelSection as BaseSlidingPanelSection,
+  SlidingPanelDropdown as BaseSlidingPanelDropdown,
   ToggleIcon as BaseToggleIcon,
 } from '@cjdev/visual-stack/lib/components/SlidingPanel';
-import { toggleSlidingPanel } from '../actions';
+import { toggleSlidingPanel, toggleFilterDropdown } from '../actions';
 
 export class InternalSlidingPanel extends Component {
   static propTypes = {
@@ -59,6 +60,32 @@ export class InternalToggleIcon extends Component {
     );
   }
 }
+
+export class InternalSlidingPanelDropdown extends Component {
+  static propTypes = {
+    slidingPanel: PropTypes.object,
+  };
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    const expanded = R.view(R.lensPath([this.props.label, 'expanded']), this.props.slidingPanel);
+    return (
+      <BaseSlidingPanelDropdown
+        label={this.props.label}
+        expanded={expanded}
+        onClick={() => this.props.toggleFilterDropdown(this.props.label)}
+        >
+        { this.props.children }
+      </BaseSlidingPanelDropdown>
+    );
+  }
+}
+export const SlidingPanelDropdown = connect(
+  state => ({ slidingPanel: state.visualStack.slidingPanel }),
+    { toggleFilterDropdown }
+)(InternalSlidingPanelDropdown);
+
 
 export const ToggleIcon = connect(
   null,
