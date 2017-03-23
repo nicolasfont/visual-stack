@@ -1,3 +1,10 @@
+# 0.11.0 (March 23, 2017)
+
+## New Features
+
+- Added Sliding Panel & Dropdown component
+- Added MultiSelectFilter component
+
 # 0.9.0 (February 20, 2017)
 
 ## New Features
