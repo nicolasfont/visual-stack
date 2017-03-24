@@ -1,3 +1,9 @@
+# 0.12.0 (March 24, 2017)
+
+## Bugfixes
+
+- Fixed MultiSelectFilter to handle single select values
+
 # 0.11.1 (March 24, 2017)
 
 ## Bugfixes
