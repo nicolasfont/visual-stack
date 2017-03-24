@@ -41,4 +41,34 @@ ReactDOM.render(
 
 ## Contributing
 
-To work on this project locally, use `npm link` to create a local link to your working package. Run `npm run watch` to automatically rebuild the project as the source changes, which will also copy assets.
+Initial scripts to start: 
+`npm install`
+`npm run bootstrap`
+
+To run Visual Stack Documentation site:
+
+`cd packages/visual-stack-docs/`
+`npm run docs`
+
+A new server should run and open the site
+
+Watch scripts for visual-stack and visual-stack-redux 
+- While developing, these scripts will automatically build and update your code on the visual-stack-docs site
+
+`cd packages/visual-stack/`
+`npm run watch`
+
+`cd packages/visual-stack-redux/`
+`npm run watch`
+
+Publishing
+
+To publish, you must have lerna installed globally
+`npm install lerna -g`
+
+Publish steps:
+- Update CHANGELOG.md with notes and version number
+- Push/merge into master 
+- `lerna publish`
+
+
