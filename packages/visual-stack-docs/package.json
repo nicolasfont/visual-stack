@@ -1,6 +1,6 @@
 {
   "name": "@cjdev/visual-stack-docs",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "private": true,
   "devDependencies": {
     "concurrently": "^3.1.0",
@@ -10,8 +10,8 @@
     "react-scripts": "^0.9.5"
   },
   "dependencies": {
-    "@cjdev/visual-stack": "^0.11.0",
-    "@cjdev/visual-stack-redux": "^0.11.0",
+    "@cjdev/visual-stack": "^0.12.0",
+    "@cjdev/visual-stack-redux": "^0.12.0",
     "express": "^4.14.1",
     "morgan": "^1.8.0",
     "ramda": "^0.23.0",
