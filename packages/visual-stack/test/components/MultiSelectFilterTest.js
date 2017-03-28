@@ -70,7 +70,7 @@ describe('Filters', () => {
         { label: 'company3', value: 9101 },
       ];
 
-      const assertOnValues = values => deepEqual(values, R.pluck('value', options));
+      const assertOnValues = values => deepEqual(values, options);
       const filter = mount(<MultiSelectFilter
         values={options}
         onFilterChange={assertOnValues}

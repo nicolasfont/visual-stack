@@ -11,7 +11,7 @@ export const MultiSelectFilter = ({ values, onFilterChange, defaultChecked }) =>
     R.forEach(checkbox => (checkbox.checked = isAllChecked), domCheckboxes);
 
     return isAllChecked
-      ? onFilterChange(R.pluck('value', values))
+      ? onFilterChange(values)
       : onFilterChange([]);
   };
   const onOptionChange = event => {
@@ -26,8 +26,7 @@ export const MultiSelectFilter = ({ values, onFilterChange, defaultChecked }) =>
           R.map(checkbox => checkbox.value)
     )(domCheckboxes);
     const selectedValues = R.filter(({ value }) => R.contains('' + value, selectedValuesAsStrings), values);
-
-    return onFilterChange(R.pluck('value', selectedValues));
+    return onFilterChange(selectedValues);
   };
 
   const createCheckboxes = (val, idx) => {
