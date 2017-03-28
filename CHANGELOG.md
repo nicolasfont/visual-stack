@@ -1,3 +1,10 @@
+# 0.15.1 (March 28, 2017)
+
+## Bugfixes
+
+- Updated MultiSelectFilter to allow setting default checked state
+- Added tests around it
+
 # 0.11.1 (March 24, 2017)
 
 ## Bugfixes
