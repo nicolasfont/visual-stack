@@ -1,3 +1,10 @@
+# 0.15.2 (March 28, 2017)
+
+## Bugfixes
+
+- Updated MultiSelectFilter to return entire selected value
+- Uping my git commit count
+
 # 0.15.1 (March 28, 2017)
 
 ## Bugfixes
