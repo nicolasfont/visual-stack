@@ -1,3 +1,9 @@
+# 0.15.2 (March 31, 2017)
+
+## Bugfixes
+
+- Fixed css styles in SlidingPanelDropdown
+
 # 0.15.2 (March 28, 2017)
 
 ## Bugfixes
