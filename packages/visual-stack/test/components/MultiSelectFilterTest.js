@@ -1,8 +1,7 @@
-import R from 'ramda';
 import React from 'react';
 import { mount } from 'enzyme';
 import { equal, deepEqual } from 'assert';
-import chai, { expect } from 'chai';
+import chai from 'chai';
 import chaiEnzyme from 'chai-enzyme';
 import { MultiSelectFilter } from '../../src/components/Filters';
 
@@ -83,6 +82,5 @@ describe('Filters', () => {
 
       allCheckbox.simulate('change', { target: { checked: true } });
     });
-
   });
 });

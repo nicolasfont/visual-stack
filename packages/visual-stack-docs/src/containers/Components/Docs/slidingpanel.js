@@ -22,6 +22,9 @@ class SlidingPanelDemo extends React.Component {
       companies: [
         { label: '1234 - my company', value: 1234 },
         { label: '5667 - my other company', value: 5667 },
+        { label: '345 - my other company', value: 345 },
+        { label: '578 - my other company', value: 578 },
+
       ],
     };
     /* s1:end */
