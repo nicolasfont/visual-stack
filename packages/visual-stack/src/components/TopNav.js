@@ -5,7 +5,7 @@ import './TopNav.css';
 
 export const DropdownItem = ({ logo, title, onClick }) => {
   return (
-    <li>
+    <li className="dropdown-item">
       <a onClick={onClick}>
         <div className="topnav-dropdown-logo">{ logo }</div>
         <div className="topnav-dropdown-title">{ title }</div>
@@ -14,10 +14,13 @@ export const DropdownItem = ({ logo, title, onClick }) => {
   );
 };
 
-export const UserDropdownItem = ({ name, email }) => {
+export const UserDropdownItem = ({ name, firstInitial, lastInitial, email }) => {
   return (
       <li className="user-dropdown-item">
-        <i className="fa fa-circle"></i>
+        <div className="circle">
+          <span className="first">{firstInitial.toUpperCase()}</span>
+          <span className="last">{lastInitial.toUpperCase()}</span>
+        </div>
         <ul className="user-info">
           <li className="name">{name}</li>
           <li className="email">{email}</li>
@@ -30,7 +33,10 @@ export const UserMenu = ({ title, open, onClick, children }) => {
   return (
     <li className={`user-menu ${open ? 'active' : ''}`}>
       <a onClick={onClick}>
-        <i className="topnav-icon fa fa-user-circle"></i>
+        <span className="fa-stack fa-lg user-menu-icon">
+          <i className="fa fa-circle fa-stack-2x"></i>
+          <i className="fa fa-user fa-stack-1x fa-inverse"></i>
+        </span>
         <span className="username">{title}</span>
         <i className="fa fa-chevron-down"></i>
       </a>
@@ -52,20 +58,18 @@ export const SecondaryNav = ({ active, children }) => {
 };
 
 const MainNav = ({ logo, appName, userMenu, hasSecondaryNav, onSideNavToggle, onSecondNavToggle }) => {
+  const capAppName = appName ? appName.toUpperCase() : '';
   return (
     <div className="topnav topnav-main">
-
       <ul className="topnav-nav topnav-app-header">
         <li className="topnav-left-logo">{ logo }</li>
-        <li className="topnav-left-app-name">{ appName }</li>
+        <li className="topnav-left-app-name">{ capAppName }</li>
         { onSideNavToggle &&
           <li className="topnav-icon"><ToggleIcon onClick={onSideNavToggle} /></li>
         }
       </ul>
-
       <ul className="topnav-nav">
       </ul>
-
       <ul className="topnav-nav topnav-nav-right">
         { hasSecondaryNav &&
           <li className="secondarynav-toggle-icon topnav-icon">

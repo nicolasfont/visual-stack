@@ -1,10 +1,10 @@
 .topnav {
   min-height: 50px;
-  background-color: rgb(56, 71, 79);
-  color: #ccc;
+  background-color: #37474F;
+  color: #c4d2d9;
   padding: 0;
   user-select: none;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 
@@ -35,27 +35,18 @@
   display:none;
 }
 
-.topnav-nav > div,
-.topnav-nav > li {
-  margin: 0 5px;
+.topnav-nav > * {
   height: 50px;
   display: flex;
   align-items: center;
 }
-.topnav-nav-right > li {
-  margin: 0;
-}
 
 .topnav-app-header {
-  padding-left: 1em;
+  padding-left: .3em;
 }
 
-@media (min-width: 40em) {
-  .topnav-app-header {
-    min-width: 200px;
-  }
-}
 .topnav-app-header > li {
+  margin: 0 5px;
 }
 
 .topnav-nav-right {
@@ -63,13 +54,13 @@
   margin-right: 0;
 }
 
-.user-menu .username {
-  display: none;
+.topnav-nav-right > li {
+  margin: 0;
 }
 
 @media (min-width: 40em) {
-  .user-menu .username {
-    display: initial;
+  .topnav-app-header {
+    min-width: 200px;
   }
 }
 
@@ -82,21 +73,49 @@
   text-align: center;
 }
 
-.user-menu {
-  height: 100%;
-	padding: 0 3px;
-}
-
 .topnav .fa-ellipsis-v {
   font-size: 1.1em;
   padding-top: .2em;
 }
 
-
-.user-menu .fa-user-circle{
-  font-size: 1.5em;
+.user-menu {
+  height: 100%;
+  padding: 0 10px;
+  cursor: pointer;
 }
 
+.user-menu:hover,
+.user-menu.active {
+  background-color: #41535C;
+}
+
+.user-menu .fa-chevron-down,
+.user-menu .username {
+  display: none;
+}
+
+@media (min-width: 40em) {
+  .user-menu .fa-chevron-down,
+  .user-menu .username {
+    display: initial;
+  }
+}
+
+.user-menu.active .topnav-dropdown {
+  display: block;
+}
+
+.user-menu .username {
+  font-weight: 400;
+}
+
+.user-menu .user-menu-icon .fa-circle {
+  color: #596c78;
+}
+
+.user-menu .user-menu-icon .fa-user {
+  color: #c4d2d9
+}
 
 .user-menu .fa-chevron-down{
     font-size: 0.8em;
@@ -115,10 +134,6 @@
   padding: 0 5px;
 }
 
-.user-menu.active {
-  background-color: #41535C;
-}
-
 .user-menu.active .topnav-dropdown {
   display: block;
 }
@@ -133,36 +148,61 @@
   /* righthand */
   right: 0;
   left: auto;
-  margin-right: 2px;
 }
 
 .topnav-dropdown .user-dropdown-item {
   display: flex;
-  min-height: 80px;
+  min-height: 72px;
   align-items: center;
 }
 
-.topnav-dropdown .user-dropdown-item > i {
-  color: #38C498;
-  font-size: 2.75em;
+.topnav-dropdown .user-dropdown-item .circle {
+  border-radius: 50%;
+  height: 36px;
+  width: 36px;
+  margin-right: 5px;
+  background-color: #38C498;
+  display:flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+}
+
+.circle .first,
+.circle .last {
+  font-size: 14px;
+  font-weight: 300;
 }
 
 .topnav-dropdown .user-dropdown-item .user-info {
-  font-size: .85em;
   padding-left: 10px;
- }
+  font-size: 12px;
+  line-height: 16px;
+}
 
 .topnav-dropdown .user-dropdown-item .user-info .name {
-  font-weight: bold;
-  margin-bottom: 2px;
+  font-weight: 600;
+  user-select: auto;
+}
+
+.topnav-dropdown .user-dropdown-item .user-info .email {
+  color: #647388;
+  font-weight: 300;
+  user-select: auto;
 }
 
 .topnav-dropdown > li {
-  padding: 0 10px;
+  padding: 0 14px;
   background-color: #fff;
-  color: #333;
+  color: #263238;
   border-bottom:1px solid #ddd;
-  height: 40px;
+  height: 42px;
+  line-height: 16px;
+}
+.topnav-dropdown .dropdown-item:hover {
+  background-color: #ECF0F3;
+  cursor: pointer;
 }
 
 .topnav-dropdown > li:last-child {
@@ -176,26 +216,20 @@
 }
 
 .topnav-dropdown .topnav-dropdown-logo {
-  width: 24px;
-  text-align: center;
-  font-size: 1.5em;
+  font-size: 20px;
   color: #ADBBC2;
+  margin-right: 5px;
 }
 
 .topnav-dropdown .topnav-dropdown-title {
   padding-left: 10px;
-  color: #333;
+  color: #263238;
 }
 
 .topnav-left-logo {
-  font-size: 1.5em;
-}
+  width: 35px;
+  fill: blue;
 
-@media (min-width: 40em) {
-  .topnav-left-logo {
-    font-size: 1.5em;
-    padding: .3em;
-  }
 }
 
 .topnav-nav > li.topnav-left-app-name {
@@ -205,8 +239,8 @@
 @media (min-width: 40em) {
   .topnav-nav > li.topnav-left-app-name {
     display:inherit;
-    font-variant: small-caps;
-    font-size: 1.2em;
+    font-size: 1.1em;
+    letter-spacing: .03em;
   }
 }
 
