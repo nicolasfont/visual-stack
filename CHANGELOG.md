@@ -1,3 +1,9 @@
+# 0.17.1 (April 7, 2017)
+
+## Bug Fix
+
+- Changed Sliding Panel Dropdown chevron direction.
+
 # 0.16.0 (April 7, 2017)
 
 ## Breaking Change
