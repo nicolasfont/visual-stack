@@ -1,3 +1,9 @@
+# 0.17.3 (April 27, 2017)
+
+## Bug Fix
+
+- Sliding Panel sizing bug.
+
 # 0.17.1 (April 7, 2017)
 
 ## Bug Fix
