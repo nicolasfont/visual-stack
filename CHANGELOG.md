@@ -1,3 +1,9 @@
+# 0.17.4 (May 17, 2017)
+
+## Bug Fix
+
+- Checkbox filter scrolling bug.
+
 # 0.17.3 (April 27, 2017)
 
 ## Bug Fix
