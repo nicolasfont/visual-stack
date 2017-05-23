@@ -6,6 +6,12 @@
   border-bottom: solid 1px #ddd;
 }
 
+.filter-error {
+  display: flex;
+  justify-content: center;
+  padding: 15px 10px 0;
+}
+
 .filter-options .select-all,
 .filter-options .checkboxes {
     padding: 5px 15px;

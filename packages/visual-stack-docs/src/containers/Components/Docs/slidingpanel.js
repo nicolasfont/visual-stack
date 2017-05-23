@@ -68,6 +68,18 @@ class SlidingPanelDemo extends React.Component {
                           defaultChecked={true}
                         />
                       </SlidingPanelDropdown>
+                      <SlidingPanelDropdown
+                        label="Error Example"
+                        expanded={this.state.filterActive}
+                        onClick={() => this.setState({ filterActive: !this.state.filterActive })}
+                        >
+                        { /* example of a Filter to populate the Dropdown */ }
+                        <MultiSelectFilter
+                          values={[]}
+                          onFilterChange={val => console.log(val)}
+                          defaultChecked={true}
+                        />
+                      </SlidingPanelDropdown>
                     </SlidingPanelSection>
                   </SlidingPanel>
                   { /* s3:end */ }

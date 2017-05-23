@@ -39,12 +39,15 @@ export const MultiSelectFilter = ({ values, onFilterChange, defaultChecked }) =>
 
   const mapIndexes = R.addIndex(R.map);
   const checkboxes = mapIndexes(createCheckboxes, values);
+  const selectAll = (!R.isEmpty(values))
+    ?  <div className="select-all">
+        <label><input ref={ checkbox => (allCheckbox = checkbox)} type="checkbox" value="" onChange={ onAllChange } defaultChecked={defaultChecked} />All</label>
+      </div>
+    : <div className="filter-error">No Filters Available</div>;
 
   return (
     <div className="selection">
-      <div className="select-all">
-        <label><input ref={ checkbox => (allCheckbox = checkbox)} type="checkbox" value="" onChange={ onAllChange } defaultChecked={defaultChecked} />All</label>
-      </div>
+      { selectAll }
       <div className="checkboxes">{ checkboxes }</div>
      </div>
   );
