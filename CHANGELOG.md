@@ -1,6 +1,14 @@
+# 0.17.6 (May 23, 2017)
+
+## Bug Fixes
+
+- Moved Sliding Panel down to show Page Header
+- Added Tool Tip to Toggle Icon for Sliding Panel
+- Fixed MultiSelectFilter's zero state
+
 # 0.17.5 (May 17, 2017)
 
-## Versioning Issues 
+## Versioning Issues
 
 # 0.17.4 (May 17, 2017)
 
