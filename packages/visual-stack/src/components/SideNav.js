@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import MediaQuery from 'react-responsive';
+import R from 'ramda';
 import './SideNav.css';
 
 export const ToggleIcon = ({ onClick }) => {
@@ -50,13 +52,51 @@ export const SideNavIcon = ({ type }) => {
   return <i className={`fa fa-${type} sidenav-icon`}></i>;
 };
 
-export const SideNav = ({ children, active }) => {
-  return (
-      <ul className={'sidenav' + (active ? ' active' : '')}>
-        { children }
-      </ul>
-  );
-};
+
+export class SideNav extends React.Component {
+  render() {
+    return (
+      <MediaQuery maxWidth={640} minDeviceWidth={640}>
+        {
+          (matches) => {
+            return (
+              <SideNavP matches={matches} >
+                {this.props.children}
+              </SideNavP>
+            );
+          }
+        }
+      </MediaQuery>
+      );
+  }
+
+}
+
+class SideNavP extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      collapsed: this.props.matches,
+    };
+  }
+
+  componentWillReceiveProps(nextProps, nextState) {
+    const resizeSet = R.not(R.equals(this.props.matches, nextProps.matches));
+    if (resizeSet) {
+      this.setState({ collapsed: nextProps.matches });
+    }
+  }
+
+  render() {
+    return (
+            <ul className={'sidenav' + (this.state.collapsed ? ' collapsed' : ' active')}>
+              { this.props.children }
+              <ul className="toggle-icon"><ToggleIcon onClick={() => this.setState({ collapsed: !this.state.collapsed } )}/></ul>
+            </ul>
+    );
+  }
+}
+
 SideNav.propTypes = {
   active: PropTypes.bool,
 };

@@ -8,7 +8,7 @@ import {
   Link as BaseLink,
   LinkGroup as BaseLinkGroup,
 } from '@cjdev/visual-stack/lib/components/SideNav';
-import { toggleSideNavLinkGroup } from '../actions';
+import { toggleSideNavLinkGroup, toggleSideNav } from '../actions';
 
 export class InternalSideNav extends Component {
   static propTypes = {
@@ -19,7 +19,9 @@ export class InternalSideNav extends Component {
   }
   render() {
     return (
-      <BaseSideNav active={this.props.active} >
+      <BaseSideNav active={this.props.active}
+        onClick={this.props.toggleSideNav}
+        >
         { this.props.children }
       </BaseSideNav>
     );
@@ -27,6 +29,7 @@ export class InternalSideNav extends Component {
 }
 export const SideNav = connect(
   state => ({ active: state.visualStack.sideNav.active }),
+  { toggleSideNav }
 )(InternalSideNav);
 
 export class InternalLinkGroup extends Component {

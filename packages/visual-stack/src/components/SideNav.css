@@ -1,24 +1,24 @@
 .sidenav {
   background-color: #263238;
   list-style: none;
-  min-width: 260px;
+  width: 55px;
   height: 100%;
   overflow: auto;
   left: 0;
-  transform: translateX(-100%);
+  transition: width .5s ease-out;
   position: fixed;
   z-index: 200;
-  transition: transform 0.3s;
   font-weight: 400;
 }
 
 .sidenav.active {
-  transform: translateX(0);
+  width: 260px;
 }
 
 @media (min-width: 40em) {
-  .sidenav {
-    transform: inherit;
+  .sidenav.collapsed {
+    width: 55px;
+    transition: width .5s ease-out;
   }
 }
 
@@ -26,8 +26,33 @@
   list-style: none;
 }
 
-.sidenav .sidenav-container ul li a {
+.toggle-icon {
+  position: fixed;
+  bottom: 0;
+}
+
+.sidenav.collapsed .sidenav-container ul li a {
   padding-left: 56px;
+}
+
+.sidenav .sidenav-link span,
+.sidenav .sidenav-container-chevron,
+.sidenav .sidenav-container-label {
+  opacity: 0;
+  transition: opacity .3s ease-out;
+}
+
+.sidenav.active .sidenav-link span,
+.sidenav.active .sidenav-container-chevron,
+.sidenav.active .sidenav-container-label {
+  opacity: 1;
+  color: #ADBBC2;
+  display: inline-block;
+  transition: opacity .5s ease-out;
+}
+
+.sidenav.active .sidenav-link span {
+  position: absolute;
 }
 
 .sidenav-icon {
@@ -55,8 +80,13 @@
   color: #FFFFFF;
 }
 
+.sidenav-link {
+  height: 45px;
+}
+
 .sidenav a.sidenav-container-row {
   display: flex;
+  height: 45px;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
@@ -82,10 +112,12 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height .3s ease-out;
+  padding: 0 35px;
 }
 
 .sidenav .sidenav-container.expanded ul {
   max-height: 500px;
+  padding: 0 35px;
 }
 
 .sidenav .sidenav-header {

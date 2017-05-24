@@ -30,13 +30,13 @@ export default () =>
     <SideNavLink>
       <Link to="/icons">
         {iconIcon}
-        Icons
+        <span>Icons</span>
       </Link>
     </SideNavLink>
     <SideNavLink>
       <Link to="/layouts">
         {layoutIcon}
-        Layouts
+        <span>Layouts</span>
       </Link>
     </SideNavLink>
 
