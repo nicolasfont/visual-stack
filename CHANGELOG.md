@@ -1,3 +1,9 @@
+# 0.17.8 (June 1, 2017)
+
+## Bug Fix
+
+- Fixed allcheckbox null bug when no selectAllCheckbox is present
+
 # 0.17.7 (June 1, 2017)
 
 ## Breaking Change
