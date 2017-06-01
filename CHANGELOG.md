@@ -1,3 +1,9 @@
+# 0.17.7 (June 1, 2017)
+
+## Breaking Change
+
+- Select All checkboxes in MultiSelectFilter is changed to now be optional
+
 # 0.17.6 (May 23, 2017)
 
 ## Bug Fixes
