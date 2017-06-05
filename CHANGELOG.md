@@ -1,3 +1,9 @@
+# 0.17.9 (June 5, 2017)
+
+## New Feature
+
+- Added ability to set initial state for Sliding Panel Redux and Sliding Panel Dropdown Redux.
+
 # 0.17.8 (June 1, 2017)
 
 ## Bug Fix
