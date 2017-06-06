@@ -12,14 +12,15 @@ import { toggleSideNavLinkGroup, toggleSideNav } from '../actions';
 
 export class InternalSideNav extends Component {
   static propTypes = {
-    active: PropTypes.bool,
+    collapsed: PropTypes.bool,
   };
   constructor(props) {
     super(props);
   }
   render() {
     return (
-      <BaseSideNav active={this.props.active}
+      <BaseSideNav
+        collapsed={this.props.collapsed}
         onClick={this.props.toggleSideNav}
         >
         { this.props.children }
@@ -28,7 +29,7 @@ export class InternalSideNav extends Component {
   }
 }
 export const SideNav = connect(
-  state => ({ active: state.visualStack.sideNav.active }),
+  state => ({ collapsed: state.visualStack.sideNav.collapsed }),
   { toggleSideNav }
 )(InternalSideNav);
 

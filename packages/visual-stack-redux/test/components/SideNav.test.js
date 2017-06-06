@@ -9,16 +9,16 @@ import { SideNav, Header, LinkGroup, Link } from '@cjdev/visual-stack/lib/compon
 describe('SideNav', () => {
   it('should propagate the active state to VisualStack SideNav', () => {
     const wrapper = shallow(
-      <InternalSideNav active={true} />
+      <InternalSideNav collapsed={true} />
     );
-    expect(wrapper.find(SideNav).prop('active')).to.be.true;
+    expect(wrapper.find(SideNav).prop('collapsed')).to.be.true;
   });
 
   it('should propagate children to VisualStack SideNav', () => {
-    const wrapper = mount(
-      <InternalSideNav >
+    const wrapper = shallow(
+      <InternalSideNav>
           <Header label="whatever" />
-        </InternalSideNav>
+      </InternalSideNav>
     );
     expect(wrapper.find(SideNav).find(Header)).to.have.length(1);
     expect(wrapper.find(SideNav).find(Header).prop('label')).to.equal('whatever');

@@ -9,19 +9,19 @@ import reducer, {
 } from '../src/actions';
 
 describe('reducer', () => {
-  it('should toggle SideNav', () => {
+  it('should toggle SideNav with given state', () => {
     const beforeState = {
       sideNav: {
-        active: false,
+        collapsed: false,
       },
     };
     const afterState = {
       sideNav: {
-        active: true,
+        collapsed: true,
       },
     };
-    expect(reducer(beforeState, toggleSideNav())).to.deep.equal(afterState);
-    expect(reducer(afterState, toggleSideNav())).to.deep.equal(beforeState);
+    expect(reducer(beforeState, toggleSideNav(true))).to.deep.equal(afterState);
+    expect(reducer(afterState, toggleSideNav(false))).to.deep.equal(beforeState);
   });
 
   it('should toggle LinkGroup expansion', () => {

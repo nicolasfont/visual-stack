@@ -60,7 +60,11 @@ export class SideNav extends React.Component {
         {
           (matches) => {
             return (
-              <SideNavP matches={matches} >
+              <SideNavP
+                matches={matches}
+                onClick={this.props.onClick}
+                collapsed={this.props.collapsed}
+                >
                 {this.props.children}
               </SideNavP>
             );
@@ -75,23 +79,22 @@ export class SideNav extends React.Component {
 class SideNavP extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      collapsed: this.props.matches,
-    };
+    this.props.onClick(this.props.matches);
   }
 
   componentWillReceiveProps(nextProps, nextState) {
     const resizeSet = R.not(R.equals(this.props.matches, nextProps.matches));
     if (resizeSet) {
-      this.setState({ collapsed: nextProps.matches });
+      this.props.onClick(nextProps.matches);
     }
   }
 
   render() {
+    const toggle = () => this.props.onClick(!this.props.collapsed);
     return (
-            <ul className={'sidenav' + (this.state.collapsed ? ' collapsed' : ' active')}>
+            <ul className={'sidenav' + (this.props.collapsed ? ' collapsed' : ' active')}>
               { this.props.children }
-              <ul className="toggle-icon"><ToggleIcon onClick={() => this.setState({ collapsed: !this.state.collapsed } )}/></ul>
+              <ul className="toggle-icon"><ToggleIcon onClick={toggle}/></ul>
             </ul>
     );
   }
