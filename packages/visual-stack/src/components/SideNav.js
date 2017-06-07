@@ -58,7 +58,7 @@ export class SideNav extends React.Component {
     return (
       <MediaQuery maxWidth={640} minDeviceWidth={640}>
         {
-          (matches) => {
+          matches => {
             return (
               <SideNavP
                 matches={matches}
@@ -82,7 +82,7 @@ class SideNavP extends React.Component {
     this.props.onClick(this.props.matches);
   }
 
-  componentWillReceiveProps(nextProps, nextState) {
+  componentWillReceiveProps(nextProps) {
     const resizeSet = R.not(R.equals(this.props.matches, nextProps.matches));
     if (resizeSet) {
       this.props.onClick(nextProps.matches);
