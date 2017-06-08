@@ -1,13 +1,8 @@
-# 0.17.12 (June 7, 2017)
-
-## Bug Fix
-
-- Added Sliding Panel Tooltip to Visual Stack Redux
-
 # 0.17.11 (June 7, 2017)
 
 ## Bug Fix
 
+- Added Sliding Panel Tooltip to Visual Stack Redux
 - Fixed bug in zero state for MultiSelectFilter
 
 # 0.17.10 (June 7, 2017)
