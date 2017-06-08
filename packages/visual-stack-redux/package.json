@@ -1,6 +1,6 @@
 {
   "name": "@cjdev/visual-stack-redux",
-  "version": "0.17.10",
+  "version": "0.17.11",
   "main": "lib/index.js",
   "files": [
     "dist",
