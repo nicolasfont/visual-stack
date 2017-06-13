@@ -17,22 +17,25 @@ Header.propTypes = {
   children: PropTypes.string.isRequired,
 };
 
-export const LinkGroup = ({ label, icon, children, expanded, onClick }) => {
-  const classes = 'sidenav-entry sidenav-container' + (expanded ? ' expanded' : '');
-  return (
-    <li className={classes}>
-      <a className="sidenav-container-row" onClick={e => onClick(e, label)}>
-        <div className="sidenav-container-row-left">
-          { icon }
-          <span className="sidenav-container-label">{ label }</span>
-        </div>
-        <i className="fa fa-chevron-right sidenav-container-chevron"></i>
-      </a>
-      <ul>
-        { children }
-      </ul>
-    </li>
-  );
+export class LinkGroup extends React.Component {
+  render() {
+    console.log('in presentational layer Link Group props:', this.props);
+    const classes = 'sidenav-entry sidenav-container' + (this.props.expanded ? ' expanded' : '');
+    return (
+      <li className={classes}>
+        <a className="sidenav-container-row" onClick={e => { this.props.onClick(e, this.props.label); this.props.something(this.props.expanded) } }>
+          <div className="sidenav-container-row-left">
+            { this.props.icon }
+            <span className="sidenav-container-label">{ this.props.label }</span>
+          </div>
+          <i className="fa fa-chevron-right sidenav-container-chevron"></i>
+        </a>
+        <ul>
+          { this.props.children }
+        </ul>
+      </li>
+    );
+  }
 };
 LinkGroup.propTypes = {
   expanded: PropTypes.bool,
@@ -90,10 +93,11 @@ class SideNavP extends React.Component {
   }
 
   render() {
+    console.log('in presentational SideNav props', this.props.children[0].props.something);
     const toggle = () => this.props.onClick(!this.props.collapsed);
     return (
             <ul className={'sidenav' + (this.props.collapsed ? ' collapsed' : ' active')}>
-              { this.props.children }
+              { this.props.children[0] }
               <ul className="toggle-icon"><ToggleIcon onClick={toggle}/></ul>
             </ul>
     );

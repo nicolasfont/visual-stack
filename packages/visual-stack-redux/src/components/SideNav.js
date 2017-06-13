@@ -18,19 +18,22 @@ export class InternalSideNav extends Component {
     super(props);
   }
   render() {
+    const mapWithChildren = React.Children.map(this.props.children, (child) => React.cloneElement(child, {something: this.props.toggleSideNav}));
     return (
       <BaseSideNav
         collapsed={this.props.collapsed}
         onClick={this.props.toggleSideNav}
         >
-        { this.props.children }
+        { mapWithChildren }
       </BaseSideNav>
     );
   }
 }
 export const SideNav = connect(
   state => ({ collapsed: state.visualStack.sideNav.collapsed }),
-  { toggleSideNav }
+    { toggleSideNav },
+    (ownProps, stateProps, dispatchProps) => Object.assign({}, ownProps, stateProps, dispatchProps),
+    {pure: false}
 )(InternalSideNav);
 
 export class InternalLinkGroup extends Component {
@@ -47,6 +50,7 @@ export class InternalLinkGroup extends Component {
         icon={this.props.icon}
         label={this.props.label}
         expanded={expanded}
+        something={this.props.toggleSideNav}
         onClick={() => this.props.toggleSideNavLinkGroup(this.props.label) }
       >
         { this.props.children }
@@ -54,11 +58,13 @@ export class InternalLinkGroup extends Component {
     );
   }
 }
+const mapState = state => ({ linkGroups: state.visualStack.sideNav.linkGroups });
 
-export const LinkGroup = connect(
-  state => ({ linkGroups: state.visualStack.sideNav.linkGroups }),
-  { toggleSideNavLinkGroup }
-)(InternalLinkGroup);
+export const LinkGroup = connect(mapState,
+                                { toggleSideNavLinkGroup, toggleSideNav },
+                                (ownProps, stateProps, dispatchProps) => Object.assign({}, ownProps, stateProps, dispatchProps),
+                                {pure: false}
+                                )(InternalLinkGroup);
 
 
 export const Header = BaseHeader;

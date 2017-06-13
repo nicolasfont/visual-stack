@@ -27,6 +27,7 @@ export default () =>
       }
     </LinkGroup>
 
+    <LinkGroup label="Lies"></LinkGroup>
     <SideNavLink>
       <Link to="/icons">
         {iconIcon}
