@@ -1,3 +1,9 @@
+# 0.17.12 (June 16, 2017)
+
+## Stying Update
+
+- Made PageHeader component fixed.
+
 # 0.17.11 (June 7, 2017)
 
 ## Bug Fix
