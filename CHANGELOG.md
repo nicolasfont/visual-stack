@@ -1,5 +1,9 @@
 # 0.17.13 (June 16, 2017)
 
+## Stying Update
+
+-  Updated CJ Logo
+
 ## Bug Fix
 
 - Fixed but so that right aligned Page Header content is not cut off.
