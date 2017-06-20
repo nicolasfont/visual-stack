@@ -1,3 +1,10 @@
+# 0.17.14 (Junel 20, 2017)
+
+## Bug Fixes
+
+- Sliding Panel shifted down to accomidate new Top Nav.
+- Header z-index bumped up to prevent AmCharts overlapping.
+
 # 0.17.13 (June 16, 2017)
 
 ## Stying Update
