@@ -1,10 +1,16 @@
-# 0.17.15 (Junel 20, 2017)
+# 0.17.16 (July 6, 2017)
+
+## Styling Update
+
+- Modal box-shadow, border-radius, padding and margins.
+
+# 0.17.15 (June 20, 2017)
 
 ## Bug Fixes
 
 - Sliding Panel shifted down to accomidate new Top Nav.
 
-# 0.17.14 (Junel 20, 2017)
+# 0.17.14 (June 20, 2017)
 
 ## Bug Fixes
 
@@ -12,7 +18,7 @@
 
 # 0.17.13 (June 16, 2017)
 
-## Stying Update
+## Styling Update
 
 -  Updated CJ Logo
 
@@ -22,7 +28,7 @@
 
 # 0.17.12 (June 16, 2017)
 
-## Stying Update
+## Styling Update
 
 - Made PageHeader component fixed.
 
