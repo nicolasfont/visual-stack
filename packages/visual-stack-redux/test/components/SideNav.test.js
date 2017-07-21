@@ -68,17 +68,21 @@ describe('LinkGroup', () => {
   it('should toggle itself when clicked', () => {
     const label = 'LABEL';
     const faker = sinon.spy();
+    const toggleFake = sinon.spy();
 
     const wrapper = mount(
       <InternalLinkGroup
         label={label}
         linkGroups={{}}
+        toggleSideNav={toggleFake}
         toggleSideNavLinkGroup={faker}
       />
     );
 
     wrapper.find(LinkGroup).find('.sidenav-container-label').simulate('click');
     expect(faker).to.have.been.calledWith(label);
+    expect(toggleFake).to.have.been.calledOnce;
+    expect(toggleFake).to.have.been.calledWith(false);
   });
 
   it('should propagate children to VisualStack LinkGroup', () => {

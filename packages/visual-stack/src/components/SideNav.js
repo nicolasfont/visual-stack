@@ -18,12 +18,32 @@ Header.propTypes = {
 };
 
 export class LinkGroup extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sideNavState: this.props.matches,
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.expanded === false) {
+      this.setState({ sideNavState: nextProps.matches });
+    }
+  }
+
   render() {
-    console.log('in presentational layer Link Group props:', this.props);
     const classes = 'sidenav-entry sidenav-container' + (this.props.expanded ? ' expanded' : '');
+    const expandRow = e => {
+      this.props.onClick(e, this.props.label);
+      if (this.props.expanded === false) {
+        this.props.toggleSideNav(this.props.expanded);
+      } else {
+        this.props.toggleSideNav(this.state.sideNavState);
+      }
+    };
     return (
       <li className={classes}>
-        <a className="sidenav-container-row" onClick={e => { this.props.onClick(e, this.props.label); this.props.something(this.props.expanded) } }>
+        <a className="sidenav-container-row" onClick={expandRow}>
           <div className="sidenav-container-row-left">
             { this.props.icon }
             <span className="sidenav-container-label">{ this.props.label }</span>
@@ -36,7 +56,7 @@ export class LinkGroup extends React.Component {
       </li>
     );
   }
-};
+}
 LinkGroup.propTypes = {
   expanded: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
@@ -93,11 +113,12 @@ class SideNavP extends React.Component {
   }
 
   render() {
-    console.log('in presentational SideNav props', this.props.children[0].props.something);
     const toggle = () => this.props.onClick(!this.props.collapsed);
+    const mappedChildren =
+      React.Children.map(this.props.children, child => React.cloneElement(child, { matches: this.props.collapsed }));
     return (
             <ul className={'sidenav' + (this.props.collapsed ? ' collapsed' : ' active')}>
-              { this.props.children[0] }
+              { mappedChildren }
               <ul className="toggle-icon"><ToggleIcon onClick={toggle}/></ul>
             </ul>
     );
