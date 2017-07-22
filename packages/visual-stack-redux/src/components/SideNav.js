@@ -20,7 +20,7 @@ export class InternalSideNav extends Component {
   render() {
     const mappedChildren =
       React.Children.map(this.props.children,
-                         (child) => React.cloneElement(child, { toggleSideNav: this.props.toggleSideNav, matches: this.props.collapsed }));
+                         child => React.cloneElement(child, { toggleSideNav: this.props.toggleSideNav, matches: this.props.collapsed }));
     return (
       <BaseSideNav
         collapsed={this.props.collapsed}
@@ -45,12 +45,9 @@ export class InternalLinkGroup extends Component {
     const expanded = R.view(R.lensPath([this.props.label, 'expanded']), this.props.linkGroups) || false;
     return (
       <BaseLinkGroup
-        icon={this.props.icon}
-        label={this.props.label}
         expanded={expanded}
-        toggleSideNav={this.props.toggleSideNav}
-        matches={this.props.matches}
         onClick={() => this.props.toggleSideNavLinkGroup(this.props.label) }
+        { ...this.props}
       >
         { this.props.children }
       </BaseLinkGroup>

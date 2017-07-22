@@ -25,11 +25,14 @@ body {
 .application-layout-side {
   flex: 0 0 auto;
   overflow: auto;
+  margin-left: 50px;
 }
 
 @media (min-width: 40em) {
   .application-layout-side {
-    flex: 0 0 260px;
+    flex: 0 0 240px;
+    margin-left: 0px;
+    transition: margin .5s ease-out;
   }
 }
 

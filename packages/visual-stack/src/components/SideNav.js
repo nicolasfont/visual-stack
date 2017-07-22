@@ -41,38 +41,54 @@ export class LinkGroup extends React.Component {
         this.props.toggleSideNav(this.state.sideNavState);
       }
     };
+    const renderIcon = (R.isNil(this.props.icon)) ? <SideNavIcon type="circle-thin custom" text={R.head(this.props.label)} /> : this.props.icon;
+    const mappedChildren = React.Children.map(this.props.children, child => React.cloneElement(child, { inLinkGroup: true }));
     return (
       <li className={classes}>
         <a className="sidenav-container-row" onClick={expandRow}>
           <div className="sidenav-container-row-left">
-            { this.props.icon }
+            { renderIcon }
             <span className="sidenav-container-label">{ this.props.label }</span>
           </div>
           <i className="fa fa-chevron-right sidenav-container-chevron"></i>
         </a>
         <ul>
-          { this.props.children }
+          { mappedChildren }
         </ul>
       </li>
     );
   }
 }
+
 LinkGroup.propTypes = {
   expanded: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
 };
 
-export const Link = ({ children }) => {
+export const Link = ({ children, inLinkGroup }) => {
+  const childrenWithProps = React.Children.map(children, child => {
+    const children = child.props.children;
+    const mappedChildren = (!inLinkGroup && React.Children.count(children) === 1)
+      ? R.pair(<SideNavIcon type="circle-thin custom" text={R.head(children.props.children)} />, children)
+      : child.props.children;
+    return React.cloneElement(child, { children: mappedChildren });
+  });
   return (
     <li className="sidenav-entry sidenav-link">
-      {children}
+      {childrenWithProps}
     </li>
   );
 };
 
-export const SideNavIcon = ({ type }) => {
-  return <i className={`fa fa-${type} sidenav-icon`}></i>;
+export const SideNavIcon = ({ type, text }) => {
+  return (R.isNil(text))
+    ? <i className={`fa fa-${type} sidenav-icon`}></i>
+    : <div className="fa-stack stacked-icon class">
+        <i className={`fa fa-${type} sidenav-icon`}>
+          <span className="fa fa-stack-1x single-text">{text}</span>
+        </i>
+      </div>;
 };
 
 

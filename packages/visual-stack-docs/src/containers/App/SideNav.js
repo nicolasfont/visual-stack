@@ -26,8 +26,6 @@ export default () =>
         )(routeComponentMap)
       }
     </LinkGroup>
-
-    <LinkGroup label="Lies"></LinkGroup>
     <SideNavLink>
       <Link to="/icons">
         {iconIcon}
@@ -40,6 +38,5 @@ export default () =>
         <span>Layouts</span>
       </Link>
     </SideNavLink>
-
   </SideNav>;
 

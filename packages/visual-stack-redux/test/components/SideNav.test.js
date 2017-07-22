@@ -88,7 +88,7 @@ describe('LinkGroup', () => {
   it('should propagate children to VisualStack LinkGroup', () => {
     const wrapper = mount(
       <InternalLinkGroup label="whatever" linkGroups={{}}>
-        <Link>123</Link>
+        <Link><a href="mockRouterLink">123</a></Link>
       </InternalLinkGroup>
     );
     expect(wrapper.find(Link)).to.have.length(1);
