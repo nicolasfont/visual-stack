@@ -1,3 +1,10 @@
+# 1.0.1 (August 3, 2017)
+## Major Version Update
+- SideNav Component is now collapsable
+- Application Layout now has Redux wrapper component
+- Tooltips added in patch update
+- See README.md for documentation on breaking changes
+
 # 0.17.16 (July 6, 2017)
 
 ## Styling Update
