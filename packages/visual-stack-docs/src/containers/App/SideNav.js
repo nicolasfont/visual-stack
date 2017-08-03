@@ -25,13 +25,13 @@ export default () =>
         )(routeComponentMap)
       }
     </LinkGroup>
-    <SideNavLink>
+    <SideNavLink hoverText="Icons">
       <Link to="/icons">
         {iconIcon}
         <span>Icons</span>
       </Link>
     </SideNavLink>
-    <SideNavLink>
+    <SideNavLink hoverText="Layouts">
       <Link to="/layouts">
         {layoutIcon}
         <span>Layouts</span>

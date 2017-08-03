@@ -50,7 +50,7 @@ export class LinkGroup extends React.Component {
     const mappedChildren = React.Children.map(this.props.children, child => React.cloneElement(child, { inLinkGroup: true }));
     return (
       <li className={classes}>
-        <a className="sidenav-container-row" onClick={expandRow}>
+        <a className="sidenav-container-row" onClick={expandRow} title={this.props.label}>
           <div className="sidenav-container-row-left">
             { renderIcon }
             <span className="sidenav-container-label">{ this.props.label }</span>
@@ -71,7 +71,7 @@ LinkGroup.propTypes = {
   label: PropTypes.string.isRequired,
 };
 
-export const Link = ({ children, inLinkGroup }) => {
+export const Link = ({ hoverText, children, inLinkGroup }) => {
   const childrenWithProps = React.Children.map(children, child => {
     const children = child.props.children;
     const mappedChildren = (!inLinkGroup && React.Children.count(children) === 1)
@@ -80,7 +80,7 @@ export const Link = ({ children, inLinkGroup }) => {
     return React.cloneElement(child, { children: mappedChildren });
   });
   return (
-    <li className="sidenav-entry sidenav-link">
+    <li className="sidenav-entry sidenav-link" title={hoverText}>
       {childrenWithProps}
     </li>
   );
