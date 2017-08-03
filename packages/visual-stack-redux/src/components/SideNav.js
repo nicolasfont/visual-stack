@@ -8,26 +8,31 @@ import {
   Link as BaseLink,
   LinkGroup as BaseLinkGroup,
 } from '@cjdev/visual-stack/lib/components/SideNav';
-import { toggleSideNavLinkGroup } from '../actions';
+import { toggleSideNavLinkGroup, toggleSideNav } from '../actions';
 
 export class InternalSideNav extends Component {
   static propTypes = {
-    active: PropTypes.bool,
+    collapsed: PropTypes.bool,
   };
   constructor(props) {
     super(props);
   }
   render() {
+    const mappedChildren =
+      React.Children.map(this.props.children,
+                         child => React.cloneElement(child, { toggleSideNav: this.props.toggleSideNav, collapsed: this.props.collapsed }));
     return (
-      <BaseSideNav active={this.props.active} >
-        { this.props.children }
+      <BaseSideNav
+        collapsed={this.props.collapsed}
+        onClick={this.props.toggleSideNav}
+        >
+        { mappedChildren }
       </BaseSideNav>
     );
   }
 }
-export const SideNav = connect(
-  state => ({ active: state.visualStack.sideNav.active }),
-)(InternalSideNav);
+
+export const SideNav = connect(state => ({ collapsed: state.visualStack.sideNav.collapsed }), { toggleSideNav })(InternalSideNav);
 
 export class InternalLinkGroup extends Component {
   static propTypes = {
@@ -40,10 +45,9 @@ export class InternalLinkGroup extends Component {
     const expanded = R.view(R.lensPath([this.props.label, 'expanded']), this.props.linkGroups) || false;
     return (
       <BaseLinkGroup
-        icon={this.props.icon}
-        label={this.props.label}
         expanded={expanded}
-        onClick={() => this.props.toggleSideNavLinkGroup(this.props.label) }
+        onClick={ this.props.toggleSideNavLinkGroup }
+        { ...this.props}
       >
         { this.props.children }
       </BaseLinkGroup>
@@ -51,10 +55,9 @@ export class InternalLinkGroup extends Component {
   }
 }
 
-export const LinkGroup = connect(
-  state => ({ linkGroups: state.visualStack.sideNav.linkGroups }),
-  { toggleSideNavLinkGroup }
-)(InternalLinkGroup);
+const mapState = state => ({ linkGroups: state.visualStack.sideNav.linkGroups });
+
+export const LinkGroup = connect(mapState, { toggleSideNavLinkGroup })(InternalLinkGroup);
 
 
 export const Header = BaseHeader;

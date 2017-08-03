@@ -9,16 +9,16 @@ import { SideNav, Header, LinkGroup, Link } from '@cjdev/visual-stack/lib/compon
 describe('SideNav', () => {
   it('should propagate the active state to VisualStack SideNav', () => {
     const wrapper = shallow(
-      <InternalSideNav active={true} />
+      <InternalSideNav collapsed={true} />
     );
-    expect(wrapper.find(SideNav).prop('active')).to.be.true;
+    expect(wrapper.find(SideNav).prop('collapsed')).to.be.true;
   });
 
   it('should propagate children to VisualStack SideNav', () => {
-    const wrapper = mount(
-      <InternalSideNav >
+    const wrapper = shallow(
+      <InternalSideNav>
           <Header label="whatever" />
-        </InternalSideNav>
+      </InternalSideNav>
     );
     expect(wrapper.find(SideNav).find(Header)).to.have.length(1);
     expect(wrapper.find(SideNav).find(Header).prop('label')).to.equal('whatever');
@@ -65,26 +65,30 @@ describe('LinkGroup', () => {
     expect(wrapper.find(LinkGroup).prop('expanded')).to.be.false;
   });
 
-  it('should toggle itself when clicked', () => {
+  it('should toggle itself when clicked with given state', () => {
     const label = 'LABEL';
     const faker = sinon.spy();
+    const toggleFake = sinon.spy();
 
     const wrapper = mount(
       <InternalLinkGroup
         label={label}
         linkGroups={{}}
+        toggleSideNav={toggleFake}
         toggleSideNavLinkGroup={faker}
       />
     );
 
     wrapper.find(LinkGroup).find('.sidenav-container-label').simulate('click');
-    expect(faker).to.have.been.calledWith(label);
+    expect(faker).to.have.been.calledWith(true, label);
+    expect(toggleFake).to.have.been.calledOnce;
+    expect(toggleFake).to.have.been.calledWith(false);
   });
 
   it('should propagate children to VisualStack LinkGroup', () => {
     const wrapper = mount(
       <InternalLinkGroup label="whatever" linkGroups={{}}>
-        <Link>123</Link>
+        <Link><a href="mockRouterLink">123</a></Link>
       </InternalLinkGroup>
     );
     expect(wrapper.find(Link)).to.have.length(1);
