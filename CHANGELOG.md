@@ -1,3 +1,13 @@
+# 1.1.1 (September 1, 2017)
+
+# Upgrade
+
+- Upgraded React to 15.6.1
+
+## Styling Update
+
+- Updated SideNav to now display logo instead of Top Nav.
+
 # 1.0.1 (August 3, 2017)
 ## Major Version Update
 - SideNav Component is now collapsable
