@@ -1,4 +1,4 @@
-# 1.1.1 (September 1, 2017)
+# 1.1.0 (September 1, 2017)
 
 # Upgrade
 
