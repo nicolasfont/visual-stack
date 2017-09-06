@@ -89,8 +89,6 @@ export class LinkGroup extends React.Component {
   }
 }
 
-
-
 LinkGroup.propTypes = {
   expanded: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
