@@ -1,3 +1,10 @@
+# 1.2.1 (September 6, 2017)
+
+## Bug Fixes
+
+- Fix SideNav text wrapping
+- Re-export SideNav components through visual-stack-redux
+
 # 1.2.0 (September 6, 2017)
 
 ## New Features
