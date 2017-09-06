@@ -2,8 +2,7 @@ import React from 'react';
 import R from 'ramda';
 import { Link } from 'react-router';
 import CJLogo from '@cjdev/visual-stack/lib/components/CJLogo';
-import { LinkContentWrapper } from '@cjdev/visual-stack/lib/components/SideNav';
-import { SideNav, Link as SideNavLink, LinkGroup } from '@cjdev/visual-stack-redux/lib/components/SideNav';
+import { SideNav, Link as SideNavLink, LinkGroup, LinkContentWrapper } from '@cjdev/visual-stack-redux/lib/components/SideNav';
 import { routeComponentMap } from '../Components/Docs/';
 
 import LayoutIcon from 'mdi-react/TelevisionGuideIcon';
