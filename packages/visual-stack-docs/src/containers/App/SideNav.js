@@ -7,7 +7,7 @@ import { SideNav, Link as SideNavLink, LinkGroup } from '@cjdev/visual-stack-red
 import { routeComponentMap } from '../Components/Docs/';
 
 import LayoutIcon from 'mdi-react/TelevisionGuideIcon';
-import ComponentIcon from 'mdi-react/CubeUnfoldedIcon';
+import ComponentIcon from 'mdi-react/HexagonMultipleIcon';
 import IconsIcon from 'mdi-react/ShapePlusIcon';
 
 export default () =>
