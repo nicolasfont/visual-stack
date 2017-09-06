@@ -2,16 +2,17 @@ import React from 'react';
 import R from 'ramda';
 import { Link } from 'react-router';
 import CJLogo from '@cjdev/visual-stack/lib/components/CJLogo';
-import { SideNav, SideNavIcon, Link as SideNavLink, LinkGroup } from '@cjdev/visual-stack-redux/lib/components/SideNav';
+import { LinkContentWrapper } from '@cjdev/visual-stack/lib/components/SideNav';
+import { SideNav, Link as SideNavLink, LinkGroup } from '@cjdev/visual-stack-redux/lib/components/SideNav';
 import { routeComponentMap } from '../Components/Docs/';
 
-const componentIcon = <SideNavIcon type="square" />;
-const iconIcon = <SideNavIcon type="font-awesome" />;
-const layoutIcon = <SideNavIcon type="th-list" />;
+import LayoutIcon from 'mdi-react/TelevisionGuideIcon';
+import ComponentIcon from 'mdi-react/CubeUnfoldedIcon';
+import IconsIcon from 'mdi-react/ShapePlusIcon';
 
 export default () =>
   <SideNav logo={<CJLogo />} >
-    <LinkGroup label="Components" icon={componentIcon}>
+    <LinkGroup label="Components" svgIcon={<ComponentIcon />}>
       {
         R.pipe(
           R.mapObjIndexed((val, key) => ({ key, ...val })),
@@ -28,14 +29,14 @@ export default () =>
     </LinkGroup>
     <SideNavLink hoverText="Icons">
       <Link to="/icons">
-        {iconIcon}
-        <span>Icons</span>
+        <LinkContentWrapper icon={<IconsIcon/>} label="Icons"/>
+        <span/>
       </Link>
     </SideNavLink>
     <SideNavLink hoverText="Layouts">
       <Link to="/layouts">
-        {layoutIcon}
-        <span>Layouts</span>
+        <LinkContentWrapper icon={<LayoutIcon/>} label="Layouts"/>
+        <span/>
       </Link>
     </SideNavLink>
   </SideNav>;

@@ -198,3 +198,24 @@
 .stacked-icon {
   margin-right: 9px;
 }
+
+.sidenav-link-content-wrapper {
+  display:flex;
+  align-items: center;
+}
+
+.sidenav-link-label {
+  display: inline;
+}
+
+.sidenav-svg-icon {
+  margin-left: -2px;
+  margin-right: 19px;
+  display: flex;
+}
+
+.sidenav-svg-icon svg {
+  fill: currentColor;
+  width: 22px;
+}
+

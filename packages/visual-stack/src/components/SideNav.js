@@ -3,6 +3,24 @@ import MediaQuery from 'react-responsive';
 import R from 'ramda';
 import './SideNav.css';
 
+export const SideNavIcon = ({ type, text }) => {
+  return (R.isNil(text))
+    ? <i className={`fa fa-${type} sidenav-icon`}></i>
+    : <div className="fa-stack stacked-icon class">
+        <i className={`fa fa-${type} sidenav-icon`}>
+          <span className="fa fa-stack-1x single-text">{text}</span>
+        </i>
+      </div>;
+};
+
+export const SideNavSvgIcon = ({ children }) => {
+  return (
+    <div className="sidenav-svg-icon">{children}</div>
+  );
+};
+
+const makeDefaultIcon = label => <SideNavIcon type="circle-thin custom" text={R.head(label)} />;
+
 export const ToggleIcon = ({ sideNavState, onClick }) => {
   const sideNavIcon = (sideNavState) ? 'fa fa-chevron-right' : 'fa fa-chevron-left';
   return (
@@ -46,13 +64,19 @@ export class LinkGroup extends React.Component {
         this.props.toggleSideNav(this.state.sideNavState);
       }
     };
-    const renderIcon = (R.isNil(this.props.icon)) ? <SideNavIcon type="circle-thin custom" text={R.head(this.props.label)} /> : this.props.icon;
+
+    const icon = !R.isNil(this.props.svgIcon)
+      ? <SideNavSvgIcon>{this.props.svgIcon}</SideNavSvgIcon>
+      : !R.isNil(this.props.icon)
+        ? this.props.icon
+        : makeDefaultIcon(this.props.label);
+
     const mappedChildren = React.Children.map(this.props.children, child => React.cloneElement(child, { inLinkGroup: true }));
     return (
       <li className={classes}>
         <a className="sidenav-container-row" onClick={expandRow} title={this.props.label}>
           <div className="sidenav-container-row-left">
-            { renderIcon }
+            { icon }
             <span className="sidenav-container-label">{ this.props.label }</span>
           </div>
           <i className="fa fa-chevron-right sidenav-container-chevron"></i>
@@ -65,6 +89,8 @@ export class LinkGroup extends React.Component {
   }
 }
 
+
+
 LinkGroup.propTypes = {
   expanded: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
@@ -75,7 +101,7 @@ export const Link = ({ hoverText, children, inLinkGroup }) => {
   const childrenWithProps = React.Children.map(children, child => {
     const children = child.props.children;
     const mappedChildren = (!inLinkGroup && React.Children.count(children) === 1)
-      ? R.pair(<SideNavIcon type="circle-thin custom" text={R.head(children.props.children)} />, children)
+      ? R.pair(makeDefaultIcon(children.props.children), children)
       : child.props.children;
     return React.cloneElement(child, { children: mappedChildren });
   });
@@ -86,14 +112,15 @@ export const Link = ({ hoverText, children, inLinkGroup }) => {
   );
 };
 
-export const SideNavIcon = ({ type, text }) => {
-  return (R.isNil(text))
-    ? <i className={`fa fa-${type} sidenav-icon`}></i>
-    : <div className="fa-stack stacked-icon class">
-        <i className={`fa fa-${type} sidenav-icon`}>
-          <span className="fa fa-stack-1x single-text">{text}</span>
-        </i>
-      </div>;
+export const LinkContentWrapper = ({ icon, label }) => {
+  return (
+    <div className="sidenav-link-content-wrapper">
+      <SideNavSvgIcon>
+        {icon}
+      </SideNavSvgIcon>
+      <div className="sidenav-link-label sidenav-container-label">{label}</div>
+    </div>
+  );
 };
 
 
