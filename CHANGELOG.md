@@ -1,3 +1,14 @@
+# 1.2.0 (September 6, 2017)
+
+## New Features
+
+- Material UI Icons
+
+## Styling Update
+
+- SideNav label wrapping
+- TopNav background color
+
 # 1.1.0 (September 1, 2017)
 
 # Upgrade
