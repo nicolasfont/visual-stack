@@ -116,6 +116,10 @@
   cursor: pointer;
 }
 
+.sidenav-container-label {
+  white-space: nowrap;
+}
+
 .sidenav .expanded .sidenav-container-label,
 .sidenav .expanded>a {
   background-color: #506b86;

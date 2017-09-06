@@ -3,12 +3,11 @@ import R from 'ramda';
 import { connect } from 'react-redux';
 import {
   SideNav as BaseSideNav,
-  Header as BaseHeader,
-  SideNavIcon as BaseIcon,
-  Link as BaseLink,
   LinkGroup as BaseLinkGroup,
 } from '@cjdev/visual-stack/lib/components/SideNav';
 import { toggleSideNavLinkGroup, toggleSideNav } from '../actions';
+
+export { LinkContentWrapper, SideNavIcon, Link, Header } from '@cjdev/visual-stack/lib/components/SideNav';
 
 export class InternalSideNav extends Component {
   static propTypes = {
@@ -61,7 +60,4 @@ const mapState = state => ({ linkGroups: state.visualStack.sideNav.linkGroups })
 export const LinkGroup = connect(mapState, { toggleSideNavLinkGroup })(InternalLinkGroup);
 
 
-export const Header = BaseHeader;
-export const Link = BaseLink;
-export const SideNavIcon = BaseIcon;
 
