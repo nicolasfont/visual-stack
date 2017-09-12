@@ -148,12 +148,12 @@ class SideNavP extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sideNavPreviousState: (this.props.initalizedCollapsed || this.props.matches),
+      sideNavPreviousState: (this.props.initializedCollapsed || this.props.matches),
     };
   }
 
   componentWillMount() {
-    this.props.onClick(this.props.initalizedCollapsed || this.props.matches);
+    this.props.onClick(this.props.initializedCollapsed || this.props.matches);
   }
 
   componentWillReceiveProps(nextProps) {

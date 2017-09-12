@@ -11,7 +11,7 @@ import IconsIcon from 'mdi-react/ShapePlusIcon';
 
 export default () =>
 <SideNav
-  initalizedCollapsed={true}
+  initializedCollapsed={true}
   logo={<CJLogo />} >
     <LinkGroup label="Components" svgIcon={<ComponentIcon />}>
       {
