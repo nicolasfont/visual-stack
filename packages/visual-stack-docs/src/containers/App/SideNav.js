@@ -10,7 +10,9 @@ import ComponentIcon from 'mdi-react/HexagonMultipleIcon';
 import IconsIcon from 'mdi-react/ShapePlusIcon';
 
 export default () =>
-  <SideNav logo={<CJLogo />} >
+<SideNav
+  initalizedCollapsed={true}
+  logo={<CJLogo />} >
     <LinkGroup label="Components" svgIcon={<ComponentIcon />}>
       {
         R.pipe(
