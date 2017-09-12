@@ -1,3 +1,9 @@
+# 1.2.2 (September 12, 2017)
+
+## New Features
+
+- Allow SideNav component to set initial state via props.
+
 # 1.2.1 (September 6, 2017)
 
 ## Bug Fixes
