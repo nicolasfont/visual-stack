@@ -131,9 +131,7 @@ export class SideNav extends React.Component {
             return (
               <SideNavP
                 matches={matches}
-                logo={this.props.logo}
-                onClick={this.props.onClick}
-                collapsed={this.props.collapsed}
+                {...this.props}
                 >
                 {this.props.children}
               </SideNavP>
@@ -149,10 +147,13 @@ export class SideNav extends React.Component {
 class SideNavP extends React.Component {
   constructor(props) {
     super(props);
-    this.props.onClick(this.props.matches);
     this.state = {
-      sideNavPreviousState: this.props.matches,
+      sideNavPreviousState: (this.props.initializedCollapsed || this.props.matches),
     };
+  }
+
+  componentWillMount() {
+    this.props.onClick(this.props.initializedCollapsed || this.props.matches);
   }
 
   componentWillReceiveProps(nextProps) {
