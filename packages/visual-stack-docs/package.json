@@ -1,6 +1,6 @@
 {
   "name": "@cjdev/visual-stack-docs",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "private": true,
   "devDependencies": {
     "concurrently": "^3.1.0",
@@ -10,8 +10,8 @@
     "react-scripts": "^0.9.5"
   },
   "dependencies": {
-    "@cjdev/visual-stack": "^1.2.1",
-    "@cjdev/visual-stack-redux": "^1.2.1",
+    "@cjdev/visual-stack": "^1.2.2",
+    "@cjdev/visual-stack-redux": "^1.2.2",
     "express": "^4.14.1",
     "material-ui": "^1.0.0-beta.8",
     "material-ui-icons": "^1.0.0-beta.5",
