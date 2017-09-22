@@ -1,6 +1,6 @@
 {
   "name": "@cjdev/visual-stack-redux",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "main": "lib/index.js",
   "files": [
     "dist",
@@ -20,7 +20,7 @@
     "watch": "gulp watch"
   },
   "peerDependencies": {
-    "@cjdev/visual-stack": "^1.2.2",
+    "@cjdev/visual-stack": "^1.2.3",
     "react": ">=15.3.1",
     "react-dom": ">=15.3.1",
     "redux": ">=3.3.1"
@@ -30,7 +30,7 @@
     "redux-actions": "^0.9.1"
   },
   "devDependencies": {
-    "@cjdev/visual-stack": "^1.2.2",
+    "@cjdev/visual-stack": "^1.2.3",
     "babel-core": "^6.7.4",
     "babel-eslint": "^6.0.0-beta.6",
     "babel-loader": "^6.2.5",
