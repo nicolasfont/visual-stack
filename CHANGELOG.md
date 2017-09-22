@@ -1,3 +1,10 @@
+# 1.2.3 (September 22, 2017)
+
+## Bug Fixes
+
+- Adjusted Sliding Panel top height.
+- Adjusted Secondary Header top height.
+
 # 1.2.2 (September 12, 2017)
 
 ## New Features
