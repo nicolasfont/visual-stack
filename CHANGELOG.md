@@ -1,3 +1,18 @@
+# 2.0.0 (October 2, 2017)
+
+## Breaking Changes
+- Application Layout no longer accepts TopNav and related components.
+- TopNav component removed.
+
+## New Features
+- UserMenu refactored to work within SideNav component.
+- SideNav documentation added to doc site.
+- Icon documentation added to doc site.
+- `npm run watch` command now starts with a `npm run build`.
+
+## Bug Fixes
+- Fix horizontal overflow issue in Application Layout.
+
 # 1.2.3 (September 22, 2017)
 
 ## Bug Fixes
