@@ -1,5 +1,6 @@
+/** @prettier */
 .sidenav {
-  background-color: #33495F;
+  background-color: #333;
   list-style: none;
   width: 55px;
   height: 100%;
@@ -7,14 +8,14 @@
   overflow-x: hidden;
   left: 0;
   transition: width .5s ease-out;
-  margin-top: -50px;
   position: fixed;
   z-index: 200;
   font-weight: 400;
+  user-select:none;
 }
 
 .sidenav.active {
-  width: 240px;
+  width: 255px;
 }
 
 @media (min-width: 40em) {
@@ -30,31 +31,43 @@
 
 .sideNav-left-logo {
   display: flex;
-  align-items: center;
-  width: auto;
-  margin: 0 auto;
-  height: 50px;
+  height: 45px;
 }
 
-.center-logo {
-  text-align: center;
-  margin: 0 auto;
-  list-style-type: none;
+.logo {
+  padding: 10px;
 }
 
-.center-logo .cj-logo {
+.logo .cj-logo {
   width: 35px;
 }
 
-.toggle-icon {
+.app-name {
+  display:inherit;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-family: gibson-light;
+  white-space: nowrap;
+}
+
+.sidenav-user-menu, .toggle-icon {
   position: fixed;
-  bottom: 0;
   width: inherit;
-  background-color: #283a4d;
+  background-color: #333;
+}
+
+.sidenav-user-menu {
+  bottom: 45px;
+}
+
+.toggle-icon {
+  bottom: 0;
 }
 
 .sidenav-toggle-icon {
   text-align: center;
+  border-top: 1px solid #4a4a4a;
 }
 
 .sidenav.collapsed .sidenav-container ul li a {
@@ -65,6 +78,7 @@
 .sidenav.collapsed .sidenav-link span,
 .sidenav.collapsed .sidenav-container-chevron,
 .sidenav.collapsed .link-group-children,
+.sidenav.collapsed .app-name,
 .sidenav.collapsed .sidenav-container-label {
   opacity: 0;
   transition: opacity .3s ease-out;
@@ -72,6 +86,7 @@
 
 .sidenav.active .sidenav-link span,
 .sidenav.active .sidenav-container-chevron,
+.sidenav.active .app-name,
 .sidenav.active .sidenav-container-label {
   opacity: 1;
   display: inline-block;
@@ -102,27 +117,29 @@
   text-decoration: none;
   display: block;
   height: 45px;
-  color: #B2C4D7;
+  color: #ddd;
 }
 
-.sidenav .link-group-children a {
-  padding: 12px 12px 12px 55px;
+.sidenav .link-group-children {
+  background-color: rgb(45,45,45);
 }
 
 .sidenav a:focus,
 .sidenav a:hover {
-  background-color: #283a4d;
+  background-color: #555;
   color: #FFFFFF;
   cursor: pointer;
 }
 
 .sidenav-container-label {
   white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 165px;
+  overflow: hidden;
 }
 
-.sidenav .expanded .sidenav-container-label,
-.sidenav .expanded>a {
-  background-color: #506b86;
+.sidenav .expanded > a.sidenav-container-row {
+  background-color: #444;
   color: #FFFFFF;
 }
 
@@ -130,13 +147,17 @@
   height: 45px;
 }
 
-.sidenav a.sidenav-container-row {
+.sidenav .sidenav-container-row {
   display: flex;
   height: 45px;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
   user-select:none;
+}
+
+.sidenav a.sidenav-container-row {
+  cursor: pointer;
 }
 
 .sidenav .sidenav-container-row-left {
@@ -220,8 +241,33 @@
   display: flex;
 }
 
+.placeholder-icon,
+.sidenav-svg-icon svg {
+  width: 22px;
+}
+
 .sidenav-svg-icon svg {
   fill: currentColor;
-  width: 22px;
+}
+
+.user-icon-circle {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin-right: 15px;
+  margin-left: -6px;
+  background-color: #00AF66;
+  display:flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+}
+
+
+.user-icon-first,
+.user-icon-last {
+  font-size: 13px;
+  font-weight: 300;
 }
 

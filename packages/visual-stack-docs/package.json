@@ -6,7 +6,9 @@
     "concurrently": "^3.1.0",
     "copyfiles": "^1.2.0",
     "eslint": "^3.14.1",
+    "eslint-plugin-react": "^7.4.0",
     "npm-watch": "^0.1.8",
+    "prettier": "^1.7.0",
     "react-scripts": "^0.9.5"
   },
   "dependencies": {
@@ -27,15 +29,16 @@
   },
   "proxy": "http://localhost:3001/",
   "watch": {
-    "samples": "src/containers/Components/Docs/*.js"
+    "samples": "src/**/*.js"
   },
   "scripts": {
-    "samples": "copyfiles -f src/containers/Components/Docs/*.js build/samples/",
-    "start": "react-scripts start",
+    "samples": "copyfiles \"src/containers/{App,Components/Docs,Icons}/**/*.{js,css}\" build/samples",
     "build": "react-scripts build && npm run samples",
+    "lint": "eslint src",
+    "format": "prettier {src,server}/**/*.js --write",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "eslint src",
+    "start": "react-scripts start",
     "server": "concurrently npm-watch \"node ./server\"",
     "docs": "concurrently \"npm run start\" \"npm run server\""
   }

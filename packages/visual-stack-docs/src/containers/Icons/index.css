@@ -1,0 +1,35 @@
+/** @prettier */
+.icon-grid {
+  display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ justify-content: flex-start;
+}
+
+.icon-display {
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  margin: 1em;
+  padding: 1em;
+}
+
+
+.icon-display-icon {
+  margin-right: 1em;
+}
+.icon-display-icon .mdi-icon {
+  width: 24px;
+}
+
+.icon-display-name {
+  font-family: Consolas,monospace;
+}
+
+.icon-graph-square {
+}
+
+.mdi-icon.cj-green {
+  fill: #00AF66;
+}
+

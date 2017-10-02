@@ -1,10 +1,6 @@
 import reducer, {
   toggleSideNav,
   toggleSideNavLinkGroup,
-  toggleSecondNav,
-  openTopNavDropdown,
-  closeTopNavDropdown,
-  toggleTopNavDropDown,
   toggleSlidingPanel,
 } from '../src/actions';
 
@@ -49,72 +45,29 @@ describe('reducer', () => {
     expect(reducer(beforeState, toggleSideNavLinkGroup(true, 'linkGroup1'))).to.deep.equal(afterState);
   });
 
-  it('should toggle SecondNav', () => {
+  it('should collapse existing expanded LinkGroups', () => {
     const beforeState = {
-      topNav: {
-        secondNavActive: false,
+      sideNav: {
+        linkGroups: {
+          linkGroupShouldBeReset: {
+            expanded: true,
+          },
+        },
       },
     };
     const afterState = {
-      topNav: {
-        secondNavActive: true,
-      },
-    };
-    expect(reducer(beforeState, toggleSecondNav())).to.deep.equal(afterState);
-    expect(reducer(afterState, toggleSecondNav())).to.deep.equal(beforeState);
-  });
-
-  it('should open userMenu', () => {
-    const beforeState = {
-      topNav: {
-        userMenu: {
-          open: false,
+      sideNav: {
+        linkGroups: {
+          linkGroup1: {
+            expanded: true,
+          },
+          linkGroupShouldBeReset: {
+            expanded: false,
+          },
         },
       },
     };
-
-    const afterState = {
-      topNav: {
-        userMenu: {
-          open: true,
-        },
-      },
-    };
-    expect(reducer(beforeState, openTopNavDropdown('userMenu'))).to.deep.equal(afterState);
-  });
-
-  it('should close userMenu', () => {
-    const beforeState = {
-      topNav: {
-        userMenu: {
-          open: true,
-        },
-      },
-    };
-
-    const afterState = {
-      topNav: {
-        userMenu: {
-          open: false,
-        },
-      },
-    };
-    expect(reducer(beforeState, closeTopNavDropdown('userMenu'))).to.deep.equal(afterState);
-  });
-
-  it('should toggle userMenu when no initial state', () => {
-    const beforeState = {
-      topNav: {},
-    };
-
-    const afterState = {
-      topNav: {
-        userMenu: {
-          open: true,
-        },
-      },
-    };
-    expect(reducer(beforeState, toggleTopNavDropDown('userMenu'))).to.deep.equal(afterState);
+    expect(reducer(beforeState, toggleSideNavLinkGroup(true, 'linkGroup1'))).to.deep.equal(afterState);
   });
 
   it('should toggle SlidingPanel', () => {
