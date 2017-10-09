@@ -1,3 +1,14 @@
+# 2.1.0 (October 9, 2017)
+
+## New Features
+- Migrate from React.PropTypes to separate prop-types lib
+- Added compare Icon
+
+## Styling Updates
+- Update styling for SlidingPanel not that TopNav is gone
+- Update SideNav colors from grays to blackish-blues
+- Update CJ Logo, removing trademark
+
 # 2.0.0 (October 2, 2017)
 
 ## Breaking Changes
