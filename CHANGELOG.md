@@ -1,3 +1,8 @@
+# 2.1.1 (October 18, 2017)
+
+## New Features
+- Added simple Table component.
+
 # 2.1.0 (October 9, 2017)
 
 ## New Features
