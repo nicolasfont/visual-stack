@@ -1,3 +1,9 @@
+# 2.1.2 (October 23, 2017)
+
+## Styling Updates
+- Updated styling for Sliding Panel.
+- Updated UserMenu to get UserIcon color from SideNav.
+
 # 2.1.1 (October 18, 2017)
 
 ## New Features
