@@ -1,3 +1,8 @@
+# 2.1.3 (October 23, 2017)
+
+## Bug Fixes
+- Fixed SideNav to handle use case were no UserMenu is passed in.
+
 # 2.1.2 (October 23, 2017)
 
 ## Styling Updates
