@@ -1,3 +1,8 @@
+# 2.2.1 (November 9, 2017)
+
+## Bug Fixes
+- Updated Sliding Panel redux component so it can be rendered anywhere, and the Application Layout is only subscribed to its state.
+
 # 2.2.0 (November 9, 2017)
 
 ## Build Changes
