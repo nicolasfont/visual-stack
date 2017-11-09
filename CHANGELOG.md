@@ -1,3 +1,13 @@
+# 2.2.0 (November 9, 2017)
+
+## Build Changes
+- Upgraded to Webpack 3
+
+## Style Changes
+- Updated Sliding Panel redux component to push application content to
+the side when expanded. Presentational Sliding Panel functionality is still
+the same.
+
 # 2.1.3 (October 23, 2017)
 
 ## Bug Fixes
