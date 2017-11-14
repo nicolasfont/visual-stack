@@ -1,3 +1,11 @@
+# 2.2.2 (November 14, 2017)
+
+## Styling Changed
+- Updated Sliding Panel width
+
+## Bug Fixes
+- Fixed checkbox sizes in MultiSelectFilter
+
 # 2.2.1 (November 9, 2017)
 
 ## Bug Fixes
