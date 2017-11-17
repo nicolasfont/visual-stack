@@ -1,3 +1,11 @@
+# 2.2.3 (November 17, 2017)
+
+## Styling Changed
+- Updated Sliding Panel button styling
+
+## Bug Fixes
+- Fixed sliding panel height when expanded dropdowns are more than the height of the page
+
 # 2.2.2 (November 14, 2017)
 
 ## Styling Changed
