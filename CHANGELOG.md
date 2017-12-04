@@ -1,3 +1,8 @@
+# 2.2.4 (November 20, 2017)
+
+## Styling Change
+- Localized H1,Ul,Li css from base
+
 # 2.2.3 (November 17, 2017)
 
 ## Styling Changed
