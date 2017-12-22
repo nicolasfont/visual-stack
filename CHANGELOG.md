@@ -1,3 +1,11 @@
+# 2.5.0 (March 12, 2018)
+## New Feature
+- Created and added TabLayout Component
+  - Takes any number of Tab child Components.
+  - Styling is minimal to allow flexibility.
+  - Label and Content of component can take any type of Component.
+  - TabLayout also allows for fixed position header.
+
 # 2.4.1 (February 15, 2018)
 
 ## Bug Fixes
