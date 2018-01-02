@@ -20,3 +20,12 @@ export const LogoutLink = ({ onLogout }) => {
   );
 };
 
+export const UserMenuLink = ({ onClicked, linkIcon, linkLabel }) => {
+  return (
+    <Link>
+      <a onClick={onClicked}>
+        <LinkContentWrapper icon={linkIcon} label={linkLabel} />
+      </a>
+    </Link>
+  );
+};

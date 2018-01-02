@@ -15,6 +15,8 @@ import {
   LinkGroup,
   SideNav,
   UserMenu,
+  SettingsIcon,
+  UserMenuLink,
 } from '@cjdev/visual-stack-redux/lib/components/SideNav';
 import CJLogo from '@cjdev/visual-stack/lib/components/CJLogo';
 /* s3:end */
@@ -34,8 +36,13 @@ export default class AppSideNav extends React.Component {
         onLogout={() => { alert('handleLogout'); }}
         label="Victoria Smith"
         firstInitial="V"
-        lastInitial="S"
-      />;
+        lastInitial="S">
+            <UserMenuLink
+                onClicked={() => {alert('handleSettings');}}
+                linkIcon={<SettingsIcon />}
+                linkLabel="Settings"
+            />;
+      </UserMenu>;
   /* s1:end */
     return (
     <div>
