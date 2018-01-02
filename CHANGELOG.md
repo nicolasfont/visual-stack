@@ -1,3 +1,8 @@
+# 2.3.0 (Januray 2, 2018)
+
+## New Feature
+- Added UserMenuLink component for the UserMenu.
+
 # 2.2.4 (November 20, 2017)
 
 ## Styling Change
