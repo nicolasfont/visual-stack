@@ -1,0 +1,31 @@
+.custom-table-title {
+  color: #369;
+}
+
+.custom-th {
+  background-color: #69c;
+  color: #eee;
+}
+
+.custom-tr td:nth-child(5) {
+  background-color: #69c;
+  color: #eee;
+}
+
+.custom-td {
+  background-color: #eee;
+  color: #369;
+}
+
+.custom-td-colspan {
+  background-color: #eee;
+  border: 1px solid #ddd;
+}
+
+.custom-td-rowspan {
+  background-color: #69c;
+  color: #eee;
+  border: 1px solid #ddd;
+}
+
+
