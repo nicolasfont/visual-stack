@@ -1,4 +1,15 @@
-# 2.3.0 (Januray 2, 2018)
+# 2.4.0 (January 19, 2018)
+
+## New Feature
+- Table improvements
+  - All components accept a className prop
+  - All components accept and forward unhandled props to the underlying React component
+  - Adds right, center, and nowrap shorthand props to Td and Th
+  - Removes the TdRight component in favor of <Td right>
+  - Renames all CSS classes with a vs- prefix
+  - Expands the documentation to explain the changes
+
+# 2.3.0 (January 2, 2018)
 
 ## New Feature
 - Added UserMenuLink component for the UserMenu.
