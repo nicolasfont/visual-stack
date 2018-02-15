@@ -1,3 +1,8 @@
+# 2.4.1 (February 15, 2018)
+
+## Bug Fixes
+- Fix issue with last elements in side nav being hidden in long lists
+
 # 2.4.0 (January 19, 2018)
 
 ## New Feature
