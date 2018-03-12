@@ -1,0 +1,30 @@
+.cj-tab-header {
+  border-bottom: 1px solid #e1e1e1;
+  display: flex;
+  width: 100%;
+  background-color: white;
+}
+
+.cj-tab-header.cj-tab-header-floating {
+  position: fixed;
+  box-shadow: 0 0px 32px 0 rgba(136,136,136,0.25);
+}
+
+.cj-tab-label {
+  border-right: 1px solid #e1e1e1;
+  padding-bottom: 4px;
+  background-color: #fff;
+  transition: 0.2s color ease-in-out;
+  user-select: none;
+  display: flex;
+}
+
+.cj-tab-label.cj-tab-label-disabled {
+  color: #cecece;
+  background-color: white;
+}
+
+.cj-tab-label.cj-tab-label-clicked  {
+  color: #555;
+  padding-bottom: 0px;
+}
