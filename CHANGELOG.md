@@ -1,4 +1,10 @@
+# 2.5.1 (March 13, 2018)
+
+## New Feature
+- Standard exports for TabLabelContent / TabContent
+
 # 2.5.0 (March 12, 2018)
+
 ## New Feature
 - Created and added TabLayout Component
   - Takes any number of Tab child Components.
