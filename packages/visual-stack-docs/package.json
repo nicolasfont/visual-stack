@@ -33,7 +33,7 @@
     "samples": "src/**/*.js"
   },
   "scripts": {
-    "samples": "copyfiles \"src/containers/{App,Components/Docs,Icons}/**/*.{js,css}\" build/samples",
+    "samples": "copyfiles \"src/containers/{App,Components/Docs,Icons,GettingStarted}/**/*.{js,css}\" build/samples",
     "clean": "rimraf build",
     "build": "react-scripts build && npm run samples",
     "lint": "eslint src",

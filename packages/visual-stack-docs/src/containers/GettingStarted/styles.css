@@ -1,0 +1,12 @@
+.header-text {
+  font-size: 15px;
+}
+
+.body-formatting {
+  padding: 0 5px;
+}
+
+.border {
+  margin: 15px;
+  border: 1px solid #ccc;
+}
