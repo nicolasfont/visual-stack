@@ -5,6 +5,7 @@ import R from 'ramda';
 
 import { Link as RRLink } from 'react-router';
 import LayoutIcon from 'mdi-react/TelevisionGuideIcon';
+import GettingStartedIcon from 'mdi-react/FileDocumentIcon';
 import ComponentIcon from 'mdi-react/HexagonMultipleIcon';
 import IconsIcon from 'mdi-react/ShapePlusIcon';
 
@@ -72,6 +73,11 @@ export default class AppSideNav extends React.Component {
         <Link hoverText="Layouts">
           <RRLink to="/layouts">
             <LinkContentWrapper icon={<LayoutIcon />} label="Layouts" />
+          </RRLink>
+        </Link>
+        <Link hoverText="Getting Started">
+          <RRLink to="/gettingStarted">
+            <LinkContentWrapper icon={<GettingStartedIcon/>} label="Getting Started" />
           </RRLink>
         </Link>
       </SideNav>

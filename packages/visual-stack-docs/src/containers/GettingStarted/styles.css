@@ -1,0 +1,23 @@
+.instruction-text {
+  background: #eceeee;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.header-text {
+  font-size: 15px;
+}
+
+.body-formatting {
+  padding: 0 5px;
+}
+
+p {
+  font-size: 14px;
+}
+
+.border {
+  margin: 15px;
+  border: 1px solid #ccc;
+}
