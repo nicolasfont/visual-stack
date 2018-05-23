@@ -1,8 +1,5 @@
-.instruction-text {
-  background: #eceeee;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.instruction-text > p{
+  font-size: 16px;
 }
 
 .header-text {

@@ -19,21 +19,21 @@ import '@cjdev/visual-stack/lib/global';
 export default class DemoCode extends React.Component {
   render() {
     /* s2:start */
-    const reducer = combineReducers({
-      visualStack: visualStackReducer,
-    });
+const reducer = combineReducers({
+  visualStack: visualStackReducer,
+});
 
-    const store = createStore(reducer);
+const store = createStore(reducer);
 
-    class App extends React.Component {
-      render() {
-        const sideNav = <SideNav logoBackground="#00AF66"
-                            logo={<CJLogo />}
-                            appName="YOUR APP NAME HERE!!" >
-                            {/* put some routes here */}
-                        </SideNav>;
+class App extends React.Component {
+  render() {
+    const sideNav = <SideNav logoBackground="#00AF66"
+                        logo={<CJLogo />}
+                        appName="YOUR APP NAME HERE!!" >
+                        {/* put some routes here */}
+                    </SideNav>;
 
-        return (
+ return (
   <div>
         <Provider store={store} >
             <Layout
@@ -51,8 +51,8 @@ export default class DemoCode extends React.Component {
             </Layout>
         </Provider>
   </div>
-        );
-      }
+ );
+}
 /* s2:end */
 }
   }
