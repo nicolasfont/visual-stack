@@ -1,3 +1,8 @@
+# 2.5.2 (June 14, 2018)
+
+## CSS Updates
+- CSS updates to SideNav and PageHeader
+
 # 2.5.1 (March 13, 2018)
 
 ## New Feature
