@@ -1,6 +1,7 @@
 import React from 'react';
 import { Panel, Body, Header, Footer } from '@cjdev/visual-stack/lib/components/Panel';
 import { Demo, Snippet } from '../../../components/Demo';
+import './panel.css'; // for custom styles
 
 export default () =>
   <Demo srcFile="/samples/src/containers/Components/Docs/panel.js">
@@ -13,7 +14,7 @@ export default () =>
               Panel Header
             </Header>
             <Body>
-              This is the Panel Body.
+              <p>This is the Panel Body.</p>
               <Snippet tag="s1" src={snippets} />
             </Body>
             <Footer>
