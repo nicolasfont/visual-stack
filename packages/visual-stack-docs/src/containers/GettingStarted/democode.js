@@ -9,7 +9,7 @@ import Layout from '@cjdev/visual-stack-redux/lib/layouts/ApplicationLayout';
 import CJLogo from '@cjdev/visual-stack/lib/components/CJLogo';
 import PageContent from '@cjdev/visual-stack/lib/components/PageContent';
 import { PageHeader, PageTitle, PageDescription } from '@cjdev/visual-stack/lib/components/PageHeader';
-import { SideNav } from '@cjdev/visual-stack-redux/lib/components/SideNav';
+import { Link, LinkContentWrapper, SideNav, SettingsIcon } from '@cjdev/visual-stack-redux/lib/components/SideNav';
 import { reducer as visualStackReducer } from '@cjdev/visual-stack-redux';
 
 import '@cjdev/visual-stack/lib/global';
@@ -30,11 +30,15 @@ class App extends React.Component {
     const sideNav = <SideNav logoBackground="#00AF66"
                         logo={<CJLogo />}
                         appName="YOUR APP NAME HERE!!" >
-                        {/* put some routes here */}
+                        <Link hoverTest="Almost there">
+                          <a href="this/link/goes/somewhere">
+                            <LinkContentWrapper icon={<SettingsIcon/>} label="Where will I go?" />
+                          </a>
+                        <Link>
                     </SideNav>;
 
- return (
-  <div>
+    return (
+      <div>
         <Provider store={store} >
             <Layout
                 sideNav={sideNav}>
@@ -50,10 +54,10 @@ class App extends React.Component {
                 </PageContent>
             </Layout>
         </Provider>
-  </div>
- );
+      </div>
+     );
+  }
 }
 /* s2:end */
-}
   }
 }
