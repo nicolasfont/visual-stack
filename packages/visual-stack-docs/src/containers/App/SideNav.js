@@ -37,6 +37,7 @@ export default class AppSideNav extends React.Component {
       <UserMenu
         onLogout={() => { alert('handleLogout'); }}
         label="Victoria Smith"
+        logoutLabel="Log out"
         firstInitial="V"
         lastInitial="S">
             <UserMenuLink

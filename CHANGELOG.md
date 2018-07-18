@@ -1,3 +1,8 @@
+# 2.5.3 (July 18, 2018)
+
+## Bug Fixes
+- add props to allow overrides of hard-coded labels
+
 # 2.5.2 (June 14, 2018)
 
 ## CSS Updates

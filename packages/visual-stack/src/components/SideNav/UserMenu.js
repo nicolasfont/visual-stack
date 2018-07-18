@@ -10,11 +10,11 @@ export const UserIcon = ({ firstInitial, lastInitial, color }) => (
   </div>
 );
 
-export const LogoutLink = ({ onLogout }) => {
+export const LogoutLink = ({ onLogout, label }) => {
   return (
     <Link>
       <a onClick={onLogout}>
-        <LinkContentWrapper icon={<LogoutIcon />} label="Logout" />
+        <LinkContentWrapper icon={<LogoutIcon />} label={ label || "Logout" } />
       </a>
     </Link>
   );
