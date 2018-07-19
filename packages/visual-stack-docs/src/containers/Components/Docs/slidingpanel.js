@@ -47,6 +47,7 @@ class SlidingPanelDemo extends React.Component {
                 <Body>
                   { /* s2:start */ }
                   <ToggleIcon
+                    label="Toggle It"
                     onClick={() => {
                       this.setState({ panelActive: !this.state.panelActive });
                     }}

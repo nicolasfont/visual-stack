@@ -50,7 +50,7 @@ export class InternalToggleIcon extends Component {
   }
   render() {
     return (
-      <BaseToggleIcon onClick={this.handleClick} hoverText={this.props.hoverText} toggleIconState={this.props.toggleIconState}/>
+      <BaseToggleIcon {...this.props} onClick={this.handleClick} />
     );
   }
 }

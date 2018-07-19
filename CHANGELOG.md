@@ -1,3 +1,8 @@
+# 2.5.4 (July 18, 2018)
+
+## Bug Fixes
+- fix ToggleIcon redux wrapper
+
 # 2.5.3 (July 18, 2018)
 
 ## Bug Fixes
