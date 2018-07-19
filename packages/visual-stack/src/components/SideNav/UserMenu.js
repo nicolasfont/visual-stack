@@ -14,7 +14,7 @@ export const LogoutLink = ({ onLogout, label }) => {
   return (
     <Link>
       <a onClick={onLogout}>
-        <LinkContentWrapper icon={<LogoutIcon />} label={ label || "Logout" } />
+        <LinkContentWrapper icon={<LogoutIcon />} label={ label || 'Logout' } />
       </a>
     </Link>
   );

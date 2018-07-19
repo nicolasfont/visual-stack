@@ -16,7 +16,7 @@ ToggleIcon.propTypes = {
   onClick: PropTypes.func.isRequired,
   toggleIconState: PropTypes.bool,
   hoverText: PropTypes.string,
-  label: PropTypes.string
+  label: PropTypes.string,
 };
 
 export const SlidingPanelHeader = ({ children }) => {

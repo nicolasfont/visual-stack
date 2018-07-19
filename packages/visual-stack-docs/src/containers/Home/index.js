@@ -11,8 +11,6 @@ const Home = () =>
     <PageContent>
 
 
-
-
     </PageContent>
   </div>;
 

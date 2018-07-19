@@ -1,3 +1,7 @@
+# 2.6.0 (July 19, 2018)
+- Version bump
+- Fixed linting errors
+
 # 2.5.4 (July 18, 2018)
 
 ## Bug Fixes

@@ -10,7 +10,7 @@ export default () => (
     {
       snippets => {
         const FullPageWrapper = ({ ...props }) => <div style={{ margin: '-15px -1em -1em' }}>{props.children}</div>;
-        const DivWithBorder = props => <div style={{border: '1px solid #e1e1e1'}} >{props.children}</div>;
+        const DivWithBorder = props => <div style={{ border: '1px solid #e1e1e1' }} >{props.children}</div>;
         return (
           <FullPageWrapper>
             {/* s7:start */}
