@@ -13,7 +13,6 @@ import Components from './containers/Components/';
 import ComponentDocs from './containers/Components/Docs/';
 import Icons from './containers/Icons/';
 import Layouts from './containers/Layouts/';
-import DesignSystem from './containers/DesignSystem/';
 import './index.css';
 
 const reducer = combineReducers({
@@ -37,9 +36,9 @@ ReactDOM.render(
         </Route>
         <Route path="icons" component={Icons}/>
         <Route path="layouts" component={Layouts}/>
-        <Route path="design-system" component={DesignSystem}/>
       </Route>
     </Router>
   </Provider>,
   document.getElementById('root')
 );
+

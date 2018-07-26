@@ -9,8 +9,6 @@ const Home = () =>
       <PageTitle>Home</PageTitle>
     </PageHeader>
     <PageContent>
-
-
     </PageContent>
   </div>;
 

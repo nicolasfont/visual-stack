@@ -4,7 +4,6 @@ import React from 'react';
 import R from 'ramda';
 
 import { Link as RRLink } from 'react-router';
-import DesignSystemIcon from 'mdi-react/PaletteAdvancedIcon';
 import LayoutIcon from 'mdi-react/TelevisionGuideIcon';
 import ComponentIcon from 'mdi-react/HexagonMultipleIcon';
 import IconsIcon from 'mdi-react/ShapePlusIcon';
@@ -22,7 +21,6 @@ import {
 import CJLogo from '@cjdev/visual-stack/lib/components/CJLogo';
 /* s3:end */
 import { routeComponentMap } from '../Components/Docs/';
-
 
 const componentLinks = R.pipe(
   R.mapObjIndexed((val, key) => ({ key, ...val })),
@@ -74,11 +72,6 @@ export default class AppSideNav extends React.Component {
         <Link hoverText="Layouts">
           <RRLink to="/layouts">
             <LinkContentWrapper icon={<LayoutIcon />} label="Layouts" />
-          </RRLink>
-        </Link>
-        <Link hoverText="Design System">
-          <RRLink to="/design-system">
-            <LinkContentWrapper icon={<DesignSystemIcon />} label="Design System" />
           </RRLink>
         </Link>
       </SideNav>

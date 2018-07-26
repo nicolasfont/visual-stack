@@ -2,7 +2,6 @@ import React from 'react';
 import { Panel, Body, Header } from '@cjdev/visual-stack/lib/components/Panel';
 import { Demo, Snippet } from '../../../components/Demo';
 import { Button } from '@cjdev/visual-stack/lib/components/Button';
-import './button.css';
 
 export default () =>
     <Demo srcFile="/samples/src/containers/Components/Docs/button.js">
@@ -42,3 +41,4 @@ export default () =>
       );
     }}
   </Demo>;
+

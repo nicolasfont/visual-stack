@@ -5,7 +5,6 @@ import MediaQuery from 'react-responsive';
 import R from 'ramda';
 
 import { ToggleIcon } from './Icons';
-import ChevronRightIcon from 'mdi-react/ChevronLeftIcon';
 
 export class SideNav extends React.Component {
   render() {
@@ -73,9 +72,7 @@ class SideNavP extends React.Component {
         {children}
         {userMenuWithColor}
         <li className="toggle-icon">
-          <a onClick={toggle} sideNavState={collapsed}>
-            <ChevronRightIcon className="chevron-left" />
-          </a>
+          <ToggleIcon onClick={toggle} sideNavState={collapsed} />
         </li>
       </ul>
     );
