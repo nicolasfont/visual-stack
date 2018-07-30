@@ -42,7 +42,7 @@ export default class AppSideNav extends React.Component {
                 onClicked={() => { alert('handleSettings'); }}
                 linkIcon={<SettingsIcon />}
                 linkLabel="Settings"
-            />;
+            />
       </UserMenu>;
   /* s1:end */
     return (
