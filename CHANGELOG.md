@@ -1,3 +1,7 @@
+# 2.7.0 (July 31, 2018)
+- Reverted css changes that were made in the incorrect package.
+- Namespaced css in visual-stack components.
+
 # 2.6.0 (July 19, 2018)
 - Version bump
 - Fixed linting errors
