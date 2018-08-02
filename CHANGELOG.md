@@ -1,3 +1,7 @@
+# 2.7.1 (Aug 1, 2018)
+- Bug fix for form component which was incorrectly name-spacing bootstrap css.
+- Added demo for form component in visual-stack docs site
+
 # 2.7.0 (July 31, 2018)
 - Reverted css changes that were made in the incorrect package.
 - Namespaced css in visual-stack components.
