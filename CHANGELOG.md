@@ -1,3 +1,7 @@
+# 2.7.2 (Aug 9, 2018)
+- Css fix for page content so that header now stacks on top of page content.
+- Added package-lock.json
+
 # 2.7.1 (Aug 1, 2018)
 - Bug fix for form component which was incorrectly name-spacing bootstrap css.
 - Added demo for form component in visual-stack docs site
