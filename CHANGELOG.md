@@ -1,3 +1,7 @@
+# 2.7.3 (Aug 13, 2018)
+## Bug Fixes
+- Fix css styling for sidenav toggle.
+
 # 2.7.2 (Aug 9, 2018)
 - Css fix for page content so that header now stacks on top of page content.
 - Added package-lock.json
