@@ -28,8 +28,8 @@ export const Legend = ({ children, ...otherProps }) =>
 export const Form = ({ children, vertical, ...otherProps }) =>
   <form className={vertical ? 'form-vertical' : 'form-horizontal'} {...otherProps}>{children}</form>;
 
-export const FormGroup = ({ children, error, label, required, vertical }) =>
-  <div className={`form-group ${error ? 'has-error' : ''}`}>
+export const FormGroup = ({ children, error, label, required, vertical, classes }) =>
+  <div className={`form-group ${classes ? classes : ''} ${error ? 'has-error' : ''}`}>
     {label ? <Label vertical={vertical} className={!vertical ? 'col-sm-3' : ''} required={required}>{label}</Label>
            : <div className={!vertical ? 'col-sm-3' : ''} />}
     <div className={!vertical ? 'col-sm-5' : ''}>
