@@ -11,8 +11,6 @@ import { SlidingPanel, SlidingPanelSection, SlidingPanelHeader, ToggleIcon, Slid
 import { SlidingPanel as VSPanel, SlidingPanelHeader as VSHeader, SlidingPanelDropdown as VSDropdown, ToggleIcon as VSRToggleIcon } from '@cjdev/visual-stack-redux/lib/components/SlidingPanel';
 /* s5:end */
 
-import { MultiSelectFilter } from '@cjdev/visual-stack/lib/components/Filters';
-
 class SlidingPanelDemo extends React.Component {
   constructor() {
     super();
@@ -61,30 +59,12 @@ class SlidingPanelDemo extends React.Component {
                     </SlidingPanelHeader>
                     <SlidingPanelSection>
                       <SlidingPanelDropdown
-                        label="My CIDs"
+                        label="Panel Dropdown"
                         expanded={this.state.filterActive}
                         onClick={() => this.setState({ filterActive: !this.state.filterActive })}
                         >
                         { /* example of a Filter to populate the Dropdown */ }
-                        <MultiSelectFilter
-                          values={this.state.companies}
-                          onFilterChange={val => console.log(val)}
-                          selectAllCheckbox={true}
-                          defaultChecked={true}
-                        />
-                      </SlidingPanelDropdown>
-                      <SlidingPanelDropdown
-                        label="Error Example"
-                        expanded={this.state.filterActive}
-                        onClick={() => this.setState({ filterActive: !this.state.filterActive })}
-                        >
-                        { /* example of a Filter to populate the Dropdown */ }
-                        <MultiSelectFilter
-                          values={[]}
-                          onFilterChange={val => console.log(val)}
-                          selectAllCheckbox={true}
-                          defaultChecked={true}
-                        />
+                        <div>Look at me!!!</div>
                       </SlidingPanelDropdown>
                     </SlidingPanelSection>
                   </SlidingPanel>
