@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import SvgIcon from 'material-ui/SvgIcon';
+import SvgIcon from '@material-ui/core/SvgIcon';
 
 import Account from 'mdi-react/AccountCircleIcon';
 import Logout from 'mdi-react/LogoutIcon';
