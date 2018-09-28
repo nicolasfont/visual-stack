@@ -1,3 +1,11 @@
+# 2.7.5 (Sept 28, 2018)
+## Bug Fixes
+- Updated Aapplication Layout so when Sliding panel is displayed it doesn't collapse the header.
+
+# 2.7.4 (Sept 20, 2018)
+## Upgrades 
+- Upgraded material-ui so build no longer breaks.
+
 # 2.7.3 (Aug 13, 2018)
 ## Bug Fixes
 - Fix css styling for sidenav toggle.
