@@ -88,8 +88,8 @@ export default () => {
               </Panel>
             </PageContent>
           </div>
-          );
+        );
       }
     }
   </Demo>;
-}
+};
