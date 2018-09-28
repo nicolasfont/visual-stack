@@ -34,13 +34,6 @@ body {
 .vs-application-layout-filter {
   flex: 0 0 auto;
   overflow: auto;
-  margin-left: 50px;
-  transition: all .5s ease-out;
-}
-
-.vs-application-layout-filter-collapsed {
-  flex: 0 0 auto;
-  margin-left: 0px;
   transition: all .5s ease-out;
 }
 
@@ -59,12 +52,6 @@ body {
 
   .vs-application-layout-filter {
     flex: 0 0 310px;
-    margin-left: 0px;
-    transition: all .4s ease-out;
-  }
-
-  .vs-application-layout-filter-collapsed {
-    flex: 0 0 5px;
     margin-left: 0px;
     transition: all .4s ease-out;
   }

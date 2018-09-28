@@ -34,7 +34,7 @@ class App extends React.Component {
                           <a href="this/link/goes/somewhere">
                             <LinkContentWrapper icon={<SettingsIcon/>} label="Where will I go?" />
                           </a>
-                        <Link>
+                        </Link>
                     </SideNav>;
 
     return (
