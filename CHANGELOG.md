@@ -1,3 +1,7 @@
+# 2.7.6 (Oct 1, 2018)
+## Bug Fixes
+- Fixed pixel width issue on right side of application.
+
 # 2.7.5 (Sept 28, 2018)
 ## Bug Fixes
 - Updated Aapplication Layout so when Sliding panel is displayed it doesn't collapse the header.
