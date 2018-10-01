@@ -1,6 +1,6 @@
 {
   "name": "@cjdev/visual-stack-redux",
-  "version": "2.7.5",
+  "version": "2.7.6",
   "main": "lib/index.js",
   "files": [
     "dist",
@@ -31,7 +31,7 @@
     "redux-actions": "^0.9.1"
   },
   "devDependencies": {
-    "@cjdev/visual-stack": "^2.7.5",
+    "@cjdev/visual-stack": "^2.7.6",
     "babel-core": "^6.7.4",
     "babel-eslint": "^6.0.0-beta.6",
     "babel-loader": "7.1.1",

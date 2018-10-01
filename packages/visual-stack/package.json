@@ -1,6 +1,6 @@
 {
   "name": "@cjdev/visual-stack",
-  "version": "2.7.5",
+  "version": "2.7.6",
   "files": [
     "dist",
     "lib",
