@@ -34,6 +34,7 @@ body {
 .vs-application-layout-filter {
   flex: 0 0 auto;
   overflow: auto;
+  margin-left: 0px;
   transition: all .5s ease-out;
 }
 
@@ -51,9 +52,9 @@ body {
   }
 
   .vs-application-layout-filter {
-    flex: 0 0 310px;
+    flex: 0 0 auto;
     margin-left: 0px;
-    transition: all .4s ease-out;
+    transition: all .4s ease-out;    
   }
 }
 
