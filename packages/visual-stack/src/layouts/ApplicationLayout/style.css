@@ -19,8 +19,8 @@ body {
   flex: 1 1 auto;
   display: flex;
   overflow: hidden;
-  background-color: #F1F4F8;
-  transition: all .4s ease-out;
+  background-color: #f6f6f6;
+  transition: all .5s ease-out;
 }
 
 .vs-application-layout-side-collapsed,
