@@ -1,3 +1,9 @@
+# 3.0.0 (Oct 29, 2018)
+## Styling Changes 
+- Updated sidenav styles.
+- Updated topnav styles.
+- Forced all Areas to use CJTeal.  
+
 # 2.7.6 (Oct 1, 2018)
 ## Bug Fixes
 - Fixed pixel width issue on right side of application.
