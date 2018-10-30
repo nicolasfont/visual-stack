@@ -1,18 +1,34 @@
+.cj-panel.panel {
+	background: white;
+	border: 0;
+	border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.16);
+	margin-bottom: 24px;
+}
+
 .cj-panel.panel-heading {
-    background-color: #ffffff;
+  background-color: #ffffff;
+  font-weight: 600;
+	padding: 16px;
+}
+
+.cj-panel.panel-body {
+	padding: 16px;
+}
+
+.cj-panel.panel-footer {
+	background: #fcfcfc;
+	border: 0;
+	padding: 16px;
 }
 
 .cj-panel.panel-heading legend {
     text-transform: uppercase;
-    color: #bbb;
-    font-weight: bold;
-    font-size: 1.1em;
     border: none;
     padding-top: 0px;
     margin-bottom: 0px;
 }
 
 .cj-panel.panel .cj-panel.panel-body:not(:last-child) {
-    border-bottom: 1px solid transparent;
-    border-color: #ddd;
+    border-bottom: 1px solid #ddd;
 }

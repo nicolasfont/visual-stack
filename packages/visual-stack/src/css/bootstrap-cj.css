@@ -9,24 +9,6 @@
   margin-bottom: 5px;
 }
 
-input, textarea {
-  width: 206px;
-}
-
-input[type="file"], input[type="image"], input[type="submit"], input[type="reset"], input[type="button"], input[type="radio"], input[type="checkbox"] {
-  width: auto;
-}
-
-input[disabled], select[disabled], textarea[disabled], input[readonly], select[readonly], textarea[readonly] {
-  cursor: not-allowed;
-  background-color: #eee;
-}
-
-label {
-  font-weight: inherit;
-  display: block;
-}
-
 img {
   max-width: 100%;
 }
@@ -38,15 +20,6 @@ table.table-clearfix td {
   padding: 2px;
 }
 
-select {
-  width: 220px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  height: 30px;
-  line-height: 30px;
-  padding: 3px;
-  margin-bottom: 5px;
-}
 
 h3 {
   font-size:1em;
