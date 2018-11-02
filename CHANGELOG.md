@@ -1,3 +1,7 @@
+# 3.0.1 (Nov 2, 2018)
+## Styling Changes  
+- Update sliding panel css
+
 # 3.0.0 (Oct 29, 2018)
 ## Styling Changes
 - Updated sidenav styles.
