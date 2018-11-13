@@ -1,4 +1,7 @@
 # 3.0.1 (Nov 2, 2018)
+- Added an issue icon
+
+# 3.0.1 (Nov 2, 2018)
 ## Styling Changes  
 - Update sliding panel css
 
