@@ -21,6 +21,7 @@ import {
   PercentIcon,
   ProductIcon,
   TokenIcon,
+  IssueIcon
 } from '@cjdev/visual-stack/lib/components/Icons';
 
 const IconDisplay = ({ icon, snippets, tag }) => {
@@ -92,7 +93,11 @@ const tokenIcon =
   /* s14:start */
   <TokenIcon />;
   /* s14:end */;
-  
+const issueIcon =
+  /* s15:start */
+  <IssueIcon />;
+  /* s15:end */;
+
   
   
 
@@ -124,6 +129,7 @@ const Icons = () => (
                     { makeDisplay(percentIcon, 's5') }
                     { makeDisplay(compareIcon, 's9') }
                     { makeDisplay(productIcon, 's4') }
+                    { makeDisplay(issueIcon, 's15') }
                   </div>
                 </Body>
               </Panel>
