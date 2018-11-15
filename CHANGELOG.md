@@ -1,4 +1,9 @@
-# 3.0.1 (Nov 2, 2018)
+# 3.0.3 (Nov 14, 2018)
+## Bug Fixes
+- Fixed issue where if multiple pages have active sliding panels, they stay active on page load instead of toggling. 
+
+# 3.0.2 (Nov 13, 2018)
+## Icon Updates
 - Added an issue icon
 
 # 3.0.1 (Nov 2, 2018)
