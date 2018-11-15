@@ -2,12 +2,12 @@
   "private": "true",
   "name": "visual-stack-monorepo",
   "scripts": {
-    "bootstrap": "npx lerna bootstrap && npx lerna run build",
-    "test": "npx lerna run test",
-    "precommit": "CI=true npx lerna run test && npx lerna run lint"
+    "bootstrap": "lerna bootstrap && lerna run build",
+    "test": "lerna run test",
+    "precommit": "CI=true lerna run test && lerna run lint"
   },
   "devDependencies": {
     "husky": "^0.12.0",
-    "lerna": "2.0.0-beta.32"
+    "lerna": "^3.4.3"
   }
 }
