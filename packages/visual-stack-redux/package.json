@@ -54,6 +54,7 @@
     "jsdom": "^8.3.0",
     "jsdom-global": "^1.7.0",
     "mocha": "^2.4.5",
+    "natives": "^1.1.6",
     "prettier": "^1.7.0",
     "prop-types": "^15.6.0",
     "react": "^15.6.1",

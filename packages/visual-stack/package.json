@@ -60,6 +60,7 @@
     "jsdom": "^9.9.1",
     "jsdom-global": "^2.1.0",
     "mocha": "^2.4.5",
+    "natives": "^1.1.6",
     "postcss-loader": "^2.0.6",
     "prettier": "^1.7.0",
     "prop-types": "^15.6.0",
