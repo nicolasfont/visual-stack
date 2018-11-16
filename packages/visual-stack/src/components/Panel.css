@@ -1,18 +1,35 @@
+.cj-panel.panel {
+	margin-bottom: 24px;
+	background-color: #fff;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.cj-panel.panel-heading,
+.cj-panel.panel-body,
+.cj-panel.panel-footer {
+	padding: 16px;
+}
+
 .cj-panel.panel-heading {
-    background-color: #ffffff;
+	border-bottom: 1px solid #eee;
+	color: #333;
+	font-size: 14px;
+	font-weight: 600;
 }
 
 .cj-panel.panel-heading legend {
-    text-transform: uppercase;
-    color: #bbb;
-    font-weight: bold;
-    font-size: 1.1em;
-    border: none;
-    padding-top: 0px;
-    margin-bottom: 0px;
+	text-transform: uppercase;
+	color: #bbb;
+	font-weight: bold;
+	font-size: 1.1em;
+	border: none;
+	padding-top: 0px;
+	margin-bottom: 0px;
 }
 
 .cj-panel.panel .cj-panel.panel-body:not(:last-child) {
-    border-bottom: 1px solid transparent;
-    border-color: #ddd;
+	border-bottom: 1px solid transparent;
+	border-color: #eee;
 }

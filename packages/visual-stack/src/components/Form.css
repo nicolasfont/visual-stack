@@ -2,6 +2,8 @@
 
 input, textarea, select, button {
 	background: #fff;
+	font-family: inherit;
+	font-size: inherit;
 	margin-bottom: 8px;
 	max-width: 100%;
 	outline: 0;
@@ -12,6 +14,7 @@ input, textarea, select, button {
 
 label {
   display: block;
+  font-weight: 600;
 }
 
 select {
@@ -21,11 +24,6 @@ select {
 /*   line-height: 32px; */
 /*   padding: 3px; */
   margin-bottom: 5px;
-}
-
-
-textarea {
-	
 }
 
 
@@ -146,7 +144,7 @@ p > label  {
 /* Original Styles from VS/components/forms.css */
 
 input[type="file"], input[type="image"], input[type="submit"], input[type="reset"], input[type="button"], input[type="radio"], input[type="checkbox"] {
-  width: auto;
+/*   width: auto; */
 }
 
 input[disabled], select[disabled], textarea[disabled], input[readonly], select[readonly], textarea[readonly] {

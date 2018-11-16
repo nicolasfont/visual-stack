@@ -19,16 +19,16 @@ export default () =>
             <Body>
               <form>
               	<h1>New Issue</h1>
-              	<div className="container">
+              	<div className="container-fluid">
               		<div className="row">
                 		<div className="col-sm-3">
-		                  <Label required={true}>PID</Label>
+		                  <Label>PID</Label>
 		                  <select>
 		                  	<option>Choose PID</option>
 		                  </select>
                 		</div>
                 		<div className="col-sm-3">
-		                  <Label required={true}>Card Name</Label>
+		                  <Label>Card Name</Label>
 		                  <select>
 		                  	<option>Choose Card</option>
 		                  </select>
@@ -36,33 +36,33 @@ export default () =>
               		</div>
               		<div className="row">
                 		<div className="col-sm-3">
-		                  <Label required={true}>Error/Defect Detection</Label>
+		                  <Label>Error/Defect Detection</Label>
 		                  <input type="date" />
                 		</div>
                 		<div className="col-sm-3">
-		                  <Label required={true}>Link Cut Date/Time (if applicable)</Label>
+		                  <Label>Link Cut Date/Time (if applicable)</Label>
 		                  <input type="date" />
                 		</div>
                 		<div className="col-sm-3">
-		                  <Label required={true}>Desolution Date/Time</Label>
+		                  <Label>Resolution Date/Time</Label>
 		                  <input type="date" />
                 		</div>
               		</div>
               		<div className="row">
                 		<div className="col-sm-6">
-	                		<Label required={true}>Description</Label>
+	                		<Label>Description</Label>
 	                		<textarea>Enter description</textarea>
                 		</div>
 	              	</div>
               		<div className="row">
                 		<div className="col-sm-6">
-	                		<Label required={true}>Description</Label>
+	                		<Label>Description</Label>
 	                		<input type="text" value="Location of error (URL, app name, etc.)" />
                 		</div>
 	              	</div>
               		<div className="row">
                 		<div className="col-sm-6">
-	                		<Label required={true}>Error/Defect Detection</Label>
+	                		<Label>Error/Defect Detection</Label>
 	                		<textarea>Notes - Root Cause</textarea>
                 		</div>
 	            		</div>
@@ -79,11 +79,11 @@ export default () =>
 
           <Panel>
             <Header>
-              Default Buttons
+              Form Vertical
             </Header>
             <Body>
               { /* s2:start */ }
-              <Form vertical={false}>
+              <Form vertical={true}>
                 <FormGroup vertical={false}>
                   <Label required={true}>Some Label</Label>
                   <Input/>
@@ -96,7 +96,7 @@ export default () =>
 
           <Panel>
             <Header>
-              Large Buttons
+              Form Horizontal
             </Header>
             <Body>
               { /* s1:start */ }
