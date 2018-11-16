@@ -1,3 +1,7 @@
+# 3.0.4 (Nov 16, 2018)
+## New Component 
+- Added Card Component
+
 # 3.0.3 (Nov 14, 2018)
 ## Bug Fixes
 - Fixed issue where if multiple pages have active sliding panels, they stay active on page load instead of toggling. 
