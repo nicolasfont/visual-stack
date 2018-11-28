@@ -18,7 +18,7 @@ export default () =>
             <Body>
               <Snippet tag="s2" src={snippets} />
               { /* s1:start */ }
-              <Card href="https://cj.com" styles="additional-classes">Go to cj.com</Card>
+              <Card href="https://cj.com" className="additional-classes">Go to cj.com</Card>
               { /* s1:end */ }
               <Snippet tag="s1" src={snippets} />
             </Body>
