@@ -1,3 +1,10 @@
+# 3.1.0 (Nov 30, 2018)
+## Styling Changes
+- Updated Button UI
+
+## Component Update
+- Added homeLink prop to SideNav that defaults to /
+
 # 3.0.4 (Nov 16, 2018)
 ## New Component 
 - Added Card Component
