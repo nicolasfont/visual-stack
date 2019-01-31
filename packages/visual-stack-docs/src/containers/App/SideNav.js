@@ -3,7 +3,6 @@
 import React from 'react';
 import * as R from 'ramda';
 
-import { Link as RRLink } from 'react-router';
 import LayoutIcon from 'mdi-react/TelevisionGuideIcon';
 import GettingStartedIcon from 'mdi-react/FileDocumentIcon';
 import ComponentIcon from 'mdi-react/HexagonMultipleIcon';
@@ -20,6 +19,7 @@ import {
   UserMenuLink,
 } from '@cjdev/visual-stack-redux/lib/components/SideNav';
 import CJLogo from '@cjdev/visual-stack/lib/components/CJLogo';
+import { Link as RRLink, withRouter } from 'react-router';
 /* s3:end */
 import { routeComponentMap } from '../Components/Docs/';
 import { layoutsRouteMap } from '../Layouts';
@@ -36,9 +36,10 @@ const componentLinks = toLinks(routeComponentMap);
 const layoutLinks = toLinks(layoutsRouteMap);
 
 
-export default class AppSideNav extends React.Component {
+class AppSideNav extends React.Component {
   render() {
   /* s1:start */
+    const { router } = this.props;
     const userMenu =
       <UserMenu
         onLogout={() => { alert('handleLogout'); }}
@@ -59,7 +60,10 @@ export default class AppSideNav extends React.Component {
       <SideNav
         userMenu={userMenu}
         initializedCollapsed={false}
-        homeLink={'this/defaults/to/"/"'}
+        onLogoClick={() => router.push('/')}
+          /* onLogoClick is useful for client side routers */
+          /* or homeLink="/components/sidenav"*/
+          /* defaults to homeLink="/" */
         logoBackground="#00AF66"
         logo={<CJLogo />}
         appName="VISUAL STACK"
@@ -99,3 +103,4 @@ export default class AppSideNav extends React.Component {
     );
   }
 }
+export default withRouter(AppSideNav);
