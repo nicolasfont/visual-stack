@@ -1,3 +1,11 @@
+# 3.2.0 (Jan 31, 2019)
+## Styling Changes
+- UserMenu places LogoutLink in last position
+- Updated layout metrics
+
+## Component Updates
+- Modal accepts onBackgroundClick prop
+
 # 3.1.0 (Nov 30, 2018)
 ## Styling Changes
 - Updated Button UI
