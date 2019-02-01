@@ -69,6 +69,7 @@ InternalToggleIcon.propTypes = {
 };
 
 const makeExpandedLens = ({ id }) => R.lensPath([id, 'expanded']);
+
 export class InternalSlidingPanelDropdown extends Component {
   constructor(props) {
     super(props);
@@ -80,6 +81,7 @@ export class InternalSlidingPanelDropdown extends Component {
     const expanded = R.view(makeExpandedLens(this.props), this.props.slidingPanel);
     return (
       <BaseSlidingPanelDropdown
+        id={this.props.id}
         styles={this.props.styles}
         label={this.props.label}
         expanded={expanded}
