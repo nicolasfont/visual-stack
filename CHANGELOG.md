@@ -1,3 +1,11 @@
+# 3.3.0 (Feb 4, 2019)
+## Styling Changes
+- broke the dependency on bootstrap node module
+- update font weights
+
+## Component Updates
+- add id prop to SlidingPanelDropdown
+
 # 3.2.0 (Jan 31, 2019)
 ## Styling Changes
 - UserMenu places LogoutLink in last position
