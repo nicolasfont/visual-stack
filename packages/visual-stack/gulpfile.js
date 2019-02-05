@@ -20,4 +20,4 @@ gulp.task('build', () => build(false));
 gulp.task('build:watch', () => build(true));
 
 gulp.task('watch', () =>
-  gulp.watch('src/**', ['build:watch']));
+  gulp.watch('src/**', gulp.series('build:watch')));
