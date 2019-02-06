@@ -8,10 +8,10 @@
   },
   "plugins": ["react"],
   "parserOptions": {
-    "ecmaVersion": 6,
+    "ecmaVersion": 2018,
     "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "jsx": true
+      "jsx": true,
+      "classes": true
     },
     "sourceType": "module"
   },
@@ -107,7 +107,10 @@
     "semi-spacing": 1,
     "semi": 2,
     "space-before-blocks": 1,
-    "space-before-function-paren": [1, { "anonymous": "always", "named": "never" }],
+    "space-before-function-paren": [
+      1,
+      { "anonymous": "always", "named": "never" }
+    ],
     "space-in-parens": 1,
     "space-unary-ops": 1,
     "spaced-comment": 1,
