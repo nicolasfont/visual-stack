@@ -16,7 +16,7 @@
     "lint": "eslint src test",
     "format": "prettier \"./src/**/*.{css,js}\" --write",
     "prepublish": "npm run clean && npm run lint && npm run build && npm run test",
-    "test": "mocha --require @babel/register --require ignore-styles -r jsdom-global/register --recursive test/components",
+    "test": "mocha --require @babel/register --require ignore-styles -r jsdom-global/register --recursive test",
     "test:watch": "npm run test -- --watch",
     "watch": "gulp build && gulp watch"
   },

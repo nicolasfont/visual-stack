@@ -3,7 +3,7 @@
     margin-left: 0;
 }
 
-.form-horizontal .form-group:before, 
+.form-horizontal .form-group:before,
 .form-horizontal .form-group:after {
   display: table;
   content: " ";
@@ -133,4 +133,26 @@ fieldset.group ul.checkbox li.focus  {
     background-color: lightyellow;
     border: 1px gray solid;
     width: 12em;
+}
+
+.vs-validation-error {
+  color: #E1523D;
+  font-size: 1.3rem;
+  margin-top: -4px;
+}
+
+.vs-field-help {
+  color: #777;
+  font-size: 1.3rem;
+  margin-top: -4px;
+}
+
+.vs-field {
+  margin-bottom: 16px;
+}
+
+.vs-field-optional {
+  color: #777;
+  font-size: 1.3rem;
+  font-style: italic;
 }
