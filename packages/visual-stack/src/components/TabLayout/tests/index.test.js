@@ -1,27 +1,25 @@
 import React from 'react';
 import R from 'ramda';
 import { mount } from 'enzyme';
-import { equal,  deepEqual } from 'assert';
-import { TabLayout, Tab } from '../../src/components/TabLayout';
-
+import { TabLayout, Tab } from '../';
 
 describe('TabLayout', () => {
-  describe('functionality', () => {
-    it('should render', () => {
+  describe('functionaltesty', () => {
+    test('should render', () => {
       const wrapper = mount(
         <TabLayout/>
       );
-      equal(wrapper.find(TabLayout).length, 1);
+      expect(wrapper.find(TabLayout).length).toEqual(1);
     });
 
-    it('should render tab header', () => {
+    test('should render tab header', () => {
       const wrapper = mount(
         <TabLayout/>
       );
-      equal(wrapper.find('.vs-tab-header').length, 1);
+      expect(wrapper.find('.vs-tab-header').length).toEqual(1);
     });
 
-    it('should render child tabs', () => {
+    test('should render child tabs', () => {
       const wrapper = mount(
         <TabLayout tabLayoutId={'tabLayout1'}>
           <Tab label={<div>Tab1</div>} content={<div>Tab Content 1</div>}/>
@@ -29,14 +27,14 @@ describe('TabLayout', () => {
           <Tab label={<div>Tab3</div>} content={<div>Tab Content 3</div>}/>
         </TabLayout>
       );
-      equal(wrapper.find(TabLayout).length, 1);
-      equal(wrapper.find('.vs-tab-label').length, 3);
-      deepEqual(R.map(label => label.text(), wrapper.find('.vs-tab-label')), ['Tab1', 'Tab2', 'Tab3']);
-      equal(wrapper.find('.vs-tab-body').children().length, 3);
-      deepEqual(R.map(content => content.text(), wrapper.find('.vs-tab-body').children()), ['Tab Content 1', 'Tab Content 2', 'Tab Content 3']);
+      expect(wrapper.find(TabLayout).length).toEqual(1);
+      expect(wrapper.find('.vs-tab-label').length).toEqual(3);
+      expect(R.map(label => label.text(), wrapper.find('.vs-tab-label'))).toEqual(['Tab1', 'Tab2', 'Tab3']);
+      expect(wrapper.find('.vs-tab-body').children().length).toEqual(3);
+      expect(R.map(content => content.text(), wrapper.find('.vs-tab-body').children())).toEqual(['Tab Content 1', 'Tab Content 2', 'Tab Content 3']);
     });
 
-    it('should only show content for selected tab', () => {
+    test('should only show content for selected tab', () => {
       const wrapper = mount(
         <TabLayout tabLayoutId={'tabLayout1'} selectedIndex={0}>
           <Tab label={<div>Tab1</div>} content={<div>Tab Content 1</div>}/>
@@ -44,10 +42,10 @@ describe('TabLayout', () => {
           <Tab label={<div>Tab3</div>} content={<div>Tab Content 3</div>}/>
         </TabLayout>
       );
-      deepEqual(R.map(content => content.props().hidden, wrapper.find('.vs-tab-body').children()), [false, true, true]);
+      expect(R.map(content => content.props().hidden, wrapper.find('.vs-tab-body').children())).toEqual([false, true, true]);
     });
 
-    it('should call selectTab when tab clicked', () => {
+    test('should call selectTab when tab clicked', () => {
       let clicks = 0;
       let clicksIndex = [];
       const mockSelectTab = (event, index) => {
@@ -61,12 +59,12 @@ describe('TabLayout', () => {
       );
       const tabLabel = wrapper.find('.vs-tab-label').at(0);
       tabLabel.simulate('click');
-      equal(clicks, 1);
-      equal(clicksIndex.length, 1);
-      equal(clicksIndex[0], 0);
+      expect(clicks).toEqual(1);
+      expect(clicksIndex.length).toEqual(1);
+      expect(clicksIndex[0]).toEqual(0);
     });
 
-    it('should not call selectTab if tab is disabled', () => {
+    test('should not call selectTab if tab is disabled', () => {
       let clicks = 0;
       let clicksIndex = [];
       const mockSelectTab = (event, index) => {
@@ -80,11 +78,11 @@ describe('TabLayout', () => {
       );
       const tabLabel = wrapper.find('.vs-tab-label').at(0);
       tabLabel.simulate('click');
-      equal(clicks, 0);
-      equal(clicksIndex.length, 0);
+      expect(clicks).toEqual(0);
+      expect(clicksIndex.length).toEqual(0);
     });
 
-    it('should call onTabClick when tab clicked and function exists', () => {
+    test('should call onTabClick when tab clicked and function exists', () => {
       let clicks = 0;
       const mockOnTabClick = () => {
         clicks += 1;
@@ -96,10 +94,10 @@ describe('TabLayout', () => {
       );
       const tabLabel = wrapper.find('.vs-tab-label').at(0);
       tabLabel.simulate('click');
-      equal(clicks, 1);
+      expect(clicks).toEqual(1);
     });
 
-    it('should not call onTabClick if tab disabled', () => {
+    test('should not call onTabClick if tab disabled', () => {
       let clicks = 0;
       const mockOnTabClick = () => {
         clicks += 1;
@@ -111,12 +109,12 @@ describe('TabLayout', () => {
       );
       const tabLabel = wrapper.find('.vs-tab-label').at(0);
       tabLabel.simulate('click');
-      equal(clicks, 0);
+      expect(clicks).toEqual(0);
     });
   });
 
   describe('styling', () => {
-    it('should render tab underline with theme color when tab selected', () => {
+    test('should render tab underline with theme color when tab selected', () => {
       const wrapper = mount(
         <TabLayout tabLayoutId={'tabLayout1'} selectedIndex={0}>
           <Tab label={<div>Tab1</div>} content={<div>Tab Content 1</div>}/>
@@ -127,15 +125,15 @@ describe('TabLayout', () => {
       const tabLabelClicked = wrapper.find('.vs-tab-label.vs-tab-label-clicked');
       const tabLabelContent = tabLabelClicked.at(0);
       const tabLabelContentWrapper = tabLabelContent.children().at(0);
-      deepEqual(tabLabelContentWrapper.props().style, { borderBottom: '4px solid #49c5b1' });
+      expect(tabLabelContentWrapper.props().style).toEqual({ borderBottom: '4px solid #49c5b1' });
 
       const tabLabelInactive = wrapper.find('.vs-tab-label');
       const tabLabelContentInactive = tabLabelInactive.at(1);
       const tabLabelContentWrapperInactive = tabLabelContentInactive.children().at(0);
-      deepEqual(tabLabelContentWrapperInactive.props().style, { });
+      expect(tabLabelContentWrapperInactive.props().style).toEqual({ });
     });
 
-    it('should highlight text on hover', () => {
+    test('should highlight text on hover', () => {
       const wrapper = mount(
         <TabLayout tabLayoutId={'tabLayout1'} selectedIndex={0}>
           <Tab label={<div>Tab1</div>} content={<div>Tab Content 1</div>}/>
@@ -146,13 +144,13 @@ describe('TabLayout', () => {
       const tabLabels = wrapper.find('.vs-tab-label');
       const tabLabelInactive = tabLabels.at(1);
       tabLabelInactive.simulate('mouseOver');
-      deepEqual(tabLabelInactive.props().style, { color: '#49c5b1', cursor: 'pointer' });
+      expect(tabLabelInactive.props().style).toEqual({ color: '#49c5b1', cursor: 'pointer' });
 
       tabLabelInactive.simulate('mouseLeave');
-      deepEqual(tabLabelInactive.props().style, { color: '#888' });
+      expect(tabLabelInactive.props().style).toEqual({ color: '#888' });
     });
 
-    it('should take custom accent color', () => {
+    test('should take custom accent color', () => {
       const themeColor = 'grey';
 
       const wrapper = mount(
@@ -165,10 +163,10 @@ describe('TabLayout', () => {
       const tabLabels = wrapper.find('.vs-tab-label');
       const tabLabelInactive = tabLabels.at(1);
       tabLabelInactive.simulate('mouseOver');
-      deepEqual(tabLabelInactive.props().style, { color: themeColor, cursor: 'pointer' });
+      expect(tabLabelInactive.props().style).toEqual({ color: themeColor, cursor: 'pointer' });
     });
 
-    it('should not apply hover styling on selected tab', () => {
+    test('should not apply hover styling on selected tab', () => {
       const wrapper = mount(
         <TabLayout tabLayoutId={'tabLayout1'} selectedIndex={0}>
           <Tab label={<div>Tab1</div>} content={<div>Tab Content 1</div>}/>
@@ -179,20 +177,20 @@ describe('TabLayout', () => {
       const tabLabels = wrapper.find('.vs-tab-label');
       const tabLabelInactive = tabLabels.at(0);
       tabLabelInactive.simulate('mouseOver');
-      deepEqual(tabLabelInactive.props().style, { });
+      expect(tabLabelInactive.props().style).toEqual({ });
     });
 
-    it('should apply disabled class to disabled tab', () => {
+    test('should apply disabled class to disabled tab', () => {
       const wrapper = mount(
         <TabLayout tabLayoutId={'tabLayout1'} selectedIndex={0}>
           <Tab label={<div>Tab1</div>} content={<div>Tab Content 1</div>} disabled={true}/>
         </TabLayout>
       );
       const tabLabels = wrapper.find('.vs-tab-label.vs-tab-label-disabled');
-      equal(tabLabels.length, 1);
+      expect(tabLabels.length).toEqual(1);
     });
 
-    it('should apply styles for floating header', () => {
+    test('should apply styles for floating header', () => {
       const headerHeight = '10px';
       const headerWidth = '100px';
       const wrapper = mount(
@@ -204,10 +202,9 @@ describe('TabLayout', () => {
       const floatingHeader = wrapper.find('.vs-tab-header.vs-tab-header-floating');
       const tabBody = wrapper.find('.vs-tab-body');
 
-      equal(floatingHeader.length, 1);
-      equal(floatingHeader.at(0).props().style.width, headerWidth);
-
-      equal(tabBody.at(0).props().style.paddingTop, headerHeight);
+      expect(floatingHeader.length).toEqual(1);
+      expect(floatingHeader.at(0).props().style.width).toEqual(headerWidth);
+      expect(tabBody.at(0).props().style.paddingTop).toEqual(headerHeight);
     });
   });
 });

@@ -1,10 +1,9 @@
-import DialogLayout from '../../src/layouts/DialogLayout';
 import React from 'react';
-import { ok, equal } from 'assert';
 import { mount, shallow } from 'enzyme';
+import DialogLayout from '../';
 
 describe("DialogLayout", () => {
-    it("should render", () => {
+    test("should render", () => {
         let onClickCalled = false;
         const onClickFake = () => {
             onClickCalled = true;
@@ -21,14 +20,14 @@ describe("DialogLayout", () => {
 
         </DialogLayout>);
 
-        equal("titleFromTest", component.find(".vs-dialog-layout-title").prop('children'));
-        equal("testCancelButtonText", component.find("#vs-dialog-layout-cancel").prop('children'));
-        equal("testSubmitButtonText", component.find("#vs-dialog-layout-submit").prop('children'));
-        equal("I am a child", component.find("#test-children").prop('children'));
-        equal("I am a logo", component.find("#test-logo").prop('children'));
+        expect("titleFromTest").toEqual(component.find(".vs-dialog-layout-title").prop('children'));
+        expect("testCancelButtonText").toEqual(component.find("#vs-dialog-layout-cancel").prop('children'));
+        expect("testSubmitButtonText").toEqual(component.find("#vs-dialog-layout-submit").prop('children'));
+        expect("I am a child").toEqual(component.find("#test-children").prop('children'));
+        expect("I am a logo").toEqual(component.find("#test-logo").prop('children'));
     });
 
-    it("should call cancel handler when cancel button is clicked", () => {
+    test("should call cancel handler when cancel button is clicked", () => {
         let onCancel = false;
         const onClickFake = () => {
             onCancel = true;
@@ -40,10 +39,10 @@ describe("DialogLayout", () => {
 
         cancelButton.simulate("click");
 
-        ok(onCancel);
+        expect(onCancel).toEqual(true);
     });
 
-    it("should call cancel handler when cancel logo is clicked", () => {
+    test("should call cancel handler when cancel logo is clicked", () => {
         let onCancelCalled = false;
         const onClickFake = () => {
             onCancelCalled = true;
@@ -55,10 +54,10 @@ describe("DialogLayout", () => {
 
         closeIcon.simulate("click");
 
-        ok(onCancelCalled);
+        expect(onCancelCalled).toEqual(true);
     });
 
-    it("should call submit handler when submit button is clicked", () => {
+    test("should call submit handler when submit button is clicked", () => {
         let onSubmitCalled = false;
         const onClickFake = () => {
             onSubmitCalled = true;
@@ -70,6 +69,6 @@ describe("DialogLayout", () => {
 
         submitButton.simulate("click");
 
-        ok(onSubmitCalled);
+        expect(onSubmitCalled).toEqual(true);
     });
 });
