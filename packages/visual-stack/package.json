@@ -18,7 +18,14 @@
     "prepublish": "npm run clean && npm run lint && npm run build && npm run test",
     "test": "mocha --require @babel/register --require ignore-styles -r jsdom-global/register --recursive test",
     "test:watch": "npm run test -- --watch",
+    "jest": "jest --watch",
     "watch": "gulp build && gulp watch"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/src/__mocks__/styleMock.js"
+    }
   },
   "peerDependencies": {
     "react": ">=15.3.1"
@@ -41,6 +48,7 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.5",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.6.1",
@@ -57,6 +65,7 @@
     "gulp-plumber": "^1.2.1",
     "ignore-loader": "^0.1.2",
     "ignore-styles": "^5.0.1",
+    "jest": "^24.1.0",
     "jsdom": "^9.9.1",
     "jsdom-global": "^2.1.0",
     "mocha": "^5.2.0",
