@@ -17,8 +17,19 @@
     "format": "prettier \"./src/**/*.js\" --write",
     "prepublish": "npm run clean && npm run lint && npm run build && npm run test",
     "test": "mocha --require @babel/register --require ignore-styles -r jsdom-global/register test/setup.js \"test/**/*.test.js\"",
+    "jest": "jest",
+    "jest:watch": "jest --watch",
     "test:watch": "npm run test -- --watch",
     "watch": "gulp build && gulp watch"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>src/setupTests.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/src/__mocks__/styleMock.js"
+    }
   },
   "peerDependencies": {
     "@cjdev/visual-stack": "^2.5.1",
@@ -39,6 +50,7 @@
     "@babel/register": "^7.0.0",
     "@cjdev/visual-stack": "^3.3.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.5",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.8.0",
@@ -51,6 +63,7 @@
     "gulp-plumber": "^1.1.0",
     "ignore-loader": "^0.1.2",
     "ignore-styles": "^5.0.1",
+    "jest": "^24.1.0",
     "jsdom": "^8.3.0",
     "jsdom-global": "^1.7.0",
     "mocha": "^5.2.0",
