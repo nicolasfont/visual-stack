@@ -6,6 +6,7 @@
     "start-all": "npm run bootstrap && npx foreman start",
     "link": "(cd packages/visual-stack && npm link) && (cd packages/visual-stack-redux && npm link)",
     "test": "lerna run test",
+    "lint": "lerna run lint",
     "format": "lerna run format",
     "precommit": "CI=true lerna run test && lerna run lint"
   },
