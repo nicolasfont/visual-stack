@@ -7,13 +7,22 @@ const collapse = R.set(R.lensProp('expanded'), false);
 const OPEN_DROPDOWN = '@cjdev/visual-stack-redux/OPEN_DROPDOWN';
 const CLOSE_DROPDOWN = '@cjdev/visual-stack-redux/CLOSE_DROPDOWN';
 
-export const openDropdown = createAction(OPEN_DROPDOWN, (menuBarName, dropDownName) => ({ menuBarName, dropDownName }));
-export const closeDropdown = createAction(CLOSE_DROPDOWN, (menuBarName, dropDownName) => ({ menuBarName, dropDownName }));
+export const openDropdown = createAction(
+  OPEN_DROPDOWN,
+  (menuBarName, dropDownName) => ({ menuBarName, dropDownName })
+);
+export const closeDropdown = createAction(
+  CLOSE_DROPDOWN,
+  (menuBarName, dropDownName) => ({ menuBarName, dropDownName })
+);
 
 const OPEN_MODAL = '@cjdev/visual-stack-redux/OPEN_MODAL';
 const CLOSE_MODAL = '@cjdev/visual-stack-redux/CLOSE_MODAL';
 
-export const openModal = createAction(OPEN_MODAL, (component, props) => ({ component, props }));
+export const openModal = createAction(OPEN_MODAL, (component, props) => ({
+  component,
+  props,
+}));
 export const closeModal = createAction(CLOSE_MODAL);
 
 const emptyModalState = { component: undefined, props: undefined };
@@ -25,75 +34,115 @@ export const createNavGroupKey = createAction(REGISTER_DROPDOWN);
 export const toggleNavGroup = createAction(TOGGLE_DROPDOWN);
 
 const TOGGLE_SIDENAV = '@cjdev/visual-stack-redux/TOGGLE_SIDENAV';
-export const toggleSideNav = createAction(TOGGLE_SIDENAV, collapsed => ({ collapsed }));
+export const toggleSideNav = createAction(TOGGLE_SIDENAV, collapsed => ({
+  collapsed,
+}));
 
-const TOGGLE_SIDENAV_LINKGROUP = '@cjdev/visual-stack-redux/TOGGLE_SIDENAV_LINKGROUP';
-export const toggleSideNavLinkGroup= createAction(TOGGLE_SIDENAV_LINKGROUP, (expanded, linkGroupName) => ({ expanded, linkGroupName }));
+const TOGGLE_SIDENAV_LINKGROUP =
+  '@cjdev/visual-stack-redux/TOGGLE_SIDENAV_LINKGROUP';
+export const toggleSideNavLinkGroup = createAction(
+  TOGGLE_SIDENAV_LINKGROUP,
+  (expanded, linkGroupName) => ({ expanded, linkGroupName })
+);
 
 const TOGGLE_SLIDING_PANEL = '@cjdev/visual-stack-redux/TOGGLE_SLIDING_PANEL';
 export const toggleSlidingPanel = createAction(TOGGLE_SLIDING_PANEL);
 
-const TOGGLE_SLIDING_PANEL_FILTER_DROPDOWN = '@cjdev/visual-stack-redux/TOGGLE_SLIDING_PANEL_FILTER_DROPDOWN';
-export const toggleFilterDropdown = createAction(TOGGLE_SLIDING_PANEL_FILTER_DROPDOWN, filterLabel => ({ filterLabel }));
+const TOGGLE_SLIDING_PANEL_FILTER_DROPDOWN =
+  '@cjdev/visual-stack-redux/TOGGLE_SLIDING_PANEL_FILTER_DROPDOWN';
+export const toggleFilterDropdown = createAction(
+  TOGGLE_SLIDING_PANEL_FILTER_DROPDOWN,
+  filterLabel => ({ filterLabel })
+);
 
-const SET_SLIDING_PANEL_ACTIVE_STATE = '@cjdev/visual-stack-redux/SET_SLIDING_PANEL_ACTIVE_STATE';
-export const setSlidingPanelActiveState = createAction(SET_SLIDING_PANEL_ACTIVE_STATE);
+const SET_SLIDING_PANEL_ACTIVE_STATE =
+  '@cjdev/visual-stack-redux/SET_SLIDING_PANEL_ACTIVE_STATE';
+export const setSlidingPanelActiveState = createAction(
+  SET_SLIDING_PANEL_ACTIVE_STATE
+);
 
 const SELECT_TAB = '@cjdev/visual-stack-redux/SELECT_TAB';
 export const selectTab = createAction(SELECT_TAB);
 
-export default handleActions({
-  [OPEN_DROPDOWN]: (state, { payload: { menuBarName, dropDownName } }) =>
-    R.set(R.lensPath(['menuBar', menuBarName, dropDownName, 'open']), true, state),
+export default handleActions(
+  {
+    [OPEN_DROPDOWN]: (state, { payload: { menuBarName, dropDownName } }) =>
+      R.set(
+        R.lensPath(['menuBar', menuBarName, dropDownName, 'open']),
+        true,
+        state
+      ),
 
-  [CLOSE_DROPDOWN]: (state, { payload: { menuBarName, dropDownName } }) =>
-    R.set(R.lensPath(['menuBar', menuBarName, dropDownName, 'open']), false, state),
+    [CLOSE_DROPDOWN]: (state, { payload: { menuBarName, dropDownName } }) =>
+      R.set(
+        R.lensPath(['menuBar', menuBarName, dropDownName, 'open']),
+        false,
+        state
+      ),
 
-  [OPEN_MODAL]: (state, { payload }) =>
-    R.set(R.lensProp('modal'), payload, state),
+    [OPEN_MODAL]: (state, { payload }) =>
+      R.set(R.lensProp('modal'), payload, state),
 
-  [CLOSE_MODAL]: state =>
-    R.set(R.lensProp('modal'), emptyModalState, state),
+    [CLOSE_MODAL]: state => R.set(R.lensProp('modal'), emptyModalState, state),
 
-  [REGISTER_DROPDOWN]: (state, { payload }) =>
-    R.over(R.lensProp('navGroupDropdown'), R.assoc(payload, false), state),
+    [REGISTER_DROPDOWN]: (state, { payload }) =>
+      R.over(R.lensProp('navGroupDropdown'), R.assoc(payload, false), state),
 
-  [TOGGLE_DROPDOWN]: (state, { payload }) =>
-    R.over(R.lensPath(['navGroupDropdown', payload]), R.not, state),
+    [TOGGLE_DROPDOWN]: (state, { payload }) =>
+      R.over(R.lensPath(['navGroupDropdown', payload]), R.not, state),
 
-  [TOGGLE_SIDENAV]: (state, { payload: { collapsed } }) =>
-    R.set(R.lensPath(['sideNav', 'collapsed']), collapsed, state),
+    [TOGGLE_SIDENAV]: (state, { payload: { collapsed } }) =>
+      R.set(R.lensPath(['sideNav', 'collapsed']), collapsed, state),
 
-  [TOGGLE_SIDENAV_LINKGROUP]: (state, { payload: { expanded, linkGroupName } }) => {
-    const linkGroups = defaultToEmpty(R.view(R.lensPath(['sideNav', 'linkGroups']), state));
-    const stateWithResetLinkGroups = R.set(
-      R.lensPath(['sideNav', 'linkGroups']),
-      R.map(v => collapse(v))(linkGroups),
-      state);
-    return R.set(
-      R.lensPath(['sideNav', 'linkGroups', linkGroupName, 'expanded']),
-      expanded,
-      stateWithResetLinkGroups);
+    [TOGGLE_SIDENAV_LINKGROUP]: (
+      state,
+      { payload: { expanded, linkGroupName } }
+    ) => {
+      const linkGroups = defaultToEmpty(
+        R.view(R.lensPath(['sideNav', 'linkGroups']), state)
+      );
+      const stateWithResetLinkGroups = R.set(
+        R.lensPath(['sideNav', 'linkGroups']),
+        R.map(v => collapse(v))(linkGroups),
+        state
+      );
+      return R.set(
+        R.lensPath(['sideNav', 'linkGroups', linkGroupName, 'expanded']),
+        expanded,
+        stateWithResetLinkGroups
+      );
+    },
+
+    [TOGGLE_SLIDING_PANEL]: state =>
+      R.over(R.lensPath(['slidingPanel', 'active']), R.not, state),
+
+    [TOGGLE_SLIDING_PANEL_FILTER_DROPDOWN]: (
+      state,
+      { payload: { filterLabel } }
+    ) =>
+      R.over(
+        R.lensPath(['slidingPanel', filterLabel, 'expanded']),
+        R.not,
+        state
+      ),
+
+    [SET_SLIDING_PANEL_ACTIVE_STATE]: (state, { payload: newActiveState }) =>
+      R.set(R.lensPath(['slidingPanel', 'active']), newActiveState, state),
+
+    [SELECT_TAB]: (state, { payload: { tabLayoutId, index } }) => {
+      return R.set(
+        R.lensPath(['tabLayout', tabLayoutId, 'index']),
+        index,
+        state
+      );
+    },
   },
-
-  [TOGGLE_SLIDING_PANEL]: state =>
-    R.over(R.lensPath(['slidingPanel', 'active']), R.not, state),
-
-  [TOGGLE_SLIDING_PANEL_FILTER_DROPDOWN]: (state, { payload: { filterLabel } }) =>
-    R.over(R.lensPath(['slidingPanel', filterLabel, 'expanded']), R.not, state),
-
-  [SET_SLIDING_PANEL_ACTIVE_STATE]: (state, { payload: newActiveState }) =>
-    R.set(R.lensPath(['slidingPanel', 'active']), newActiveState, state),
-
-  [SELECT_TAB]: (state, { payload: { tabLayoutId, index } }) => {
-    return R.set(R.lensPath(['tabLayout', tabLayoutId, 'index']), index, state);
-  },
-
-}, {
-  menuBar: {},
-  modal: emptyModalState,
-  navGroupDropdown: {},
-  sideNav: {},
-  slidingPanel: {},
-  tabLayout: {},
-});
+  {
+    menuBar: {},
+    modal: emptyModalState,
+    navGroupDropdown: {},
+    sideNav: {},
+    slidingPanel: {},
+    tabLayout: {},
+  }
+);

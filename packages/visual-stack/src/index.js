@@ -16,14 +16,4 @@ import * as PageHeader from './components/PageHeader';
 import * as Panel from './components/Panel';
 import * as SideNav from './components/SideNav';
 
-export {
-  BlankSlate,
-  Form,
-  List,
-  MenuBar,
-  Modal,
-  PageHeader,
-  Panel,
-  SideNav,
-};
-
+export { BlankSlate, Form, List, MenuBar, Modal, PageHeader, Panel, SideNav };

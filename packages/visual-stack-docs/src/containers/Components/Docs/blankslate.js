@@ -4,23 +4,22 @@ import { Demo, Snippet } from '../../../components/Demo';
 
 import BlankSlate from '@cjdev/visual-stack/lib/components/BlankSlate';
 
-export default () =>
+export default () => (
   <Demo srcFile="/samples/src/containers/Components/Docs/blankslate.js">
-    { snippets => {
+    {snippets => {
       return (
         <div>
           <Panel>
-            <Header>
-              Blank Slate
-            </Header>
+            <Header>Blank Slate</Header>
             <Body>
-              { /* s1:start */ }
+              {/* s1:start */}
               <BlankSlate />
-              { /* s1:end */ }
+              {/* s1:end */}
               <Snippet tag="s1" src={snippets} />
             </Body>
           </Panel>
         </div>
       );
     }}
-  </Demo>;
+  </Demo>
+);

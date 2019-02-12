@@ -4,12 +4,14 @@ import { Modal } from '@cjdev/visual-stack';
 const Backdrop = Modal.Backdrop;
 
 const ModalMountPointPure = ({ component: Component, props }) =>
-  Component
-    ? <div>
+  Component ? (
+    <div>
       <Component {...props} />
       <Backdrop />
     </div>
-    : <div />;
+  ) : (
+    <div />
+  );
 
 export const ModalMountPoint = connect(state => ({
   component: state.visualStack.modal.component,

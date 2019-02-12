@@ -5,22 +5,32 @@ import { mount, shallow } from 'enzyme';
 
 describe('DialogLayout', () => {
   it('should render', () => {
-    const onClickFake = () => { };
+    const onClickFake = () => {};
 
-    const component = mount(<DialogLayout
-            title="titleFromTest"
-            cancelButtonText="testCancelButtonText"
-            submitButtonText="testSubmitButtonText"
-            logo={<div id="test-logo">I am a logo</div>}
-            onCancel={onClickFake}>
+    const component = mount(
+      <DialogLayout
+        title="titleFromTest"
+        cancelButtonText="testCancelButtonText"
+        submitButtonText="testSubmitButtonText"
+        logo={<div id="test-logo">I am a logo</div>}
+        onCancel={onClickFake}
+      >
+        <div id="test-children">I am a child</div>
+      </DialogLayout>
+    );
 
-            <div id="test-children">I am a child</div>
-
-        </DialogLayout>);
-
-    equal('titleFromTest', component.find('.vs-dialog-layout-title').prop('children'));
-    equal('testCancelButtonText', component.find('#vs-dialog-layout-cancel').prop('children'));
-    equal('testSubmitButtonText', component.find('#vs-dialog-layout-submit').prop('children'));
+    equal(
+      'titleFromTest',
+      component.find('.vs-dialog-layout-title').prop('children')
+    );
+    equal(
+      'testCancelButtonText',
+      component.find('#vs-dialog-layout-cancel').prop('children')
+    );
+    equal(
+      'testSubmitButtonText',
+      component.find('#vs-dialog-layout-submit').prop('children')
+    );
     equal('I am a child', component.find('#test-children').prop('children'));
     equal('I am a logo', component.find('#test-logo').prop('children'));
   });

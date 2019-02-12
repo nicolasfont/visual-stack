@@ -1,7 +1,9 @@
 import React from 'react';
-import { PageHeader, PageTitle } from '@cjdev/visual-stack/lib/components/PageHeader';
+import {
+  PageHeader,
+  PageTitle,
+} from '@cjdev/visual-stack/lib/components/PageHeader';
 import PageContent from '@cjdev/visual-stack/lib/components/PageContent';
-
 
 // 1. add an import for your demo
 import BlankSlateDocs from './blankslate';
@@ -46,9 +48,7 @@ const ComponentDocs = ({ params }) => {
       <PageHeader>
         <PageTitle>{routeData.linkName}</PageTitle>
       </PageHeader>
-      <PageContent>
-        { routeData.component }
-      </PageContent>
+      <PageContent>{routeData.component}</PageContent>
     </div>
   );
 };

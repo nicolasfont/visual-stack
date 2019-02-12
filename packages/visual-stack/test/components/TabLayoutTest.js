@@ -1,50 +1,61 @@
 import React from 'react';
 import R from 'ramda';
 import { mount } from 'enzyme';
-import { equal,  deepEqual } from 'assert';
+import { equal, deepEqual } from 'assert';
 import { TabLayout, Tab } from '../../src/components/TabLayout';
-
 
 describe('TabLayout', () => {
   describe('functionality', () => {
     it('should render', () => {
-      const wrapper = mount(
-        <TabLayout/>
-      );
+      const wrapper = mount(<TabLayout />);
       equal(wrapper.find(TabLayout).length, 1);
     });
 
     it('should render tab header', () => {
-      const wrapper = mount(
-        <TabLayout/>
-      );
+      const wrapper = mount(<TabLayout />);
       equal(wrapper.find('.vs-tab-header').length, 1);
     });
 
     it('should render child tabs', () => {
       const wrapper = mount(
         <TabLayout tabLayoutId={'tabLayout1'}>
-          <Tab label={<div>Tab1</div>} content={<div>Tab Content 1</div>}/>
-          <Tab label={<div>Tab2</div>} content={<div>Tab Content 2</div>}/>
-          <Tab label={<div>Tab3</div>} content={<div>Tab Content 3</div>}/>
+          <Tab label={<div>Tab1</div>} content={<div>Tab Content 1</div>} />
+          <Tab label={<div>Tab2</div>} content={<div>Tab Content 2</div>} />
+          <Tab label={<div>Tab3</div>} content={<div>Tab Content 3</div>} />
         </TabLayout>
       );
       equal(wrapper.find(TabLayout).length, 1);
       equal(wrapper.find('.vs-tab-label').length, 3);
-      deepEqual(R.map(label => label.text(), wrapper.find('.vs-tab-label')), ['Tab1', 'Tab2', 'Tab3']);
+      deepEqual(R.map(label => label.text(), wrapper.find('.vs-tab-label')), [
+        'Tab1',
+        'Tab2',
+        'Tab3',
+      ]);
       equal(wrapper.find('.vs-tab-body').children().length, 3);
-      deepEqual(R.map(content => content.text(), wrapper.find('.vs-tab-body').children()), ['Tab Content 1', 'Tab Content 2', 'Tab Content 3']);
+      deepEqual(
+        R.map(
+          content => content.text(),
+          wrapper.find('.vs-tab-body').children()
+        ),
+        ['Tab Content 1', 'Tab Content 2', 'Tab Content 3']
+      );
     });
 
     it('should only show content for selected tab', () => {
       const wrapper = mount(
         <TabLayout tabLayoutId={'tabLayout1'} selectedIndex={0}>
-          <Tab label={<div>Tab1</div>} content={<div>Tab Content 1</div>}/>
-          <Tab label={<div>Tab2</div>} content={<div>Tab Content 2</div>}/>
-          <Tab label={<div>Tab3</div>} content={<div>Tab Content 3</div>}/>
+          <Tab label={<div>Tab1</div>} content={<div>Tab Content 1</div>} />
+          <Tab label={<div>Tab2</div>} content={<div>Tab Content 2</div>} />
+          <Tab label={<div>Tab3</div>} content={<div>Tab Content 3</div>} />
         </TabLayout>
       );
-      deepEqual(R.map(content => content.props().hidden, wrapper.find('.vs-tab-body').children()), [false, true, true]);
+      deepEqual(
+        R.map(
+          content => content.props().hidden,
+          wrapper.find('.vs-tab-body').children()
+        ),
+        [false, true, true]
+      );
     });
 
     it('should call selectTab when tab clicked', () => {
@@ -55,8 +66,12 @@ describe('TabLayout', () => {
         clicksIndex = R.concat(clicksIndex, index);
       };
       const wrapper = mount(
-        <TabLayout tabLayoutId={'tabLayout1'} selectedIndex={0} selectTab={mockSelectTab}>
-          <Tab label={<div>Tab</div>} content={<div>Tab Content</div>}/>
+        <TabLayout
+          tabLayoutId={'tabLayout1'}
+          selectedIndex={0}
+          selectTab={mockSelectTab}
+        >
+          <Tab label={<div>Tab</div>} content={<div>Tab Content</div>} />
         </TabLayout>
       );
       const tabLabel = wrapper.find('.vs-tab-label').at(0);
@@ -74,8 +89,16 @@ describe('TabLayout', () => {
         clicksIndex = R.concat(clicksIndex, index);
       };
       const wrapper = mount(
-        <TabLayout tabLayoutId={'tabLayout1'} selectedIndex={0} selectTab={mockSelectTab}>
-          <Tab label={<div>Tab</div>} content={<div>Tab Content</div>} disabled={true}/>
+        <TabLayout
+          tabLayoutId={'tabLayout1'}
+          selectedIndex={0}
+          selectTab={mockSelectTab}
+        >
+          <Tab
+            label={<div>Tab</div>}
+            content={<div>Tab Content</div>}
+            disabled={true}
+          />
         </TabLayout>
       );
       const tabLabel = wrapper.find('.vs-tab-label').at(0);
@@ -90,8 +113,13 @@ describe('TabLayout', () => {
         clicks += 1;
       };
       const wrapper = mount(
-        <TabLayout tabLayoutId={'tabLayout1'} selectedIndex={0} onTabClick={mockOnTabClick} selectTab={() => {}}>
-          <Tab label={<div>Tab</div>} content={<div>Tab Content</div>}/>
+        <TabLayout
+          tabLayoutId={'tabLayout1'}
+          selectedIndex={0}
+          onTabClick={mockOnTabClick}
+          selectTab={() => {}}
+        >
+          <Tab label={<div>Tab</div>} content={<div>Tab Content</div>} />
         </TabLayout>
       );
       const tabLabel = wrapper.find('.vs-tab-label').at(0);
@@ -105,8 +133,17 @@ describe('TabLayout', () => {
         clicks += 1;
       };
       const wrapper = mount(
-        <TabLayout tabLayoutId={'tabLayout1'} selectedIndex={0} onTabClick={mockOnTabClick} selectTab={() => {}}>
-          <Tab label={<div>Tab</div>} content={<div>Tab Content</div>} disabled={true}/>
+        <TabLayout
+          tabLayoutId={'tabLayout1'}
+          selectedIndex={0}
+          onTabClick={mockOnTabClick}
+          selectTab={() => {}}
+        >
+          <Tab
+            label={<div>Tab</div>}
+            content={<div>Tab Content</div>}
+            disabled={true}
+          />
         </TabLayout>
       );
       const tabLabel = wrapper.find('.vs-tab-label').at(0);
@@ -119,34 +156,43 @@ describe('TabLayout', () => {
     it('should render tab underline with theme color when tab selected', () => {
       const wrapper = mount(
         <TabLayout tabLayoutId={'tabLayout1'} selectedIndex={0}>
-          <Tab label={<div>Tab1</div>} content={<div>Tab Content 1</div>}/>
-          <Tab label={<div>Tab2</div>} content={<div>Tab Content 2</div>}/>
+          <Tab label={<div>Tab1</div>} content={<div>Tab Content 1</div>} />
+          <Tab label={<div>Tab2</div>} content={<div>Tab Content 2</div>} />
         </TabLayout>
       );
 
-      const tabLabelClicked = wrapper.find('.vs-tab-label.vs-tab-label-clicked');
+      const tabLabelClicked = wrapper.find(
+        '.vs-tab-label.vs-tab-label-clicked'
+      );
       const tabLabelContent = tabLabelClicked.at(0);
       const tabLabelContentWrapper = tabLabelContent.children().at(0);
-      deepEqual(tabLabelContentWrapper.props().style, { borderBottom: '4px solid #49c5b1' });
+      deepEqual(tabLabelContentWrapper.props().style, {
+        borderBottom: '4px solid #49c5b1',
+      });
 
       const tabLabelInactive = wrapper.find('.vs-tab-label');
       const tabLabelContentInactive = tabLabelInactive.at(1);
-      const tabLabelContentWrapperInactive = tabLabelContentInactive.children().at(0);
-      deepEqual(tabLabelContentWrapperInactive.props().style, { });
+      const tabLabelContentWrapperInactive = tabLabelContentInactive
+        .children()
+        .at(0);
+      deepEqual(tabLabelContentWrapperInactive.props().style, {});
     });
 
     it('should highlight text on hover', () => {
       const wrapper = mount(
         <TabLayout tabLayoutId={'tabLayout1'} selectedIndex={0}>
-          <Tab label={<div>Tab1</div>} content={<div>Tab Content 1</div>}/>
-          <Tab label={<div>Tab2</div>} content={<div>Tab Content 2</div>}/>
+          <Tab label={<div>Tab1</div>} content={<div>Tab Content 1</div>} />
+          <Tab label={<div>Tab2</div>} content={<div>Tab Content 2</div>} />
         </TabLayout>
       );
 
       const tabLabels = wrapper.find('.vs-tab-label');
       const tabLabelInactive = tabLabels.at(1);
       tabLabelInactive.simulate('mouseOver');
-      deepEqual(tabLabelInactive.props().style, { color: '#49c5b1', cursor: 'pointer' });
+      deepEqual(tabLabelInactive.props().style, {
+        color: '#49c5b1',
+        cursor: 'pointer',
+      });
 
       tabLabelInactive.simulate('mouseLeave');
       deepEqual(tabLabelInactive.props().style, { color: '#888' });
@@ -156,36 +202,47 @@ describe('TabLayout', () => {
       const themeColor = 'grey';
 
       const wrapper = mount(
-        <TabLayout tabLayoutId={'tabLayout1'} selectedIndex={0} themeColor={themeColor}>
-          <Tab label={<div>Tab1</div>} content={<div>Tab Content 1</div>}/>
-          <Tab label={<div>Tab2</div>} content={<div>Tab Content 2</div>}/>
+        <TabLayout
+          tabLayoutId={'tabLayout1'}
+          selectedIndex={0}
+          themeColor={themeColor}
+        >
+          <Tab label={<div>Tab1</div>} content={<div>Tab Content 1</div>} />
+          <Tab label={<div>Tab2</div>} content={<div>Tab Content 2</div>} />
         </TabLayout>
       );
 
       const tabLabels = wrapper.find('.vs-tab-label');
       const tabLabelInactive = tabLabels.at(1);
       tabLabelInactive.simulate('mouseOver');
-      deepEqual(tabLabelInactive.props().style, { color: themeColor, cursor: 'pointer' });
+      deepEqual(tabLabelInactive.props().style, {
+        color: themeColor,
+        cursor: 'pointer',
+      });
     });
 
     it('should not apply hover styling on selected tab', () => {
       const wrapper = mount(
         <TabLayout tabLayoutId={'tabLayout1'} selectedIndex={0}>
-          <Tab label={<div>Tab1</div>} content={<div>Tab Content 1</div>}/>
-          <Tab label={<div>Tab2</div>} content={<div>Tab Content 2</div>}/>
+          <Tab label={<div>Tab1</div>} content={<div>Tab Content 1</div>} />
+          <Tab label={<div>Tab2</div>} content={<div>Tab Content 2</div>} />
         </TabLayout>
       );
 
       const tabLabels = wrapper.find('.vs-tab-label');
       const tabLabelInactive = tabLabels.at(0);
       tabLabelInactive.simulate('mouseOver');
-      deepEqual(tabLabelInactive.props().style, { });
+      deepEqual(tabLabelInactive.props().style, {});
     });
 
     it('should apply disabled class to disabled tab', () => {
       const wrapper = mount(
         <TabLayout tabLayoutId={'tabLayout1'} selectedIndex={0}>
-          <Tab label={<div>Tab1</div>} content={<div>Tab Content 1</div>} disabled={true}/>
+          <Tab
+            label={<div>Tab1</div>}
+            content={<div>Tab Content 1</div>}
+            disabled={true}
+          />
         </TabLayout>
       );
       const tabLabels = wrapper.find('.vs-tab-label.vs-tab-label-disabled');
@@ -196,12 +253,24 @@ describe('TabLayout', () => {
       const headerHeight = '10px';
       const headerWidth = '100px';
       const wrapper = mount(
-        <TabLayout tabLayoutId={'tabLayout1'} selectedIndex={0} floatingHeader={true} headerHeight={headerHeight} headerWidth={headerWidth}>
-          <Tab label={<div>Tab1</div>} content={<div>Tab Content 1</div>} disabled={true}/>
+        <TabLayout
+          tabLayoutId={'tabLayout1'}
+          selectedIndex={0}
+          floatingHeader={true}
+          headerHeight={headerHeight}
+          headerWidth={headerWidth}
+        >
+          <Tab
+            label={<div>Tab1</div>}
+            content={<div>Tab Content 1</div>}
+            disabled={true}
+          />
         </TabLayout>
       );
 
-      const floatingHeader = wrapper.find('.vs-tab-header.vs-tab-header-floating');
+      const floatingHeader = wrapper.find(
+        '.vs-tab-header.vs-tab-header-floating'
+      );
       const tabBody = wrapper.find('.vs-tab-body');
 
       equal(floatingHeader.length, 1);

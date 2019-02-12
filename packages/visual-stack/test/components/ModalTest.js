@@ -10,9 +10,7 @@ describe('Modal', () => {
       onBackgroundClickCalls += 1;
     };
 
-    const wrapper = mount(
-      <Modal onBackgroundClick={ mockOnBackgroundClick }/>
-    );
+    const wrapper = mount(<Modal onBackgroundClick={mockOnBackgroundClick} />);
 
     wrapper.find(Modal).simulate('click');
 

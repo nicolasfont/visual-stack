@@ -9,50 +9,43 @@ import {
   PageDescription,
 } from '@cjdev/visual-stack/lib/components/PageHeader';
 
-
-const PageHeader1Section = ({ snippets }) =>
+const PageHeader1Section = ({ snippets }) => (
   <Panel>
-    <Header>
-      Page Header: Title and Description
-    </Header>
+    <Header>Page Header: Title and Description</Header>
     <Body>
-      { /* s1:start */ }
+      {/* s1:start */}
       <PageHeader>
         <PageTitle>
           Title
           <PageDescription>Description</PageDescription>
         </PageTitle>
       </PageHeader>
-      { /* s1:end */ }
+      {/* s1:end */}
       <Snippet tag="s1" src={snippets} />
     </Body>
-  </Panel>;
+  </Panel>
+);
 
-const PageHeader2Section = ({ snippets }) =>
+const PageHeader2Section = ({ snippets }) => (
   <Panel>
-    <Header>
-      Page Header: 2 sections
-    </Header>
+    <Header>Page Header: 2 sections</Header>
     <Body>
-      { /* s2:start */ }
+      {/* s2:start */}
       <PageHeader>
         <PageTitle>
-          <span>
-            Title
-          </span>
+          <span>Title</span>
         </PageTitle>
-        <PageHeaderSection>
-          Right
-        </PageHeaderSection>
+        <PageHeaderSection>Right</PageHeaderSection>
       </PageHeader>
-      { /* s2:end */ }
+      {/* s2:end */}
       <Snippet tag="s2" src={snippets} />
     </Body>
-  </Panel>;
+  </Panel>
+);
 
-export default () =>
+export default () => (
   <Demo srcFile="/samples/src/containers/Components/Docs/pageheader.js">
-    { snippets => {
+    {snippets => {
       return (
         <div>
           <PageHeader1Section snippets={snippets} />
@@ -60,5 +53,5 @@ export default () =>
         </div>
       );
     }}
-  </Demo>;
-
+  </Demo>
+);

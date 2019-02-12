@@ -9,11 +9,13 @@ describe('MenuBarDropdown', () => {
   const context = { menuBarName: 'test-menu-bar' };
   const options = { context, attachTo: global.mountPoint };
 
-  const component = props =>
+  const component = props => (
     <InternalMenuBarDropdown
       name="test-dropdown"
       title="Test Dropdown"
-      {...props} />;
+      {...props}
+    />
+  );
 
   let wrapper;
 

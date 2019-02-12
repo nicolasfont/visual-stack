@@ -8,8 +8,17 @@ import { Provider } from 'react-redux';
 import Layout from '@cjdev/visual-stack-redux/lib/layouts/ApplicationLayout';
 import CJLogo from '@cjdev/visual-stack/lib/components/CJLogo';
 import PageContent from '@cjdev/visual-stack/lib/components/PageContent';
-import { PageHeader, PageTitle, PageDescription } from '@cjdev/visual-stack/lib/components/PageHeader';
-import { Link, LinkContentWrapper, SideNav, SettingsIcon } from '@cjdev/visual-stack-redux/lib/components/SideNav';
+import {
+  PageHeader,
+  PageTitle,
+  PageDescription,
+} from '@cjdev/visual-stack/lib/components/PageHeader';
+import {
+  Link,
+  LinkContentWrapper,
+  SideNav,
+  SettingsIcon,
+} from '@cjdev/visual-stack-redux/lib/components/SideNav';
 import { reducer as visualStackReducer } from '@cjdev/visual-stack-redux';
 
 import '@cjdev/visual-stack/lib/global';
@@ -27,26 +36,32 @@ export default class DemoCode extends React.Component {
 
     class App extends React.Component {
       render() {
-        const sideNav = <SideNav logoBackground="#00AF66"
-          logo={<CJLogo />}
-          appName="YOUR APP NAME HERE!!" >
-          <Link hoverText="Almost there">
-            <a href="this/link/goes/somewhere">
-              <LinkContentWrapper icon={<SettingsIcon/>} label="Where will I go?" />
-            </a>
-          </Link>
-        </SideNav>;
+        const sideNav = (
+          <SideNav
+            logoBackground="#00AF66"
+            logo={<CJLogo />}
+            appName="YOUR APP NAME HERE!!"
+          >
+            <Link hoverText="Almost there">
+              <a href="this/link/goes/somewhere">
+                <LinkContentWrapper
+                  icon={<SettingsIcon />}
+                  label="Where will I go?"
+                />
+              </a>
+            </Link>
+          </SideNav>
+        );
 
         return (
           <div>
-            <Provider store={store} >
-              <Layout
-                sideNav={sideNav}>
+            <Provider store={store}>
+              <Layout sideNav={sideNav}>
                 <PageHeader>
-                  <PageTitle> WOW! Page Header
-                    <PageDescription>
-                                Neato description
-                    </PageDescription>
+                  <PageTitle>
+                    {' '}
+                    WOW! Page Header
+                    <PageDescription>Neato description</PageDescription>
                   </PageTitle>
                 </PageHeader>
                 <PageContent>

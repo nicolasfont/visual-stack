@@ -36,16 +36,14 @@ ReactDOM.render(
         <Route path="components" component={Components}>
           <Route path=":componentName" component={ComponentDocs} />
         </Route>
-        <Route path="icons" component={Icons}/>
+        <Route path="icons" component={Icons} />
         <Route path="layouts" component={Layouts}>
           <Route path=":layoutName" component={LayoutsDocs} />
         </Route>
-        <Route path="gettingStarted" component={GettingStarted}/>
+        <Route path="gettingStarted" component={GettingStarted} />
       </Route>
-      <Route path="/dialogLayout" component={DialogLayoutDemo}/>
-
+      <Route path="/dialogLayout" component={DialogLayoutDemo} />
     </Router>
   </Provider>,
   document.getElementById('root')
 );
-

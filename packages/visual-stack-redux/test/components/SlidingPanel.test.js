@@ -3,22 +3,26 @@ import { mount, shallow } from 'enzyme';
 import sinon from 'sinon';
 import { expect } from 'chai';
 
-import { InternalSlidingPanel, InternalToggleIcon, InternalSlidingPanelDropdown } from '../../src/components/SlidingPanel';
-import { SlidingPanel, SlidingPanelHeader, SlidingPanelDropdown } from '@cjdev/visual-stack/lib/components/SlidingPanel';
+import {
+  InternalSlidingPanel,
+  InternalToggleIcon,
+  InternalSlidingPanelDropdown,
+} from '../../src/components/SlidingPanel';
+import {
+  SlidingPanel,
+  SlidingPanelHeader,
+  SlidingPanelDropdown,
+} from '@cjdev/visual-stack/lib/components/SlidingPanel';
 
 describe('SlidingPanel', () => {
   describe('SlidingPanel', () => {
     it('should render VisualStack SlidingPanel default active false', () => {
-      const wrapper = shallow(
-        <InternalSlidingPanel />
-      );
+      const wrapper = shallow(<InternalSlidingPanel />);
       expect(wrapper.find(SlidingPanel).prop('active')).to.be.false;
     });
 
     it('should render VisualStack SlidingPanel passing on active prop', () => {
-      const wrapper = shallow(
-        <InternalSlidingPanel active={true} />
-      );
+      const wrapper = shallow(<InternalSlidingPanel active={true} />);
       expect(wrapper.find(SlidingPanel).prop('active')).to.be.true;
     });
 
@@ -34,9 +38,7 @@ describe('SlidingPanel', () => {
 
   describe('ToggleIcon', () => {
     it('should render VisualStack ToggleIcon', () => {
-      const wrapper = mount(
-        <InternalToggleIcon />
-      );
+      const wrapper = mount(<InternalToggleIcon />);
       expect(wrapper.find('.vs-sliding-panel-toggle-icon')).to.have.length(1);
     });
     it('should provide onClick to VisualStack ToggleIcon', () => {
@@ -73,10 +75,13 @@ describe('SlidingPanel', () => {
         </InternalSlidingPanelDropdown>
       );
       const dropdown = slidingPanel.find(SlidingPanelDropdown);
-      dropdown.find('a.vs-sliding-panel-section-container-label').simulate('click');
-      expect(dropdown.find('div.vs-sliding-panel-section-options')).to.have.length(1);
+      dropdown
+        .find('a.vs-sliding-panel-section-container-label')
+        .simulate('click');
+      expect(
+        dropdown.find('div.vs-sliding-panel-section-options')
+      ).to.have.length(1);
       expect(handleDropdown).to.have.property('callCount', 1);
     });
   });
 });
-

@@ -5,11 +5,9 @@ import classNames from 'classnames';
 import logoSvg from '../../src/images/ui-kit/new-cj-logo-icon.svg';
 import './CJLogo.css';
 
-const CJLogo = ({ className }) =>
-  <ReactSVG
-    path={logoSvg}
-    className={classNames('vs-cj-logo', className)}
-  />;
+const CJLogo = ({ className }) => (
+  <ReactSVG path={logoSvg} className={classNames('vs-cj-logo', className)} />
+);
 
 CJLogo.propTypes = {
   className: PropTypes.string,

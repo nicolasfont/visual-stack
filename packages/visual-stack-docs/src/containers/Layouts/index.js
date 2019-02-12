@@ -12,23 +12,20 @@ const addComponentRoute = (path, linkName, component) => {
 // 1. add an import for your demo
 
 // 2. add your demo to the layoutsRoutesMap
-addComponentRoute('applicationLayout', 'Application Layout', <ApplicationLayout />);
+addComponentRoute(
+  'applicationLayout',
+  'Application Layout',
+  <ApplicationLayout />
+);
 addComponentRoute('dialogLayout', 'Dialog Layout', <DialogLayoutParent />);
 
 export { layoutsRouteMap };
 
 export const LayoutsDocs = ({ params }) => {
   const routeData = layoutsRouteMap[params.layoutName];
-  return (
-    <div>
-      { routeData.component }
-    </div>
-  );
+  return <div>{routeData.component}</div>;
 };
 
-const Layouts = ({ children }) =>
-  <div>
-    { children }
-  </div>;
+const Layouts = ({ children }) => <div>{children}</div>;
 
 export default Layouts;

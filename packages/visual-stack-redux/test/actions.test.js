@@ -19,7 +19,9 @@ describe('reducer', () => {
       },
     };
     expect(reducer(beforeState, toggleSideNav(true))).to.deep.equal(afterState);
-    expect(reducer(afterState, toggleSideNav(false))).to.deep.equal(beforeState);
+    expect(reducer(afterState, toggleSideNav(false))).to.deep.equal(
+      beforeState
+    );
   });
 
   it('should toggle LinkGroup expansion', () => {
@@ -44,7 +46,9 @@ describe('reducer', () => {
         },
       },
     };
-    expect(reducer(beforeState, toggleSideNavLinkGroup(true, 'linkGroup1'))).to.deep.equal(afterState);
+    expect(
+      reducer(beforeState, toggleSideNavLinkGroup(true, 'linkGroup1'))
+    ).to.deep.equal(afterState);
   });
 
   it('should collapse existing expanded LinkGroups', () => {
@@ -69,7 +73,9 @@ describe('reducer', () => {
         },
       },
     };
-    expect(reducer(beforeState, toggleSideNavLinkGroup(true, 'linkGroup1'))).to.deep.equal(afterState);
+    expect(
+      reducer(beforeState, toggleSideNavLinkGroup(true, 'linkGroup1'))
+    ).to.deep.equal(afterState);
   });
 
   it('should toggle SlidingPanel', () => {
@@ -83,8 +89,12 @@ describe('reducer', () => {
         active: true,
       },
     };
-    expect(reducer(beforeState, toggleSlidingPanel())).to.deep.equal(afterState);
-    expect(reducer(afterState, toggleSlidingPanel())).to.deep.equal(beforeState);
+    expect(reducer(beforeState, toggleSlidingPanel())).to.deep.equal(
+      afterState
+    );
+    expect(reducer(afterState, toggleSlidingPanel())).to.deep.equal(
+      beforeState
+    );
   });
 
   it('should update index by tabLayoutId', () => {
@@ -98,7 +108,9 @@ describe('reducer', () => {
         },
       },
     };
-    expect(reducer(beforeState, selectTab({ tabLayoutId: 'ID123', index: 0 }))).to.deep.equal(afterState);
+    expect(
+      reducer(beforeState, selectTab({ tabLayoutId: 'ID123', index: 0 }))
+    ).to.deep.equal(afterState);
   });
 
   it('should set SlidingPanel active state to desired state', () => {
@@ -112,7 +124,11 @@ describe('reducer', () => {
         active: true,
       },
     };
-    expect(reducer(beforeState, setSlidingPanelActiveState(true))).to.deep.equal(afterState);
-    expect(reducer(afterState, setSlidingPanelActiveState(false))).to.deep.equal(beforeState);
+    expect(
+      reducer(beforeState, setSlidingPanelActiveState(true))
+    ).to.deep.equal(afterState);
+    expect(
+      reducer(afterState, setSlidingPanelActiveState(false))
+    ).to.deep.equal(beforeState);
   });
 });

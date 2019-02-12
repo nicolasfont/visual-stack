@@ -1,6 +1,5 @@
 {
   "printWidth": 80,
-  "requirePragma": true,
   "singleQuote": true,
   "trailingComma": "es5"
 }

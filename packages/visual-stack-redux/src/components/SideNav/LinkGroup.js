@@ -37,7 +37,10 @@ const mapState = state => ({
   collapsed: state.visualStack.sideNav.collapsed,
 });
 
-export const LinkGroup = connect(mapState, {
-  toggleSideNav,
-  toggleSideNavLinkGroup,
-})(InternalLinkGroup);
+export const LinkGroup = connect(
+  mapState,
+  {
+    toggleSideNav,
+    toggleSideNavLinkGroup,
+  }
+)(InternalLinkGroup);

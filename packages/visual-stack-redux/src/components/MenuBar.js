@@ -61,7 +61,10 @@ export class InternalMenuBarDropdown extends Component {
 
   render() {
     const { children } = this.props;
-    const otherProps = omit(['children', 'menuBars', 'name', 'closeDropdown', 'openDropdown'], this.props);
+    const otherProps = omit(
+      ['children', 'menuBars', 'name', 'closeDropdown', 'openDropdown'],
+      this.props
+    );
     return (
       <Base.MenuBarDropdown open={this.isOpen()} {...otherProps}>
         {children}

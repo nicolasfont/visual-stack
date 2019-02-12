@@ -21,7 +21,7 @@ describe('Card', () => {
   it('should forward all the props to a tag', () => {
     const href = 'cj.com';
     const fakeProps = { href };
-    const wrapper = mount(<Card {...fakeProps}/>);
+    const wrapper = mount(<Card {...fakeProps} />);
     const aTagProps = wrapper.find('a').props();
     equal(aTagProps.href, href);
   });

@@ -24,34 +24,38 @@ import CJLogo from '@cjdev/visual-stack/lib/components/CJLogo';
 import { routeComponentMap } from '../Components/Docs/';
 import { layoutsRouteMap } from '../Layouts';
 
-const toLinks = map => (
+const toLinks = map =>
   R.pipe(
     R.mapObjIndexed((val, key) => ({ key, ...val })),
     R.values,
     R.sortBy(R.prop('linkName'))
-  )(map)
-);
+  )(map);
 
 const componentLinks = toLinks(routeComponentMap);
 const layoutLinks = toLinks(layoutsRouteMap);
 
-
 export default class AppSideNav extends React.Component {
   render() {
-  /* s1:start */
-    const userMenu =
+    /* s1:start */
+    const userMenu = (
       <UserMenu
-        onLogout={() => { alert('handleLogout'); }}
+        onLogout={() => {
+          alert('handleLogout');
+        }}
         label="Victoria Smith"
         logoutLabel="Log out"
         firstInitial="V"
-        lastInitial="S">
+        lastInitial="S"
+      >
         <UserMenuLink
-          onClicked={() => { alert('handleSettings'); }}
+          onClicked={() => {
+            alert('handleSettings');
+          }}
           linkIcon={<SettingsIcon />}
           linkLabel="Settings"
         />
-      </UserMenu>;
+      </UserMenu>
+    );
     /* s1:end */
     return (
       <div>
@@ -90,7 +94,10 @@ export default class AppSideNav extends React.Component {
 
           <Link hoverText="Getting Started">
             <RRLink to="/gettingStarted">
-              <LinkContentWrapper icon={<GettingStartedIcon/>} label="Getting Started" />
+              <LinkContentWrapper
+                icon={<GettingStartedIcon />}
+                label="Getting Started"
+              />
             </RRLink>
           </Link>
         </SideNav>

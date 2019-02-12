@@ -16,7 +16,10 @@ import {
 } from '../actions';
 
 export const slidingPanelLens = R.lensPath(['visualStack', 'slidingPanel']);
-export const slidingPanelActiveLens = R.compose(slidingPanelLens, R.lensPath(['active']));
+export const slidingPanelActiveLens = R.compose(
+  slidingPanelLens,
+  R.lensPath(['active'])
+);
 
 export class InternalSlidingPanel extends Component {
   constructor(props) {
@@ -29,7 +32,7 @@ export class InternalSlidingPanel extends Component {
   render() {
     return (
       <div>
-        <BaseSlidingPanel active={this.props.active || false} >
+        <BaseSlidingPanel active={this.props.active || false}>
           {this.props.children}
         </BaseSlidingPanel>
       </div>
@@ -45,14 +48,16 @@ InternalSlidingPanel.propTypes = {
 };
 
 export const SlidingPanel = connect(
-  state =>  ({ active: R.view(slidingPanelActiveLens, state) }),
+  state => ({ active: R.view(slidingPanelActiveLens, state) }),
   { toggleSlidingPanel, setSlidingPanelActiveState }
 )(InternalSlidingPanel);
 
 export class InternalToggleIcon extends Component {
   constructor(props) {
     super(props);
-    const eventSupportsPropagation = R.view(R.lensPath(['nativeEvent', 'stopImmediatePropagation']));
+    const eventSupportsPropagation = R.view(
+      R.lensPath(['nativeEvent', 'stopImmediatePropagation'])
+    );
     this.handleClick = e => {
       if (eventSupportsPropagation(e)) e.nativeEvent.stopImmediatePropagation();
       this.props.toggleSlidingPanel();
@@ -60,7 +65,10 @@ export class InternalToggleIcon extends Component {
   }
   render() {
     return (
-      <BaseToggleIcon {...R.dissoc('toggleSlidingPanel', this.props)} onClick={e => this.handleClick(e)} />
+      <BaseToggleIcon
+        {...R.dissoc('toggleSlidingPanel', this.props)}
+        onClick={e => this.handleClick(e)}
+      />
     );
   }
 }
@@ -78,7 +86,10 @@ export class InternalSlidingPanelDropdown extends Component {
     }
   }
   render() {
-    const expanded = R.view(makeExpandedLens(this.props), this.props.slidingPanel);
+    const expanded = R.view(
+      makeExpandedLens(this.props),
+      this.props.slidingPanel
+    );
     return (
       <BaseSlidingPanelDropdown
         id={this.props.id}
@@ -106,7 +117,6 @@ export const SlidingPanelDropdown = connect(
   state => ({ slidingPanel: R.view(slidingPanelLens, state) }),
   { toggleFilterDropdown }
 )(InternalSlidingPanelDropdown);
-
 
 export const ToggleIcon = connect(
   state => ({ toggleIconState: R.view(slidingPanelActiveLens, state) }),

@@ -8,9 +8,7 @@ import { LinkGroup, Link } from '@cjdev/visual-stack/lib/components/SideNav';
 
 describe('LinkGroup', () => {
   it('should propagate label to visual stack link group', () => {
-    const wrapper = shallow(
-      <InternalLinkGroup label="whatever" />
-    );
+    const wrapper = shallow(<InternalLinkGroup label="whatever" />);
     expect(wrapper.find(LinkGroup).prop('label')).to.equal('whatever');
   });
 
@@ -58,7 +56,10 @@ describe('LinkGroup', () => {
       />
     );
 
-    wrapper.find(LinkGroup).find('.vs-sidenav-container-label').simulate('click');
+    wrapper
+      .find(LinkGroup)
+      .find('.vs-sidenav-container-label')
+      .simulate('click');
     expect(faker).to.have.been.calledWith(true, label);
     expect(toggleFake).to.have.been.calledOnce;
     expect(toggleFake).to.have.been.calledWith(false);
@@ -67,10 +68,14 @@ describe('LinkGroup', () => {
   it('should propagate children to VisualStack LinkGroup', () => {
     const wrapper = mount(
       <InternalLinkGroup label="whatever" linkGroups={{}}>
-        <Link><a href="mockRouterLink">123</a></Link>
+        <Link>
+          <a href="mockRouterLink">123</a>
+        </Link>
       </InternalLinkGroup>
     );
     expect(wrapper.find(Link)).to.have.length(1);
-    expect(wrapper.find(Link)).text().to.equal('123');
+    expect(wrapper.find(Link))
+      .text()
+      .to.equal('123');
   });
 });

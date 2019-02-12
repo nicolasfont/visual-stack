@@ -6,24 +6,25 @@ import { Demo, Snippet } from '../../../components/Demo';
 import Card from '@cjdev/visual-stack/lib/components/Card';
 /* s2:end */
 
-export default () =>
+export default () => (
   <Demo srcFile="/samples/src/containers/Components/Docs/card.js">
-    { snippets => {
+    {snippets => {
       return (
         <div>
           <Panel>
-            <Header>
-              Spinner
-            </Header>
+            <Header>Spinner</Header>
             <Body>
               <Snippet tag="s2" src={snippets} />
-              { /* s1:start */ }
-              <Card href="https://cj.com" className="additional-classes">Go to cj.com</Card>
-              { /* s1:end */ }
+              {/* s1:start */}
+              <Card href="https://cj.com" className="additional-classes">
+                Go to cj.com
+              </Card>
+              {/* s1:end */}
               <Snippet tag="s1" src={snippets} />
             </Body>
           </Panel>
         </div>
       );
     }}
-  </Demo>;
+  </Demo>
+);
