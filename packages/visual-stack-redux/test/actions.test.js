@@ -7,7 +7,7 @@ import reducer, {
 } from '../src/actions';
 
 describe('reducer', () => {
-  it('should toggle SideNav with given state', () => {
+  test('should toggle SideNav with given state', () => {
     const beforeState = {
       sideNav: {
         collapsed: false,
@@ -18,11 +18,11 @@ describe('reducer', () => {
         collapsed: true,
       },
     };
-    expect(reducer(beforeState, toggleSideNav(true))).to.deep.equal(afterState);
-    expect(reducer(afterState, toggleSideNav(false))).to.deep.equal(beforeState);
+    expect(reducer(beforeState, toggleSideNav(true))).toEqual(afterState);
+    expect(reducer(afterState, toggleSideNav(false))).toEqual(beforeState);
   });
 
-  it('should toggle LinkGroup expansion', () => {
+  test('should toggle LinkGroup expansion', () => {
     const beforeState = {
       sideNav: {
         linkGroups: {
@@ -44,10 +44,10 @@ describe('reducer', () => {
         },
       },
     };
-    expect(reducer(beforeState, toggleSideNavLinkGroup(true, 'linkGroup1'))).to.deep.equal(afterState);
+    expect(reducer(beforeState, toggleSideNavLinkGroup(true, 'linkGroup1'))).toEqual(afterState);
   });
 
-  it('should collapse existing expanded LinkGroups', () => {
+  test('should collapse existing expanded LinkGroups', () => {
     const beforeState = {
       sideNav: {
         linkGroups: {
@@ -69,10 +69,10 @@ describe('reducer', () => {
         },
       },
     };
-    expect(reducer(beforeState, toggleSideNavLinkGroup(true, 'linkGroup1'))).to.deep.equal(afterState);
+    expect(reducer(beforeState, toggleSideNavLinkGroup(true, 'linkGroup1'))).toEqual(afterState);
   });
 
-  it('should toggle SlidingPanel', () => {
+  test('should toggle SlidingPanel', () => {
     const beforeState = {
       slidingPanel: {
         active: false,
@@ -83,11 +83,11 @@ describe('reducer', () => {
         active: true,
       },
     };
-    expect(reducer(beforeState, toggleSlidingPanel())).to.deep.equal(afterState);
-    expect(reducer(afterState, toggleSlidingPanel())).to.deep.equal(beforeState);
+    expect(reducer(beforeState, toggleSlidingPanel())).toEqual(afterState);
+    expect(reducer(afterState, toggleSlidingPanel())).toEqual(beforeState);
   });
 
-  it('should update index by tabLayoutId', () => {
+  test('should update index by tabLayoutId', () => {
     const beforeState = {
       tabLayout: {},
     };
@@ -98,10 +98,10 @@ describe('reducer', () => {
         },
       },
     };
-    expect(reducer(beforeState, selectTab({ tabLayoutId: 'ID123', index: 0 }))).to.deep.equal(afterState);
+    expect(reducer(beforeState, selectTab({ tabLayoutId: 'ID123', index: 0 }))).toEqual(afterState);
   });
 
-  it('should set SlidingPanel active state to desired state', () => {
+  test('should set SlidingPanel active state to desired state', () => {
     const beforeState = {
       slidingPanel: {
         active: false,
@@ -112,7 +112,7 @@ describe('reducer', () => {
         active: true,
       },
     };
-    expect(reducer(beforeState, setSlidingPanelActiveState(true))).to.deep.equal(afterState);
-    expect(reducer(afterState, setSlidingPanelActiveState(false))).to.deep.equal(beforeState);
+    expect(reducer(beforeState, setSlidingPanelActiveState(true))).toEqual(afterState);
+    expect(reducer(afterState, setSlidingPanelActiveState(false))).toEqual(beforeState);
   });
 });

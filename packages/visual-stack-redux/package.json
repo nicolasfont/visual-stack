@@ -16,9 +16,7 @@
     "lint": "eslint src test",
     "format": "prettier \"./src/**/*.js\" --write",
     "prepublish": "npm run clean && npm run lint && npm run build && npm run test",
-    "test": "mocha --require @babel/register --require ignore-styles -r jsdom-global/register test/setup.js \"test/**/*.test.js\"",
-    "jest": "jest",
-    "jest:watch": "jest --watch",
+    "test": "jest",
     "test:watch": "npm run test -- --watch",
     "watch": "gulp build && gulp watch"
   },

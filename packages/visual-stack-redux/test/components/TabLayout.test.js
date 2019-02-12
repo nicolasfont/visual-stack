@@ -19,11 +19,11 @@ describe('TabLayout', () => {
       ...override,
     });
 
-  it('should render TabLayout', () => {
+  test('should render TabLayout', () => {
     shallow(<InternalTabLayout tabLayoutId={'ID123'} />);
   });
 
-  it('should propagate props and children to VisualStack TabLayout', () => {
+  test('should propagate props and children to VisualStack TabLayout', () => {
     const wrapperProps = makeProps();
     const wrapper = shallow(
       <InternalTabLayout {...wrapperProps}>
@@ -35,12 +35,14 @@ describe('TabLayout', () => {
     const vsTabLayoutPassedProps = R.omit(['selectTab', 'selectedIndex', 'children'], vsTabLayoutProps);
     const expectedProps = R.omit(['tabLayoutId', 'tabLayouts'], wrapperProps);
 
-    expect(vsTabLayoutPassedProps).to.deep.equal(expectedProps);
-    expect(vsTabLayoutProps.selectedIndex).to.equal(R.view(R.lensPath([wrapperProps.tabLayoutId, 'index']), wrapperProps.tabLayouts));
-    expect(wrapper.find(BaseTab)).to.have.length(1);
+    expect(vsTabLayoutPassedProps).toEqual(expectedProps);
+    expect(vsTabLayoutProps.selectedIndex).toEqual(
+      R.view(R.lensPath([wrapperProps.tabLayoutId, 'index']), wrapperProps.tabLayouts)
+    );
+    expect(wrapper.find(BaseTab)).toHaveLength(1);
   });
 
-  it('should set tab index to first non-disabled tab', () => {
+  test('should set tab index to first non-disabled tab', () => {
     const selectTabSpy = sinon.spy();
     const wrapperProps = makeProps({ selectTab: selectTabSpy });
     mount(
@@ -49,11 +51,11 @@ describe('TabLayout', () => {
         <BaseTab />
       </InternalTabLayout>
     );
-    expect(selectTabSpy).to.have.been.calledOnce;
-    expect(selectTabSpy).to.have.been.calledWith({ tabLayoutId: 'ID123', index: 1 });
+    expect(selectTabSpy.calledOnce).toBeTruthy();
+    expect(selectTabSpy.calledWith({ tabLayoutId: 'ID123', index: 1 })).toBeTruthy();
   });
 
-  it('should set not set tab index if tabLayoutId is undefined', () => {
+  test('should set not set tab index if tabLayoutId is undefined', () => {
     const selectTabSpy = sinon.spy();
     const wrapperProps = makeProps({ selectTab: selectTabSpy, tabLayoutId: undefined });
     mount(
@@ -61,10 +63,10 @@ describe('TabLayout', () => {
         <BaseTab />
       </InternalTabLayout>
     );
-    expect(selectTabSpy).to.have.been.notCalled;
+    expect(selectTabSpy.notCalled).toBeTruthy();
   });
 
-  it('should update index on tab click', () => {
+  test('should update index on tab click', () => {
     const selectTabSpy = sinon.spy();
     const wrapperProps = makeProps({ selectTab: selectTabSpy });
     const wrapper = mount(
@@ -74,24 +76,24 @@ describe('TabLayout', () => {
       </InternalTabLayout>
     );
     wrapper.find(BaseTabLayout).props().selectTab({}, 1);
-    expect(selectTabSpy).to.have.been.calledTwice;
-    expect(selectTabSpy.secondCall.args[0]).to.deep.equal({ tabLayoutId: 'ID123', index: 1 });
+    expect(selectTabSpy.calledTwice).toBeTruthy();
+    expect(selectTabSpy.secondCall.args[0]).toEqual({ tabLayoutId: 'ID123', index: 1 });
   });
 });
 
 describe('mapDispatchToProps', () => {
-  it('should map selectTab to dispatch wrapped call', () => {
+  test('should map selectTab to dispatch wrapped call', () => {
     const dispatchSpy = sinon.spy();
     mapDispatchToProps(dispatchSpy).selectTab({ tabLayoutId: 'ID123', index: 1 });
-    expect(dispatchSpy).to.have.been.calledOnce;
-    expect(dispatchSpy.firstCall.args[0].payload).to.deep.equal({ tabLayoutId: 'ID123', index: 1 });
-    expect(dispatchSpy.firstCall.args[0].type).to.deep.equal('@cjdev/visual-stack-redux/SELECT_TAB');
+    expect(dispatchSpy.calledOnce).toBeTruthy();
+    expect(dispatchSpy.firstCall.args[0].payload).toEqual({ tabLayoutId: 'ID123', index: 1 });
+    expect(dispatchSpy.firstCall.args[0].type).toEqual('@cjdev/visual-stack-redux/SELECT_TAB');
   });
 });
 
 describe('mapStateToProps', () => {
-  it('should map tabLayout state to tabLayouts prop', () => {
+  test('should map tabLayout state to tabLayouts prop', () => {
     const state = { visualStack: { tabLayout: { ID123: { index: 0 } } } };
-    expect(mapStateToProps(state)).to.deep.equal({ tabLayouts: { ID123: { index: 0 } } });
+    expect(mapStateToProps(state)).toEqual({ tabLayouts: { ID123: { index: 0 } } });
   });
 });
