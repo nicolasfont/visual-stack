@@ -1,33 +1,42 @@
 import React, { Component } from 'react';
 import ChevronRightIcon from 'mdi-react/ChevronRightIcon';
 import './styles.css';
+import dateFormat from 'dateformat';
+import R from 'ramda';
 
-const formatIntervalForDisplay = ({startDate, endDate}) => {
-    const nonBreakSpace = '\u00a0';
-    const dash = '\u2013';
-    const start = "Jan 1, 2019";
-    const end = "Feb 1, 2019";
+const nonBreakSpace = '\u00a0';
+const dash = '\u2013';
 
-    return  `${start}${nonBreakSpace}${dash}${nonBreakSpace}${end} ( UTC )`;
+const isAbsent = val => R.isNil(val) || R.isEmpty(val);
+
+const format = date => isAbsent(date) ? '' : dateFormat(new Date(date), "mmm dd, yyyy", true);
+
+export const formatIntervalForDisplay = interval => {
+    if (isAbsent(interval)) {
+        return `${dash}${dash}`;
+    }
+    const {start, end} = interval;
+
+    return `${format(start)}${nonBreakSpace}${dash}${nonBreakSpace}${format(end)}`;
 };
 
 class DatePickerDropdown extends Component {
 
-    static buttonText(dateRange) {
+    static buttonText(baseDateRange) {
         return (
             <span>
-        {formatIntervalForDisplay(dateRange)}
-      </span>
+                {formatIntervalForDisplay(baseDateRange)}
+            </span>
         );
     }
 
     render() {
-        const dateRange = { startDate: new Date(), endDate: new Date() };
+        const baseDateRange = {start: this.props.startDate, end: this.props.endDate};
         return (
             <div>
                 <button id={'vs-date-picker-dropdown'}
                         className={'vs-date-picker-dropdown'}>
-                    {DatePickerDropdown.buttonText(dateRange)}
+                    {DatePickerDropdown.buttonText(baseDateRange)}
                     <ChevronRightIcon
                         className={'vs-chevronDown'}
                     />

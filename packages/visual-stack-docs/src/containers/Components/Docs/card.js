@@ -13,7 +13,7 @@ export default () =>
         <div>
           <Panel>
             <Header>
-              Spinner
+              Card
             </Header>
             <Body>
               <Snippet tag="s2" src={snippets} />

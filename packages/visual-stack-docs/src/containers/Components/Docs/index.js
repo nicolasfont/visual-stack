@@ -39,7 +39,7 @@ addComponentRoute('spinner', 'Spinner', <SpinnerDocs />);
 addComponentRoute('table', 'Table', <TableDocs />);
 addComponentRoute('tablayout', 'TabLayout', <TabLayoutDocs />);
 addComponentRoute('card', 'Card', <CardDocs />);
-addComponentRoute('datepicker', 'DatePicker', <DatePickerDocs />);
+addComponentRoute('datepicker', 'Date Picker', <DatePickerDocs />);
 
 const ComponentDocs = ({ params }) => {
   const routeData = routeComponentMap[params.componentName];
