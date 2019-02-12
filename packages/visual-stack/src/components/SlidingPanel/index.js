@@ -50,7 +50,7 @@ SlidingPanelSection.propTypes = {
   children: PropTypes.any,
 };
 
-export const SlidingPanelDropdown = ({ label, children, onClick, expanded, id = "" }) => {
+export const SlidingPanelDropdown = ({ label, children, onClick, expanded, id = '' }) => {
   const containerClasses = classNames('vs-sliding-panel-section-container', { 'vs-expanded': expanded });
   const optionsClasses = classNames('vs-sliding-panel-section-options', { 'vs-expanded': expanded });
   return (

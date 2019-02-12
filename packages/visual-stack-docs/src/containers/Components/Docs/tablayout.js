@@ -15,7 +15,7 @@ export default () => (
           <FullPageWrapper>
             {/* s7:start */}
             <TabLayout tabLayoutId={'floatingTabLayout'} floatingHeader={true} headerHeight={'48px'} headerWidth={'100%'}>
-            {/* s7:end */}
+              {/* s7:end */}
               <Tab
                 label={<TabLabelContent>Tab 1</TabLabelContent>}
                 content={
@@ -61,7 +61,7 @@ export default () => (
                     <Panel>
                       <Header>
                         <div>TabLayout can take additional props: onTabClick, themeColor</div>
-                        </Header>
+                      </Header>
                       <Body>
                         <Snippet tag="s6" src={snippets} />
                         {/* s6:start */}

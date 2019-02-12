@@ -31,7 +31,7 @@ const ModalDialog = ({ takeAction, closeModal }) =>
 /* s3:start */
 // The openModal action takes the dialog component and its props
 const ModalButton = ({ openModal, closeModal, takeAction }) =>
-    <Button type="primary" onClick={() => openModal(ModalDialog, { takeAction, closeModal })}>Open Modal</Button>;
+  <Button type="primary" onClick={() => openModal(ModalDialog, { takeAction, closeModal })}>Open Modal</Button>;
 
 // Hook up the actions to the button and dialog
 const OpenModalButton = connect(null, { openModal, closeModal })(ModalButton);

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Button } from "../../components/Button";
+import { Button } from '../../components/Button';
 import CloseIcon from 'mdi-react/CloseIcon';
 
-import "./index.css";
+import './index.css';
 
-export const DialogLayout = ({className, title, cancelButtonText, submitButtonText, onCancel, onSubmit, logo, children}) =>(
+export const DialogLayout = ({ className, title, cancelButtonText, submitButtonText, onCancel, onSubmit, logo, children }) => (
     <div className={`vs-dialog-layout ${className ? className : ''}`}>
         <div className="vs-dialog-layout-header">
             <div className="vs-dialog-layout-page-title">

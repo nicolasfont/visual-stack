@@ -27,8 +27,8 @@ export const LayoutsDocs = ({ params }) => {
 };
 
 const Layouts = ({ children }) =>
-    <div>
-        { children }
-    </div>;
+  <div>
+    { children }
+  </div>;
 
 export default Layouts;

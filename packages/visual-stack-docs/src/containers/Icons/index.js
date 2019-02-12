@@ -133,8 +133,8 @@ const Icons = () => (
               <Panel>
                 <Header> With className</Header>
                 <Body>
-                    <Snippet tag="s8" src={snippets} />
-                    { makeDisplay(countedIconRed, 's7') }
+                  <Snippet tag="s8" src={snippets} />
+                  { makeDisplay(countedIconRed, 's7') }
                 </Body>
               </Panel>
             </div>

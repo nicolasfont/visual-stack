@@ -51,7 +51,7 @@ export class InternalTabLayout extends Component {
         onTabClick={this.props.onTabClick}
         selectTab={this.onSelectClick}
         selectedIndex={R.view(R.lensPath([this.props.tabLayoutId, 'index']), this.props.tabLayouts)}
-        >
+      >
         {this.props.children}
       </BaseTabLayout>
     );

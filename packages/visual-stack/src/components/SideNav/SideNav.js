@@ -49,23 +49,26 @@ class SideNavP extends React.Component {
 
   render() {
     const {
-      logoBackground,
       appName,
       onClick,
       collapsed,
       children,
       userMenu,
-      homeLink
+      homeLink,
     } = this.props;
 
-    const logoBg = logoBackground ? logoBackground : 'transparent';
     const toggle = () => onClick(!collapsed);
     const capAppName = appName ? appName.toUpperCase() : '';
-    const userMenuWithColor = (userMenu) ?  React.cloneElement(userMenu, { color: "#49c5b1" }) : null;
+    const userMenuWithColor = userMenu
+      ? React.cloneElement(userMenu, { color: '#49c5b1' })
+      : null;
     return (
       <ul className={'vs-sidenav' + (collapsed ? ' collapsed' : ' active')}>
         <li className="vs-sideNav-left-logo">
-          <a href={`${(homeLink) ? homeLink : '\/'}`} className="vs-sidenav-container-row">
+          <a
+            href={`${homeLink ? homeLink : '/'}`}
+            className="vs-sidenav-container-row"
+          >
             <div className="vs-logo">{this.props.logo}</div>
             <span className="vs-app-name">{capAppName}</span>
           </a>

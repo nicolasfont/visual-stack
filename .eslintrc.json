@@ -88,7 +88,10 @@
     "no-unneeded-ternary": 1,
     "no-unreachable": 1,
     "no-unused-expressions": 1,
-    "no-unused-vars": [1, { "argsIgnorePattern": "^_" }],
+    "no-unused-vars": [
+      1,
+      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
+    ],
     "no-use-before-define": 2,
     "no-useless-call": 1,
     "no-useless-concat": 1,

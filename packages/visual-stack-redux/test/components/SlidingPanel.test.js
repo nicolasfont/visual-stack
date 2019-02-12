@@ -68,7 +68,7 @@ describe('SlidingPanel', () => {
         <InternalSlidingPanelDropdown
           label="MyCids"
           toggleFilterDropdown={handleDropdown}
-         >
+        >
           <div>Something</div>
         </InternalSlidingPanelDropdown>
       );

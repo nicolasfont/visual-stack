@@ -8,8 +8,8 @@ export class InternalApplicationLayout extends React.Component {
       <BaseApplicationLayout
         sideNav={this.props.sideNav}
         sideNavState={!this.props.collapsed}
-        >
-          { this.props.children }
+      >
+        { this.props.children }
       </BaseApplicationLayout>
     );
   }

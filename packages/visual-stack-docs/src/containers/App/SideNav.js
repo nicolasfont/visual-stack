@@ -24,12 +24,12 @@ import CJLogo from '@cjdev/visual-stack/lib/components/CJLogo';
 import { routeComponentMap } from '../Components/Docs/';
 import { layoutsRouteMap } from '../Layouts';
 
-const toLinks = (map) => (
-    R.pipe(
-        R.mapObjIndexed((val, key) => ({ key, ...val })),
-        R.values,
-        R.sortBy(R.prop('linkName'))
-    )(map)
+const toLinks = map => (
+  R.pipe(
+    R.mapObjIndexed((val, key) => ({ key, ...val })),
+    R.values,
+    R.sortBy(R.prop('linkName'))
+  )(map)
 );
 
 const componentLinks = toLinks(routeComponentMap);
@@ -46,56 +46,56 @@ export default class AppSideNav extends React.Component {
         logoutLabel="Log out"
         firstInitial="V"
         lastInitial="S">
-            <UserMenuLink
-                onClicked={() => { alert('handleSettings'); }}
-                linkIcon={<SettingsIcon />}
-                linkLabel="Settings"
-            />
+        <UserMenuLink
+          onClicked={() => { alert('handleSettings'); }}
+          linkIcon={<SettingsIcon />}
+          linkLabel="Settings"
+        />
       </UserMenu>;
-  /* s1:end */
+    /* s1:end */
     return (
-    <div>
-    {/* s2:start */}
-      <SideNav
-        userMenu={userMenu}
-        initializedCollapsed={false}
-        homeLink={'this/defaults/to/"/"'}
-        logoBackground="#00AF66"
-        logo={<CJLogo />}
-        appName="VISUAL STACK"
-      >
-        <LinkGroup label="Components" svgIcon={<ComponentIcon />}>
-          {componentLinks.map(link => (
-            <Link key={link.key}>
-              <RRLink to={`/components/${link.key}`}>
-                <LinkContentWrapper label={link.linkName} />
-              </RRLink>
-            </Link>
-          ))}
-        </LinkGroup>
-        <Link hoverText="Icons">
-          <RRLink to="/icons">
-            <LinkContentWrapper icon={<IconsIcon />} label="Icons" />
-          </RRLink>
-        </Link>
-        <LinkGroup label="Layouts" svgIcon={<LayoutIcon />}>
-          {layoutLinks.map(link => (
-            <Link key={link.key}>
-              <RRLink to={`/layouts/${link.key}`}>
-                <LinkContentWrapper label={link.linkName} />
-              </RRLink>
-            </Link>
-          ))}
-        </LinkGroup>
+      <div>
+        {/* s2:start */}
+        <SideNav
+          userMenu={userMenu}
+          initializedCollapsed={false}
+          homeLink={'this/defaults/to/"/"'}
+          logoBackground="#00AF66"
+          logo={<CJLogo />}
+          appName="VISUAL STACK"
+        >
+          <LinkGroup label="Components" svgIcon={<ComponentIcon />}>
+            {componentLinks.map(link => (
+              <Link key={link.key}>
+                <RRLink to={`/components/${link.key}`}>
+                  <LinkContentWrapper label={link.linkName} />
+                </RRLink>
+              </Link>
+            ))}
+          </LinkGroup>
+          <Link hoverText="Icons">
+            <RRLink to="/icons">
+              <LinkContentWrapper icon={<IconsIcon />} label="Icons" />
+            </RRLink>
+          </Link>
+          <LinkGroup label="Layouts" svgIcon={<LayoutIcon />}>
+            {layoutLinks.map(link => (
+              <Link key={link.key}>
+                <RRLink to={`/layouts/${link.key}`}>
+                  <LinkContentWrapper label={link.linkName} />
+                </RRLink>
+              </Link>
+            ))}
+          </LinkGroup>
 
-        <Link hoverText="Getting Started">
-          <RRLink to="/gettingStarted">
-            <LinkContentWrapper icon={<GettingStartedIcon/>} label="Getting Started" />
-          </RRLink>
-        </Link>
-      </SideNav>
-    {/* s2:end */}
-    </div>
+          <Link hoverText="Getting Started">
+            <RRLink to="/gettingStarted">
+              <LinkContentWrapper icon={<GettingStartedIcon/>} label="Getting Started" />
+            </RRLink>
+          </Link>
+        </SideNav>
+        {/* s2:end */}
+      </div>
     );
   }
 }

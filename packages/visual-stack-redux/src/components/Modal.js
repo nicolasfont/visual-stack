@@ -6,9 +6,9 @@ const Backdrop = Modal.Backdrop;
 const ModalMountPointPure = ({ component: Component, props }) =>
   Component
     ? <div>
-        <Component {...props} />
-        <Backdrop />
-      </div>
+      <Component {...props} />
+      <Backdrop />
+    </div>
     : <div />;
 
 export const ModalMountPoint = connect(state => ({

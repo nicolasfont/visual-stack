@@ -141,7 +141,7 @@ class VSRSlidingPanelDemo extends React.Component {
                       <VSPanel initialActive={false}>
                         <VSHeader>
                           reduxified sliding panel header
-                          </VSHeader>
+                        </VSHeader>
                         <VSDropdown
                           id="id1"
                           label="My Redux CIDs"
