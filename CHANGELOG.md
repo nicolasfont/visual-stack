@@ -1,3 +1,8 @@
+# 3.4.0 (Feb 8, 2019)
+## Add components
+- Add form field components
+- Add dialog layout component
+
 # 3.3.0 (Feb 4, 2019)
 ## Styling Changes
 - broke the dependency on bootstrap node module
