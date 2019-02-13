@@ -24,7 +24,7 @@ export const formatIntervalForDisplay = interval => {
     return `${format(start)}${nonBreakSpace}${dash}${nonBreakSpace}${format(end)}`;
 };
 
-class DatePickerDropdown extends Component {
+class DatePicker extends Component {
 
     constructor(props, context) {
         super(props, context);
@@ -68,7 +68,7 @@ class DatePickerDropdown extends Component {
             <div>
                 <button id={'vs-date-picker-dropdown'}
                         className={'vs-date-picker-dropdown'}>
-                    {DatePickerDropdown.buttonText(baseDateRange)}
+                    {DatePicker.buttonText(baseDateRange)}
                     <ChevronRightIcon
                         className={'vs-chevronDown'}
                     />
@@ -92,4 +92,4 @@ class DatePickerDropdown extends Component {
     }
 }
 
-export default DatePickerDropdown;
+export default DatePicker;

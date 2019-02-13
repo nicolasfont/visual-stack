@@ -3,7 +3,7 @@ import { Panel, Body, Header } from '@cjdev/visual-stack/lib/components/Panel';
 import { Demo, Snippet } from '../../../components/Demo';
 
 /* s2:start */
-import DatePickerDropdown from '@cjdev/visual-stack/lib/components/DatePicker/DatePickerDropdown';
+import DatePicker from '@cjdev/visual-stack/lib/components/DatePicker/DatePicker';
 
 const onApplyHandler = (startDate, endDate) => {
     alert("start: " + startDate + "end: " + endDate);
@@ -24,7 +24,7 @@ export default () =>
                         <Body>
                         <Snippet tag="s2" src={snippets} />
                         { /* s1:start */ }
-                        <DatePickerDropdown startDate={new Date("2019-01-01T00:00:00-08:00")}
+                        <DatePicker startDate={new Date("2019-01-01T00:00:00-08:00")}
                                             endDate={new Date("2020-01-01T00:00:00-08:00")}
                                             onApply={onApplyHandler}/>
                         { /* s1:end */ }
