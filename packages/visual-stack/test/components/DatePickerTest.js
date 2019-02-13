@@ -16,6 +16,20 @@ describe("DatePicker", () => {
         equal(vsDropPicker, "Jan 01, 2019\u00a0\u2013\u00a0Jan 01, 2020");
     });
 
+    // it("should render formatted start date with correct date in date display", () => {
+    //     // Given
+    //     const wrapper = mount(<DatePicker startDate={"2019-01-01"} endDate={"2020-01-01"}/>);
+    //
+    //     // When
+    //     let input = wrapper.find('.rdrDateDisplay').props();
+    //     const startDate = input.children[0].props.children.props.value;
+    //     const endDate = input.children[1].props.children.props.value;
+    //
+    //     // Then
+    //     equal(startDate, "Jan 01, 2019");
+    //     equal(endDate, "Jan 01, 2020");
+    // });
+
     it("should render empty values for dates if input is not in a correct format", () => {
         // Given
         try {
@@ -23,48 +37,50 @@ describe("DatePicker", () => {
             mount(<DatePicker startDate={"lhasdjh"} endDate={"asdf"}/>);
         } catch (e) {
             // Then
-            if (!(e instanceof TypeError)) {
-                fail("Expected TypeError: Invalid date");
+            if (e !== 'invalid input: does not match YYYY-MM-DD') {
+                fail("Expected invalid input, got: " + e);
             }
         }
     });
 
-    // it("should return same start and end date when clicking apply", () => {
-    //     // Given
-    //     let actualStart = "", actualEnd = "";
-    //     const applyHandler = (startDate, endDate) => {
-    //         actualStart = startDate;
-    //         actualEnd = endDate;
-    //     };
-    //     const wrapper = mount(<DatePicker startDate={"2019-01-01"} endDate={"2019-12-31"} onApply={applyHandler}/>);
-    //
-    //     // When
-    //     wrapper.find('#vs-apply-button').simulate('click');
-    //
-    //     // Then
-    //     equal(actualStart, "2019-01-01");
-    //     equal(actualEnd, "2019-12-31");
-    // });
+    it("should return same start and end date when clicking apply", () => {
+        // Given
+        let selectedStart = "", selectedEnd = "";
+        const applyHandler = (startDate, endDate) => {
+            selectedStart = startDate;
+            selectedEnd = endDate;
+        };
+        const wrapper = mount(<DatePicker startDate={"2019-01-01"} endDate={"2019-12-31"} onApply={applyHandler}/>);
+
+        // When
+        wrapper.find('#vs-apply-button').simulate('click');
+
+        // Then
+        equal(selectedStart, "2019-01-01");
+        equal(selectedEnd, "2019-12-31");
+    });
+
+    it("should return same start and end date when clicking apply when local time is PST", () => {
+        // Given
+        let selectedStart = "", selectedEnd = "";
+        const applyHandler = (startDate, endDate) => {
+            selectedStart = startDate;
+            selectedEnd = endDate;
+        };
+        const wrapper = mount(<DatePicker startDate={"2019-01-01"} endDate={"2019-12-31"} onApply={applyHandler}/>);
+
+        // When
+        wrapper.find('#vs-apply-button').simulate('click');
+
+        // Then
+        equal(selectedStart, "2019-01-01");
+        equal(selectedEnd, "2019-12-31");
+    });
 });
 
 describe("DatePicker", () => {
     // Given
     let table = [
-        {
-            start: new Date("2019-01-01T00:00:00+00:00"),
-            end: new Date("2020-01-01T00:00:00+00:00"),
-            expectedOutput: "Jan 01, 2019\u00a0\u2013\u00a0Jan 01, 2020"
-        },
-        {
-            start: new Date("2019-01-01T00:00:00+00:00"),
-            end: new Date("2020-01-01T00:00:00+00:00"),
-            expectedOutput: "Jan 01, 2019\u00a0\u2013\u00a0Jan 01, 2020"
-        },
-        {
-            start: new Date("2019-01-01"),
-            end: new Date("2020-01-01"),
-            expectedOutput: "Jan 01, 2019\u00a0\u2013\u00a0Jan 01, 2020"
-        },
         {
             start: "2019-01-01",
             end: "2020-01-01",

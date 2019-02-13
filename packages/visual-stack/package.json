@@ -29,6 +29,7 @@
     "classnames": "^2.2.5",
     "font-awesome": "^4.7.0",
     "mdi-react": "^2.0.46",
+    "moment": "^2.24.0",
     "normalize.css": "^8.0.1",
     "ramda": "^0.19.1",
     "react-date-range": "^1.0.0-beta2",

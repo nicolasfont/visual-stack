@@ -24,8 +24,8 @@ export default () =>
                         <Body>
                         <Snippet tag="s2" src={snippets} />
                         { /* s1:start */ }
-                        <DatePicker startDate={new Date("2019-01-01T00:00:00-08:00")}
-                                    endDate={new Date("2020-01-01T00:00:00-08:00")}
+                        <DatePicker startDate={"2019-01-01"}
+                                    endDate={"2020-01-01"}
                                     onApply={onApplyHandler}
                                     showDP={true}/>
                         { /* s1:end */ }
