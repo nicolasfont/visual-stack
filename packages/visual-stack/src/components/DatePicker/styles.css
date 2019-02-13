@@ -16,7 +16,9 @@
     border-radius: 3px;
     box-shadow: 1px 2px 5px 1px #aeaeae;
     max-height: 40em;
-    max-width: 39.9em;
+    width: max-content;
+    position: absolute;
+    z-index:99;
 }
 
 .vs-date-picker-side-by-side {

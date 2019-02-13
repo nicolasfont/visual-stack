@@ -25,11 +25,22 @@ class DatePicker extends Component {
     constructor(props, context) {
         super(props, context);
 
+        let startDate = this.props.startDate;
+        let endDate = this.props.endDate;
+
+        if (typeof startDate !== 'object') {
+            startDate = new Date(this.props.startDate);
+        }
+
+        if (typeof endDate !== 'object') {
+            endDate = new Date(this.props.endDate);
+        }
+
         this.state = {
             dateRangePicker: {
                 selection: {
-                    startDate: this.props.startDate,
-                    endDate: this.props.endDate,
+                    startDate: startDate,
+                    endDate: endDate,
                     key: 'selection',
                 },
             },
@@ -56,6 +67,7 @@ class DatePicker extends Component {
     }
 
     saveSelection() {
+        this.setState({showDP: false});
         this.props.onApply(this.state.dateRangePicker.selection.startDate, this.state.dateRangePicker.selection.endDate);
     }
 
@@ -85,6 +97,7 @@ class DatePicker extends Component {
                     />
                     <div className={'vs-button-bar'}>
                         <button onClick={this.saveSelection.bind(this)}
+                                id={'vs-apply-button'}
                                 className={'vs-apply-button'}>
                             Apply
                         </button>
