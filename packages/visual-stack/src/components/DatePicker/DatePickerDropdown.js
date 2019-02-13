@@ -1,8 +1,12 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ChevronRightIcon from 'mdi-react/ChevronRightIcon';
 import './styles.css';
 import dateFormat from 'dateformat';
 import R from 'ramda';
+import 'react-date-range/dist/styles.css';
+import 'react-date-range/dist/theme/default.css';
+import { DateRangePicker } from 'react-date-range';
+
 
 const nonBreakSpace = '\u00a0';
 const dash = '\u2013';
@@ -22,12 +26,40 @@ export const formatIntervalForDisplay = interval => {
 
 class DatePickerDropdown extends Component {
 
+    constructor(props, context) {
+        super(props, context);
+
+        this.state = {
+            dateRangePicker: {
+                selection: {
+                    startDate: this.props.startDate,
+                    endDate: this.props.endDate,
+                    key: 'selection',
+                },
+            }
+        };
+    }
+
+
     static buttonText(baseDateRange) {
         return (
             <span>
                 {formatIntervalForDisplay(baseDateRange)}
             </span>
         );
+    }
+
+    handleRangeChange(which, payload) {
+        this.setState({
+            [which]: {
+                ...this.state[which],
+                ...payload,
+            },
+        });
+    }
+
+    saveSelection() {
+        this.props.onApply(this.state.dateRangePicker.selection.startDate, this.state.dateRangePicker.selection.endDate);
     }
 
     render() {
@@ -41,6 +73,20 @@ class DatePickerDropdown extends Component {
                         className={'vs-chevronDown'}
                     />
                 </button>
+                <div>
+                    <DateRangePicker
+                        onChange={this.handleRangeChange.bind(this, 'dateRangePicker')}
+                        showSelectionPreview={true}
+                        moveRangeOnFirstSelection={false}
+                        months={1}
+                        ranges={[this.state.dateRangePicker.selection]}
+                        direction="horizontal"
+                    />
+                    <div>
+                        <button onClick={this.saveSelection.bind(this)}> apply</button>
+                        <button>cancel</button>
+                    </div>
+                </div>
             </div>
         );
     }
