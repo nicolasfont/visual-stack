@@ -25,8 +25,9 @@ export default () =>
                         <Snippet tag="s2" src={snippets} />
                         { /* s1:start */ }
                         <DatePicker startDate={new Date("2019-01-01T00:00:00-08:00")}
-                                            endDate={new Date("2020-01-01T00:00:00-08:00")}
-                                            onApply={onApplyHandler}/>
+                                    endDate={new Date("2020-01-01T00:00:00-08:00")}
+                                    onApply={onApplyHandler}
+                                    showDP={true}/>
                         { /* s1:end */ }
                         <Snippet tag="s1" src={snippets} />
                         </Body>

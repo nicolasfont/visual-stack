@@ -12,15 +12,11 @@ const nonBreakSpace = '\u00a0';
 const dash = '\u2013';
 
 const isAbsent = val => R.isNil(val) || R.isEmpty(val);
-
 const format = date => isAbsent(date) ? '' : dateFormat(new Date(date), "mmm dd, yyyy", true);
 
 export const formatIntervalForDisplay = interval => {
-    if (isAbsent(interval)) {
-        return `${dash}${dash}`;
-    }
+    if (isAbsent(interval)) {return `${dash}${dash}`;}
     const {start, end} = interval;
-
     return `${format(start)}${nonBreakSpace}${dash}${nonBreakSpace}${format(end)}`;
 };
 
@@ -36,7 +32,8 @@ class DatePicker extends Component {
                     endDate: this.props.endDate,
                     key: 'selection',
                 },
-            }
+            },
+            showDP: isAbsent(this.props.showDP) ? false : this.props.showDP
         };
     }
 
@@ -64,16 +61,20 @@ class DatePicker extends Component {
 
     render() {
         const baseDateRange = {start: this.props.startDate, end: this.props.endDate};
+        const datePickerClassName = this.state.showDP ? 'vs-date-picker-visible' : 'vs-date-picker';
+        const chevronClassName = this.state.showDP ? 'vs-chevronRight' : 'vs-chevronDown';
+
         return (
             <div>
                 <button id={'vs-date-picker-dropdown'}
-                        className={'vs-date-picker-dropdown'}>
+                        className={'vs-date-picker-dropdown'}
+                        onClick={() => this.setState({showDP: !this.state.showDP})}>
                     {DatePicker.buttonText(baseDateRange)}
                     <ChevronRightIcon
-                        className={'vs-chevronDown'}
+                        className={chevronClassName}
                     />
                 </button>
-                <div>
+                <div id={'vs-date-picker'} className={datePickerClassName}>
                     <DateRangePicker
                         onChange={this.handleRangeChange.bind(this, 'dateRangePicker')}
                         showSelectionPreview={true}
@@ -82,9 +83,15 @@ class DatePicker extends Component {
                         ranges={[this.state.dateRangePicker.selection]}
                         direction="horizontal"
                     />
-                    <div>
-                        <button onClick={this.saveSelection.bind(this)}> apply</button>
-                        <button>cancel</button>
+                    <div className={'vs-button-bar'}>
+                        <button onClick={this.saveSelection.bind(this)}
+                                className={'vs-apply-button'}>
+                            Apply
+                        </button>
+                        <button onClick={() => this.setState({showDP: false})}
+                                className={'vs-cancel-button'}>
+                            Cancel
+                        </button>
                     </div>
                 </div>
             </div>

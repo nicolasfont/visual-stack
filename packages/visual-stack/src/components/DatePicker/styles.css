@@ -16,6 +16,7 @@
     border-radius: 3px;
     box-shadow: 1px 2px 5px 1px #aeaeae;
     max-height: 40em;
+    max-width: 39.9em;
 }
 
 .vs-date-picker-side-by-side {
@@ -106,7 +107,7 @@
 }
 
 .vs-apply-button {
-    background: var(--accent-color);
+    background: #3d90ff;
     border: 1px solid #ccc;
     color: #fff;
     margin: 8px 8px 8px 4px;
