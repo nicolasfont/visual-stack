@@ -2,6 +2,11 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { SlidingPanel, ToggleIcon } from '../';
 
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
+Enzyme.configure({ adapter: new Adapter() });
+
+
 describe('SlidingPanel', () => {
   test('should render', () => {
     const wrapper = shallow(

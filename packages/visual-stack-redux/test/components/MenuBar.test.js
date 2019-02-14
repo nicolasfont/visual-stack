@@ -4,7 +4,10 @@ import { spy } from 'sinon';
 import { mount } from 'enzyme';
 
 import { InternalMenuBarDropdown } from '../../src/components/MenuBar';
-import { ok } from 'assert';
+
+import Adapter from 'enzyme-adapter-react-15';
+import Enzyme from 'enzyme';
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('MenuBarDropdown', () => {
   const context = { menuBarName: 'test-menu-bar' };

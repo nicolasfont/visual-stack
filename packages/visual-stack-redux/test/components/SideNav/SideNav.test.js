@@ -5,6 +5,10 @@ import { mount, shallow } from 'enzyme';
 import { InternalSideNav } from '../../../src/components/SideNav/SideNav';
 import { SideNav, Header } from '@cjdev/visual-stack/lib/components/SideNav';
 
+import Adapter from 'enzyme-adapter-react-15';
+import Enzyme from 'enzyme';
+Enzyme.configure({ adapter: new Adapter() });
+
 describe('SideNav', () => {
   test('should propagate the active state to VisualStack SideNav', () => {
     const wrapper = shallow(
@@ -17,7 +21,7 @@ describe('SideNav', () => {
   test('should propagate children to VisualStack SideNav', () => {
     const wrapper = shallow(
       <InternalSideNav userMenu={<div/>}>
-          <Header label="whatever" />
+        <Header label="whatever" />
       </InternalSideNav>
     );
     expect(wrapper.find(SideNav).find(Header)).toHaveLength(1);
@@ -27,7 +31,7 @@ describe('SideNav', () => {
   test('should propagate children to VisualStack SideNav', () => {
     const wrapper = shallow(
       <InternalSideNav>
-          <Header label="whatever" />
+        <Header label="whatever" />
       </InternalSideNav>
     );
     expect(wrapper.find(SideNav).find(Header)).toHaveLength(1);

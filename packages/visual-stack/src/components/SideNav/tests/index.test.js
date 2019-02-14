@@ -2,6 +2,10 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { SideNav, ToggleIcon, Header, LinkGroup, Link, UserIcon } from '../';
 
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
+Enzyme.configure({ adapter: new Adapter() });
+
 describe('SideNav', () => {
   test('should render', () => {
     const wrapper = mount(
@@ -10,7 +14,8 @@ describe('SideNav', () => {
         userMenu={<div/>}
       />
     );
-    expect(wrapper.find('.vs-sidenav').length).toEqual(1);
+    wrapper.update();
+    expect(wrapper.find('.vs-sidenav')).toHaveLength(1);
   });
 
   test('should render active', () => {
@@ -20,7 +25,8 @@ describe('SideNav', () => {
         collapsed={false}
         />
     );
-    expect(wrapper.find('.vs-sidenav .active').length).toEqual(1);
+    wrapper.update();
+    expect(wrapper.find('.vs-sidenav.active')).toHaveLength(1);
   });
 
   test('should render collapsed', () => {
@@ -30,7 +36,8 @@ describe('SideNav', () => {
         collapsed={true}
         />
     );
-    expect(wrapper.find('.vs-sidenav .collapsed').length).toEqual(1);
+    wrapper.update();
+    expect(wrapper.find('.vs-sidenav.collapsed')).toHaveLength(1);
   });
 
   test('should give default home page if no homeLink is given', () => {
@@ -40,6 +47,7 @@ describe('SideNav', () => {
         collapsed={true}
         />
     );
+    wrapper.update();
     expect(wrapper.find('a.vs-sidenav-container-row').props().href).toEqual('/');
   });
 
@@ -52,6 +60,7 @@ describe('SideNav', () => {
         homeLink={homeLink}
         />
     );
+    wrapper.update();
     expect(wrapper.find('a.vs-sidenav-container-row').props().href).toEqual(homeLink);
   });
 
@@ -62,8 +71,9 @@ describe('SideNav', () => {
           <div className="dummy">something</div>
         </Header>
       );
-      expect(wrapper.find('.vs-sidenav-entry').length).toEqual(1);
-      expect(wrapper.find('.vs-sidenav-entry').children().length).toEqual(1);
+      wrapper.update();
+      expect(wrapper.find('.vs-sidenav-entry')).toHaveLength(1);
+      expect(wrapper.find('.vs-sidenav-entry').children()).toHaveLength(1);
     });
   });
 
@@ -72,15 +82,17 @@ describe('SideNav', () => {
       const wrapper = mount(
         <LinkGroup label="nothing" />
       );
-      expect(wrapper.find('.vs-sidenav-entry').length).toEqual(1);
-      expect(wrapper.find('.fa-stack .vs-stacked-icon').length).toEqual(1);
+      wrapper.update();
+      expect(wrapper.find('.vs-sidenav-entry')).toHaveLength(1);
+      expect(wrapper.find('.fa-stack.vs-stacked-icon')).toHaveLength(1);
     });
 
     test('should render with passed in icon', () => {
       const wrapper = mount(
         <LinkGroup label="nothing" icon={<div className="fake-icon"/>}/>
       );
-      expect(wrapper.find('.fake-icon').length).toEqual(1);
+      wrapper.update();
+      expect(wrapper.find('.fake-icon')).toHaveLength(1);
     });
   });
 
@@ -93,7 +105,8 @@ describe('SideNav', () => {
           </a>
         </Link>
       );
-      expect(wrapper.find('.vs-sidenav-entry').length).toEqual(1);
+      wrapper.update();
+      expect(wrapper.find('.vs-sidenav-entry')).toHaveLength(1);
     });
   });
 
@@ -102,13 +115,15 @@ describe('SideNav', () => {
       const wrapper = shallow(
         <ToggleIcon />
       );
-      expect(wrapper.find('.vs-sidenav-toggle-icon').length).toEqual(1);
+      wrapper.update();
+      expect(wrapper.find('.vs-sidenav-toggle-icon')).toHaveLength(1);
     });
   });
 
   describe('UserIcon', () => {
     test('should render first and last', () => {
       const wrapper = shallow(<UserIcon firstInitial="A" lastInitial="B" />);
+      wrapper.update();
       expect(wrapper.text()).toEqual('AB');
     });
   });

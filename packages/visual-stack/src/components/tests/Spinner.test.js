@@ -2,6 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Spinner from '../Spinner';
 
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
+Enzyme.configure({ adapter: new Adapter() });
+
 describe('Spinner', () => {
   test('should render with default small size', () => {
     const shallowWrapper = shallow(<Spinner />);

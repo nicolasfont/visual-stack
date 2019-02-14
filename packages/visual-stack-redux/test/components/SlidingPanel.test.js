@@ -5,6 +5,10 @@ import sinon from 'sinon';
 import { InternalSlidingPanel, InternalToggleIcon, InternalSlidingPanelDropdown } from '../../src/components/SlidingPanel';
 import { SlidingPanel, SlidingPanelHeader, SlidingPanelDropdown } from '@cjdev/visual-stack/lib/components/SlidingPanel';
 
+import Adapter from 'enzyme-adapter-react-15';
+import Enzyme from 'enzyme';
+Enzyme.configure({ adapter: new Adapter() });
+
 describe('SlidingPanel', () => {
   describe('SlidingPanel', () => {
     test('should render VisualStack SlidingPanel default active false', () => {
