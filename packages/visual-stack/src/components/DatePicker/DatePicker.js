@@ -20,7 +20,7 @@ export const formatIntervalForDisplay = interval => {
         return `${dash}${dash}`;
     }
     const {start, end} = interval;
-    return `${format(start)}${nonBreakSpace}${dash}${nonBreakSpace}${format(end)}`;
+    return start === end ? `${format(start)}` : `${format(start)}${nonBreakSpace}${dash}${nonBreakSpace}${format(end)}`;
 };
 
 const verifyDateInput = (startDate, endDate) => {

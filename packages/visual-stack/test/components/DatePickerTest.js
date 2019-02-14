@@ -61,6 +61,11 @@ describe("DatePicker Valid Inputs", () => {
             start: "2019/12/31",
             end: "2020/01/15",
             expectedOutput: "Dec 31, 2019\u00a0\u2013\u00a0Jan 15, 2020"
+        },
+        {
+            start: "2019/12/31",
+            end: "2019/12/31",
+            expectedOutput: "Dec 31, 2019"
         }
     ];
 
