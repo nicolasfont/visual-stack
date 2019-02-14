@@ -6,7 +6,7 @@ import { Demo, Snippet } from '../../../components/Demo';
 import DatePicker from '@cjdev/visual-stack/lib/components/DatePicker/DatePicker';
 
 const onApplyHandler = (startDate, endDate) => {
-    alert("start: " + startDate + "end: " + endDate);
+    alert("start: " + startDate +" end: " + endDate);
 };
 /* s2:end */
 
@@ -24,8 +24,8 @@ export default () =>
                         <Body>
                         <Snippet tag="s2" src={snippets} />
                         { /* s1:start */ }
-                        <DatePicker startDate={"2019-01-01"}
-                                    endDate={"2020-01-01"}
+                        <DatePicker startDate={"2019/01/01"}
+                                    endDate={"2020/01/01"}
                                     onApply={onApplyHandler}
                                     showDP={true}/>
                         { /* s1:end */ }

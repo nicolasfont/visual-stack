@@ -5,15 +5,15 @@ import R from 'ramda';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import {DateRangePicker} from 'react-date-range';
-import moment from 'moment';
-
+import dateFormat from 'dateformat';
 
 const nonBreakSpace = '\u00a0';
 const dash = '\u2013';
 
 const isAbsent = val => R.isNil(val) || R.isEmpty(val);
-const format = date => isAbsent(date) ? '' : moment(date).utc(false).format('MMM DD, YYYY');
-const formatYYYYMMDD = date => moment(date).utc(false).format('YYYY-MM-DD');
+const format = date => isAbsent(date) ? '' : dateFormat(date, "mmm dd, yyyy");
+const formatYYYYMMDD = date => dateFormat(date, "yyyy/mm/dd");
+const isValidDate = date => R.test(/^\d{4}\/[0|1][0-9]\/[0-3][0-9]$/, date);
 
 export const formatIntervalForDisplay = interval => {
     if (isAbsent(interval)) {
@@ -32,11 +32,11 @@ class DatePicker extends Component {
         let endDate = this.props.endDate;
 
         if (typeof startDate !== 'string' || typeof endDate !== 'string') {
-            throw 'invalid input: not a string';
+            throw Error('invalid input: not a string');
         }
 
-        if (startDate.length !== 10 || endDate.length !== 10) {
-            throw 'invalid input: does not match YYYY-MM-DD';
+        if (!isValidDate(startDate) || !isValidDate(endDate)) {
+            throw Error('invalid input: does not match YYYY/MM/DD');
         }
 
         startDate = new Date(this.props.startDate);
