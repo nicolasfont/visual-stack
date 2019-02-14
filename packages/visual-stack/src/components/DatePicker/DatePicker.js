@@ -23,21 +23,25 @@ export const formatIntervalForDisplay = interval => {
     return `${format(start)}${nonBreakSpace}${dash}${nonBreakSpace}${format(end)}`;
 };
 
+const verifyDateInput = (startDate, endDate) => {
+    if (typeof startDate !== 'string' || typeof endDate !== 'string') {
+        throw Error('invalid input: not a string');
+    }
+
+    if (!isValidDate(startDate) || !isValidDate(endDate)) {
+        throw Error('invalid input: does not match YYYY/MM/DD');
+    }
+};
+
 class DatePicker extends Component {
 
     constructor(props, context) {
         super(props, context);
 
-        let startDate = this.props.startDate;
-        let endDate = this.props.endDate;
+        let startDate = this.props.startDate,
+            endDate = this.props.endDate;
 
-        if (typeof startDate !== 'string' || typeof endDate !== 'string') {
-            throw Error('invalid input: not a string');
-        }
-
-        if (!isValidDate(startDate) || !isValidDate(endDate)) {
-            throw Error('invalid input: does not match YYYY/MM/DD');
-        }
+        verifyDateInput(startDate, endDate);
 
         startDate = new Date(this.props.startDate);
         endDate = new Date(this.props.endDate);
@@ -80,7 +84,7 @@ class DatePicker extends Component {
     }
 
     render() {
-        const baseDateRange = {start: this.state.dateRangePicker.selection.startDate, end: this.state.dateRangePicker.selection.endDate};
+        const baseDateRange = {start: this.props.startDate, end: this.props.endDate};
         const datePickerClassName = this.state.showDP ? 'vs-date-picker-visible' : 'vs-date-picker';
         const chevronClassName = this.state.showDP ? 'vs-chevronRight' : 'vs-chevronDown';
 
