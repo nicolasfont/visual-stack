@@ -63,7 +63,6 @@ describe('MenuBarDropdown', () => {
     );
 
     ReactDOM.findDOMNode(wrapper.instance()).click();
-    wrapper.update();
     expect(closeDropdown.called).toBeTruthy();
   });
 
@@ -80,7 +79,6 @@ describe('MenuBarDropdown', () => {
     );
 
     document.body.click();
-    wrapper.update();
     expect(closeDropdown.calledOnce).toBeTruthy();
   });
 });
