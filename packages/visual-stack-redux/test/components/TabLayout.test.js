@@ -23,31 +23,33 @@ describe('TabLayout', () => {
       ...override,
     });
 
-  test('should render TabLayout', () => {
-    shallow(<InternalTabLayout tabLayoutId={'ID123'} />);
-  });
+  // test('should render TabLayout', () => {
+  //   shallow(<InternalTabLayout tabLayoutId={'ID123'} />);
+  // });
 
-  test('should propagate props and children to VisualStack TabLayout', () => {
-    const wrapperProps = makeProps();
-    const wrapper = shallow(
-      <InternalTabLayout {...wrapperProps}>
-        <BaseTab />
-      </InternalTabLayout>
-    );
+  // test('should propagate props and children to VisualStack TabLayout', () => {
+  //   const wrapperProps = makeProps();
+  //   const wrapper = shallow(
+  //     <InternalTabLayout {...wrapperProps}>
+  //       <BaseTab />
+  //     </InternalTabLayout>
+  //   );
 
-    const vsTabLayoutProps = wrapper.find(BaseTabLayout).props();
-    const vsTabLayoutPassedProps = R.omit(['selectTab', 'selectedIndex', 'children'], vsTabLayoutProps);
-    const expectedProps = R.omit(['tabLayoutId', 'tabLayouts'], wrapperProps);
+  //   const vsTabLayoutProps = wrapper.find(BaseTabLayout).props();
+  //   const vsTabLayoutPassedProps = R.omit(['selectTab', 'selectedIndex', 'children'], vsTabLayoutProps);
+  //   const expectedProps = R.omit(['tabLayoutId', 'tabLayouts'], wrapperProps);
 
-    expect(vsTabLayoutPassedProps).toEqual(expectedProps);
-    expect(vsTabLayoutProps.selectedIndex).toEqual(
-      R.view(R.lensPath([wrapperProps.tabLayoutId, 'index']), wrapperProps.tabLayouts)
-    );
-    expect(wrapper.find(BaseTab)).toHaveLength(1);
-  });
+  //   expect(vsTabLayoutPassedProps).toEqual(expectedProps);
+  //   expect(vsTabLayoutProps.selectedIndex).toEqual(
+  //     R.view(R.lensPath([wrapperProps.tabLayoutId, 'index']), wrapperProps.tabLayouts)
+  //   );
+  //   expect(wrapper.find(BaseTab)).toHaveLength(1);
+  // });
 
   test('should set tab index to first non-disabled tab', () => {
     const selectTabSpy = sinon.spy();
+
+
     const wrapperProps = makeProps({ selectTab: selectTabSpy });
     mount(
       <InternalTabLayout {...wrapperProps}>
