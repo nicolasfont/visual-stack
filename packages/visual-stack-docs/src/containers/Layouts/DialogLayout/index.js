@@ -3,7 +3,7 @@ import { Route, withRouter } from 'react-router';
 
 import { Button } from '@cjdev/visual-stack/lib/components/Button';
 import DialogLayout from '@cjdev/visual-stack/lib/layouts/DialogLayout';
-import { Body, Header, Panel } from '@cjdev/visual-stack/lib/components/Panel';
+import { Body, Header, Panel, Footer } from "@cjdev/visual-stack/lib/components/Panel";
 import {
   ChoiceInput,
   Field,
@@ -75,27 +75,25 @@ class DialogLayoutParent extends React.Component {
 }
 
 /* s1:start */
-export const DialogLayoutDemo = ({ router }) => (
-  <div>
-    <DialogLayout
-      title={'Create Program Term'}
-      submitButtonText={'Save Program Terms'}
-      cancelButtonText={'cancel'}
-      onCancel={() => router.push('/layouts/dialogLayout')}
-      onSubmit={() => {
-        alert('Success!'); // eslint-disable-line no-alert
-        router.push('/layouts/dialogLayout');
-      }}
-      logo={<CJLogo />}
-    >
-      <Panel>
-        <DemoContent />
-      </Panel>
-      <Panel>
-        <DemoForm />
-      </Panel>
-    </DialogLayout>
-  </div>
+export const DialogLayoutDemo = ({router}) => (
+    <div>
+        <DialogLayout title={"Create Program Term"}
+                      submitButtonText={"Save Program Terms"}
+                      cancelButtonText={"cancel"}
+                      onCancel={() => router.push("/layouts/dialogLayout")}
+                      onSubmit={() => {
+                          alert("Success!");
+                          router.push("/layouts/dialogLayout");
+                      }}
+                      logo={<CJLogo/>}>
+            {/*<Panel>*/}
+              {/*<DemoContent/>*/}
+            {/*</Panel>*/}
+            {/*<Panel>*/}
+              <DemoForm/>
+            {/*</Panel>*/}
+        </DialogLayout>
+    </div>
 );
 /* s1:end */
 
@@ -108,67 +106,52 @@ const NotRenderedComponent = () => (
 // Stop Travis from complaining...
 NotRenderedComponent.propTypes = {};
 
+
 /* s2:start */
 export const DemoForm = () => (
-  <Body>
     <Form>
-      <TextField
-        name="name"
-        label="Enter Name"
-        help="Enter first name and last name"
-        placeholder="First Last"
-      />
-      <TextField
-        name="country"
-        label="Country"
-        optional={true}
-        optionalLabel="Optional"
-        value="Degobah"
-        error="Enter valid country name on planet Earth"
-        help="Enter Country"
-      />
-      <div className="grid-it-up">
-        <Field label="# of vacation days" help="Enter vacation rules">
-          <ChoiceInput
-            name="vacationDays"
-            label="Unlimited"
-            value="unlimited"
-          />
-          <div className="inline-other-text-box-style">
-            <ChoiceInput
-              name="vacationDays"
-              label="Limit to"
-              value="limitTo"
-              className="inline-other-text-box-style"
-            />
-            <Input name="days" className="make-text-box-smaller-style" />
-            <Label>days</Label>
-          </div>
-        </Field>
-        <Field
-          name="vacationtypes"
-          label="Vacation Type"
-          help="Choose all applicable"
-          optional={true}
-          optionalLabel="Optional"
-        >
-          <ChoiceInput
-            name="vacationtypes.cruise"
-            type="checkbox"
-            label="Cruise"
-            value="cruise"
-          />
-          <ChoiceInput
-            name="vacationtypes.hiking"
-            type="checkbox"
-            label="Hiking"
-            value="hiking"
-          />
-        </Field>
-        <div />
-      </div>
+        <Panel>
+            <Body paddingSize="large">
+            <h3>Program Details</h3>
+            <TextField name="name" label="Enter Name" help="Enter first name and last name"
+                       placeholder="First Last"/>
+            <TextField name="country" label="Country" optional={true} optionalLabel="Optional"
+                       value="Degobah" error="Enter valid country name on planet Earth" help="Enter Country"/>
+            <div className="grid-it-up">
+                <Field label="# of vacation days" help="Enter vacation rules">
+                    <ChoiceInput name="vacationDays" label="Unlimited" value="unlimited"/>
+                    <div className="inline-other-text-box-style">
+                        <ChoiceInput name="vacationDays" label="Limit to" value="limitTo"
+                                     className="inline-other-text-box-style"/>
+                        <Input name="days" className="make-text-box-smaller-style"/>
+                        <Label>days</Label>
+                    </div>
+                </Field>
+                <Field name="vacationtypes" label="Vacation Type" help="Choose all applicable"
+                       optional={true} optionalLabel="Optional">
+                    <ChoiceInput name="vacationtypes.cruise" type="checkbox" label="Cruise" value="cruise"/>
+                    <ChoiceInput name="vacationtypes.hiking" type="checkbox" label="Hiking" value="hiking"/>
+                </Field>
+                <div/>
+            </div>
+            </Body>
+        </Panel>
+        <Panel>
+            <Body paddingSize="large">
+                <h3>Action Terms</h3>
+                <TextField name="name" label="Enter Name" help="Enter first name and last name"
+                           placeholder="First Last"/>
+                <TextField name="country" label="Country" optional={true} optionalLabel="Optional"
+                           value="Degobah" error="Enter valid country name on planet Earth" help="Enter Country"/>
+            </Body>
+            <Footer>
+                <div className="dialog-actions">
+                    <Button type="text">Cancel</Button>
+                    <Button type="solid-primary">Add</Button>
+                </div>
+            </Footer>
+        </Panel>
     </Form>
-  </Body>
 );
 
 export const DemoContent = () => (

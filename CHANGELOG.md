@@ -1,3 +1,9 @@
+# 3.4.1 (Feb 14, 2019)
+## change styles for field components
+- Add fontWeight for FieldContent
+- Add paddingSize for Panel
+- Add media based width for FieldContent
+
 # 3.4.0 (Feb 8, 2019)
 ## Add components
 - Add form field components

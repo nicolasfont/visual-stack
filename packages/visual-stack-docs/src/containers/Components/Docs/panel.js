@@ -14,10 +14,20 @@ export default () => (
         <div>
           {/* s1:start */}
           <Panel>
-            <Header>Panel Header</Header>
+            <Header>
+              Panel Header
+            </Header>
+            <Body paddingSize="wide">
+            This is the Panel Body with 32px padding.
+            <Snippet tag="s1" src={snippets}/>
+            </Body>
             <Body>
-              This is the Panel Body.
-              <Snippet tag="s1" src={snippets} />
+            This is the Panel Body.
+            <Snippet tag="s1" src={snippets}/>
+            </Body>
+            <Body paddingSize="none">
+            This is the Panel Body.
+            <Snippet tag="s1" src={snippets}/>
             </Body>
             <Footer>Panel Footer</Footer>
           </Panel>

@@ -10,9 +10,10 @@ export const Footer = ({ children }) => (
   <div className="cj-panel panel-footer">{children}</div>
 );
 
-export const Body = ({ children }) => (
-  <div className="cj-panel panel-body">{children}</div>
-);
+export const Body = ({ children, paddingSize}) =>
+  <div className={`cj-panel panel-body ${paddingSize ? `cj-panel-body-padding-${paddingSize}` : ""}`}>
+    {children}
+  </div>;
 
 export const Header = ({ title, children }) => (
   <div className="cj-panel panel-heading">
@@ -22,4 +23,8 @@ export const Header = ({ title, children }) => (
 );
 Header.propTypes = {
   title: PropTypes.string,
+};
+
+Body.propTypes = {
+  paddingSize: PropTypes.oneOf(["none", "wide"])
 };
