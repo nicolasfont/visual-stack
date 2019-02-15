@@ -152,26 +152,26 @@ fieldset.group ul.checkbox li.focus {
 }
 
 @media (max-width: 40em) {
-    .vs-field-content {
-        max-width: 100%;
-    }
+  .vs-field-content {
+    max-width: 100%;
+  }
 }
 
-@media (min-width: 768px ) {
-    .vs-field-content {
-        max-width: 75%;
-    }
+@media (min-width: 768px) {
+  .vs-field-content {
+    max-width: 75%;
+  }
 }
-@media (min-width: 992px ) {
-    .vs-field-content {
-        max-width: 60%;
-    }
+@media (min-width: 992px) {
+  .vs-field-content {
+    max-width: 60%;
+  }
 }
 
-@media (min-width: 1280px ) {
-    .vs-field-content {
-        max-width: 45%;
-    }
+@media (min-width: 1280px) {
+  .vs-field-content {
+    max-width: 45%;
+  }
 }
 
 .vs-field-optional {
@@ -181,9 +181,9 @@ fieldset.group ul.checkbox li.focus {
 }
 
 .vs-label-font-bold {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .vs-label-font-normal {
-    font-weight: normal;
+  font-weight: normal;
 }

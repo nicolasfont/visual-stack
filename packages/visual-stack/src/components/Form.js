@@ -14,12 +14,25 @@ Input.propTypes = {
   type: PropTypes.string,
 };
 
-export const Label = ({ children, className, required, vertical, fontWeight, ...otherProps }) =>
-  <label className={`form-label control-label form-label-${vertical ? 'vertical' : 'horizontal'} ${fontWeight ? `vs-label-font-${fontWeight}` : ""} ${className || ''}`} {...otherProps}>
+export const Label = ({
+  children,
+  className,
+  required,
+  vertical,
+  fontWeight,
+  ...otherProps
+}) => (
+  <label
+    className={`form-label control-label form-label-${
+      vertical ? 'vertical' : 'horizontal'
+    } ${fontWeight ? `vs-label-font-${fontWeight}` : ''} ${className || ''}`}
+    {...otherProps}
+  >
     {children}
     {required && <span className="form-group-required-sign">*</span>}
   </label>
 );
+
 Label.propTypes = {
   className: PropTypes.string,
   required: PropTypes.bool,
@@ -85,9 +98,18 @@ export const Field = ({
   children,
 }) => (
   <div className={`vs-field ${className ? className : ''}`}>
-    <Label className="vs-field-label" weight="bold">{label} <span className="vs-field-optional">{optional ? `- ${optionalLabel}` : null}</span></Label>
-      {children}
-    {error ? <div className="vs-validation-error">{error}</div> : <div className="vs-field-help">{help}</div>}
+    <Label className="vs-field-label" weight="bold">
+      {label}{' '}
+      <span className="vs-field-optional">
+        {optional ? `- ${optionalLabel}` : null}
+      </span>
+    </Label>
+    {children}
+    {error ? (
+      <div className="vs-validation-error">{error}</div>
+    ) : (
+      <div className="vs-field-help">{help}</div>
+    )}
   </div>
 );
 
@@ -130,10 +152,30 @@ export const TextField = ({
 );
 
 // Just radio button and label
-export const ChoiceInput = ({className, type = "radio", name, value, label, error, help, checked, style, ...otherProps}) => (
-  <div className={`vs-choice-input ${className ? className : ''}`} style={style}>
+export const ChoiceInput = ({
+  className,
+  type = 'radio',
+  name,
+  value,
+  label,
+  error,
+  help,
+  checked,
+  style,
+  ...otherProps
+}) => (
+  <div
+    className={`vs-choice-input ${className ? className : ''}`}
+    style={style}
+  >
     <Label fontWeight="normal">
-      <Input type={type} name={name} value={value} checked={checked} {...otherProps}/>
+      <Input
+        type={type}
+        name={name}
+        value={value}
+        checked={checked}
+        {...otherProps}
+      />
       {label}
     </Label>
   </div>
