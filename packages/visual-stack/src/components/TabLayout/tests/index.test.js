@@ -142,8 +142,6 @@ describe('TabLayout', () => {
       expect(tabLabelContentWrapperInactive.props().style).toEqual({ });
     });
 
-    // Code broken with recentish enzyme I'm working on it ~~ elangley
-
     test('should highlight text on hover', () => {
       const wrapper = mount(
         <TabLayout tabLayoutId={'tabLayout1'} selectedIndex={0}>
