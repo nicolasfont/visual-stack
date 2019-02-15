@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 import { selectTab } from '../actions';
 import PropTypes from 'prop-types';
 
-const toArray = maybeArray => R.flatten([maybeArray]);
-
 const createPayload = (tabLayoutId, index) => ({
   tabLayoutId: tabLayoutId,
   index: index,
@@ -24,7 +22,7 @@ export class InternalTabLayout extends Component {
   }
 
   componentDidMount() {
-    const children = toArray(this.props.children);
+    const children = React.Children.toArray(this.props.children);
     const firstIndex = R.findIndex(child => !child.props.disabled, children);
     this.updateTabIndex(firstIndex);
   }
@@ -51,7 +49,7 @@ export class InternalTabLayout extends Component {
         onTabClick={this.props.onTabClick}
         selectTab={this.onSelectClick}
         selectedIndex={R.view(R.lensPath([this.props.tabLayoutId, 'index']), this.props.tabLayouts)}
-        >
+      >
         {this.props.children}
       </BaseTabLayout>
     );
