@@ -27,6 +27,9 @@
     },
     "modulePathIgnorePatterns": [
       "<rootDir>/lib/"
+    ],
+    "setupFiles": [
+      "<rootDir>/setupTest.js"
     ]
   },
   "peerDependencies": {

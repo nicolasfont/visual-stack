@@ -12,9 +12,9 @@ export const ExcelExportButton = ({ label='export', items=[], headers=[], sheetN
 };
 
 ExcelExportButton.propTypes = {
-  label: propTypes.string.isRequired,
-  items: propTypes.array.isRequired,
-  headers: propTypes.array.isRequired,
-  sheetName: propTypes.string.isRequired,
-  fileName: propTypes.string.isRequired,
+  label: propTypes.string,
+  items: propTypes.array,
+  headers: propTypes.array,
+  sheetName: propTypes.string,
+  fileName: propTypes.string,
 };
