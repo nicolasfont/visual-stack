@@ -6,15 +6,19 @@ import { mount, shallow } from 'enzyme';
 import { InternalLinkGroup } from '../../../src/components/SideNav/LinkGroup';
 import { LinkGroup, Link } from '@cjdev/visual-stack/lib/components/SideNav';
 
+import Adapter from 'enzyme-adapter-react-15';
+import Enzyme from 'enzyme';
+Enzyme.configure({ adapter: new Adapter() });
+
 describe('LinkGroup', () => {
-  it('should propagate label to visual stack link group', () => {
+  test('should propagate label to visual stack link group', () => {
     const wrapper = shallow(
       <InternalLinkGroup label="whatever" />
     );
-    expect(wrapper.find(LinkGroup).prop('label')).to.equal('whatever');
+    expect(wrapper.find(LinkGroup).prop('label')).toBe('whatever');
   });
 
-  it('should calculate expanded value based on state', () => {
+  test('should calculate expanded value based on state', () => {
     const label = 'LABEL';
     const state = {
       [label]: {
@@ -27,10 +31,10 @@ describe('LinkGroup', () => {
     const wrapper = mount(
       <InternalLinkGroup label={label} linkGroups={state} />
     );
-    expect(wrapper.find(LinkGroup).prop('expanded')).to.be.false;
+    expect(wrapper.find(LinkGroup).prop('expanded')).toBe(false);
   });
 
-  it('should calculate expanded value when not in state', () => {
+  test('should calculate expanded value when not in state', () => {
     const label = 'LABEL';
     const state = {
       ANOTHER_LINK_GROUP: {
@@ -41,10 +45,10 @@ describe('LinkGroup', () => {
     const wrapper = mount(
       <InternalLinkGroup label={label} linkGroups={state} />
     );
-    expect(wrapper.find(LinkGroup).prop('expanded')).to.be.false;
+    expect(wrapper.find(LinkGroup).prop('expanded')).toBe(false);
   });
 
-  it('should toggle itself when clicked with given state', () => {
+  test('should toggle itself when clicked with given state', () => {
     const label = 'LABEL';
     const faker = sinon.spy();
     const toggleFake = sinon.spy();
@@ -59,18 +63,18 @@ describe('LinkGroup', () => {
     );
 
     wrapper.find(LinkGroup).find('.vs-sidenav-container-label').simulate('click');
-    expect(faker).to.have.been.calledWith(true, label);
-    expect(toggleFake).to.have.been.calledOnce;
-    expect(toggleFake).to.have.been.calledWith(false);
+    expect(faker.calledWith(true, label)).toBeTruthy();
+    expect(toggleFake.calledOnce).toBeTruthy();
+    expect(toggleFake.calledWith(false)).toBeTruthy();
   });
 
-  it('should propagate children to VisualStack LinkGroup', () => {
+  test('should propagate children to VisualStack LinkGroup', () => {
     const wrapper = mount(
       <InternalLinkGroup label="whatever" linkGroups={{}}>
         <Link><a href="mockRouterLink">123</a></Link>
       </InternalLinkGroup>
     );
-    expect(wrapper.find(Link)).to.have.length(1);
-    expect(wrapper.find(Link)).text().to.equal('123');
+    expect(wrapper.find(Link)).toHaveLength(1);
+    expect(wrapper.find(Link).text()).toBe('123');
   });
 });
