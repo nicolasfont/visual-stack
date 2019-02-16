@@ -2,10 +2,6 @@ import React from 'react';
 import { Modal, Header } from '../Modal';
 import { mount } from 'enzyme';
 
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
-Enzyme.configure({ adapter: new Adapter() });
-
 describe('Modal', () => {
   test('should call onBackgroundClick when background is clicked', () => {
     let onBackgroundClickCalls = 0;

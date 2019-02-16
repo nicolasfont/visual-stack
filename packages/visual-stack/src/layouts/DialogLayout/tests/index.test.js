@@ -2,10 +2,6 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import DialogLayout from '../';
 
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
-Enzyme.configure({ adapter: new Adapter() });
-
 describe('DialogLayout', () => {
   test('should render', () => {
     let onClickCalled = false;

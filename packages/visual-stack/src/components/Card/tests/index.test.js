@@ -1,11 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
-Enzyme.configure({ adapter: new Adapter() });
-
-
 import Card from '../';
 
 describe('<Card />', () => {

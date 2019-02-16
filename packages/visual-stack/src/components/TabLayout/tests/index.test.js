@@ -3,10 +3,6 @@ import R from 'ramda';
 import { mount } from 'enzyme';
 import { TabLayout, Tab } from '../';
 
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
-Enzyme.configure({ adapter: new Adapter() });
-
 describe('TabLayout', () => {
   const el = document.createElement('div');
   document.body.appendChild(el);

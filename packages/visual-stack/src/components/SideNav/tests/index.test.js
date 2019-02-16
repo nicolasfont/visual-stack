@@ -2,10 +2,6 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { SideNav, ToggleIcon, Header, LinkGroup, Link, UserIcon } from '../';
 
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
-Enzyme.configure({ adapter: new Adapter() });
-
 describe('SideNav', () => {
   test('should render', () => {
     const wrapper = mount(

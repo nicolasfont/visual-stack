@@ -2,10 +2,6 @@ import React from 'react';
 import { Row, ActionButton } from '../List';
 import { shallow } from 'enzyme';
 
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
-Enzyme.configure({ adapter: new Adapter() });
-
 describe('List', () => {
   describe('Row', () => {
     let shallowWrapper, hasBeenClicked;
