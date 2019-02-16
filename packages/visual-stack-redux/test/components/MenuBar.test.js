@@ -5,9 +5,15 @@ import { mount } from 'enzyme';
 
 import { InternalMenuBarDropdown } from '../../src/components/MenuBar';
 
+import Adapter from 'enzyme-adapter-react-15';
+import Enzyme from 'enzyme';
+Enzyme.configure({ adapter: new Adapter() });
+
 describe('MenuBarDropdown', () => {
   const context = { menuBarName: 'test-menu-bar' };
-  const options = { context, attachTo: global.mountPoint };
+  const el = document.createElement('div');
+  document.body.appendChild(el);
+  const options = { context, attachTo: el };
 
   const component = props =>
     <InternalMenuBarDropdown
@@ -24,33 +30,55 @@ describe('MenuBarDropdown', () => {
     }
   });
 
-  it('opens when clicked', () => {
+  test('opens when clicked', () => {
     const openDropdown = spy();
     const props = { menuBars: {}, openDropdown };
-    wrapper = mount(component(props), options);
+    wrapper = mount(
+      <InternalMenuBarDropdown
+        name="test-dropdown"
+        title="Test Dropdown"
+        {...props} />,
+      options
+    );
 
     ReactDOM.findDOMNode(wrapper.instance()).click();
-    expect(openDropdown).to.have.been.calledOnce;
+    wrapper.update();
+
+    expect(openDropdown.calledOnce).toBeTruthy();
   });
 
-  it('closes when clicked a second time', () => {
+  test('closes when clicked a second time', () => {
     const closeDropdown = spy();
     const props = {
       menuBars: { 'test-menu-bar': { 'test-dropdown': { open: true } } },
       closeDropdown,
     };
-    wrapper = mount(component(props), options);
+
+    wrapper = mount(
+      <InternalMenuBarDropdown
+        name="test-dropdown"
+        title="Test Dropdown"
+        {...props} />,
+      options
+    );
 
     ReactDOM.findDOMNode(wrapper.instance()).click();
-    expect(closeDropdown).to.have.been.calledOnce;
+    expect(closeDropdown.called).toBeTruthy();
   });
 
-  it('closes when clicked outside the dropdown', () => {
+  test('closes when clicked outside the dropdown', () => {
     const closeDropdown = spy();
     const props = { menuBars: {}, closeDropdown };
-    wrapper = mount(component(props), options);
+
+    wrapper = mount(
+      <InternalMenuBarDropdown
+        name="test-dropdown"
+        title="Test Dropdown"
+        {...props} />,
+      options
+    );
 
     document.body.click();
-    expect(closeDropdown).to.have.been.calledOnce;
+    expect(closeDropdown.calledOnce).toBeTruthy();
   });
 });

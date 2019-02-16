@@ -1,7 +1,10 @@
 import React from 'react';
-import { Row, ActionButton } from '../../src/components/List';
+import { Row, ActionButton } from '../List';
 import { shallow } from 'enzyme';
-import { equal, ok } from 'assert';
+
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('List', () => {
   describe('Row', () => {
@@ -12,22 +15,22 @@ describe('List', () => {
         hasBeenClicked = false;
         shallowWrapper = shallow(<Row id="hello" onClick={clickMe}><div>Hi</div></Row>);
       });
-      it('should handle an onClick function', () => {
+      test('should handle an onClick function', () => {
         shallowWrapper.simulate('click');
-        ok(hasBeenClicked);
+        expect(hasBeenClicked).toBe(true);
       });
-      it('should be able to find its id', () => {
-        equal('hello', shallowWrapper.prop('id'));
+      test('should be able to find its id', () => {
+        expect(shallowWrapper.prop('id')).toEqual('hello');
       });
-      it('should have children', () => {
-        ok(shallowWrapper.contains(<div>Hi</div>));
+      test('should have children', () => {
+        expect(shallowWrapper.contains(<div>Hi</div>)).toBe(true);
       });
     });
     describe('With expansion', () => {
-      it('should contain an ExpansionNode', () => {
+      test('should contain an ExpansionNode', () => {
         const expansion = 'I am now expanded';
         shallowWrapper = shallow(<Row expansion={expansion}><div>Hi</div></Row>);
-        ok(shallowWrapper.contains(expansion));
+        expect(shallowWrapper.contains(expansion)).toBe(true);
       });
     });
   });
@@ -40,13 +43,13 @@ describe('List', () => {
       shallowWrapper = shallow(<ActionButton icon={icon} className={className} onClick={onClick} />);
     });
 
-    it('should append icon and className together', () => {
-      equal(shallowWrapper.find('span').prop('className'), `${icon} ${className}`);
+    test('should append icon and className together', () => {
+      expect(shallowWrapper.find('span').prop('className')).toEqual(`${icon} ${className}`);
     });
 
-    it('should have onClick prop registered', () => {
+    test('should have onClick prop registered', () => {
       shallowWrapper.simulate('click');
-      equal(hasBeenClicked, true);
+      expect(hasBeenClicked).toEqual(true);
     });
   });
 });

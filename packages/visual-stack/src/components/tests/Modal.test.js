@@ -1,10 +1,13 @@
 import React from 'react';
-import { Modal, Header } from '../../src/components/Modal';
+import { Modal, Header } from '../Modal';
 import { mount } from 'enzyme';
-import { equal } from 'assert';
+
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-15';
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('Modal', () => {
-  it('should call onBackgroundClick when background is clicked', () => {
+  test('should call onBackgroundClick when background is clicked', () => {
     let onBackgroundClickCalls = 0;
     const mockOnBackgroundClick = () => {
       onBackgroundClickCalls += 1;
@@ -16,10 +19,10 @@ describe('Modal', () => {
 
     wrapper.find(Modal).simulate('click');
 
-    equal(onBackgroundClickCalls, 1);
+    expect(onBackgroundClickCalls).toEqual(1);
   });
 
-  it('should not call onBackgroundClick when modal is clicked', () => {
+  test('should not call onBackgroundClick when modal is clicked', () => {
     let onBackgroundClickCalls = 0;
     const mockOnBackgroundClick = () => {
       onBackgroundClickCalls += 1;
@@ -33,6 +36,6 @@ describe('Modal', () => {
 
     wrapper.find(Header).simulate('click');
 
-    equal(onBackgroundClickCalls, 0);
+    expect(onBackgroundClickCalls).toEqual(0);
   });
 });
