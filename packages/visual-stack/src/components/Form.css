@@ -148,7 +148,7 @@ fieldset.group ul.checkbox li.focus  {
 }
 
 .vs-field {
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 @media (max-width: 40em) {
