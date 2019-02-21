@@ -1,3 +1,9 @@
+# 3.4.2 (Feb 21, 2019)
+## Updated styling - z-index issues and more bottom margin on Field
+- Style changes for form Fields
+- Add z-index for DialogLayout components
+- Add disableSubmit prop on DialogLayout
+
 # 3.4.1 (Feb 14, 2019)
 ## change styles for field components
 - Add fontWeight for FieldContent
