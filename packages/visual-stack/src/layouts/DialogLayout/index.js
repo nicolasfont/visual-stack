@@ -22,7 +22,7 @@ export const DialogLayout = ({className, title, cancelButtonText, submitButtonTe
         </div>
         <div className="vs-dialog-layout-footer">
             <Button id="vs-dialog-layout-cancel" type="text" onClick={onCancel}>{cancelButtonText}</Button>
-            <Button id="vs-dialog-layout-submit" type="solid-primary" disabled={disableSubmit} onClick={onSubmit}>{submitButtonText}</Button>
+            <Button id="vs-dialog-layout-submit" type="solid-primary" disabled={disableSubmit === true} onClick={onSubmit}>{submitButtonText}</Button>
         </div>
     </div>
 );

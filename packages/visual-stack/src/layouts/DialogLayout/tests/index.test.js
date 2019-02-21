@@ -29,6 +29,15 @@ describe('DialogLayout', () => {
     expect('testSubmitButtonText').toEqual(component.find('#vs-dialog-layout-submit button').prop('children'));
     expect('I am a child').toEqual(component.find('#test-children').prop('children'));
     expect('I am a logo').toEqual(component.find('#test-logo').prop('children'));
+    expect(component.find('#vs-dialog-layout-submit').find('button').prop('disabled')).toEqual(false);
+  });
+
+  test('should render submit as disabled button when disableSubmit is true', () => {
+    const component = shallow(<DialogLayout disableSubmit={true}/>);
+
+    const submitButton = component.find('#vs-dialog-layout-submit');
+
+    expect(submitButton.prop('disabled')).toEqual(true);
   });
 
   test('should call cancel handler when cancel button is clicked', () => {
