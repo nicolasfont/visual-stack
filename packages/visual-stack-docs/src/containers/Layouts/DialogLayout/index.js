@@ -75,6 +75,7 @@ export const DialogLayoutDemo = ({router}) => (
                       submitButtonText={"Save Program Terms"}
                       cancelButtonText={"cancel"}
                       onCancel={() => router.push("/layouts/dialogLayout")}
+                      disableSubmit={false}
                       onSubmit={() => {
                           alert("Success!");
                           router.push("/layouts/dialogLayout");

@@ -44,22 +44,22 @@ legend {
 }
 
 
-select, 
-textarea, 
-input[type="file"], 
-input[type="text"], 
-input[type="password"], 
-input[type="date"], 
-input[type="datetime"], 
-input[type="datetime-local"], 
-input[type="month"], 
-input[type="time"], 
-input[type="week"], 
-input[type="number"], 
-input[type="email"], 
-input[type="url"], 
-input[type="search"], 
-input[type="tel"], 
+select,
+textarea,
+input[type="file"],
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
 input[type="color"] {
 	background-color: #fff;
   border: 1px solid #C8CCCE;
@@ -127,7 +127,7 @@ input[type="checkbox"] + label {
 	margin: 0 1.6rem 0 0;
 }
 
-input[type="radio"], 
+input[type="radio"],
 input[type="checkbox"] {
   margin: 0.6rem 0.8rem 0.8rem 0;
   line-height: normal;
@@ -177,7 +177,7 @@ progress {
 	width: 100%;
 }
 
-select[multiple], 
+select[multiple],
 select[size] {
   height: auto;
 }
@@ -189,14 +189,16 @@ textarea {
 
 
 
-input[disabled], 
-select[disabled], 
-textarea[disabled], 
-input[readonly], 
-select[readonly], 
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly],
+select[readonly],
 textarea[readonly] {
+  color: #888;
   cursor: not-allowed;
-  background-color: #e1e1e1;
+  background-color: #eee;
+  border-color: #e1e1e1;
 }
 
 input[type="radio"][disabled],
