@@ -39,73 +39,19 @@ ReactDOM.render(
 );
 ```
 
-# Version 1.0 Breaking Changes
-Various components have been updated to increase their functionality, however upgrading to 1.0 will break existing layout and usage of certain components.
-### Components
-###### SideNav
-* Link Names must now be wrapped in ```<span>``` tags to give them the correct styling
-* SideNavIcon can now take an extra prop 'letter', which will create an Icon with the letter passed into it
-
-```js
-import { SideNav, Link as SideNavLink, LinkGroup, SideNavIcon } from '@cjdev/visual-stack-redux/lib/components/SideNav';
-
-ReactDOM.render(
-    <SideNav>
-        <LinkGroup label="Something" icon={<SideNavIcon type="square" />} >
-            <SideNavLink>
-                <WhateverRoutingWrapperYouWantToUse>
-                    <SideNavIcon type="circle" />
-                    <span>Link Name</span> // Link Names need to be wrapped in a span to
-                                           // give it the correct styling
-                </WhateverRoutingWrapperYouWantToUse>
-            </SideNavLink>
-            <SideNavLink>
-                <WhateverRoutingWrapperYouWantToUse>
-                    <span>Link Name</span> // If no Icon is given, the default will be the
-                                           // first letter of the link name will be used to
-                                           // make an icon
-                </WhateverRoutingWrapperYouWantToUse>
-            </SideNavLink>
-        </LinkGroup>
-        <SideNavLink>
-            <WhateverRoutingWrapperYouWantToUse>
-                <SideNavIcon type="circle" />
-                <span>Link Name</span>
-            </WhateverRoutingWrapperYouWantToUse>
-        </SideNavLink>
-    </SideNav>
-)
-```
-
-###### Application Layout
-* Now has a redux component, which should be used if with the Redux SideNav. This will allow for your *page container to resize correctly when the SideNav is collapsed.*
-
-```js
-// example code below is for use of the redux Applcation Layout (default export),
-// which is the suggested use if redux SideNav is also used
-import Layout from '@cjdev/visual-stack-redux/lib/layouts/ApplicationLayout';
-import { SideNav } from '@cjdev/visual-stack-redux/lib/components/SideNav';
-
-const AppLayout = ({children}) =>
-    <Layout
-        topNav={<TopNav appName="My Awesome App" logo={<CJLogo/>} />}
-        sideNav={<SideNav></SideNav>}
-        >
-        {children}
-    </Layout>
-```
-
-
 ## Contributing
 
 See the CONTRIBUTING.md file.
 
 ## Publishing
 
-To publish, you must have lerna installed globally
-`npm install lerna -g`
+To publish, you must use Lerna, but you don't need to have it installed globally.
+Instead use npx: 
+`npx lerna publish`
 
 Publish steps:
-- Update CHANGELOG.md with notes and version number
-- Push/merge into master
-- `lerna publish`
+- Update CHANGELOG.md with notes and version number.
+  - This should be done in the branch of your PR.
+- Merge into master.
+  - Preferably by someone else in the chapter.
+- `npx lerna publish`
