@@ -69,7 +69,11 @@ class SideNavP extends React.Component {
       <ul className={'vs-sidenav' + (collapsed ? ' collapsed' : ' active')}>
         <li className="vs-sideNav-left-logo">
           {onLogoClick ? (
-            <span onClick={onLogoClick} className="vs-sidenav-container-row">
+            <span 
+              role="link" 
+              tabIndex="0"
+              onKeyDown={onLogoClick}
+              onClick={onLogoClick} className="vs-sidenav-container-row">
               <div className="vs-logo">{this.props.logo}</div>
               <span className="vs-app-name">{capAppName}</span>
             </span>
