@@ -12,15 +12,7 @@ export default () =>
             <Header>
               Panel Header
             </Header>
-            <Body paddingSize="wide">
-            This is the Panel Body with 32px padding.
-            <Snippet tag="s1" src={snippets}/>
-            </Body>
             <Body>
-            This is the Panel Body.
-            <Snippet tag="s1" src={snippets}/>
-            </Body>
-            <Body paddingSize="none">
             This is the Panel Body.
             <Snippet tag="s1" src={snippets}/>
             </Body>
@@ -29,6 +21,29 @@ export default () =>
             </Footer>
           </Panel>
           { /* s1:end */ }
+          <Panel>
+            <Header>
+              Body padding
+            </Header>
+            { /* s2:start */ }
+            <Body paddingSize="wide">
+            This is the Panel Body with 32px padding.
+            <Snippet tag="s2" src={snippets}/>
+            </Body>
+            { /* s2:end */ }
+            { /* s3:start */ }
+            <Body>
+            This a normal Panel Body.
+            <Snippet tag="s3" src={snippets}/>
+            </Body>
+            { /* s3:end */ }
+            { /* s4:start */ }
+            <Body paddingSize="none">
+            This is the Panel Body with no padding.
+            <Snippet tag="s4" src={snippets}/>
+            </Body>
+            { /* s4:end */ }
+          </Panel>
         </div>
       );
     }}
