@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Body, Panel, Header} from "@cjdev/visual-stack/lib/components/Panel";
 import CollapsiblePanel from "@cjdev/visual-stack/lib/components/CollapsiblePanel";
 import "./collapsiblepanel.css";
-import {FieldContent, Input, Label, ChoiceInput, Field, Form} from "@cjdev/visual-stack/lib/components/Form";
+import {FieldContent, Input, Label, ChoiceInput, Field} from "@cjdev/visual-stack/lib/components/Form";
 import {Demo, Snippet} from "../../../components/Demo";
 
 export default () => {
