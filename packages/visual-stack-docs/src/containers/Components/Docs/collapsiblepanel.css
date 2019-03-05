@@ -9,20 +9,3 @@
   justify-content: space-between;
 }
 
-/*TODO move to visual stack*/
-.vs-collapsible-panel-header {
-  display: flex;
-  align-items: center;
-}
-
-.vs-collapsible-panel-item {
-  padding: 0 40px;
-}
-
-.vs-collapsible-panel-header-title:hover {
-  cursor: pointer;
-}
-
-.vs-collapsible-panel + .vs-collapsible-panel {
-  border-top: 1px solid #C8CCCE;
-}

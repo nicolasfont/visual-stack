@@ -1,50 +1,9 @@
 import * as React from 'react';
 import {Body, Panel, Header} from "@cjdev/visual-stack/lib/components/Panel";
-import {Button} from "@cjdev/visual-stack/lib/components/Button";
-import ChevronRightIcon from 'mdi-react/ChevronRightIcon';
-import ChevronDownIcon from 'mdi-react/ChevronDownIcon';
+import CollapsiblePanel from "@cjdev/visual-stack/lib/components/CollapsiblePanel";
 import "./collapsiblepanel.css";
 import {FieldContent, Input, Label, ChoiceInput, Field, Form} from "@cjdev/visual-stack/lib/components/Form";
 import {Demo, Snippet} from "../../../components/Demo";
-
-class CollapsiblePanel extends React.Component {
-  constructor(props) {
-    super(props);
-
-    const collapsed = props.initiallyCollapsed === undefined ? true : props.initiallyCollapsed;
-    this.state = {collapsed};
-
-    this.toggleCollapsed = this.toggleCollapsed.bind(this);
-  }
-
-  toggleCollapsed() {
-    this.setState({collapsed: !this.state.collapsed});
-  }
-
-  render() {
-    return (
-      <div className="vs-collapsible-panel">
-        <div className="vs-collapsible-panel-header">
-          <Button type="icon" onClick={this.toggleCollapsed}>
-            {this.state.collapsed
-              ? <ChevronRightIcon/>
-              : <ChevronDownIcon/>}
-          </Button>
-
-          <span className="vs-collapsible-panel-header-title" onClick={this.toggleCollapsed}>
-            {this.props.title}
-          </span>
-        </div>
-        <div className="vs-collapsible-panel-item">
-          {
-            !this.state.collapsed &&
-            this.props.children
-          }
-        </div>
-      </div>
-    );
-  }
-}
 
 export default () => {
   return (
@@ -55,7 +14,7 @@ export default () => {
           <Body paddingSize="none">
           {/* s1:start */}
           <CollapsiblePanel title={<h3 className="inline-remove-margin">Collapsible Panel 1</h3>}
-                            initiallyCollapsed={false}>
+                            initializedCollapsed={false}>
             <Field label="# of vacation days" help="Enter vacation rules">
               <FieldContent>
                 <ChoiceInput name="vacationDays" label="Unlimited" value="unlimited"/>
