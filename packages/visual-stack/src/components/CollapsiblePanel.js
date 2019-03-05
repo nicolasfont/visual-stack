@@ -4,7 +4,7 @@ import ChevronRightIcon from 'mdi-react/ChevronRightIcon';
 import ChevronDownIcon from 'mdi-react/ChevronDownIcon';
 import './CollapsiblePanel.css';
 
-export default class CollapsiblePanel extends React.Component {
+export class CollapsiblePanel extends React.Component {
   constructor(props) {
     super(props);
 
@@ -44,3 +44,5 @@ export default class CollapsiblePanel extends React.Component {
     );
   }
 }
+
+export default CollapsiblePanel;
