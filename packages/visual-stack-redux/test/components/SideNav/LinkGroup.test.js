@@ -6,7 +6,7 @@ import { mount, shallow } from 'enzyme';
 import { InternalLinkGroup } from '../../../src/components/SideNav/LinkGroup';
 import { LinkGroup, Link } from '@cjdev/visual-stack/lib/components/SideNav';
 
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
 import Enzyme from 'enzyme';
 Enzyme.configure({ adapter: new Adapter() });
 

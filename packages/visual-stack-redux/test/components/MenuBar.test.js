@@ -5,7 +5,7 @@ import { mount } from 'enzyme';
 
 import { InternalMenuBarDropdown } from '../../src/components/MenuBar';
 
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
 import Enzyme from 'enzyme';
 Enzyme.configure({ adapter: new Adapter() });
 
