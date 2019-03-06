@@ -6,7 +6,7 @@ import sinon from 'sinon';
 import { InternalTabLayout, mapDispatchToProps, mapStateToProps } from '../../src/components/TabLayout';
 import { TabLayout as BaseTabLayout, Tab as BaseTab } from '@cjdev/visual-stack/lib/components/TabLayout';
 
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
 import Enzyme from 'enzyme';
 Enzyme.configure({ adapter: new Adapter() });
 

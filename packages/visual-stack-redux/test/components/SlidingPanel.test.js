@@ -5,7 +5,7 @@ import sinon from 'sinon';
 import { InternalSlidingPanel, InternalToggleIcon, InternalSlidingPanelDropdown } from '../../src/components/SlidingPanel';
 import { SlidingPanel, SlidingPanelHeader, SlidingPanelDropdown } from '@cjdev/visual-stack/lib/components/SlidingPanel';
 
-import Adapter from 'enzyme-adapter-react-15';
+import Adapter from 'enzyme-adapter-react-16';
 import Enzyme from 'enzyme';
 Enzyme.configure({ adapter: new Adapter() });
 
