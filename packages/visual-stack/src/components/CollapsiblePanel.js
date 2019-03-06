@@ -34,12 +34,12 @@ export class CollapsiblePanel extends React.Component {
             {this.props.title}
           </span>
         </div>
-        <div className="vs-collapsible-panel-item">
-          {
-            !this.state.collapsed &&
-            this.props.children
-          }
-        </div>
+        {
+          !this.state.collapsed &&
+          <div className="vs-collapsible-panel-item">
+            {this.props.children}
+          </div>
+        }
       </div>
     );
   }
