@@ -1,5 +1,5 @@
 import React from 'react';
-import R from 'ramda';
+import * as R from 'ramda';
 import { mount } from 'enzyme';
 import { TabLayout, Tab } from '../';
 
@@ -59,7 +59,7 @@ describe('TabLayout', () => {
       let clicksIndex = [];
       const mockSelectTab = (event, index) => {
         clicks += 1;
-        clicksIndex = R.concat(clicksIndex, index);
+        clicksIndex = R.concat(clicksIndex, [index]);
       };
       const wrapper = mount(
         <TabLayout tabLayoutId={'tabLayout1'} selectedIndex={0} selectTab={mockSelectTab}>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import R from 'ramda';
+import * as R from 'ramda';
 import { TabLayout as BaseTabLayout, Tab as BaseTab, TabLabelContent as BaseTabLabelContent, TabContent as BaseTabContent } from '@cjdev/visual-stack/lib/components/TabLayout';
 import { connect } from 'react-redux';
 import { selectTab } from '../actions';
