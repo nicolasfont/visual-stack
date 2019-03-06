@@ -1,4 +1,4 @@
-import R from 'ramda';
+import * as R from 'ramda';
 import { createAction, handleActions } from 'redux-actions';
 
 const defaultToEmpty = R.defaultTo({});

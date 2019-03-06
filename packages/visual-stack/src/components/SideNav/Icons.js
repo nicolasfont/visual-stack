@@ -1,6 +1,6 @@
 /** @prettier */
 import React from 'react';
-import R from 'ramda';
+import * as R from 'ramda';
 
 export { LogoutIcon, SettingsIcon } from '../../components/Icons';
 
