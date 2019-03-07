@@ -21,7 +21,7 @@ describe('SideNav', () => {
   test('should propagate children to VisualStack SideNav', () => {
     const wrapper = shallow(
       <InternalSideNav userMenu={<div/>}>
-        <Header label="whatever" />
+        <Header label="whatever">something</Header>
       </InternalSideNav>
     );
     expect(wrapper.find(SideNav).find(Header)).toHaveLength(1);
@@ -31,7 +31,7 @@ describe('SideNav', () => {
   test('should propagate children to VisualStack SideNav', () => {
     const wrapper = shallow(
       <InternalSideNav>
-        <Header label="whatever" />
+        <Header label="whatever">something</Header>
       </InternalSideNav>
     );
     expect(wrapper.find(SideNav).find(Header)).toHaveLength(1);

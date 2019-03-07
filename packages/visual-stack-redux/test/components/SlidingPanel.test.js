@@ -57,7 +57,7 @@ describe('SlidingPanel', () => {
       const title = 'My CIDs';
       const slidingPanel = shallow(
         <InternalSlidingPanel>
-          <InternalSlidingPanelDropdown label={title} />
+          <InternalSlidingPanelDropdown label={title} id="test_dropdown"/>
         </InternalSlidingPanel>
       );
       const dropdown = slidingPanel.find(InternalSlidingPanelDropdown);
@@ -71,6 +71,7 @@ describe('SlidingPanel', () => {
         <InternalSlidingPanelDropdown
           label="MyCids"
           toggleFilterDropdown={handleDropdown}
+          id="test_dropdown"
         >
           <div>Something</div>
         </InternalSlidingPanelDropdown>
