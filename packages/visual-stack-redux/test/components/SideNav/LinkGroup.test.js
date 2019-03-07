@@ -13,7 +13,7 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('LinkGroup', () => {
   test('should propagate label to visual stack link group', () => {
     const wrapper = shallow(
-      <InternalLinkGroup label="whatever" />
+      <InternalLinkGroup label="whatever" toggleSideNav={()=>{}} toggleSideNavLinkGroup={()=>{}}/>
     );
     expect(wrapper.find(LinkGroup).prop('label')).toBe('whatever');
   });
@@ -29,7 +29,7 @@ describe('LinkGroup', () => {
       },
     };
     const wrapper = mount(
-      <InternalLinkGroup label={label} linkGroups={state} />
+      <InternalLinkGroup label={label} linkGroups={state} toggleSideNav={()=>{}} toggleSideNavLinkGroup={()=>{}}/>
     );
     expect(wrapper.find(LinkGroup).prop('expanded')).toBe(false);
   });
@@ -43,7 +43,7 @@ describe('LinkGroup', () => {
     };
 
     const wrapper = mount(
-      <InternalLinkGroup label={label} linkGroups={state} />
+      <InternalLinkGroup label={label} linkGroups={state} toggleSideNav={()=>{}} toggleSideNavLinkGroup={()=>{}}/>
     );
     expect(wrapper.find(LinkGroup).prop('expanded')).toBe(false);
   });
@@ -70,7 +70,7 @@ describe('LinkGroup', () => {
 
   test('should propagate children to VisualStack LinkGroup', () => {
     const wrapper = mount(
-      <InternalLinkGroup label="whatever" linkGroups={{}}>
+      <InternalLinkGroup label="whatever" linkGroups={{}} toggleSideNav={()=>{}} toggleSideNavLinkGroup={()=>{}}>
         <Link><a href="mockRouterLink">123</a></Link>
       </InternalLinkGroup>
     );
