@@ -80,7 +80,7 @@ describe('SideNav', () => {
   describe('LinkGroup', () => {
     test('should render with default icon if none is given', () => {
       const wrapper = mount(
-        <LinkGroup label="nothing" />
+        <LinkGroup label="nothing" onClick={()=>{}} toggleSideNav={()=>{}}/>
       );
       wrapper.update();
       expect(wrapper.find('.vs-sidenav-entry')).toHaveLength(1);
@@ -89,7 +89,7 @@ describe('SideNav', () => {
 
     test('should render with passed in icon', () => {
       const wrapper = mount(
-        <LinkGroup label="nothing" icon={<div className="fake-icon"/>}/>
+        <LinkGroup label="nothing" icon={<div className="fake-icon"/>} onClick={()=>{}} toggleSideNav={()=>{}}/>
       );
       wrapper.update();
       expect(wrapper.find('.fake-icon')).toHaveLength(1);

@@ -26,7 +26,7 @@ describe('SlidingPanel', () => {
 describe('ToggleIcon', () => {
   test('should render', () => {
     const wrapper = shallow(
-            <ToggleIcon />
+            <ToggleIcon onClick={()=>{}} />
         );
     expect(wrapper.find('.vs-sliding-panel-toggle-icon').length).toEqual(1);
   });
