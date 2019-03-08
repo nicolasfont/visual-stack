@@ -20,7 +20,7 @@ export class CollapsiblePanel extends React.Component {
 
   render() {
     return (
-      <div className="vs-collapsible-panel">
+      <div className={`vs-collapsible-panel ${this.props.className ? this.props.className : ""}`}>
         <div className="vs-collapsible-panel-header">
           <Button type="icon"
                   className="vs-collapsible-panel-header-button"
