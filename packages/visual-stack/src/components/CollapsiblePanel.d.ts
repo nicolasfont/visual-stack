@@ -2,7 +2,7 @@ import * as React from "react";
 import {ReactNode} from "react";
 
 export interface CollapsiblePanelProps {
-    title: string;
+    title: ReactNode;
     className?: string;
     initializedCollapse?: boolean;
     children: ReactNode;
