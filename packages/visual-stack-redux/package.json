@@ -73,7 +73,7 @@
     "react-addons-test-utils": "^15.6.0",
     "react-dom": "^16.8.4",
     "react-hot-loader": "^4.3.11",
-    "react-redux": "^6.0.1",
+    "react-redux": "^5.0.7",
     "react-test-renderer": "^15.5.0",
     "redux": "^3.3.1",
     "rimraf": "^2.5.2",
