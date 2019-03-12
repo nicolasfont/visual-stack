@@ -12,7 +12,7 @@ Input.propTypes = {
   type: PropTypes.string,
 };
 
-export const TextArea = ({ className, type, ...otherProps }) => (
+export const TextArea = ({ className, ...otherProps }) => (
   <textarea className={`form-control ${className || ''}`} {...otherProps} />
 );
 
