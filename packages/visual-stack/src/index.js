@@ -10,7 +10,6 @@ export * from './components/Spinner';
 import * as BlankSlate from './components/BlankSlate';
 import * as Form from './components/Form';
 import * as List from './components/List';
-import * as MenuBar from './components/MenuBar';
 import * as Modal from './components/Modal';
 import * as PageHeader from './components/PageHeader';
 import * as Panel from './components/Panel';
@@ -20,7 +19,6 @@ export {
   BlankSlate,
   Form,
   List,
-  MenuBar,
   Modal,
   PageHeader,
   Panel,

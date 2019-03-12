@@ -4,12 +4,6 @@ import { createAction, handleActions } from 'redux-actions';
 const defaultToEmpty = R.defaultTo({});
 const collapse = R.set(R.lensProp('expanded'), false);
 
-const OPEN_DROPDOWN = '@cjdev/visual-stack-redux/OPEN_DROPDOWN';
-const CLOSE_DROPDOWN = '@cjdev/visual-stack-redux/CLOSE_DROPDOWN';
-
-export const openDropdown = createAction(OPEN_DROPDOWN, (menuBarName, dropDownName) => ({ menuBarName, dropDownName }));
-export const closeDropdown = createAction(CLOSE_DROPDOWN, (menuBarName, dropDownName) => ({ menuBarName, dropDownName }));
-
 const OPEN_MODAL = '@cjdev/visual-stack-redux/OPEN_MODAL';
 const CLOSE_MODAL = '@cjdev/visual-stack-redux/CLOSE_MODAL';
 
@@ -43,12 +37,6 @@ const SELECT_TAB = '@cjdev/visual-stack-redux/SELECT_TAB';
 export const selectTab = createAction(SELECT_TAB);
 
 export default handleActions({
-  [OPEN_DROPDOWN]: (state, { payload: { menuBarName, dropDownName } }) =>
-    R.set(R.lensPath(['menuBar', menuBarName, dropDownName, 'open']), true, state),
-
-  [CLOSE_DROPDOWN]: (state, { payload: { menuBarName, dropDownName } }) =>
-    R.set(R.lensPath(['menuBar', menuBarName, dropDownName, 'open']), false, state),
-
   [OPEN_MODAL]: (state, { payload }) =>
     R.set(R.lensProp('modal'), payload, state),
 
