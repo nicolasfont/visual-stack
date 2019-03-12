@@ -74,7 +74,7 @@ class SideNavP extends React.Component {
               tabIndex="0"
               onKeyDown={onLogoClick}
               onClick={onLogoClick} className="vs-sidenav-container-row">
-              <div className="vs-logo">{this.props.logo}</div>
+              <span className="vs-logo">{this.props.logo}</span>
               <span className="vs-app-name">{capAppName}</span>
             </span>
           ) : (
