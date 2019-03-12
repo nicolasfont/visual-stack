@@ -3,9 +3,8 @@ import {CollapsiblePanel} from '../CollapsiblePanel';
 import {shallow} from 'enzyme';
 
 import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
-
-Enzyme.configure({adapter: new Adapter()});
+import Adapter from 'enzyme-adapter-react-16';
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('CollapsiblePanel', () => {
   let shallowWrapper;
