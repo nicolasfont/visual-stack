@@ -84,4 +84,15 @@ describe('DialogLayout', () => {
 
     expect(onSubmitCalled).toEqual(true);
   });
+
+  test('should show spinner on isSubmitting', () => {
+    const submitButtonText = "test submit text";
+
+    const component = mount(<DialogLayout showSubmitButtonSpinner={true} submitButtonText={submitButtonText}/>);
+
+    const submitButton = component.find('#vs-dialog-layout-submit');
+
+    expect(submitButton.find("Spinner").length).toEqual(1);
+    expect(submitButton.at(0).text()).toEqual(" " + submitButtonText);
+  });
 });

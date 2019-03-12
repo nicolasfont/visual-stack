@@ -44,6 +44,18 @@ class DialogLayoutParent extends React.Component {
                         </Body>
                     </Panel>
                     <Panel>
+                      <Header>
+                        Submitting page DialogLayout Demo
+                      </Header>
+                      <Body>
+                      <Button type="solid-primary" onClick={() => this.props.router.push("/submittingDialogLayout")}>Show the submitting DialogLayout</Button>
+                      <p>
+                        When your form is submitting, you can pass a showSubmitButtonSpinner and disableSubmit prop
+                      </p>
+                      <Snippet tag="s4" src={snippets} />
+                      </Body>
+                    </Panel>
+                    <Panel>
                         <Header>
                             Dialog content
                         </Header>
@@ -75,27 +87,44 @@ export const DialogLayoutDemo = ({router}) => (
                       submitButtonText={"Save Program Terms"}
                       cancelButtonText={"cancel"}
                       onCancel={() => router.push("/layouts/dialogLayout")}
-                      disableSubmit={false}
                       onSubmit={() => {
                           alert("Success!");
                           router.push("/layouts/dialogLayout");
                       }}
                       logo={<CJLogo/>}>
-            {/*<Panel>*/}
-              {/*<DemoContent/>*/}
-            {/*</Panel>*/}
-            {/*<Panel>*/}
               <DemoForm/>
-            {/*</Panel>*/}
         </DialogLayout>
     </div>
 );
 /* s1:end */
 
+/* s4:start */
+export const SubmittingDialogLayoutDemo = ({router}) => (
+  <div>
+    <DialogLayout title={"Create Program Term"}
+                  submitButtonText={"Save Program Terms"}
+                  cancelButtonText={"cancel"}
+                  onCancel={() => router.push("/layouts/dialogLayout")}
+                  disableSubmit={true}
+                  showSubmitButtonSpinner={true}
+                  onSubmit={() => {
+                    alert("Success!");
+                    router.push("/layouts/dialogLayout");
+                  }}
+                  logo={<CJLogo/>}>
+      <DemoForm/>
+    </DialogLayout>
+  </div>
+);
+/* s4:end */
+
 const NotRenderedComponent = () => (
-    /* s3:start */
+  /* s3:start */
+  <>
     <Route path="/dialogLayout" component={DialogLayoutDemo}/>
-    /* s3:end */
+    <Route path="/submittingDialogLayout" component={SubmittingDialogLayoutDemo}/>
+  </>
+  /* s3:end */
 );
 
 // Stop Travis from complaining...
