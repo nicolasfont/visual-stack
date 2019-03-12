@@ -12,6 +12,10 @@ Input.propTypes = {
   type: PropTypes.string,
 };
 
+export const TextArea = ({ className, type, ...otherProps }) => (
+  <textarea className={`form-control ${className || ''}`} {...otherProps} />
+);
+
 export const Label = ({ children, className, required, vertical, fontWeight, ...otherProps }) =>
   <label className={`form-label control-label form-label-${vertical ? 'vertical' : 'horizontal'} ${fontWeight ? `vs-label-font-${fontWeight}` : ""} ${className || ''}`} {...otherProps}>
     {children}
@@ -70,7 +74,7 @@ export const TextField = ({className, name, value, label, error, help, optional,
 );
 
 // Just radio button and label
-export const ChoiceInput = ({className, type = "radio", name, value, label, error, help, checked, style, ...otherProps}) => (
+export const ChoiceInput = ({className, type = "radio", name, value, label, checked, style, ...otherProps}) => (
   <div className={`vs-choice-input ${className ? className : ''}`} style={style}>
     <Label fontWeight="normal">
       <Input type={type} name={name} value={value} checked={checked} {...otherProps}/>
@@ -78,3 +82,5 @@ export const ChoiceInput = ({className, type = "radio", name, value, label, erro
     </Label>
   </div>
 );
+
+
