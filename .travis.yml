@@ -17,5 +17,5 @@ deploy:
   acl: public_read
   on:
     repo: cjdev/visual-stack
-    node: stable
+    node: 11.10.1
     branch: master
