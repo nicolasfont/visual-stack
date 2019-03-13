@@ -1,3 +1,13 @@
+## Upcoming
+#### Upgrades
+- React and ReactDOM upgraded to v16
+- Enzyme React adapter upgraded to v16
+- Jest upgraded to v24.3.0
+- Ramda upgraded to v0.26
+#### New Components
+- Added CollapsiblePanel component
+- Added TextArea component
+
 # 3.4.2 (Feb 21, 2019)
 ## Updated styling - z-index issues and more bottom margin on Field
 - Style changes for form Fields
