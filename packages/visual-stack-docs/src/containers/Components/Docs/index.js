@@ -17,6 +17,7 @@ import SpinnerDocs from './spinner';
 import TableDocs from './table';
 import TabLayoutDocs from './tablayout';
 import CardDocs from './card';
+import CollapsiblePanelDocs from './collapsiblepanel';
 
 const routeComponentMap = {};
 
@@ -38,6 +39,7 @@ addComponentRoute('spinner', 'Spinner', <SpinnerDocs />);
 addComponentRoute('table', 'Table', <TableDocs />);
 addComponentRoute('tablayout', 'TabLayout', <TabLayoutDocs />);
 addComponentRoute('card', 'Card', <CardDocs />);
+addComponentRoute('collapsiblepanel', 'Collapsible Panel', <CollapsiblePanelDocs />);
 
 const ComponentDocs = ({ params }) => {
   const routeData = routeComponentMap[params.componentName];

@@ -1,0 +1,20 @@
+.vs-collapsible-panel {
+  padding: 8px;
+}
+
+.vs-collapsible-panel-header {
+  display: flex;
+  align-items: center;
+}
+
+.vs-collapsible-panel-item {
+  padding: 8px 40px;
+}
+
+.vs-collapsible-panel-header-title:hover {
+  cursor: pointer;
+}
+
+.vs-collapsible-panel + .vs-collapsible-panel {
+  border-top: 1px solid #C8CCCE;
+}

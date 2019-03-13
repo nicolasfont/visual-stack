@@ -1,0 +1,11 @@
+.inline-remove-margin {
+  display: inline;
+  margin: 0;
+}
+
+.summary-content {
+  max-width: 600px;
+  display: flex;
+  justify-content: space-between;
+}
+

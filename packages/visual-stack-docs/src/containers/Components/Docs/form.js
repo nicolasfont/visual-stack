@@ -5,7 +5,7 @@ import { Demo, Snippet } from '../../../components/Demo';
 import "./form.css";
 
 /* s3:start */
-import { Form, FormGroup, Label, Input, Legend, TextField, Field, FieldContent, ChoiceInput } from '@cjdev/visual-stack/lib/components/Form';
+import { Form, FormGroup, Label, Input, Legend, TextField, Field, FieldContent, ChoiceInput, TextArea } from '@cjdev/visual-stack/lib/components/Form';
 /* s3:end */
 
 const PanelComponent =({header, children}) => (
@@ -185,6 +185,22 @@ export default () =>
                 )}
             </Demo>
         </PanelComponent>
+
+          <Panel>
+            <Header>
+              Text Area
+            </Header>
+            <Body>
+            { /* s11:start */ }
+            <Form>
+              <FieldContent>
+                <TextArea placeholder="Enter some text here..." style={{height: "64px"}}/>
+              </FieldContent>
+            </Form>
+            { /* s11:end */ }
+            <Snippet tag="s11" src={snippets} />
+            </Body>
+          </Panel>
         </div>
       );
     }}
