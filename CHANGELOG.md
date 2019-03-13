@@ -1,4 +1,6 @@
 ## Upcoming
+
+# 3.5.0 (Mar 13, 2019)
 #### Upgrades
 - React and ReactDOM upgraded to v16
 - Enzyme React adapter upgraded to v16
