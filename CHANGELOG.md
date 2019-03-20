@@ -1,6 +1,6 @@
 ## Upcoming
 
-# 3.5.1 (Mar 19, 2019)
+# 4.0.0 (Mar 20, 2019)
 #### Upgrades
 - New text-link button type
 #### New components
