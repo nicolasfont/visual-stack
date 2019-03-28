@@ -1,5 +1,8 @@
 ## Upcoming
+
+# 4.0.1 (Mar 28, 2019)
 #### Updated styling
+- Make collapsible panel header non-selectable
 - Dialog layout defaults to a smaller width
 
 # 4.0.0 (Mar 20, 2019)
