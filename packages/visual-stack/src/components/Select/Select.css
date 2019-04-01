@@ -14,7 +14,6 @@ div.vs-default-react-select {
 
 div.vs-react-select__control {
   min-height: 32px;
-  height: 32px;
 }
 
 div.vs-react-select__control--is-focused,
