@@ -5,12 +5,25 @@ import './SlidingPanel.css';
 import FilterVariantIcon from 'mdi-react/FilterVariantIcon';
 import ArrowRightIcon from 'mdi-react/ArrowRightIcon';
 
-export const ToggleIcon = ({ onClick, hoverText, toggleIconState, className, ...restProps }) => {
+export const ToggleIcon = ({
+  onClick,
+  hoverText,
+  toggleIconState,
+  className,
+  ...restProps
+}) => {
   const Icon = toggleIconState ? ArrowRightIcon : FilterVariantIcon;
 
   return (
-    <a className={`vs-sliding-panel-toggle-icon ${className}`} onClick={onClick} title={hoverText} {...restProps}>
-      <div className="vs-sliding-panel-section-icon-btn"><Icon className="vs-sliding-panel-section-icon" /></div>
+    <a
+      className={`vs-sliding-panel-toggle-icon ${className}`}
+      onClick={onClick}
+      title={hoverText}
+      {...restProps}
+    >
+      <div className="vs-sliding-panel-section-icon-btn">
+        <Icon className="vs-sliding-panel-section-icon" />
+      </div>
     </a>
   );
 };
@@ -24,9 +37,7 @@ ToggleIcon.propTypes = {
 export const SlidingPanel = ({ children, active }) => {
   return (
     <div className={classNames('vs-sliding-panel', { 'vs-active': active })}>
-      <ul className="vs-force-sliding-panel-width">
-        {children}
-      </ul>
+      <ul className="vs-force-sliding-panel-width">{children}</ul>
     </div>
   );
 };
@@ -36,7 +47,7 @@ SlidingPanel.propTypes = {
 };
 
 export const SlidingPanelHeader = ({ className = '', children }) => {
-  return (<li className={`${className} vs-sliding-panel-header`}>{children}</li>);
+  return <li className={`${className} vs-sliding-panel-header`}>{children}</li>;
 };
 SlidingPanelHeader.propTypes = {
   children: PropTypes.any,
@@ -44,25 +55,33 @@ SlidingPanelHeader.propTypes = {
 };
 
 export const SlidingPanelSection = ({ children }) => {
-  return (<li className="vs-sliding-panel-section">{children}</li>);
+  return <li className="vs-sliding-panel-section">{children}</li>;
 };
 SlidingPanelSection.propTypes = {
   children: PropTypes.any,
 };
 
-export const SlidingPanelDropdown = ({ label, children, onClick, expanded, id = "" }) => {
-  const containerClasses = classNames('vs-sliding-panel-section-container', { 'vs-expanded': expanded });
-  const optionsClasses = classNames('vs-sliding-panel-section-options', { 'vs-expanded': expanded });
+export const SlidingPanelDropdown = ({
+  label,
+  children,
+  onClick,
+  expanded,
+  id = '',
+}) => {
+  const containerClasses = classNames('vs-sliding-panel-section-container', {
+    'vs-expanded': expanded,
+  });
+  const optionsClasses = classNames('vs-sliding-panel-section-options', {
+    'vs-expanded': expanded,
+  });
   return (
     <ul className={containerClasses} id={id}>
       <a className="vs-sliding-panel-section-container-label" onClick={onClick}>
         <div>{label}</div>
-        <i className="fa fa-chevron-right"></i>
+        <i className="fa fa-chevron-right" />
       </a>
       <ul>
-        <div className={optionsClasses}>
-          {children}
-        </div>
+        <div className={optionsClasses}>{children}</div>
       </ul>
     </ul>
   );

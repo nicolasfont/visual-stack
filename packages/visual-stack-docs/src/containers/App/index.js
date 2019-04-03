@@ -3,10 +3,6 @@ import Layout from '@cjdev/visual-stack-redux/lib/layouts/ApplicationLayout/inde
 import AppSideNav from './SideNav';
 import './styles.css';
 
-export default ({ children }) =>
-  <Layout
-    sideNav={<AppSideNav />} >
-    { children }
-  </Layout>;
-
-
+export default ({ children }) => (
+  <Layout sideNav={<AppSideNav />}>{children}</Layout>
+);

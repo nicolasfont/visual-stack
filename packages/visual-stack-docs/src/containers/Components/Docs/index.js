@@ -1,5 +1,8 @@
 import React from 'react';
-import {PageHeader, PageTitle} from '@cjdev/visual-stack/lib/components/PageHeader';
+import {
+  PageHeader,
+  PageTitle,
+} from '@cjdev/visual-stack/lib/components/PageHeader';
 import PageContent from '@cjdev/visual-stack/lib/components/PageContent';
 // 1. add an import for your demo
 import BlankSlateDocs from './blankslate';
@@ -39,7 +42,11 @@ addComponentRoute('spinner', 'Spinner', <SpinnerDocs />);
 addComponentRoute('table', 'Table', <TableDocs />);
 addComponentRoute('tablayout', 'TabLayout', <TabLayoutDocs />);
 addComponentRoute('card', 'Card', <CardDocs />);
-addComponentRoute('collapsiblepanel', 'Collapsible Panel', <CollapsiblePanelDocs />);
+addComponentRoute(
+  'collapsiblepanel',
+  'Collapsible Panel',
+  <CollapsiblePanelDocs />
+);
 
 const ComponentDocs = ({ params }) => {
   const routeData = routeComponentMap[params.componentName];
@@ -48,9 +55,7 @@ const ComponentDocs = ({ params }) => {
       <PageHeader>
         <PageTitle>{routeData.linkName}</PageTitle>
       </PageHeader>
-      <PageContent>
-        { routeData.component }
-      </PageContent>
+      <PageContent>{routeData.component}</PageContent>
     </div>
   );
 };

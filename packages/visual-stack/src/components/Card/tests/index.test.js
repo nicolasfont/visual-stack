@@ -5,7 +5,6 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 
-
 import Card from '../';
 
 describe('<Card />', () => {
@@ -25,7 +24,7 @@ describe('<Card />', () => {
   test('should forward all the props to a tag', () => {
     const href = 'cj.com';
     const fakeProps = { href };
-    const wrapper = mount(<Card {...fakeProps}/>);
+    const wrapper = mount(<Card {...fakeProps} />);
     const aTagProps = wrapper.find('a').props();
     expect(aTagProps.href).toEqual(href);
   });

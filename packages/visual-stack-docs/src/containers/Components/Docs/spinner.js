@@ -4,26 +4,25 @@ import { Demo, Snippet } from '../../../components/Demo';
 
 import Spinner from '@cjdev/visual-stack/lib/components/Spinner';
 
-export default () =>
+export default () => (
   <Demo srcFile="/samples/src/containers/Components/Docs/spinner.js">
-    { snippets => {
+    {snippets => {
       return (
         <div>
           <Panel>
-            <Header>
-              Spinner
-            </Header>
+            <Header>Spinner</Header>
             <Body>
-              { /* s1:start */ }
+              {/* s1:start */}
               <Spinner />
-              <Spinner size="large"/>
-              <Spinner size="extra-large"/>
-              <Spinner size="button"/>
-              { /* s1:end */ }
+              <Spinner size="large" />
+              <Spinner size="extra-large" />
+              <Spinner size="button" />
+              {/* s1:end */}
               <Snippet tag="s1" src={snippets} />
             </Body>
           </Panel>
         </div>
       );
     }}
-  </Demo>;
+  </Demo>
+);

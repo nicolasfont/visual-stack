@@ -18,7 +18,8 @@
   text-transform: capitalize;
 }
 
-.vs-sliding-panel-header, .vs-sliding-panel-section {
+.vs-sliding-panel-header,
+.vs-sliding-panel-section {
   border-bottom: 1px solid #d1d1d2;
 }
 
@@ -53,7 +54,7 @@
   text-align: center;
   cursor: pointer;
   overflow: hidden;
-  border: 1px solid #CCC;
+  border: 1px solid #ccc;
   color: #919191;
   transition: 0.2s all ease-in-out;
   position: relative;
@@ -84,7 +85,7 @@
 }
 
 .vs-sliding-panel.vs-active .vs-sliding-panel-section-icon {
-  fill: #3ABDA7;
+  fill: #3abda7;
 }
 
 .vs-sliding-panel-section-container a {
@@ -95,7 +96,7 @@
 .vs-sliding-panel-section-container ul {
   max-height: 0;
   overflow: hidden;
-  transition: .5s max-height ease-out;
+  transition: 0.5s max-height ease-out;
 }
 
 .vs-sliding-panel-section-container-label a {
@@ -105,23 +106,28 @@
 
 .vs-sliding-panel-section-container-label div {
   font-weight: 500;
-  opacity: .54;
-  transition: .3s all ease-in-out;
+  opacity: 0.54;
+  transition: 0.3s all ease-in-out;
 }
 
-.vs-sliding-panel-section-container a:not(.vs-sliding-panel-section-container-label) {
+.vs-sliding-panel-section-container
+  a:not(.vs-sliding-panel-section-container-label) {
   display: block;
 }
 
-.vs-sliding-panel-section-container .vs-sliding-panel-section-container-label i {
+.vs-sliding-panel-section-container
+  .vs-sliding-panel-section-container-label
+  i {
   color: #999;
   font-size: 10px;
   transform: rotate(0);
-  transition: .3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
 }
 
 .vs-sliding-panel-section-container-label:hover div,
-.vs-sliding-panel-section-container.vs-expanded .vs-sliding-panel-section-container-label div {
+.vs-sliding-panel-section-container.vs-expanded
+  .vs-sliding-panel-section-container-label
+  div {
   opacity: 1;
 }
 
@@ -129,7 +135,9 @@
   display: inline;
 }
 
-.vs-sliding-panel-section-container.vs-expanded .vs-sliding-panel-section-container-label i {
+.vs-sliding-panel-section-container.vs-expanded
+  .vs-sliding-panel-section-container-label
+  i {
   color: #3abda7;
   transform: rotate(90deg);
 }

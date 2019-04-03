@@ -13,27 +13,43 @@ describe('DialogLayout', () => {
       onClickCalled = true;
     };
 
-    const component = mount(<DialogLayout
-            title="titleFromTest"
-            cancelButtonText="testCancelButtonText"
-            submitButtonText="testSubmitButtonText"
-            logo={<div id="test-logo">I am a logo</div>}
-            onCancel={onClickFake}>
+    const component = mount(
+      <DialogLayout
+        title="titleFromTest"
+        cancelButtonText="testCancelButtonText"
+        submitButtonText="testSubmitButtonText"
+        logo={<div id="test-logo">I am a logo</div>}
+        onCancel={onClickFake}
+      >
+        <div id="test-children">I am a child</div>
+      </DialogLayout>
+    );
 
-            <div id="test-children">I am a child</div>
-
-        </DialogLayout>);
-
-    expect('titleFromTest').toEqual(component.find('.vs-dialog-layout-title').prop('children'));
-    expect('testCancelButtonText').toEqual(component.find('#vs-dialog-layout-cancel button').prop('children'));
-    expect('testSubmitButtonText').toEqual(component.find('#vs-dialog-layout-submit button').prop('children'));
-    expect('I am a child').toEqual(component.find('#test-children').prop('children'));
-    expect('I am a logo').toEqual(component.find('#test-logo').prop('children'));
-    expect(component.find('#vs-dialog-layout-submit').find('button').prop('disabled')).toEqual(false);
+    expect('titleFromTest').toEqual(
+      component.find('.vs-dialog-layout-title').prop('children')
+    );
+    expect('testCancelButtonText').toEqual(
+      component.find('#vs-dialog-layout-cancel button').prop('children')
+    );
+    expect('testSubmitButtonText').toEqual(
+      component.find('#vs-dialog-layout-submit button').prop('children')
+    );
+    expect('I am a child').toEqual(
+      component.find('#test-children').prop('children')
+    );
+    expect('I am a logo').toEqual(
+      component.find('#test-logo').prop('children')
+    );
+    expect(
+      component
+        .find('#vs-dialog-layout-submit')
+        .find('button')
+        .prop('disabled')
+    ).toEqual(false);
   });
 
   test('should render submit as disabled button when disableSubmit is true', () => {
-    const component = shallow(<DialogLayout disableSubmit={true}/>);
+    const component = shallow(<DialogLayout disableSubmit={true} />);
 
     const submitButton = component.find('#vs-dialog-layout-submit');
 
@@ -86,13 +102,18 @@ describe('DialogLayout', () => {
   });
 
   test('should show spinner on isSubmitting', () => {
-    const submitButtonText = "test submit text";
+    const submitButtonText = 'test submit text';
 
-    const component = mount(<DialogLayout showSubmitButtonSpinner={true} submitButtonText={submitButtonText}/>);
+    const component = mount(
+      <DialogLayout
+        showSubmitButtonSpinner={true}
+        submitButtonText={submitButtonText}
+      />
+    );
 
     const submitButton = component.find('#vs-dialog-layout-submit');
 
-    expect(submitButton.find("Spinner").length).toEqual(1);
-    expect(submitButton.at(0).text()).toEqual(" " + submitButtonText);
+    expect(submitButton.find('Spinner').length).toEqual(1);
+    expect(submitButton.at(0).text()).toEqual(' ' + submitButtonText);
   });
 });

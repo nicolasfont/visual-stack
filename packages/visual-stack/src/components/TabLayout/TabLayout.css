@@ -7,7 +7,7 @@
 
 .vs-tab-header.vs-tab-header-floating {
   position: fixed;
-  box-shadow: 0 1px 2px 0 rgba(136,136,136,0.15);
+  box-shadow: 0 1px 2px 0 rgba(136, 136, 136, 0.15);
 }
 
 .vs-tab-label {
@@ -24,7 +24,7 @@
   background-color: white;
 }
 
-.vs-tab-label.vs-tab-label-clicked  {
+.vs-tab-label.vs-tab-label-clicked {
   color: #333;
   padding-bottom: 0px;
 }

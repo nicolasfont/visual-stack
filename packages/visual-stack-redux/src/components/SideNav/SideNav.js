@@ -2,18 +2,36 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { LogoutLink, SideNav as BaseSideNav, UserIcon } from '@cjdev/visual-stack/lib/components/SideNav';
+import {
+  LogoutLink,
+  SideNav as BaseSideNav,
+  UserIcon,
+} from '@cjdev/visual-stack/lib/components/SideNav';
 import { LinkGroup } from './LinkGroup';
 import { toggleSideNav } from '../../actions';
 
-export const UserMenu = ({ onLogout, label, firstInitial, lastInitial, color, children, logoutLabel }) => (
+export const UserMenu = ({
+  onLogout,
+  label,
+  firstInitial,
+  lastInitial,
+  color,
+  children,
+  logoutLabel,
+}) => (
   <LinkGroup
     className="vs-sidenav-user-menu"
     label={label}
-    icon={<UserIcon firstInitial={firstInitial} lastInitial={lastInitial} color={color} />}
+    icon={
+      <UserIcon
+        firstInitial={firstInitial}
+        lastInitial={lastInitial}
+        color={color}
+      />
+    }
   >
     {children}
-    <LogoutLink onLogout={onLogout} label={logoutLabel}/>
+    <LogoutLink onLogout={onLogout} label={logoutLabel} />
   </LinkGroup>
 );
 
@@ -25,10 +43,10 @@ export class InternalSideNav extends Component {
     super(props);
   }
   render() {
-    const userMenuWithColor = (this.props.userMenu)
-      ?  React.cloneElement(this.props.userMenu, {
-        color: this.props.logoBackground,
-      })
+    const userMenuWithColor = this.props.userMenu
+      ? React.cloneElement(this.props.userMenu, {
+          color: this.props.logoBackground,
+        })
       : null;
     return (
       <BaseSideNav

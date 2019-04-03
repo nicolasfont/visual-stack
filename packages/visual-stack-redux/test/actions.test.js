@@ -44,7 +44,9 @@ describe('reducer', () => {
         },
       },
     };
-    expect(reducer(beforeState, toggleSideNavLinkGroup(true, 'linkGroup1'))).toEqual(afterState);
+    expect(
+      reducer(beforeState, toggleSideNavLinkGroup(true, 'linkGroup1'))
+    ).toEqual(afterState);
   });
 
   test('should collapse existing expanded LinkGroups', () => {
@@ -69,7 +71,9 @@ describe('reducer', () => {
         },
       },
     };
-    expect(reducer(beforeState, toggleSideNavLinkGroup(true, 'linkGroup1'))).toEqual(afterState);
+    expect(
+      reducer(beforeState, toggleSideNavLinkGroup(true, 'linkGroup1'))
+    ).toEqual(afterState);
   });
 
   test('should toggle SlidingPanel', () => {
@@ -98,7 +102,9 @@ describe('reducer', () => {
         },
       },
     };
-    expect(reducer(beforeState, selectTab({ tabLayoutId: 'ID123', index: 0 }))).toEqual(afterState);
+    expect(
+      reducer(beforeState, selectTab({ tabLayoutId: 'ID123', index: 0 }))
+    ).toEqual(afterState);
   });
 
   test('should set SlidingPanel active state to desired state', () => {
@@ -112,7 +118,11 @@ describe('reducer', () => {
         active: true,
       },
     };
-    expect(reducer(beforeState, setSlidingPanelActiveState(true))).toEqual(afterState);
-    expect(reducer(afterState, setSlidingPanelActiveState(false))).toEqual(beforeState);
+    expect(reducer(beforeState, setSlidingPanelActiveState(true))).toEqual(
+      afterState
+    );
+    expect(reducer(afterState, setSlidingPanelActiveState(false))).toEqual(
+      beforeState
+    );
   });
 });

@@ -15,7 +15,7 @@ body,
   flex: 1 1 auto;
   display: flex;
   overflow: hidden;
-  transition: all .5s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 .vs-application-layout-side-collapsed,
@@ -23,33 +23,33 @@ body,
   flex: 0 0 auto;
   overflow: auto;
   margin-left: 48px;
-  transition: all .4s ease-out;
+  transition: all 0.4s ease-out;
 }
 
 .vs-application-layout-filter {
   flex: 0 0 auto;
   overflow: auto;
   margin-left: 0px;
-  transition: all .4s ease-out;
+  transition: all 0.4s ease-out;
 }
 
 @media (min-width: 40em) {
   .vs-application-layout-side {
     flex: 0 0 256px;
     margin-left: 0px;
-    transition: all .4s ease-out;
+    transition: all 0.4s ease-out;
   }
 
   .vs-application-layout-side-collapsed {
     flex: 0 0 48px;
     margin-left: 0px;
-    transition: all .4s ease-out;
+    transition: all 0.4s ease-out;
   }
 
   .vs-application-layout-filter {
     flex: 0 0 auto;
     margin-left: 0px;
-    transition: all .4s ease-out;    
+    transition: all 0.4s ease-out;
   }
 }
 

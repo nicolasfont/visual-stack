@@ -8,60 +8,40 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('SideNav', () => {
   test('should render', () => {
-    const wrapper = mount(
-      <SideNav
-        onClick={() => {}}
-        userMenu={<div/>}
-      />
-    );
+    const wrapper = mount(<SideNav onClick={() => {}} userMenu={<div />} />);
     wrapper.update();
     expect(wrapper.find('.vs-sidenav')).toHaveLength(1);
   });
 
   test('should render active', () => {
-    const wrapper = mount(
-      <SideNav
-        onClick={() => {}}
-        collapsed={false}
-        />
-    );
+    const wrapper = mount(<SideNav onClick={() => {}} collapsed={false} />);
     wrapper.update();
     expect(wrapper.find('.vs-sidenav.active')).toHaveLength(1);
   });
 
   test('should render collapsed', () => {
-    const wrapper = mount(
-      <SideNav
-        onClick={() => {}}
-        collapsed={true}
-        />
-    );
+    const wrapper = mount(<SideNav onClick={() => {}} collapsed={true} />);
     wrapper.update();
     expect(wrapper.find('.vs-sidenav.collapsed')).toHaveLength(1);
   });
 
   test('should give default home page if no homeLink is given', () => {
-    const wrapper = mount(
-      <SideNav
-        onClick={() => {}}
-        collapsed={true}
-        />
-    );
+    const wrapper = mount(<SideNav onClick={() => {}} collapsed={true} />);
     wrapper.update();
-    expect(wrapper.find('a.vs-sidenav-container-row').props().href).toEqual('/');
+    expect(wrapper.find('a.vs-sidenav-container-row').props().href).toEqual(
+      '/'
+    );
   });
 
   test('should correctly set the homeLink if one is given', () => {
     const homeLink = 'somewhere/else';
     const wrapper = mount(
-      <SideNav
-        onClick={() => {}}
-        collapsed={true}
-        homeLink={homeLink}
-        />
+      <SideNav onClick={() => {}} collapsed={true} homeLink={homeLink} />
     );
     wrapper.update();
-    expect(wrapper.find('a.vs-sidenav-container-row').props().href).toEqual(homeLink);
+    expect(wrapper.find('a.vs-sidenav-container-row').props().href).toEqual(
+      homeLink
+    );
   });
 
   describe('Header', () => {
@@ -80,7 +60,11 @@ describe('SideNav', () => {
   describe('LinkGroup', () => {
     test('should render with default icon if none is given', () => {
       const wrapper = mount(
-        <LinkGroup label="nothing" onClick={()=>{}} toggleSideNav={()=>{}}/>
+        <LinkGroup
+          label="nothing"
+          onClick={() => {}}
+          toggleSideNav={() => {}}
+        />
       );
       wrapper.update();
       expect(wrapper.find('.vs-sidenav-entry')).toHaveLength(1);
@@ -89,7 +73,12 @@ describe('SideNav', () => {
 
     test('should render with passed in icon', () => {
       const wrapper = mount(
-        <LinkGroup label="nothing" icon={<div className="fake-icon"/>} onClick={()=>{}} toggleSideNav={()=>{}}/>
+        <LinkGroup
+          label="nothing"
+          icon={<div className="fake-icon" />}
+          onClick={() => {}}
+          toggleSideNav={() => {}}
+        />
       );
       wrapper.update();
       expect(wrapper.find('.fake-icon')).toHaveLength(1);
@@ -112,9 +101,7 @@ describe('SideNav', () => {
 
   describe('ToggleIcon', () => {
     test('should render', () => {
-      const wrapper = shallow(
-        <ToggleIcon />
-      );
+      const wrapper = shallow(<ToggleIcon />);
       wrapper.update();
       expect(wrapper.find('.vs-sidenav-toggle-icon')).toHaveLength(1);
     });

@@ -1,9 +1,9 @@
 /** @prettier */
 .icon-grid {
   display: flex;
- flex-wrap: wrap;
- justify-content: space-between;
- justify-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .icon-display {
@@ -14,7 +14,6 @@
   padding: 1em;
 }
 
-
 .icon-display-icon {
   margin-right: 1em;
 }
@@ -23,13 +22,12 @@
 }
 
 .icon-display-name {
-  font-family: Consolas,monospace;
+  font-family: Consolas, monospace;
 }
 
 .icon-graph-square {
 }
 
 .mdi-icon.cj-green {
-  fill: #00AF66;
+  fill: #00af66;
 }
-

@@ -12,7 +12,7 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('SideNav', () => {
   test('should propagate the active state to VisualStack SideNav', () => {
     const wrapper = shallow(
-      <InternalSideNav collapsed={true} userMenu={<div/>}/>
+      <InternalSideNav collapsed={true} userMenu={<div />} />
     );
     wrapper.debug();
     expect(wrapper.find(SideNav).prop('collapsed')).toBe(true);
@@ -20,12 +20,17 @@ describe('SideNav', () => {
 
   test('should propagate children to VisualStack SideNav', () => {
     const wrapper = shallow(
-      <InternalSideNav userMenu={<div/>}>
+      <InternalSideNav userMenu={<div />}>
         <Header label="whatever">something</Header>
       </InternalSideNav>
     );
     expect(wrapper.find(SideNav).find(Header)).toHaveLength(1);
-    expect(wrapper.find(SideNav).find(Header).prop('label')).toBe('whatever');
+    expect(
+      wrapper
+        .find(SideNav)
+        .find(Header)
+        .prop('label')
+    ).toBe('whatever');
   });
 
   test('should propagate children to VisualStack SideNav', () => {
@@ -35,7 +40,12 @@ describe('SideNav', () => {
       </InternalSideNav>
     );
     expect(wrapper.find(SideNav).find(Header)).toHaveLength(1);
-    expect(wrapper.find(SideNav).find(Header).prop('label')).toBe('whatever');
+    expect(
+      wrapper
+        .find(SideNav)
+        .find(Header)
+        .prop('label')
+    ).toBe('whatever');
   });
 
   test('should propagate the logo to the SideNav', () => {
