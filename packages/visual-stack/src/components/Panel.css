@@ -3,7 +3,8 @@
   margin-bottom: 2.4rem;
   background-color: #fff;
   border-radius: 3px;
-  box-shadow: 0 1px 3px rgba(0,0,0,.08), /*	0 2px 3px rgba(0,0,0,.1), */ 0 2px 3px -1px rgba(0,0,0,.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08),
+    /*	0 2px 3px rgba(0,0,0,.1), */ 0 2px 3px -1px rgba(0, 0, 0, 0.08);
 }
 .panel-body {
   padding: 16px;
@@ -34,8 +35,8 @@
   color: inherit;
 }
 .panel-footer {
-/*   background-color: #f9f9f9; */
-/*   border-top: 1px solid #ddd; */
+  /*   background-color: #f9f9f9; */
+  /*   border-top: 1px solid #ddd; */
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
   font-size: 1.3rem;
@@ -51,7 +52,10 @@
   border-radius: 0;
 }
 .panel > .list-group:first-child .list-group-item:first-child,
-.panel > .panel-collapse > .list-group:first-child .list-group-item:first-child {
+.panel
+  > .panel-collapse
+  > .list-group:first-child
+  .list-group-item:first-child {
   border-top: 0;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
@@ -62,7 +66,11 @@
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
-.panel > .panel-heading + .panel-collapse > .list-group .list-group-item:first-child {
+.panel
+  > .panel-heading
+  + .panel-collapse
+  > .list-group
+  .list-group-item:first-child {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -70,7 +78,7 @@
   border-top-width: 0;
 }
 .panel-default {
-/*   border-color: #c8ccce; */
+  /*   border-color: #c8ccce; */
 }
 .panel-default > .panel-heading {
   color: #333;
@@ -78,9 +86,10 @@
   border-color: #c8ccce;
 }
 
-.panel-body:before, .panel-body:after {
+.panel-body:before,
+.panel-body:after {
   display: table;
-  content: " ";
+  content: ' ';
 }
 
 .panel-body:after {
@@ -88,30 +97,28 @@
 }
 /* END BOOTSTRAP STYLES */
 
-
-
 .cj-panel.panel-heading {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .cj-panel.panel-heading legend {
-    text-transform: uppercase;
-    color: #bbb;
-    font-weight: 500;
-    font-size: 1.6rem;
-    border: none;
-    padding-top: 0px;
-    margin-bottom: 0px;
+  text-transform: uppercase;
+  color: #bbb;
+  font-weight: 500;
+  font-size: 1.6rem;
+  border: none;
+  padding-top: 0px;
+  margin-bottom: 0px;
 }
 
 .cj-panel.panel .cj-panel.panel-body:not(:last-child) {
-    border-bottom: 1px solid transparent;
-    border-color: #c8ccce;
+  border-bottom: 1px solid transparent;
+  border-color: #c8ccce;
 }
 .cj-panel-body-padding-wide.panel-body {
-    padding: 32px;
+  padding: 32px;
 }
 
 .cj-panel-body-padding-none.panel-body {
-    padding: 0;
+  padding: 0;
 }

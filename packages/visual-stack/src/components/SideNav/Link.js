@@ -8,7 +8,9 @@ export const LinkContentWrapper = ({ icon, label }) => {
   return (
     <div className="vs-sidenav-link-content-wrapper">
       <SideNavSvgIcon>{finalIcon}</SideNavSvgIcon>
-      <div className="vs-sidenav-link-label vs-sidenav-container-label">{label}</div>
+      <div className="vs-sidenav-link-label vs-sidenav-container-label">
+        {label}
+      </div>
     </div>
   );
 };

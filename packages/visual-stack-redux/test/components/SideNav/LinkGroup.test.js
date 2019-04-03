@@ -13,7 +13,11 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('LinkGroup', () => {
   test('should propagate label to visual stack link group', () => {
     const wrapper = shallow(
-      <InternalLinkGroup label="whatever" toggleSideNav={()=>{}} toggleSideNavLinkGroup={()=>{}}/>
+      <InternalLinkGroup
+        label="whatever"
+        toggleSideNav={() => {}}
+        toggleSideNavLinkGroup={() => {}}
+      />
     );
     expect(wrapper.find(LinkGroup).prop('label')).toBe('whatever');
   });
@@ -29,7 +33,12 @@ describe('LinkGroup', () => {
       },
     };
     const wrapper = mount(
-      <InternalLinkGroup label={label} linkGroups={state} toggleSideNav={()=>{}} toggleSideNavLinkGroup={()=>{}}/>
+      <InternalLinkGroup
+        label={label}
+        linkGroups={state}
+        toggleSideNav={() => {}}
+        toggleSideNavLinkGroup={() => {}}
+      />
     );
     expect(wrapper.find(LinkGroup).prop('expanded')).toBe(false);
   });
@@ -43,7 +52,12 @@ describe('LinkGroup', () => {
     };
 
     const wrapper = mount(
-      <InternalLinkGroup label={label} linkGroups={state} toggleSideNav={()=>{}} toggleSideNavLinkGroup={()=>{}}/>
+      <InternalLinkGroup
+        label={label}
+        linkGroups={state}
+        toggleSideNav={() => {}}
+        toggleSideNavLinkGroup={() => {}}
+      />
     );
     expect(wrapper.find(LinkGroup).prop('expanded')).toBe(false);
   });
@@ -62,7 +76,10 @@ describe('LinkGroup', () => {
       />
     );
 
-    wrapper.find(LinkGroup).find('.vs-sidenav-container-label').simulate('click');
+    wrapper
+      .find(LinkGroup)
+      .find('.vs-sidenav-container-label')
+      .simulate('click');
     expect(faker.calledWith(true, label)).toBeTruthy();
     expect(toggleFake.calledOnce).toBeTruthy();
     expect(toggleFake.calledWith(false)).toBeTruthy();
@@ -70,8 +87,15 @@ describe('LinkGroup', () => {
 
   test('should propagate children to VisualStack LinkGroup', () => {
     const wrapper = mount(
-      <InternalLinkGroup label="whatever" linkGroups={{}} toggleSideNav={()=>{}} toggleSideNavLinkGroup={()=>{}}>
-        <Link><a href="mockRouterLink">123</a></Link>
+      <InternalLinkGroup
+        label="whatever"
+        linkGroups={{}}
+        toggleSideNav={() => {}}
+        toggleSideNavLinkGroup={() => {}}
+      >
+        <Link>
+          <a href="mockRouterLink">123</a>
+        </Link>
       </InternalLinkGroup>
     );
     expect(wrapper.find(Link)).toHaveLength(1);

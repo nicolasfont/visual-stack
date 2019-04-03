@@ -15,7 +15,10 @@ import Icons from './containers/Icons/';
 import Layouts, { LayoutsDocs } from './containers/Layouts';
 import GettingStarted from './containers/GettingStarted/';
 import './index.css';
-import {DialogLayoutDemo, SubmittingDialogLayoutDemo} from './containers/Layouts/DialogLayout';
+import {
+  DialogLayoutDemo,
+  SubmittingDialogLayoutDemo,
+} from './containers/Layouts/DialogLayout';
 
 const reducer = combineReducers({
   visualStack: vsReducer,
@@ -36,17 +39,18 @@ ReactDOM.render(
         <Route path="components" component={Components}>
           <Route path=":componentName" component={ComponentDocs} />
         </Route>
-        <Route path="icons" component={Icons}/>
+        <Route path="icons" component={Icons} />
         <Route path="layouts" component={Layouts}>
           <Route path=":layoutName" component={LayoutsDocs} />
         </Route>
-        <Route path="gettingStarted" component={GettingStarted}/>
+        <Route path="gettingStarted" component={GettingStarted} />
       </Route>
-      <Route path="/dialogLayout" component={DialogLayoutDemo}/>
-      <Route path="/submittingDialogLayout" component={SubmittingDialogLayoutDemo}/>
-
+      <Route path="/dialogLayout" component={DialogLayoutDemo} />
+      <Route
+        path="/submittingDialogLayout"
+        component={SubmittingDialogLayoutDemo}
+      />
     </Router>
   </Provider>,
   document.getElementById('root')
 );
-

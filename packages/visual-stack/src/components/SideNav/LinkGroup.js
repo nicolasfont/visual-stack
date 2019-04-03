@@ -52,7 +52,9 @@ export class LinkGroup extends React.Component {
         >
           <div className="vs-sidenav-container-row-left">
             {icon}
-            <span className="vs-sidenav-container-label">{this.props.label}</span>
+            <span className="vs-sidenav-container-label">
+              {this.props.label}
+            </span>
           </div>
           <i className="fa fa-chevron-right vs-sidenav-container-chevron" />
         </a>

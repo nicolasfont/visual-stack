@@ -8,7 +8,7 @@ export const InlineSnippet = ({ tag, src }) => {
   if (!srcTag) return null;
   return (
     <pre className="inline-snippet">
-      { trimLeadingWhiteSpace(src[tag]).join(' ') }
+      {trimLeadingWhiteSpace(src[tag]).join(' ')}
     </pre>
   );
 };
@@ -18,9 +18,7 @@ export const Snippet = ({ tag, src }) => {
   if (!srcTag) return null;
   return (
     <div className="snippet">
-      <pre>
-        { trimLeadingWhiteSpace(src[tag]).join('\n') }
-      </pre>
+      <pre>{trimLeadingWhiteSpace(src[tag]).join('\n')}</pre>
     </div>
   );
 };
@@ -37,9 +35,11 @@ export class Demo extends React.Component {
   componentDidMount() {
     fetch(this.state.srcFile)
       .then(res => res.text())
-      .then(src => this.setState({
-        src: parse(src),
-      }));
+      .then(src =>
+        this.setState({
+          src: parse(src),
+        })
+      );
   }
 
   render() {

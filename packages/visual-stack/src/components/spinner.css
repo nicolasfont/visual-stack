@@ -1,28 +1,27 @@
 .vs-spinner.vs-spinner-small {
-    padding: 1em;
+  padding: 1em;
 }
 
 .vs-spinner.vs-spinner-large {
-    padding: 1.2em;
+  padding: 1.2em;
 }
 
 .vs-spinner.vs-spinner-extra-large {
-    padding: 1.4em;
+  padding: 1.4em;
 }
 
 .vs-spinner-small i {
-    font-size: 1em;
+  font-size: 1em;
 }
 
 .vs-spinner-large i {
-    font-size: 2em;
+  font-size: 2em;
 }
 
 .vs-spinner-extra-large i {
-    font-size: 3em;
+  font-size: 3em;
 }
 
 .vs-spinner-button {
-    padding: .3em;
+  padding: 0.3em;
 }
-

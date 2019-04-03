@@ -1,86 +1,87 @@
 .vs-blank-slate {
-    text-align: center;
-    border: 1px solid #e5e5e5;
-    border-radius: 8px;
-    padding: 60px;
-    margin-top: 90px;
-    margin-bottom: 32px;
-    position: relative;
+  text-align: center;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 60px;
+  margin-top: 90px;
+  margin-bottom: 32px;
+  position: relative;
 }
 
 .vs-blankslate-icon {
-    font-size: 10em;
-    color: #DDDDDD;
+  font-size: 10em;
+  color: #dddddd;
 }
 
-.vs-blankslate-description, .vs-blankslate-title {
-    color: #858585;
+.vs-blankslate-description,
+.vs-blankslate-title {
+  color: #858585;
 }
 .vs-blankslate-title {
-    font-weight: 500;
-    font-size: 2.4rem;
-    padding: 1.5em 0 .3em;
+  font-weight: 500;
+  font-size: 2.4rem;
+  padding: 1.5em 0 0.3em;
 }
 
 .vs-blank-slate-img-wrapper {
-    position: absolute;
-    width: 100%;
-    top: -70px;
-    left: 0;
+  position: absolute;
+  width: 100%;
+  top: -70px;
+  left: 0;
 }
 
-.vs-bs-bubble-img{
-    width: 135px;
-    top: 0px;
-    margin: 0 auto;
+.vs-bs-bubble-img {
+  width: 135px;
+  top: 0px;
+  margin: 0 auto;
 }
 
 .vs-bs-support-center-info {
-    width: 80%;
-    border-top: 1px dashed #CCC;
-    padding: 2em 0;
-    margin: 2em auto;
+  width: 80%;
+  border-top: 1px dashed #ccc;
+  padding: 2em 0;
+  margin: 2em auto;
 }
 
-.vs-bs-support-center-info i{
-    font-size: 18px;
-    padding: 0 3px;
+.vs-bs-support-center-info i {
+  font-size: 18px;
+  padding: 0 3px;
 }
 
 .vs-bs-description-text {
-    color: #858585;
-    white-space: normal;
+  color: #858585;
+  white-space: normal;
 }
 
 .vs-bs-description-wrapper {
-    margin: 0 auto;
-    padding: 0 2em;
-    text-align: center;
+  margin: 0 auto;
+  padding: 0 2em;
+  text-align: center;
 }
 
 .vs-bs-description-bullet-wrapper {
-    color: #858585;
-    text-align: left;
-    max-width: 50%;
-    margin: 0 auto;
-    white-space: normal;
-    display: inline-block;
+  color: #858585;
+  text-align: left;
+  max-width: 50%;
+  margin: 0 auto;
+  white-space: normal;
+  display: inline-block;
 }
 
 .vs-bs-subtitle {
-    color: #858585;
-    margin-bottom: 1.6rem;
-    white-space: normal;
+  color: #858585;
+  margin-bottom: 1.6rem;
+  white-space: normal;
 }
 
 .vs-bs-description-learn-more {
-    margin: 2em auto 0;
-    color: #858585;
+  margin: 2em auto 0;
+  color: #858585;
 }
 
 .vs-bs-button-wrapper {
-    border-top: 1px dashed #CCC;
-    padding: 2em 0 0;
-    margin: 2em auto;
-    width: 80%;
+  border-top: 1px dashed #ccc;
+  padding: 2em 0 0;
+  margin: 2em auto;
+  width: 80%;
 }

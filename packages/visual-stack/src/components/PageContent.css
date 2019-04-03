@@ -5,11 +5,11 @@
   padding: 24px;
   overflow: auto;
   height: calc(100vh - 48px);
-  transition: .4s padding ease-in-out;
+  transition: 0.4s padding ease-in-out;
 }
 
 @media (min-width: 1200px) {
-	.vs-page-content {
-/* 	  padding: 24px 48px; */
-	}
+  .vs-page-content {
+    /* 	  padding: 24px 48px; */
+  }
 }

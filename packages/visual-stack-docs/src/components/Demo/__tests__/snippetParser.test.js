@@ -3,28 +3,13 @@ import { parse, trimLeadingWhiteSpace } from '../snippetParser.js';
 
 describe('trimLeadingWhiteSpace', () => {
   it('returns the same array when line with no whitespace', () => {
-    const input = [
-      '    123',
-      '234',
-      ' 345',
-      '  456',
-    ];
+    const input = ['    123', '234', ' 345', '  456'];
     expect(trimLeadingWhiteSpace(input)).toEqual(input);
   });
 
   it('returns a shortened array when non-zero whitespace ', () => {
-    const input = [
-      '      123',
-      '  234',
-      '   345',
-      '    456',
-    ];
-    const expectedOutput = [
-      '    123',
-      '234',
-      ' 345',
-      '  456',
-    ];
+    const input = ['      123', '  234', '   345', '    456'];
+    const expectedOutput = ['    123', '234', ' 345', '  456'];
     expect(trimLeadingWhiteSpace(input)).toEqual(expectedOutput);
   });
 });
@@ -63,7 +48,9 @@ describe('parse', () => {
       'whatever',
     ].join('\n');
 
-    expect(() => { parse(input); }).toThrow('Invalid');
+    expect(() => {
+      parse(input);
+    }).toThrow('Invalid');
   });
 
   it('should throw if end does not match start', () => {
@@ -76,7 +63,9 @@ describe('parse', () => {
       'whatever',
     ].join('\n');
 
-    expect(() => { parse(input); }).toThrow('Invalid');
+    expect(() => {
+      parse(input);
+    }).toThrow('Invalid');
   });
 
   it('should throw if start does not have matching end', () => {
@@ -89,7 +78,9 @@ describe('parse', () => {
       'whatever',
     ].join('\n');
 
-    expect(() => { parse(input); }).toThrow('Invalid');
+    expect(() => {
+      parse(input);
+    }).toThrow('Invalid');
   });
 
   it('should throw if end does not have a start', () => {
@@ -102,7 +93,9 @@ describe('parse', () => {
       'whatever',
     ].join('\n');
 
-    expect(() => { parse(input); }).toThrow('Invalid');
+    expect(() => {
+      parse(input);
+    }).toThrow('Invalid');
   });
 
   it('should throw if tag is not unique', () => {
@@ -117,6 +110,8 @@ describe('parse', () => {
       'whatever',
     ].join('\n');
 
-    expect(() => { parse(input); }).toThrow('Duplicate Tag: s1');
+    expect(() => {
+      parse(input);
+    }).toThrow('Duplicate Tag: s1');
   });
 });

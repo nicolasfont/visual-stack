@@ -9,4 +9,3 @@ export {
   Tr,
   Td,
 } from './Table.js';
-

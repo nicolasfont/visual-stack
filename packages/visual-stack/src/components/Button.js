@@ -1,11 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {concat, reduce, unapply} from 'ramda';
+import { concat, reduce, unapply } from 'ramda';
 import './Button.css';
 
 const concatAll = unapply(reduce(concat, []));
 
-const mkButton = buttonType => ({ children, className, type, large, ...otherProps }) => {
+const mkButton = buttonType => ({
+  children,
+  className,
+  type,
+  large,
+  ...otherProps
+}) => {
   const classes = concatAll(
     ['vs-btn-d', `vs-${type}-btn`],
     large ? ['vs-lrg-btn'] : [],
@@ -13,10 +19,7 @@ const mkButton = buttonType => ({ children, className, type, large, ...otherProp
   );
 
   return (
-    <button
-      type={buttonType}
-      {...otherProps}
-      className={classes.join(' ')}>
+    <button type={buttonType} {...otherProps} className={classes.join(' ')}>
       {children}
     </button>
   );
@@ -26,15 +29,16 @@ export const Button = mkButton('button');
 export const SubmitButton = mkButton('submit');
 
 Button.propTypes = SubmitButton.propTypes = {
-  type: PropTypes.oneOf(['primary', 
-    'success', 
-    'info', 
-    'default', 
-    'warning', 
-    'danger', 
-    'solid-primary', 
-    'solid-secondary', 
-    'outline-primary', 
+  type: PropTypes.oneOf([
+    'primary',
+    'success',
+    'info',
+    'default',
+    'warning',
+    'danger',
+    'solid-primary',
+    'solid-secondary',
+    'outline-primary',
     'outline-secondary',
     'rounded-solid',
     'rounded-outline',

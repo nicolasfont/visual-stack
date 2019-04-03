@@ -23,7 +23,7 @@ div.vs-react-select__control--is-focused:hover {
   box-shadow: 0 0 4px rgba(73, 197, 176, 0.4);
 }
 
-.vs-react-select__value-container div{
+.vs-react-select__value-container div {
   margin-top: 0px;
   margin-bottom: 0px;
   padding: 0;
@@ -45,7 +45,7 @@ div.vs-react-select__option {
 
 div.vs-input-error,
 div.vs-input-error div.vs-react-select__control {
-  border-color: #E1523D;
+  border-color: #e1523d;
   box-shadow: 0 0 4px rgba(225, 82, 61, 0.4);
 }
 
@@ -58,15 +58,15 @@ div.vs-react-select__control[disabled] {
 }
 
 div.vs-react-select__option--is-focused {
-  background-color: #d4f6f1
+  background-color: #d4f6f1;
 }
 
 div.vs-react-select__option:active,
 div.vs-react-select__option--is-focused:active {
-  background-color: #ace6dc
+  background-color: #ace6dc;
 }
 
 div.vs-react-select__option.vs-react-select__option--is-selected,
 div.vs-react-select__option.vs-react-select__option--is-selected:active {
-  background-color: #29c3aa
+  background-color: #29c3aa;
 }
