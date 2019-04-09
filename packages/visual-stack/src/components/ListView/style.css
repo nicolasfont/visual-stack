@@ -1,0 +1,30 @@
+.vs-list-view {
+  border: 1px solid #ddd;
+}
+
+.vs-list-view > .vs-list-item {
+  height: 150px;
+  padding: 24px;
+}
+
+.vs-list-view-header {
+  border: 1px solid #ddd;
+  border-bottom: none;
+  padding: 12px 24px;
+}
+
+.vs-list-view-footer {
+  border: 1px solid #ddd;
+  border-top: none;
+  padding: 12px 24px;
+}
+
+.vs-list-view > .vs-list-item-clickable:hover {
+  cursor: pointer;
+  background: #fafafa;
+  transition: background linear 0.2s;
+}
+
+.vs-list-view > .vs-list-item:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}
