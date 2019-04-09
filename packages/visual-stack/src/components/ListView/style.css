@@ -1,5 +1,6 @@
 .vs-list-view {
-  border: 1px solid #ddd;
+  background: #fff;
+  border: 1px solid#c5c5c5;
 }
 
 .vs-list-view > .vs-list-item {
@@ -8,23 +9,23 @@
 }
 
 .vs-list-view-header {
-  border: 1px solid #ddd;
+  border: 1px solid#c5c5c5;
   border-bottom: none;
   padding: 12px 24px;
 }
 
 .vs-list-view-footer {
-  border: 1px solid #ddd;
+  border: 1px solid#c5c5c5;
   border-top: none;
   padding: 12px 24px;
 }
 
 .vs-list-view > .vs-list-item-clickable:hover {
   cursor: pointer;
-  background: #fafafa;
+  background: #eee;
   transition: background linear 0.2s;
 }
 
 .vs-list-view > .vs-list-item:not(:last-child) {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid#c5c5c5;
 }
