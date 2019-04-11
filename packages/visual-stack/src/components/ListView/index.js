@@ -1,9 +1,11 @@
 import React from 'react';
 import { isNil } from 'ramda';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
 import './style.css';
 
-export default ({
+const ListView = ({
   data,
   renderContent,
   onClick,
@@ -12,7 +14,7 @@ export default ({
 }) => {
   const isClickable = !isNil(onClick);
   return (
-    <div className = "vs-list-view-container">
+    <div className="vs-list-view-container">
       {Header && (
         <div className="vs-list-view-header">
           <Header />
@@ -40,3 +42,13 @@ export default ({
     </div>
   );
 };
+
+ListView.propTypes = {
+  data: PropTypes.array,
+  renderContent: PropTypes.func,
+  onClick: PropTypes.func,
+  renderHeader: PropTypes.func,
+  renderFooter: PropTypes.func,
+};
+
+export default ListView;

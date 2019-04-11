@@ -44,7 +44,7 @@ addComponentRoute('spinner', 'Spinner', <SpinnerDocs />);
 addComponentRoute('table', 'Table', <TableDocs />);
 addComponentRoute('tablayout', 'TabLayout', <TabLayoutDocs />);
 addComponentRoute('card', 'Card', <CardDocs />);
-addComponentRoute('listview', 'ListView', <ListViewDocs />);
+addComponentRoute('listview', 'List View', <ListViewDocs />);
 addComponentRoute(
   'collapsiblepanel',
   'Collapsible Panel',
