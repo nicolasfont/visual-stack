@@ -12,7 +12,7 @@ export default ({
 }) => {
   const isClickable = !isNil(onClick);
   return (
-    <div>
+    <div className = "vs-list-view-container">
       {Header && (
         <div className="vs-list-view-header">
           <Header />
