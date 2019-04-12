@@ -1,5 +1,9 @@
 ## Upcoming
 
+# 4.2.0 (April 12, 2019)
+#### Add component
+- Add List View component
+
 # 4.0.1 (Mar 28, 2019)
 #### Updated styling
 - Make collapsible panel header non-selectable
