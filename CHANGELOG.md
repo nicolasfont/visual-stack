@@ -1,4 +1,6 @@
 ## Upcoming
+#### Updated component 
+- Make submit and cancel on DialogLayout optional
 
 # 4.2.0 (April 12, 2019)
 #### Add component
