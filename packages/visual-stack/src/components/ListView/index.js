@@ -2,6 +2,7 @@ import React from 'react';
 import { isNil } from 'ramda';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import { withErrorBoundary } from '../ErrorBoundary';
 
 import './style.css';
 
@@ -44,11 +45,11 @@ const ListView = ({
 };
 
 ListView.propTypes = {
-  data: PropTypes.array,
-  renderContent: PropTypes.func,
+  data: PropTypes.array.isRequired,
+  renderContent: PropTypes.func.isRequired,
   onClick: PropTypes.func,
   renderHeader: PropTypes.func,
   renderFooter: PropTypes.func,
 };
 
-export default ListView;
+export default withErrorBoundary(ListView);
