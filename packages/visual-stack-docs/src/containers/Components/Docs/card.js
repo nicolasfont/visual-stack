@@ -12,7 +12,7 @@ export default () => (
       return (
         <div>
           <Panel>
-            <Header>Spinner</Header>
+            <Header>Card</Header>
             <Body>
               <Snippet tag="s2" src={snippets} />
               {/* s1:start */}
