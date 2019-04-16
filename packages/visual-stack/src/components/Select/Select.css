@@ -70,3 +70,34 @@ div.vs-react-select__option.vs-react-select__option--is-selected,
 div.vs-react-select__option.vs-react-select__option--is-selected:active {
   background-color: #29c3aa;
 }
+
+div.vs-react-select__multi-value, div.vs-react-select-creatable__multi-value {
+  background-color: rgba(172, 230, 220, 0.35);
+  border-radius: 2px;
+  border: 1px solid #29c3aa;
+  color: #068e78;
+  font-size: .9em;
+  line-height: 1.4;
+  vertical-align: top;
+  white-space: wrap;
+  padding: 2px 20px 2px 4px;
+  position: relative;
+  max-width: 200px;
+}
+
+div.vs-react-select__multi-value__label, div.vs-react-select-creatable__multi-value__label {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: inherit;
+}
+
+div.vs-react-select__multi-value__remove:hover, div.vs-react-select-creatable__multi-value__remove:hover {
+  background-color: #29c3aa;
+  color: white;
+}
+
+.vs-react-select-creatable__multi-value__remove {
+  margin-left: 2px;
+  position: absolute;
+  right: 2px;
+}
