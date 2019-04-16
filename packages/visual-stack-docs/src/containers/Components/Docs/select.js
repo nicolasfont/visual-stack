@@ -1,8 +1,11 @@
 import React from 'react';
 import { Demo, Snippet } from '../../../components/Demo';
+import { Body, Header, Panel } from '@cjdev/visual-stack/lib/components/Panel';
+
+/* s6:start */
 import Select from '@cjdev/visual-stack/lib/components/Select';
 import CreatableSelect from '@cjdev/visual-stack/lib/components/CreatableSelect';
-import { Body, Header, Panel } from '@cjdev/visual-stack/lib/components/Panel';
+/* s6:end */
 
 const PanelComponent = ({ header, children }) => (
   <Panel>
@@ -16,6 +19,10 @@ export default () => (
     {snippets => {
       return (
         <div>
+          <PanelComponent header="Component Imports">
+            <Snippet tag="s6" src={snippets} />
+          </PanelComponent>
+
           <PanelComponent header="Dropdown powered by React Select">
             A full list supported props can be found at:{' '}
             <a href="https://react-select.com/home">react-select.com</a>
@@ -66,6 +73,22 @@ export default () => (
             />
             {/* s4:end */}
             <Snippet tag="s4" src={snippets} />
+          </PanelComponent>
+          <PanelComponent header="Multi Select powered by React Select">
+            {/* s5:start */}
+            <Select
+              isMulti
+              options={[
+                { value: 'chocolate', label: 'Chocolate' },
+                { value: 'strawberry', label: 'Strawberry' },
+                { value: 'vanilla', label: 'Vanilla' },
+              ]}
+              components={{ DropdownIndicator: null }}
+              placeholder={'Enter items...'}
+              onChange={(value, actionMeta) => console.log(value, actionMeta)}
+            />
+            {/* s5:end */}
+            <Snippet tag="s5" src={snippets} />
           </PanelComponent>
         </div>
       );
