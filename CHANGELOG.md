@@ -1,6 +1,10 @@
 ## Upcoming
-#### Updated component 
+
+# 4.2.1 (April 16, 2019)
+#### Updated component
 - Make submit and cancel on DialogLayout optional
+#### Updated styling
+- Add styles for react-select multiselects
 
 # 4.2.0 (April 12, 2019)
 #### Add component
