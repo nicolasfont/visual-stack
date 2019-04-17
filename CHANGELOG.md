@@ -1,5 +1,9 @@
 ## Upcoming
 
+# 4.3.1 (April 17, 2019)
+## Bug Fixes
+- Fix exceeding maximum update depth when using connected renderFooter in List View
+
 # 4.3.0 (April 17, 2019)
 #### Add component
 - Add Pagination component
