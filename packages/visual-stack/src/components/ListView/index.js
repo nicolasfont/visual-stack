@@ -10,16 +10,14 @@ const ListView = ({
   data,
   renderContent,
   onClick,
-  renderHeader: Header,
-  renderFooter: Footer,
+  renderHeader,
+  renderFooter,
 }) => {
   const isClickable = !isNil(onClick);
   return (
     <div className="vs-list-view-container">
-      {Header && (
-        <div className="vs-list-view-header">
-          <Header />
-        </div>
+      {renderHeader && (
+        <div className="vs-list-view-header">{renderHeader()}</div>
       )}
       <div className="vs-list-view">
         {data.map((item, index) => (
@@ -35,10 +33,8 @@ const ListView = ({
           </div>
         ))}
       </div>
-      {Footer && (
-        <div className="vs-list-view-footer">
-          <Footer />
-        </div>
+      {renderFooter && (
+        <div className="vs-list-view-footer">{renderFooter()}</div>
       )}
     </div>
   );
