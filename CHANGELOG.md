@@ -1,5 +1,9 @@
 ## Upcoming
 
+# 4.3.0 (April 17, 2019)
+#### Add component
+- Add Pagination component
+
 # 4.2.1 (April 16, 2019)
 #### Updated component
 - Make submit and cancel on DialogLayout optional
