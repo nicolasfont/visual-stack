@@ -1,4 +1,5 @@
 /* eslint */
+/* eslint-disable no-console */
 import React from 'react';
 import { Body, Header, Panel } from '@cjdev/visual-stack/lib/components/Panel';
 import { Demo, Snippet } from '../../../components/Demo';
@@ -309,9 +310,7 @@ export default () => (
               {/* s13:start */}
               <Form>
                 <FieldContent>
-                  <TextArea
-                    placeholder="Enter some text here..."
-                  />
+                  <TextArea placeholder="Enter some text here..." />
                 </FieldContent>
               </Form>
               {/* s13:end */}

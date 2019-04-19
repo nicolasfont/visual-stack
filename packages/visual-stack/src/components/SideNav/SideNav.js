@@ -49,7 +49,6 @@ class SideNavP extends React.Component {
 
   render() {
     const {
-      logoBackground,
       appName,
       onClick,
       collapsed,
@@ -58,7 +57,6 @@ class SideNavP extends React.Component {
       homeLink,
     } = this.props;
 
-    const logoBg = logoBackground ? logoBackground : 'transparent';
     const toggle = () => onClick(!collapsed);
     const capAppName = appName ? appName.toUpperCase() : '';
     const userMenuWithColor = userMenu

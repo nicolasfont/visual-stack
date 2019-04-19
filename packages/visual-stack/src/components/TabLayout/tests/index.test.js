@@ -11,8 +11,6 @@ describe('TabLayout', () => {
   const el = document.createElement('div');
   document.body.appendChild(el);
 
-  const options = { attachTo: el };
-
   describe('functionaltesty', () => {
     test('should render', () => {
       const wrapper = mount(<TabLayout />);

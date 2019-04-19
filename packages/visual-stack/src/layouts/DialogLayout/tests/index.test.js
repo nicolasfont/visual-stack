@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, {mount, shallow} from 'enzyme';
+import Enzyme, { mount, shallow } from 'enzyme';
 import DialogLayout from '../';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -7,18 +7,12 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('DialogLayout', () => {
   test('should render', () => {
-    let onClickCalled = false;
-    const onClickFake = () => {
-      onClickCalled = true;
-    };
-
     const component = mount(
       <DialogLayout
         title="titleFromTest"
         cancelButtonText="testCancelButtonText"
         submitButtonText="testSubmitButtonText"
         logo={<div id="test-logo">I am a logo</div>}
-        onCancel={onClickFake}
       >
         <div id="test-children">I am a child</div>
       </DialogLayout>
@@ -49,9 +43,8 @@ describe('DialogLayout', () => {
 
   test('should render submit as disabled button when disableSubmit is true', () => {
     const component = shallow(
-      <DialogLayout
-        disableSubmit={true}
-        submitButtonText="Submit"/>);
+      <DialogLayout disableSubmit={true} submitButtonText="Submit" />
+    );
 
     const submitButton = component.find('#vs-dialog-layout-submit');
 
@@ -59,7 +52,7 @@ describe('DialogLayout', () => {
   });
 
   test('should not render submit button when not configured', () => {
-    const component = shallow(<DialogLayout/>);
+    const component = shallow(<DialogLayout />);
 
     const submitButton = component.find('#vs-dialog-layout-submit');
 
@@ -67,7 +60,7 @@ describe('DialogLayout', () => {
   });
 
   test('should not render cancel button when not configured', () => {
-    const component = shallow(<DialogLayout/>);
+    const component = shallow(<DialogLayout />);
 
     const cancelButton = component.find('#vs-dialog-layout-cancel');
 
@@ -81,9 +74,8 @@ describe('DialogLayout', () => {
     };
 
     const component = shallow(
-      <DialogLayout
-        onCancel={onClickFake}
-        cancelButtonText="Cancel"/>);
+      <DialogLayout onCancel={onClickFake} cancelButtonText="Cancel" />
+    );
 
     const cancelButton = component.find('#vs-dialog-layout-cancel');
 
@@ -99,9 +91,8 @@ describe('DialogLayout', () => {
     };
 
     const component = shallow(
-      <DialogLayout
-        onCancel={onClickFake}
-        cancelButtonText="Cancel"/>);
+      <DialogLayout onCancel={onClickFake} cancelButtonText="Cancel" />
+    );
 
     const closeIcon = component.find('.vs-dialog-layout-icon-close');
 
@@ -117,9 +108,8 @@ describe('DialogLayout', () => {
     };
 
     const component = shallow(
-      <DialogLayout
-        onSubmit={onClickFake}
-        submitButtonText="Submit"/>);
+      <DialogLayout onSubmit={onClickFake} submitButtonText="Submit" />
+    );
 
     const submitButton = component.find('#vs-dialog-layout-submit');
 
