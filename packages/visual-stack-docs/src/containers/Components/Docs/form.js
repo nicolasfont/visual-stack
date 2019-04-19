@@ -311,7 +311,6 @@ export default () => (
                 <FieldContent>
                   <TextArea
                     placeholder="Enter some text here..."
-                    style={{ height: '64px' }}
                   />
                 </FieldContent>
               </Form>
