@@ -3,7 +3,7 @@ import React from 'react';
 import { Link, LinkContentWrapper } from './Link';
 import { LogoutIcon } from './Icons';
 
-export const UserIcon = ({ firstInitial, lastInitial, color }) => (
+export const UserIcon = ({ firstInitial, lastInitial }) => (
   <div className="vs-user-icon-circle">
     <span className="vs-user-icon-first">{firstInitial}</span>
     <span className="vs-user-icon-last">{lastInitial}</span>

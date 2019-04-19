@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import { Demo, Snippet } from '../../../components/Demo';
 import { Body, Header, Panel } from '@cjdev/visual-stack/lib/components/Panel';
