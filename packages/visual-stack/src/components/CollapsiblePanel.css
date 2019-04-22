@@ -1,7 +1,3 @@
-.vs-collapsible-panel {
-  padding: 8px;
-}
-
 .vs-collapsible-panel-header {
   display: flex;
   align-items: center;
@@ -17,6 +13,7 @@
 
 .vs-collapsible-panel-header-title {
   user-select: none;
+  font-weight: 500;
 }
 
 .vs-collapsible-panel + .vs-collapsible-panel {
