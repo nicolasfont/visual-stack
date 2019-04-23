@@ -76,4 +76,17 @@ describe('List View', () => {
     expect(wrapper.find('div.vs-list-view-header').text()).toEqual('header');
     expect(wrapper.find('div.vs-list-view-footer').text()).toEqual('footer');
   });
+
+  it('should render spinner', () => {
+    const wrapper = mount(
+      <ListView
+        isLoading
+        renderContent={() => null}
+        renderHeader={() => <div>header</div>}
+        renderFooter={() => <div>footer</div>}
+      />
+    );
+    expect(wrapper.find('div.vs-list-item')).toHaveLength(0);
+    expect(wrapper.find('i.fa-spinner')).toHaveLength(1);
+  });
 });
