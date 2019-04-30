@@ -76,6 +76,19 @@ export default () => (
               <Snippet tag="s4" src={snippets} />
             </Body>
           </Panel>
+          <Panel>
+            <Header>List View When Loading</Header>
+            <Body>
+              {/* s5:start */}
+              <ListView
+                isLoading
+                renderHeader={() => <div>Header</div>}
+                renderFooter={() => <div>Footer</div>}
+              />
+              {/* s5:end */}
+              <Snippet tag="s5" src={snippets} />
+            </Body>
+          </Panel>
         </div>
       );
     }}
