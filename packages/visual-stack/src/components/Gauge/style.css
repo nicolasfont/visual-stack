@@ -1,0 +1,13 @@
+.vs-gauge {
+  padding: 32px;
+  border: 1px solid #ddd;
+  max-width: 300px;
+}
+
+.vs-gauge-container {
+  display: flex;
+}
+
+.vs-gauge-container > .vs-gauge {
+  margin-right: 10px;
+}
