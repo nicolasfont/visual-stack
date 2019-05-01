@@ -180,6 +180,7 @@ select[size] {
 
 textarea {
   overflow: auto;
+  min-height: 64px;
 }
 
 input[disabled],
@@ -203,27 +204,27 @@ fieldset[disabled] input[type='checkbox'] {
   cursor: not-allowed;
 }
 
-input::-webkit-input-placeholder {
+::-webkit-input-placeholder {
   color: #999;
   opacity: 1;
 }
 
-input::-moz-placeholder {
+::-moz-placeholder {
   color: #999;
   opacity: 1;
 }
 
-input:-ms-input-placeholder {
+:-ms-input-placeholder {
   color: #999;
   opacity: 1;
 }
 
-input::-ms-input-placeholder {
+::-ms-input-placeholder {
   color: #999;
   opacity: 1;
 }
 
-input::placeholder {
+::placeholder {
   color: #999;
   opacity: 1;
 }
