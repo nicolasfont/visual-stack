@@ -70,6 +70,24 @@ export const AppIcon = () => (
   </Icon>
 );
 
+export const TrendDown = () => (
+  <Icon>
+    <path
+      fill="#00c18c"
+      d="M5,6.41L6.41,5L17,15.59V9H19V19H9V17H15.59L5,6.41Z"
+    />
+  </Icon>
+);
+
+export const TrendUp = () => (
+  <Icon>
+    <path
+      fill="#000000"
+      d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z"
+    />
+  </Icon>
+);
+
 export const CodeIcon = () => (
   <Icon>
     <path
