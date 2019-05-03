@@ -12,6 +12,8 @@ import {
   GaugeTrendValue,
   GaugeTrendLabel,
   GaugeNegativeTrendValue,
+  GaugePositiveTrenValue,
+  GaugeValueUnit,
 } from '@cjdev/visual-stack/lib/components/Gauge';
 /* s1:end */
 
@@ -41,9 +43,50 @@ export default () => (
                     </GaugeTrend>
                   </GaugeTrendContainer>
                 </Gauge>
-                <Gauge>CJ</Gauge>
-                <Gauge>Is</Gauge>
-                <Gauge>Here</Gauge>
+                <Gauge>
+                  <GaugeTitle>High Severity Violations</GaugeTitle>
+                  <GaugeValue>7</GaugeValue>
+                  <GaugeTrendContainer>
+                    <GaugeTrend>
+                      <GaugeNegativeTrendValue>-2</GaugeNegativeTrendValue>
+                      <GaugeTrendLabel>change</GaugeTrendLabel>
+                    </GaugeTrend>
+                    <GaugeTrend>
+                      <GaugeTrendValue>4</GaugeTrendValue>
+                      <GaugeTrendLabel>prev. period</GaugeTrendLabel>
+                    </GaugeTrend>
+                  </GaugeTrendContainer>
+                </Gauge>
+                <Gauge>
+                  <GaugeTitle># of Total Violations</GaugeTitle>
+                  <GaugeValue>16</GaugeValue>
+                  <GaugeTrendContainer>
+                    <GaugeTrend>
+                      <GaugeNegativeTrendValue>-4</GaugeNegativeTrendValue>
+                      <GaugeTrendLabel>change</GaugeTrendLabel>
+                    </GaugeTrend>
+                    <GaugeTrend>
+                      <GaugeTrendValue>20</GaugeTrendValue>
+                      <GaugeTrendLabel>prev. period</GaugeTrendLabel>
+                    </GaugeTrend>
+                  </GaugeTrendContainer>
+                </Gauge>
+                <Gauge>
+                  <GaugeTitle>Average Resolution Time (hrs)</GaugeTitle>
+                  <GaugeValue>
+                    9.91 <GaugeValueUnit>hrs</GaugeValueUnit>
+                  </GaugeValue>
+                  <GaugeTrendContainer>
+                    <GaugeTrend>
+                      <GaugePositiveTrenValue>+7.11</GaugePositiveTrenValue>
+                      <GaugeTrendLabel>change</GaugeTrendLabel>
+                    </GaugeTrend>
+                    <GaugeTrend>
+                      <GaugeTrendValue>20</GaugeTrendValue>
+                      <GaugeTrendLabel>prev. period</GaugeTrendLabel>
+                    </GaugeTrend>
+                  </GaugeTrendContainer>
+                </Gauge>
               </GaugeContainer>
               {/* s2:end */}
             </Body>
