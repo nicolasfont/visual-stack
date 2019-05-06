@@ -1,0 +1,18 @@
+.vs-dropdown-with-button {
+  position: relative;
+}
+
+.vs-dropdown-with-button > .vs-dropdown {
+    overflow: hidden;
+    position: absolute;
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: transform 250ms;
+    z-index: 10;
+    background: white;
+}
+
+.vs-dropdown-with-button > .vs-dropdown.vs-visible {
+    box-shadow: 1px 2px 5px 1px #aeaeae;
+    transform: scaleY(1);
+}

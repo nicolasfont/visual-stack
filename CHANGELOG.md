@@ -1,4 +1,7 @@
 ## Upcoming
+#### Add component
+- Add ButtonWithDropdown component that associates a button with an expansible dropdown area.
+
 # 4.4.0 (May 14, 2019)
 #### Add component
 - Add AnalyticCard Component
@@ -90,26 +93,26 @@
 - Added homeLink prop to SideNav that defaults to /
 
 # 3.0.4 (Nov 16, 2018)
-## New Component 
+## New Component
 - Added Card Component
 
 # 3.0.3 (Nov 14, 2018)
 ## Bug Fixes
-- Fixed issue where if multiple pages have active sliding panels, they stay active on page load instead of toggling. 
+- Fixed issue where if multiple pages have active sliding panels, they stay active on page load instead of toggling.
 
 # 3.0.2 (Nov 13, 2018)
 ## Icon Updates
 - Added an issue icon
 
 # 3.0.1 (Nov 2, 2018)
-## Styling Changes  
+## Styling Changes
 - Update sliding panel css
 
 # 3.0.0 (Oct 29, 2018)
 ## Styling Changes
 - Updated sidenav styles.
 - Updated topnav styles.
-- Forced all Areas to use CJTeal.  
+- Forced all Areas to use CJTeal.
 
 # 2.7.6 (Oct 1, 2018)
 ## Bug Fixes
@@ -120,7 +123,7 @@
 - Updated Aapplication Layout so when Sliding panel is displayed it doesn't collapse the header.
 
 # 2.7.4 (Sept 20, 2018)
-## Upgrades 
+## Upgrades
 - Upgraded material-ui so build no longer breaks.
 
 # 2.7.3 (Aug 13, 2018)
