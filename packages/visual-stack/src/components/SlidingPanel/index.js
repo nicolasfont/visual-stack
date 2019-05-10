@@ -34,9 +34,13 @@ ToggleIcon.propTypes = {
   label: PropTypes.string,
 };
 
-export const SlidingPanel = ({ children, active }) => {
+export const SlidingPanel = ({ className = '', children, active }) => {
   return (
-    <div className={classNames('vs-sliding-panel', { 'vs-active': active })}>
+    <div
+      className={classNames(`${className} vs-sliding-panel`, {
+        'vs-active': active,
+      })}
+    >
       <ul className="vs-force-sliding-panel-width">{children}</ul>
     </div>
   );
@@ -54,23 +58,29 @@ SlidingPanelHeader.propTypes = {
   className: PropTypes.string,
 };
 
-export const SlidingPanelSection = ({ children }) => {
-  return <li className="vs-sliding-panel-section">{children}</li>;
+export const SlidingPanelSection = ({ className = '', children }) => {
+  return (
+    <li className={`${className} vs-sliding-panel-section`}>{children}</li>
+  );
 };
 SlidingPanelSection.propTypes = {
   children: PropTypes.any,
 };
 
 export const SlidingPanelDropdown = ({
+  className = '',
   label,
   children,
   onClick,
   expanded,
   id = '',
 }) => {
-  const containerClasses = classNames('vs-sliding-panel-section-container', {
-    'vs-expanded': expanded,
-  });
+  const containerClasses = classNames(
+    `${className} vs-sliding-panel-section-container`,
+    {
+      'vs-expanded': expanded,
+    }
+  );
   const optionsClasses = classNames('vs-sliding-panel-section-options', {
     'vs-expanded': expanded,
   });
