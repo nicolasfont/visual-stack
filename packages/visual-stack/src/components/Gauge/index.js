@@ -37,7 +37,7 @@ export const GaugeNegativeTrendValue = ({ children }) => (
   </div>
 );
 
-export const GaugePositiveTrenValue = ({ children }) => (
+export const GaugePositiveTrendValue = ({ children }) => (
   <div className="vs-gauge-trend-value vs-gauge-trend-positive">
     <TrendUp />
     {children}
