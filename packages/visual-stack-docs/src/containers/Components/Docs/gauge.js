@@ -12,7 +12,7 @@ import {
   GaugeTrendValue,
   GaugeTrendLabel,
   GaugeNegativeTrendValue,
-  GaugePositiveTrenValue,
+  GaugePositiveTrendValue,
   GaugeValueUnit,
 } from '@cjdev/visual-stack/lib/components/Gauge';
 /* s1:end */
@@ -78,7 +78,7 @@ export default () => (
                   </GaugeValue>
                   <GaugeTrendContainer>
                     <GaugeTrend>
-                      <GaugePositiveTrenValue>+7.11</GaugePositiveTrenValue>
+                      <GaugePositiveTrendValue>+7.11</GaugePositiveTrendValue>
                       <GaugeTrendLabel>change</GaugeTrendLabel>
                     </GaugeTrend>
                     <GaugeTrend>
