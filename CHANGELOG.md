@@ -1,4 +1,8 @@
 ## Upcoming
+# 4.4.0 (May 14, 2019)
+#### Add component
+- Add AnalyticCard Component
+- Adding className to SlidingPanel
 
 # 4.3.2 (May 1, 2019)
 #### Updated styling
