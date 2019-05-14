@@ -68,36 +68,22 @@ export default () => (
                     High Severity Violations
                   </AnalyticCardTitle>
                   <AnalyticCardValue>7</AnalyticCardValue>
-                  <AnalyticCardTrendContainer>
-                    <AnalyticCardTrend>
-                      <AnalyticCardNegativeTrendValue>
-                        -2
-                      </AnalyticCardNegativeTrendValue>
-                      <AnalyticCardTrendLabel>change</AnalyticCardTrendLabel>
-                    </AnalyticCardTrend>
-                    <AnalyticCardTrend>
-                      <AnalyticCardTrendValue>4</AnalyticCardTrendValue>
-                      <AnalyticCardTrendLabel>
-                        prev. period
-                      </AnalyticCardTrendLabel>
-                    </AnalyticCardTrend>
-                  </AnalyticCardTrendContainer>
+                  <div>Custom Text</div>
                 </AnalyticCard>
                 <AnalyticCard>
-                  <AnalyticCardTitle># of Total Violations</AnalyticCardTitle>
                   <AnalyticCardValue>16</AnalyticCardValue>
                   <AnalyticCardTrendContainer>
                     <AnalyticCardTrend>
+                      <AnalyticCardTrendLabel>change</AnalyticCardTrendLabel>
                       <AnalyticCardNegativeTrendValue>
                         -4
                       </AnalyticCardNegativeTrendValue>
-                      <AnalyticCardTrendLabel>change</AnalyticCardTrendLabel>
                     </AnalyticCardTrend>
                     <AnalyticCardTrend>
-                      <AnalyticCardTrendValue>20</AnalyticCardTrendValue>
                       <AnalyticCardTrendLabel>
                         prev. period
                       </AnalyticCardTrendLabel>
+                      <AnalyticCardTrendValue>20</AnalyticCardTrendValue>
                     </AnalyticCardTrend>
                   </AnalyticCardTrendContainer>
                 </AnalyticCard>
