@@ -19,6 +19,7 @@ import {
   AnalyticCardValueUnit,
 } from '@cjdev/visual-stack/lib/components/AnalyticCard';
 /* s3:end */
+import './card.css';
 
 export default () => (
   <Demo srcFile="/samples/src/containers/Components/Docs/card.js">
@@ -87,7 +88,7 @@ export default () => (
                     </AnalyticCardTrend>
                   </AnalyticCardTrendContainer>
                 </AnalyticCard>
-                <AnalyticCard>
+                <AnalyticCard className="make-it-different">
                   <AnalyticCardTitle>
                     Average Resolution Time (hrs)
                   </AnalyticCardTitle>
