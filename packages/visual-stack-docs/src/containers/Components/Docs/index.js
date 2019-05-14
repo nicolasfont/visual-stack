@@ -20,7 +20,6 @@ import TableDocs from './table';
 import TabLayoutDocs from './tablayout';
 import CardDocs from './card';
 import ListViewDocs from './listview';
-import GaugeDocs from './gauge';
 
 import CollapsiblePanelDocs from './collapsiblepanel';
 import PaginationDocs from './pagination';
@@ -48,7 +47,6 @@ addComponentRoute('tablayout', 'TabLayout', <TabLayoutDocs />);
 addComponentRoute('card', 'Card', <CardDocs />);
 addComponentRoute('listview', 'List View', <ListViewDocs />);
 addComponentRoute('pagination', 'Pagination', <PaginationDocs />);
-addComponentRoute('gauge', 'Gauge', <GaugeDocs />);
 addComponentRoute(
   'collapsiblepanel',
   'Collapsible Panel',

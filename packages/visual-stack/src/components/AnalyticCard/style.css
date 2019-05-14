@@ -1,70 +1,70 @@
-.vs-gauge {
+.vs-analytic-card {
   text-align: center;
   padding: 32px;
   border: 1px solid #d4d4d4;
   flex-basis: 320px;
 }
 
-.vs-gauge-container {
+.vs-analytic-card-container {
   display: flex;
   flex-wrap: wrap;
   max-width: 1500px;
 }
 
-.vs-gauge-container > .vs-gauge {
+.vs-analytic-card-container > .vs-analytic-card {
   margin-right: 10px;
   margin-bottom: 20px;
 }
 
-.vs-gauge-title {
+.vs-analytic-card-title {
   font-size: 18px;
 }
 
-.vs-gauge-value {
+.vs-analytic-card-value {
   font-size: 36px;
   font-weight: 500;
 }
 
-.vs-gauge-trend {
+.vs-analytic-card-trend {
   display: flex;
   flex-direction: column;
 }
 
-.vs-gauge-value-unit {
+.vs-analytic-card-value-unit {
   font-size: 12px;
 }
 
-.vs-gauge-trend-container > .vs-gauge-trend {
+.vs-analytic-card-trend-container > .vs-analytic-card-trend {
   padding-right: 22px;
 }
 
-.vs-gauge-trend-container > .vs-gauge-trend:not(:last-child) {
+.vs-analytic-card-trend-container > .vs-analytic-card-trend:not(:last-child) {
   margin-right: 22px;
   border-right: 0.5px solid #d4d4d4;
 }
 
-.vs-gauge-trend-container {
+.vs-analytic-card-trend-container {
   display: flex;
   justify-content: center;
 }
 
-.vs-gauge-trend-value {
+.vs-analytic-card-trend-value {
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 19px;
 }
 
-.vs-gauge-trend-label {
+.vs-analytic-card-trend-label {
   font-size: 17px;
   font-weight: 400;
   color: #bec5cd;
 }
 
-.vs-gauge-trend-negative {
+.vs-analytic-card-trend-negative {
   color: #00c18c;
 }
 
-.vs-gauge-trend-positive {
+.vs-analytic-card-trend-positive {
   color: #f75966;
 }
