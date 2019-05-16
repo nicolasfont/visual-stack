@@ -1,6 +1,9 @@
 ## Upcoming
 #### Add component
 - Add ButtonWithDropdown component that associates a button with an expansible dropdown area.
+- Add DatePicker component that lets you select one or two date ranges manually or from a list of predefined ranges.
+## New Feature
+- SlidingPanel sections take a className prop.
 
 # 4.4.0 (May 14, 2019)
 #### Add component
