@@ -1,29 +1,14 @@
 import React from 'react';
-import { Route, withRouter } from 'react-router';
+import {Route, withRouter} from 'react-router';
 
-import { Button } from '@cjdev/visual-stack/lib/components/Button';
+import {Button} from '@cjdev/visual-stack/lib/components/Button';
 import DialogLayout from '@cjdev/visual-stack/lib/layouts/DialogLayout';
-import {
-  Body,
-  Footer,
-  Header,
-  Panel,
-} from '@cjdev/visual-stack/lib/components/Panel';
-import {
-  ChoiceInput,
-  Field,
-  Form,
-  Input,
-  Label,
-  TextField,
-} from '@cjdev/visual-stack/lib/components/Form';
-import { Demo, Snippet } from '../../../components/Demo';
+import {Body, Footer, Header, Panel,} from '@cjdev/visual-stack/lib/components/Panel';
+import {ChoiceInput, Field, Form, Input, Label, TextField,} from '@cjdev/visual-stack/lib/components/Form';
+import {Demo, Snippet} from '../../../components/Demo';
 import CJLogo from '@cjdev/visual-stack/lib/components/CJLogo';
 import './index.css';
-import {
-  PageHeader,
-  PageTitle,
-} from '@cjdev/visual-stack/lib/components/PageHeader';
+import {PageHeader, PageTitle,} from '@cjdev/visual-stack/lib/components/PageHeader';
 import PageContent from '@cjdev/visual-stack/lib/components/PageContent';
 
 class DialogLayoutParent extends React.Component {
@@ -57,6 +42,23 @@ class DialogLayoutParent extends React.Component {
                   </Body>
                 </Panel>
                 <Panel>
+                  <Header>Full page wide DialogLayout Demo</Header>
+                  <Body>
+                  <Button
+                    type="solid-primary"
+                    onClick={() => this.props.router.push('/wideDialogLayout')}
+                  >
+                    Show the DialogLayout with wide width
+                  </Button>
+                  <p>
+                    Sometimes you want the DialogLayout to take the full width of the page.
+                    You can pass the contentSize property with value 'wide' to get a full width
+                    DialogLayout.
+                  </p>
+                  <Snippet tag="s6" src={snippets} />
+                  </Body>
+                </Panel>
+                <Panel>
                   <Header>Submitting page DialogLayout Demo</Header>
                   <Body>
                     <Button
@@ -75,20 +77,21 @@ class DialogLayoutParent extends React.Component {
                   </Body>
                 </Panel>
                 <Panel>
-                  <Header>DialogLayout with no footer buttons</Header>
+                  <Header>DialogLayout with no submit/cancel buttons</Header>
                   <Body>
                     <Button
                       type="solid-primary"
                       onClick={() =>
-                        this.props.router.push('/noFooterDialogLayout')
+                        this.props.router.push('/noButtonDialogLayout')
                       }
                     >
-                      Show the DialogLayout with no footer
+                      Show the DialogLayout with no submit/cancel button, but instead an X
                     </Button>
                     <p>
-                      On readonly views, you might not want buttons at the
-                      bottom. If you don't pass text for these buttons, they
-                      won't render.
+                      On readonly views, you might not have an action you want to perform.
+                      If you don't pass text for the submit and cancel buttons, they won't render.
+                      If neither button is showing, an X will appear instead that will take the
+                      behavior of the cancel button.
                     </p>
                     <Snippet tag="s5" src={snippets} />
                   </Body>
@@ -159,7 +162,7 @@ export const SubmittingDialogLayoutDemo = ({ router }) => (
 /* s4:end */
 
 /* s5:start */
-export const NoFooterDialogLayoutDemo = ({ router }) => (
+export const NoButtonDialogLayoutDemo = ({ router }) => (
   <div>
     <DialogLayout
       title={'Create Program Term'}
@@ -174,6 +177,27 @@ export const NoFooterDialogLayoutDemo = ({ router }) => (
   </div>
 );
 /* s5:end */
+
+/* s6:start */
+export const WideDialogLayoutDemo = ({ router }) => (
+  <div>
+    <DialogLayout
+      title={'Create Program Term'}
+      submitButtonText={'Save Program Terms'}
+      cancelButtonText={'cancel'}
+      onCancel={() => router.push('/layouts/dialogLayout')}
+      onSubmit={() => {
+        alert('Success!'); // eslint-disable-line no-alert
+        router.push('/layouts/dialogLayout');
+      }}
+      logo={<CJLogo />}
+      contentSize={'wide'}
+    >
+      <DemoForm />
+    </DialogLayout>
+  </div>
+);
+/* s6:end */
 
 const NotRenderedComponent = () => (
   /* s3:start */

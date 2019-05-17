@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { browserHistory, IndexRoute, Route, Router } from 'react-router';
-import { combineReducers, createStore } from 'redux';
-import { Provider } from 'react-redux';
+import {browserHistory, IndexRoute, Route, Router} from 'react-router';
+import {combineReducers, createStore} from 'redux';
+import {Provider} from 'react-redux';
 
-import { reducer as vsReducer } from '@cjdev/visual-stack-redux';
+import {reducer as vsReducer} from '@cjdev/visual-stack-redux';
 import '@cjdev/visual-stack/lib/global';
 
 import App from './containers/App/';
@@ -12,13 +12,14 @@ import Home from './containers/Home/';
 import Components from './containers/Components/';
 import ComponentDocs from './containers/Components/Docs/';
 import Icons from './containers/Icons/';
-import Layouts, { LayoutsDocs } from './containers/Layouts';
+import Layouts, {LayoutsDocs} from './containers/Layouts';
 import GettingStarted from './containers/GettingStarted/';
 import './index.css';
 import {
   DialogLayoutDemo,
-  NoFooterDialogLayoutDemo,
+  NoButtonDialogLayoutDemo,
   SubmittingDialogLayoutDemo,
+  WideDialogLayoutDemo,
 } from './containers/Layouts/DialogLayout';
 
 const reducer = combineReducers({
@@ -52,8 +53,12 @@ ReactDOM.render(
         component={SubmittingDialogLayoutDemo}
       />
       <Route
-        path="/noFooterDialogLayout"
-        component={NoFooterDialogLayoutDemo}
+        path="/noButtonDialogLayout"
+        component={NoButtonDialogLayoutDemo}
+      />
+      <Route
+        path="/wideDialogLayout"
+        component={WideDialogLayoutDemo}
       />
     </Router>
   </Provider>,
