@@ -9,46 +9,40 @@
   border-radius: 3px;
 }
 
-.vs-date-picker-side-by-side {
-}
-
 .vs-date-picker {
+  width: 39em;
+}
+.vs-date-picker-side-by-side {
   width: 65em;
 }
+
 .vs-date-picker-calendars {
   display: flex;
+  flex-grow: 1;
 }
 .vs-date-picker-sidebar {
   transition: width 250ms;
-  width: 20%;
+  width: 13em;
 }
 .vs-date-pickers {
   transition: width 250ms;
   font-size: 1.16em;
   width: 80%;
   display: flex;
+  flex-grow: 1;
 }
 .vs-date-pickers > * {
   width: 50%;
 }
-
-.vs-date-picker-side-by-side .vs-date-picker-sidebar {
+.vs-date-pickers > *:only-child {
+  width: 100%;
 }
 
-.vs-date-picker-side-by-side .vs-date-pickers {
+.vs-date-picker .rdrMonths {
+  flex-direction: row;
 }
-
-.vs-date-picker div.rdrCalendarWrapper {
-  box-sizing: border-box;
-  font-size: 80%;
-  margin: 0;
-  overflow: hidden;
-}
-
-.vs-calendar:first-child {
-}
-
-.vs-date-picker-side-by-side .rdrCalendarWrapper {
+.vs-date-picker .rdrMonth {
+  flex-grow: 1;
 }
 
 .vs-date-picker-side-by-side .vs-comparison-calendar {
