@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, { mount, shallow } from 'enzyme';
+import Enzyme, {mount, shallow} from 'enzyme';
 import DialogLayout from '../';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -67,6 +67,14 @@ describe('DialogLayout', () => {
     expect(cancelButton).toHaveLength(0);
   });
 
+  test('should show the X button when neither of the other buttons shown', () => {
+    const component = shallow(<DialogLayout />);
+
+    const closeIconButton = component.find('.vs-dialog-layout-icon-close');
+
+    expect(closeIconButton).toHaveLength(1);
+  });
+
   test('should call cancel handler when cancel button is clicked', () => {
     let onCancel = false;
     const onClickFake = () => {
@@ -91,7 +99,7 @@ describe('DialogLayout', () => {
     };
 
     const component = shallow(
-      <DialogLayout onCancel={onClickFake} cancelButtonText="Cancel" />
+      <DialogLayout onCancel={onClickFake} />
     );
 
     const closeIcon = component.find('.vs-dialog-layout-icon-close');
@@ -132,5 +140,39 @@ describe('DialogLayout', () => {
 
     expect(submitButton.find('Spinner').length).toEqual(1);
     expect(submitButton.at(0).text()).toEqual(' ' + submitButtonText);
+  });
+
+  test('should have wide content when contentSize is wide', () => {
+    const component = mount(
+      <DialogLayout
+        contentSize={'wide'}
+      />
+    );
+
+    const content = component.find('.vs-dialog-layout-content');
+
+    expect(content.hasClass('vs-dialog-layout-content-wide')).toBe(true);
+  });
+
+  test('should have normal content when contentSize is normal', () => {
+    const component = mount(
+      <DialogLayout
+        contentSize={'normal'}
+      />
+    );
+
+    const content = component.find('.vs-dialog-layout-content');
+
+    expect(content.hasClass('vs-dialog-layout-content-normal')).toBe(true);
+  });
+
+  test('should have normal content when contentSize is not passed', () => {
+    const component = mount(
+      <DialogLayout/>
+    );
+
+    const content = component.find('.vs-dialog-layout-content');
+
+    expect(content.hasClass('vs-dialog-layout-content-normal')).toBe(true);
   });
 });
