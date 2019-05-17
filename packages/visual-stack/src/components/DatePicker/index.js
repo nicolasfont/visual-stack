@@ -62,56 +62,50 @@ SidebarRangeSection.propTypes = {
   selectedId: PropTypes.string,
 };
 
-const doSidebarRangeSelect = (
-  rangeConfig,
-  selectedSidebarRanges,
-  selectedRanges,
-  onRangeSelect,
-  onCalendarRangeUpdate,
-  index
-) => selection => {
-  const newSidebarRanges = R.update(index, selection, selectedSidebarRanges);
-  const applyRange = R.cond([
-    [
-      range => R.is(Function, range),
-      (range, selectedRanges) => range(selectedRanges),
-    ],
-    [range => R.is(Array, range), R.identity],
+const applyRange = R.flip(
+  R.cond([
+    [R.is(Function), R.call],
+    [R.is(Array), R.identity],
     [R.T, (_, selectedRanges, idx) => selectedRanges[idx]],
-  ]);
+  ])
+);
 
-  const rangeFor = ({ ranges }, selected) => {
-    const result = R.find(R.propEq('id', selected), ranges);
-    return result && result.range;
-  };
-
-  const callbacksOrStaticOrNothing = R.zipWith(
-    (selected, config) => rangeFor(config, selected),
-    newSidebarRanges,
-    rangeConfig
-  );
-
-  const newSelectedRanges = R.addIndex(R.reduce)(
-    (curSelectedRanges, nextThing, idx) =>
-      R.update(
-        idx,
-        applyRange(nextThing, curSelectedRanges, idx),
-        curSelectedRanges
-      ),
-    selectedRanges,
-    callbacksOrStaticOrNothing
-  );
-
-  onCalendarRangeUpdate(newSelectedRanges);
-  onRangeSelect(newSidebarRanges);
+const rangeFor = ({ ranges }, selected) => {
+  return R.prop('range', R.find(R.propEq('id', selected), ranges));
 };
+
+const getIndex = (_, __, v) => v;
+const getAccumulator = v => v;
+const applyRangeSpecs = R.addIndex(R.reduce)(
+  R.converge(R.update, [getIndex, applyRange, getAccumulator])
+);
+
+const doSidebarRangeSelect = R.curry(
+  (
+    rangeConfig,
+    selectedSidebarRanges,
+    onRangeSelect,
+    onCalendarRangeUpdate,
+    selectedRanges,
+    index,
+    selection
+  ) => {
+    const newSidebarRanges = R.update(index, selection, selectedSidebarRanges);
+
+    const newSelectedRanges = applyRangeSpecs(
+      selectedRanges,
+      R.zipWith(rangeFor, rangeConfig, newSidebarRanges)
+    );
+
+    onCalendarRangeUpdate(newSelectedRanges);
+    onRangeSelect(newSidebarRanges);
+  }
+);
 
 const DatePickerSidebar = ({
   rangeConfig,
   selectedSidebarRanges,
   onRangeSelect,
-  onCalendarRangeUpdate,
-  selectedRanges,
 }) => {
   return (
     <div className={'vs-date-picker-sidebar'}>
@@ -121,14 +115,7 @@ const DatePickerSidebar = ({
             key={config.title}
             config={config}
             selectedId={selected}
-            onRangeSelect={doSidebarRangeSelect(
-              rangeConfig,
-              selectedSidebarRanges,
-              selectedRanges,
-              onRangeSelect,
-              onCalendarRangeUpdate,
-              index
-            )}
+            onRangeSelect={onRangeSelect(index)}
           />
         ),
         rangeConfig,
@@ -201,7 +188,7 @@ export const DatePicker = ({
   onCalendarRangeSelect,
   onSidebarRangeSelect,
   onCancel,
-  saveHandler,
+  onApply,
   selectableRange: [minDate, maxDate],
   selectedRanges,
   selectedSidebarRanges,
@@ -211,71 +198,76 @@ export const DatePicker = ({
   locale = 'en',
   dateFormat = languageToDateFormat[locale],
   intervalColors = ['#05afec', '#0061ac'],
-}) => (
-  <div
-    className={`${
-      selectedRanges.length === 2
-        ? 'vs-date-picker vs-date-picker-side-by-side'
-        : 'vs-date-picker'
-    }`}
-  >
-    <div className="vs-date-picker-calendars">
-      <DatePickerSidebar
-        rangeConfig={sidebarConfig}
-        onRangeSelect={onSidebarRangeSelect}
-        selectedSidebarRanges={selectedSidebarRanges}
-        selectedRanges={selectedRanges}
-        onCalendarRangeUpdate={onCalendarRangeSelect}
-      />
-      <div className="vs-date-pickers">
-        {R.addIndex(R.zipWith)(
-          (range, className, idx) => (
-            <DateRange
-              key={className}
-              className={className}
-              onChange={({ range1: range }) => {
-                doSidebarRangeSelect(
-                  sidebarConfig,
-                  selectedSidebarRanges,
-                  updateSelectedRanges(
+}) => {
+  const rangeSelectHandler = doSidebarRangeSelect(
+    sidebarConfig,
+    selectedSidebarRanges,
+    onSidebarRangeSelect,
+    onCalendarRangeSelect
+  );
+  return (
+    <div
+      className={`${
+        selectedRanges.length === 2
+          ? 'vs-date-picker vs-date-picker-side-by-side'
+          : 'vs-date-picker'
+      }`}
+    >
+      <div className="vs-date-picker-calendars">
+        <DatePickerSidebar
+          rangeConfig={sidebarConfig}
+          onRangeSelect={rangeSelectHandler(selectedRanges)}
+          selectedSidebarRanges={selectedSidebarRanges}
+          selectedRanges={selectedRanges}
+          onCalendarRangeUpdate={onCalendarRangeSelect}
+        />
+        <div className="vs-date-pickers">
+          {R.addIndex(R.zipWith)(
+            (range, className, idx) => (
+              <DateRange
+                key={className}
+                className={className}
+                onChange={({ range1: range }) => {
+                  rangeSelectHandler(
+                    updateSelectedRanges(
+                      idx,
+                      R.props(['startDate', 'endDate'], range),
+                      selectedRanges
+                    ),
                     idx,
-                    R.props(['startDate', 'endDate'], range),
-                    selectedRanges
-                  ),
-                  onSidebarRangeSelect,
-                  onCalendarRangeSelect,
-                  idx
-                )('custom');
-              }}
-              moveRangeOnFirstSelection={false}
-              ranges={[range]}
-              minDate={minDate}
-              maxDate={maxDate}
-              direction="vertical"
-              scroll={{ enabled: false }}
-              locale={languageToLocale[locale]}
-              dateDisplayFormat={dateFormat}
-            />
-          ),
-          adaptToReactDateRange(intervalColors, selectedRanges),
-          ['vs-calendar', 'vs-comparison-calendar vs-calendar']
-        )}
+                    'custom'
+                  );
+                }}
+                moveRangeOnFirstSelection={false}
+                ranges={[range]}
+                minDate={minDate}
+                maxDate={maxDate}
+                direction="vertical"
+                scroll={{ enabled: false }}
+                locale={languageToLocale[locale]}
+                dateDisplayFormat={dateFormat}
+              />
+            ),
+            adaptToReactDateRange(intervalColors, selectedRanges),
+            ['vs-calendar', 'vs-comparison-calendar vs-calendar']
+          )}
+        </div>
+      </div>
+      <div className="vs-button-bar">
+        <Button type="text" onClick={onCancel} className="vs-cancel-button">
+          {cancelButtonText}
+        </Button>
+        <Button
+          type="solid-primary"
+          onClick={_ => onApply(selectedRanges)}
+          className="vs-apply-button"
+        >
+          {applyButtonText}
+        </Button>
       </div>
     </div>
-    <div className="vs-button-bar">
-      <Button type="text" onClick={onCancel} className="vs-cancel-button">
-        {cancelButtonText}
-      </Button>
-      <Button
-        type="solid-primary"
-        onClick={saveHandler}
-        className="vs-apply-button"
-      >
-        {applyButtonText}
-      </Button>
-    </div>
-  </div>
-);
+  );
+};
 DatePicker.propTypes = {
   selectedRanges: PropTypes.array,
   selectedNamedIntervals: PropTypes.arrayOf(PropTypes.string),
@@ -283,10 +275,16 @@ DatePicker.propTypes = {
   selectableRange: PropTypes.array,
   onCalendarRangeUpdate: PropTypes.func,
   onSidebarRangeSelect: PropTypes.func,
-  saveHandler: PropTypes.func,
+  onApply: PropTypes.func,
   onCancel: PropTypes.func,
   cancelButtonText: PropTypes.node,
   applyButtonText: PropTypes.node,
 };
 
 export default withErrorBoundary(DatePicker);
+
+export const sidebarSection = (...parts) => R.pipe(...parts)({});
+export const sectionTitle = R.assoc('title');
+export const sectionRange = R.curry((id, label, range, section) =>
+  R.over(R.lensProp('ranges'), R.append({ id, label, range }), section)
+);
