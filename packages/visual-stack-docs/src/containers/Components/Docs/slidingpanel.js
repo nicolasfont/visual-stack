@@ -103,7 +103,12 @@ class SlidingPanelDemo extends React.Component {
                       <div>
                         Structure of the element that contains the Sliding Panel
                       </div>
-                      <Snippet tag="s4" src={snippets} />
+                      <Snippet
+                        tag="s4"
+                        src={snippets}
+                        suffix="</div></div>"
+                        lang="jsx"
+                      />
                     </div>
                     {/* s3:start */}
                     <SlidingPanel active={this.state.panelActive}>

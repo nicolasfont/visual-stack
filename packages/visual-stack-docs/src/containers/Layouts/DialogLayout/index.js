@@ -105,7 +105,7 @@ class DialogLayoutParent extends React.Component {
                     {cssSnippet => (
                       <Body>
                         <div>css</div>
-                        <Snippet tag="s1" src={cssSnippet} />
+                        <Snippet tag="s1" src={cssSnippet} lang="css" />
                       </Body>
                     )}
                   </Demo>

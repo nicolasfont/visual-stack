@@ -18,20 +18,22 @@ export default () => (
             </Header>
             <Body>
               {/* s3:start */}
-              <Button type="solid-primary">Solid Primary</Button>
-              <Button type="solid-secondary">Solid Secondary</Button>
-              <Button type="outline-primary">Outline Primary</Button>
-              <Button type="outline-secondary">Outline Secondary</Button>
-              <Button type="rounded-solid">+</Button>
-              <Button type="rounded-outline">–</Button>
-              <Button type="icon">
-                <AccountIcon />
-              </Button>
-              <Button type="text">Text</Button>
-              <Button type="text">
-                <CodeIcon /> Icon and Text
-              </Button>
-              <Button type="text-link">Text Link</Button>
+              <>
+                <Button type="solid-primary">Solid Primary</Button>
+                <Button type="solid-secondary">Solid Secondary</Button>
+                <Button type="outline-primary">Outline Primary</Button>
+                <Button type="outline-secondary">Outline Secondary</Button>
+                <Button type="rounded-solid">+</Button>
+                <Button type="rounded-outline">–</Button>
+                <Button type="icon">
+                  <AccountIcon />
+                </Button>
+                <Button type="text">Text</Button>
+                <Button type="text">
+                  <CodeIcon /> Icon and Text
+                </Button>
+                <Button type="text-link">Text Link</Button>
+              </>
               {/* s3:end */}
               <Snippet tag="s3" src={snippets} />
             </Body>
@@ -41,30 +43,32 @@ export default () => (
             <Header>Disabled States</Header>
             <Body>
               {/* s4:start */}
-              <Button type="solid-primary" disabled>
-                Disabled
-              </Button>
-              <Button type="solid-primary" className="disabled">
-                Disabled using className
-              </Button>
-              <Button type="solid-secondary" disabled>
-                Disabled
-              </Button>
-              <Button type="outline-primary" disabled>
-                Disabled
-              </Button>
-              <Button type="outline-secondary" disabled>
-                Disabled
-              </Button>
-              <Button type="icon" disabled>
-                <AccountIcon />
-              </Button>
-              <Button type="text" disabled>
-                Text
-              </Button>
-              <Button type="text-link" disabled>
-                Text Link
-              </Button>
+              <>
+                <Button type="solid-primary" disabled>
+                  Disabled
+                </Button>
+                <Button type="solid-primary" className="disabled">
+                  Disabled using className
+                </Button>
+                <Button type="solid-secondary" disabled>
+                  Disabled
+                </Button>
+                <Button type="outline-primary" disabled>
+                  Disabled
+                </Button>
+                <Button type="outline-secondary" disabled>
+                  Disabled
+                </Button>
+                <Button type="icon" disabled>
+                  <AccountIcon />
+                </Button>
+                <Button type="text" disabled>
+                  Text
+                </Button>
+                <Button type="text-link" disabled>
+                  Text Link
+                </Button>
+              </>
               {/* s4:end */}
               <Snippet tag="s4" src={snippets} />
             </Body>
@@ -86,12 +90,14 @@ export default () => (
             <Header>Default Buttons [Deprecated]</Header>
             <Body>
               {/* s2:start */}
-              <Button type="primary">Primary</Button>
-              <Button type="success">Success</Button>
-              <Button type="info">Info</Button>
-              <Button type="default">Default</Button>
-              <Button type="warning">Warning</Button>
-              <Button type="danger">Danger</Button>
+              <>
+                <Button type="primary">Primary</Button>
+                <Button type="success">Success</Button>
+                <Button type="info">Info</Button>
+                <Button type="default">Default</Button>
+                <Button type="warning">Warning</Button>
+                <Button type="danger">Danger</Button>
+              </>
               {/* s2:end */}
               <Snippet tag="s2" src={snippets} />
             </Body>

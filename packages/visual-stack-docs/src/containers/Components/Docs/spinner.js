@@ -13,10 +13,12 @@ export default () => (
             <Header>Spinner</Header>
             <Body>
               {/* s1:start */}
-              <Spinner />
-              <Spinner size="large" />
-              <Spinner size="extra-large" />
-              <Spinner size="button" />
+              <>
+                <Spinner />
+                <Spinner size="large" />
+                <Spinner size="extra-large" />
+                <Spinner size="button" />
+              </>
               {/* s1:end */}
               <Snippet tag="s1" src={snippets} />
             </Body>

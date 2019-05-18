@@ -298,7 +298,7 @@ export default () => (
               {cssSnippet => (
                 <div>
                   css
-                  <Snippet tag="s1" src={cssSnippet} />
+                  <Snippet tag="s1" src={cssSnippet} lang="css" />
                 </div>
               )}
             </Demo>

@@ -44,73 +44,73 @@ s8:end
 const accountIcon = (
   /* s1:start */
   <AccountIcon />
+  /* s1:end */
 );
-/* s1:end */
 const logoutIcon = (
   /* s2:start */
   <LogoutIcon />
+  /* s2:end */
 );
-/* s2:end */
 const barGraphIcon = (
   /* s3:start */
   <BarGraphIcon />
+  /* s3:end */
 );
-/* s3:end */
 const productIcon = (
   /* s4:start */
   <ProductIcon />
+  /* s4:end */
 );
-/* s4:end */
 const percentIcon = (
   /* s5:start */
   <PercentIcon />
+  /* s5:end */
 );
-/* s5:end */
 const compareIcon = (
   /* s9:start */
   <CompareIcon />
+  /* s9:end */
 );
-/* s9:end */
 const countedIcon = (
   /* s6:start */
   <CountedIcon />
+  /* s6:end */
 );
-/* s6:end */
 const countedIconRed = (
   /* s7:start */
   <AccountIcon className="cj-green" />
+  /* s7:end */
 );
-/* s7:end */
 const appIcon = (
   /* s10:start */
   <AppIcon />
+  /* s10:end */
 );
-/* s10:end */
 const codeIcon = (
   /* s11:start */
   <CodeIcon />
+  /* s11:end */
 );
-/* s11:end */
 const legacyIcon = (
   /* s12:start */
   <LegacyIcon />
+  /* s12:end */
 );
-/* s12:end */
 const docIcon = (
   /* s13:start */
   <DocIcon />
+  /* s13:end */
 );
-/* s13:end */
 const tokenIcon = (
   /* s14:start */
   <TokenIcon />
+  /* s14:end */
 );
-/* s14:end */
 const issueIcon = (
   /* s15:start */
   <IssueIcon />
+  /* s15:end */
 );
-/* s15:end */
 
 const Icons = () => (
   <Demo srcFile="/samples/src/containers/Icons/index.js">
@@ -147,7 +147,7 @@ const Icons = () => (
               <Panel>
                 <Header> With className</Header>
                 <Body>
-                  <Snippet tag="s8" src={snippets} />
+                  <Snippet tag="s8" src={snippets} lang="css" />
                   {makeDisplay(countedIconRed, 's7')}
                 </Body>
               </Panel>
