@@ -57,19 +57,22 @@ describe('ButtonWithDropDown', () => {
 
     expect(
       component
-        .find('button')
+        .find('.newClass-button')
+        .shallow()
         .text()
         .slice(0, 2)
     ).toEqual('hi');
-    expect(component.find('button').prop('onClick')).toEqual(doExpand);
-    expect(component.find('button').prop('className')).toEqual('newClass');
-    expect(component.find('button').prop('id')).toEqual('id');
+    expect(component.find('.newClass-button').prop('onClick')).toEqual(
+      doExpand
+    );
+    expect(component.prop('className')).toMatch(/.*\bnewClass\b.*/);
+    expect(component.prop('id')).toEqual('id');
     expect(component.find('.vs-dropdown #target')).toHaveLength(1);
   });
 
-  test('uses ButtonComponent prop', () => {
+  test('uses renderButton render prop', () => {
     const doExpand = () => {};
-    const ButtonComponent = _props => <div id="button" />;
+    const renderButton = props => <div {...props} id="button" />;
     const component = shallow(
       <uut.ButtonWithDropdown
         expanded={true}
@@ -78,14 +81,16 @@ describe('ButtonWithDropDown', () => {
         className="newClass"
         id="id"
         styles={getStyles()}
-        ButtonComponent={ButtonComponent}
+        renderButton={renderButton}
       >
         <div id="target" />
       </uut.ButtonWithDropdown>
     );
 
-    const button = component.find(ButtonComponent);
+    const button = component.find('#button');
     expect(button).toHaveLength(1);
     expect(button.prop('expanded')).toEqual(true);
+    expect(button.prop('onClick')).toEqual(doExpand);
+    expect(button.text()).toEqual('hi');
   });
 });

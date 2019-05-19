@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from '../Button.js';
 
 import './styles.css';
 
@@ -9,18 +10,16 @@ export const ButtonWithDropdown = ({
   buttonContent,
   children,
   className = '',
-  ButtonComponent,
+  renderButton = props => <Button {...props} />,
   ...rest
 }) => (
-  <div className="vs-dropdown-with-button">
-    <ButtonComponent
-      {...rest}
-      expanded={expanded}
-      className={className}
-      onClick={doExpand}
-    >
-      {buttonContent}
-    </ButtonComponent>
+  <div {...rest} className={`vs-dropdown-with-button ${className}`}>
+    {renderButton({
+      expanded,
+      className: `vs-dropdown-with-button-button ${className}-button`,
+      onClick: doExpand,
+      children: buttonContent,
+    })}
 
     <div className={['vs-dropdown', expanded ? 'vs-visible' : ''].join(' ')}>
       {children}
@@ -33,8 +32,5 @@ ButtonWithDropdown.propTypes = {
   buttonContent: PropTypes.node,
   children: PropTypes.node,
   className: PropTypes.string,
-  ButtonComponent: PropTypes.node,
-};
-ButtonWithDropdown.defaultProps = {
-  ButtonComponent: 'button',
+  renderButton: PropTypes.func,
 };
