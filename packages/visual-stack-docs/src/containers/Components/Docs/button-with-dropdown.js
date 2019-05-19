@@ -14,7 +14,7 @@ export default () => (
       return (
         <div>
           <Panel>
-            <Header>Button with Dropdown Area</Header>
+            <Header>Button with Dropdown</Header>
             <Body>
               <Snippet tag="s1" src={snippets} />
               <p>
