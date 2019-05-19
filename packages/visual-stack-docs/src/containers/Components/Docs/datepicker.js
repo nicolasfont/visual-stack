@@ -6,6 +6,11 @@ import { Demo, Snippet } from '../../../components/Demo';
 /* s0:start */
 import ConnectedDatePicker from '@cjdev/visual-stack-redux/lib/components/DatePicker';
 import DatePicker from '@cjdev/visual-stack/lib/components/DatePicker';
+import {
+  DatePickerButton,
+  DateRangeDisplay,
+} from '@cjdev/visual-stack/lib/components/DatePicker/DatePickerButton';
+import { ButtonWithDropdown } from '@cjdev/visual-stack/lib/components/ButtonWithDropdown';
 
 import {
   sidebarSection,
@@ -182,6 +187,86 @@ const ConnectedDatepickerDemo = ({
   /* s6:end */
 );
 
+const ConnectedDatepickerWithDropdownDemo = ({
+  appliedRanges,
+  selectedRanges,
+  onApply,
+  selectedNamedRanges,
+}) => {
+  const [dropdownState, setDropdownState] = useState(false);
+  return (
+    /* s8:start */
+    <ButtonWithDropdown
+      expanded={dropdownState ? 1 : 0}
+      doExpand={() => setDropdownState(!dropdownState)}
+      renderButton={props => (
+        <DatePickerButton ranges={appliedRanges} locale="en" {...props} />
+      )}
+    >
+      <ConnectedDatePicker
+        id="connected-demo"
+        selectedRanges={selectedRanges}
+        selectedNamedRanges={selectedNamedRanges}
+        onApply={(...args) => {
+          setDropdownState(false);
+          onApply(...args);
+        }}
+        onCancel={(...args) => setDropdownState(false)}
+        selectableRange={[new Date('2016-01-01'), new Date('2020-01-01')]}
+        cancelButtonText="Cancel"
+        applyButtonText="Apply"
+        sidebarConfig={[
+          sidebarSection(
+            sectionTitle('Predefined Range'),
+            sectionRange('today', 'Today', [
+              DateTime.fromJSDate(new Date()).toFormat('yyyy-MM-dd'),
+              DateTime.fromJSDate(new Date()).toFormat('yyyy-MM-dd'),
+            ]),
+            sectionRange('tomorrow', 'Tomorrow', [
+              DateTime.fromJSDate(new Date())
+                .plus({ days: 1 })
+                .toFormat('yyyy-MM-dd'),
+              DateTime.fromJSDate(new Date())
+                .plus({ days: 1 })
+                .toFormat('yyyy-MM-dd'),
+            ]),
+            sectionRange('custom', 'Custom', null)
+          ),
+          sidebarSection(
+            sectionTitle('Comparison Range'),
+            sectionRange('yesterday', 'Yesterday', [
+              DateTime.fromJSDate(new Date())
+                .minus({ days: 1 })
+                .toFormat('yyyy-MM-dd'),
+              DateTime.fromJSDate(new Date())
+                .minus({ days: 1 })
+                .toFormat('yyyy-MM-dd'),
+            ]),
+            sectionRange(
+              'previous-year',
+              'Previous Year',
+              previousCalendarRanges => {
+                const [baseStart, baseEnd] = previousCalendarRanges[0];
+                return [
+                  DateTime.fromFormat(baseStart, 'yyyy-MM-dd')
+                    .minus({ years: 1 })
+                    .toFormat('yyyy-MM-dd'),
+                  DateTime.fromFormat(baseEnd, 'yyyy-MM-dd')
+                    .minus({ years: 1 })
+                    .toFormat('yyyy-MM-dd'),
+                ];
+              }
+            ),
+            sectionRange('custom', 'Custom', null),
+            sectionRange('none', 'No Comparison', null)
+          ),
+        ]}
+      />
+    </ButtonWithDropdown>
+    /* s8:end */
+  );
+};
+
 export default () => {
   /* s7:start */
   const [reduxAppliedRange, setReduxAppliedRange] = useState([
@@ -266,7 +351,7 @@ export default () => {
                   selectedNamedRanges={oneCalendarSelectedSidebarRanges}
                 />
                 <br />
-                <h4>Applied: {reduxAppliedRange[0].join('–')}</h4>
+                <DateRangeDisplay ranges={reduxAppliedRange} locale="en" />
                 <Snippet tag="s6" src={snippets} />
               </Body>
             </Panel>
@@ -274,7 +359,6 @@ export default () => {
               <Header>Simple DatePicker</Header>
               <Body>
                 <Snippet tag="s0" src={snippets} />
-                {/* <DatePickerButton selectedRanges={selectedRanges} locale="en" /> */}
                 <br />
                 <OneCalendarDemo
                   selectedRanges={oneCalendarSelectedRanges}
@@ -285,7 +369,10 @@ export default () => {
                   appliedRanges={oneCalendarAppliedRanges}
                 />
                 <br />
-                <h4>Applied: {oneCalendarAppliedRanges[0].join('–')}</h4>
+                <DateRangeDisplay
+                  ranges={oneCalendarAppliedRanges}
+                  locale="en"
+                />
                 <Snippet tag="s2" src={snippets} />
               </Body>
             </Panel>
@@ -293,8 +380,6 @@ export default () => {
               <Header>Two Calendar DatePicker</Header>
               <Body>
                 <Snippet tag="s0" src={snippets} />
-                {/* <DatePickerButton selectedRanges={selectedRanges} locale="en" /> */}
-                <br />
                 <TwoCalendarDemo
                   {...{
                     appliedRanges,
@@ -306,11 +391,22 @@ export default () => {
                   }}
                 />
                 <br />
-                <h4>
-                  Applied: {appliedRanges[0].join('–')} vs.{' '}
-                  {appliedRanges[1].join('–')}
-                </h4>
+                <DateRangeDisplay ranges={appliedRanges} locale="en" />
                 <Snippet tag="s2" src={snippets} />
+              </Body>
+            </Panel>
+            <Panel>
+              <Header>Two Calendar DatePicker with Dropdown</Header>
+              <Body>
+                <Snippet tag="s0" src={snippets} />
+                <ConnectedDatepickerWithDropdownDemo
+                  appliedRanges={appliedRanges}
+                  selectedRanges={selectedRanges}
+                  onApply={v => setAppliedRanges(v)}
+                  selectedNamedRanges={selectedNamedRanges}
+                />
+                <br />
+                <Snippet tag="s8" src={snippets} />
               </Body>
             </Panel>
           </div>

@@ -112,7 +112,7 @@ describe('DatePicker', () => {
     expect(applied).toBeTruthy();
   });
 
-  test('computed ranges and transition from singel-calendar', () => {
+  test('computed ranges and transition from single-calendar', () => {
     const initialBaseRange = ['2019-02-02', '2019-02-04'];
     const initialComparisonRange = ['2017-04-12', '2017-04-14'];
     const expectedComparisonRange = ['2018-02-02', '2018-02-04'];
@@ -169,5 +169,53 @@ describe('DatePicker', () => {
         expectedComparisonRange,
       ]);
     });
+  });
+
+  test('applying with "none" selected excludes the corresponding range', () => {
+    const initialBaseRange = ['2019-02-02', '2019-02-04'];
+    const initialComparisonRange = ['2017-04-12', '2017-04-14'];
+
+    const parseDate = d => DateTime.fromFormat(d, 'yyyy-MM-dd');
+    const selectableRange = [new Date('2016-01-01'), new Date('2020-01-01')];
+
+    let selectedNamedRanges = ['custom', 'none'];
+    let selectedRanges = [initialBaseRange, initialComparisonRange];
+
+    let appliedRanges = null;
+    const wrapper = mount(
+      <uut.DatePicker
+        selectedRanges={selectedRanges}
+        selectedNamedRanges={selectedNamedRanges}
+        selectableRange={selectableRange}
+        updateCalendarRanges={v => {}}
+        updateNamedCalendarRanges={v => {}}
+        onApply={v => {
+          appliedRanges = v;
+        }}
+        resetCalendarSelection={() => {}}
+        sidebarConfig={[
+          uut.sidebarSection(
+            uut.sectionTitle('Base Range'),
+            uut.sectionRange('a', 'b', [])
+          ),
+          uut.sidebarSection(
+            uut.sectionTitle('Predefined Range'),
+            uut.sectionRange('last-year', 'Last Year', ([base, _]) => [
+              parseDate(base[0])
+                .minus({ years: 1 })
+                .toFormat('yyyy-MM-dd'),
+              parseDate(base[1])
+                .minus({ years: 1 })
+                .toFormat('yyyy-MM-dd'),
+            ])
+          ),
+        ]}
+      />
+    );
+
+    expect(wrapper.find('.vs-date-pickers').children()).toHaveLength(1);
+    wrapper.find('button.vs-apply-button').simulate('click');
+
+    expect(appliedRanges).toEqual([initialBaseRange]);
   });
 });

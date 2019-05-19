@@ -199,6 +199,7 @@ export const DatePicker = ({
   updateNamedCalendarRanges,
   resetCalendarSelection,
   onApply,
+  onCancel,
   selectableRange: [minDate, maxDate],
   selectedRanges,
   selectedNamedRanges,
@@ -273,14 +274,16 @@ export const DatePicker = ({
       <div className="vs-button-bar">
         <Button
           type="text"
-          onClick={resetCalendarSelection}
+          onClick={(...args) => (
+            onCancel(...args), resetCalendarSelection(...args)
+          )}
           className="vs-cancel-button"
         >
           {cancelButtonText}
         </Button>
         <Button
           type="solid-primary"
-          onClick={_ => onApply(selectedRanges)}
+          onClick={_ => onApply(R.map(R.prop('range1'), calendarRangeInput))}
           className="vs-apply-button"
         >
           {applyButtonText}
@@ -300,6 +303,9 @@ DatePicker.propTypes = {
   resetCalendarSelection: PropTypes.func.isRequired,
   cancelButtonText: PropTypes.node,
   applyButtonText: PropTypes.node,
+};
+DatePicker.defaultProps = {
+  onCancel() {},
 };
 
 export default withErrorBoundary(DatePicker);
