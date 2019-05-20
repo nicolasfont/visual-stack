@@ -1,6 +1,10 @@
 ## Upcoming
+
+# 4.5.0 (May 20, 2019)
 #### Add component
 - Add ButtonWithDropdown component that associates a button with an expansible dropdown area.
+#### Updated styling
+- Remove footer from DialogLayout and move buttons to the top, changed colors and add support for wide content.
 
 # 4.4.0 (May 14, 2019)
 #### Add component
