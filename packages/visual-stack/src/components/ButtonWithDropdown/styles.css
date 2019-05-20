@@ -3,16 +3,19 @@
 }
 
 .vs-dropdown-with-button > .vs-dropdown {
-    overflow: hidden;
-    position: absolute;
-    transform-origin: top;
-    transform: scaleY(0);
-    transition: transform 250ms;
-    z-index: 10;
-    background: white;
+  background: white;
+  box-shadow: 1px 2px 5px 1px #aeaeae;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 0s 200ms, opacity 200ms linear;
+  z-index: 10;
 }
 
 .vs-dropdown-with-button > .vs-dropdown.vs-visible {
-    box-shadow: 1px 2px 5px 1px #aeaeae;
-    transform: scaleY(1);
+  opacity: 1;
+  transform: scaleY(1);
+  transition: transform 0s 0ms, opacity 200ms linear;
 }
