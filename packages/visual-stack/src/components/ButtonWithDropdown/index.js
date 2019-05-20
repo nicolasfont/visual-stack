@@ -10,7 +10,7 @@ export const ButtonWithDropdown = ({
   buttonContent,
   children,
   className = '',
-  renderButton = props => <Button {...props} />,
+  renderButton = props => <Button type="solid-primary" {...props} />,
   ...rest
 }) => (
   <div {...rest} className={`vs-dropdown-with-button ${className}`}>
