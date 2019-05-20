@@ -14,7 +14,7 @@ export default () => (
       return (
         <div>
           <Panel>
-            <Header>Blank Slate</Header>
+            <Header>Button with Dropdown</Header>
             <Body>
               <Snippet tag="s1" src={snippets} />
               <p>
@@ -60,7 +60,7 @@ class DropdownContainer extends React.Component {
         expanded={this.state.expanded}
         doExpand={() => this.doExpand()}
         ButtonComponent={CustomButton}
-        buttonContent="Expanded"
+        buttonContent="Expand"
         className="dropdown-demo"
         id="range-dropdown"
       >
