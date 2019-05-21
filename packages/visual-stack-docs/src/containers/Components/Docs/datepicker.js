@@ -306,11 +306,6 @@ export default () => {
           <div>
             <Panel>
               <Body>
-                <Snippet tag="s0" src={snippets} />
-              </Body>
-            </Panel>
-            <Panel>
-              <Body>
                 <p>
                   {' '}
                   Allows a user to select one or more ranges from side-by-side
