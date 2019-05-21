@@ -18,10 +18,11 @@ function fromInternalDateFormat(date) {
   return DateTime.fromFormat(date, internalDateFormat);
 }
 
-const shortLocalizedDateFormatter = locale => date =>
+const shortLocalizedDateFormatter = R.curry((locale, date) =>
   isAbsent(date)
     ? `${dash}${dash}`
-    : fromInternalDateFormat(date).toFormat('DD', { locale });
+    : fromInternalDateFormat(date).toFormat('DD', { locale })
+);
 
 export const formatIntervalForDisplay = (locale, interval) => {
   if (isAbsent(interval)) {
@@ -62,6 +63,7 @@ export const DatePickerButton = ({
   locale,
   ranges,
   className,
+  type = 'outline-secondary',
   ...props
 }) => (
   <Button
@@ -71,7 +73,7 @@ export const DatePickerButton = ({
       { 'vs-date-picker-button-expanded': expanded },
       'vs-date-picker-button'
     )}
-    type="outline-primary"
+    type={type}
   >
     <DateRangeDisplay {...{ locale, ranges }} />
     <ChevronRightIcon className="vs-expanded-icon" />
