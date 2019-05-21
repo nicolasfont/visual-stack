@@ -18,51 +18,62 @@ function fromInternalDateFormat(date) {
   return DateTime.fromFormat(date, internalDateFormat);
 }
 
-const shortLocalizedDateFormatter = R.curry((locale, date) =>
-  isAbsent(date)
-    ? `${dash}${dash}`
-    : fromInternalDateFormat(date).toFormat('DD', { locale })
+const toLocalizedFormat = R.curry((locale, dateTime) =>
+  dateTime.toFormat('DD', { locale })
 );
 
-export const formatIntervalForDisplay = (locale, interval) => {
-  if (isAbsent(interval)) {
-    return `${dash}${dash}`;
+const shortLocalizedDateFormatter = R.curry((toLocalizedFormat, date) =>
+  isAbsent(date)
+    ? `${dash}${dash}`
+    : toLocalizedFormat(fromInternalDateFormat(date))
+);
+
+export const formatIntervalForDisplay = R.curry(
+  (toLocalizedFormat, locale, interval) => {
+    if (isAbsent(interval)) {
+      return `${dash}${dash}`;
+    }
+
+    const [start, end] = interval;
+
+    const format = shortLocalizedDateFormatter(toLocalizedFormat(locale));
+    const isSameDay =
+      fromInternalDateFormat(end).diff(fromInternalDateFormat(start), 'day')
+        .days === 0;
+
+    return isSameDay
+      ? format(start)
+      : `${format(start)}${nonBreakSpace}${dash}${nonBreakSpace}${format(
+          fromInternalDateFormat(end).toFormat(internalDateFormat)
+        )}`;
   }
+);
 
-  const [start, end] = interval;
+export const dateRangeDisplayFactory = toLocalizedFormat =>
+  function DateRangeDisplay({ locale, ranges }) {
+    const formatter = formatIntervalForDisplay(toLocalizedFormat, locale);
+    const [base, comparison] = ranges;
+    if (comparison !== undefined) {
+      return (
+        <span>
+          {formatter(base)}
+          <CompareIcon />
+          {formatter(comparison)}
+        </span>
+      );
+    } else {
+      return <span>{formatter(base)}</span>;
+    }
+  };
 
-  const format = shortLocalizedDateFormatter(locale);
-  const isSameDay =
-    fromInternalDateFormat(end).diff(fromInternalDateFormat(start), 'day')
-      .days === 0;
-
-  return isSameDay
-    ? format(start)
-    : `${format(start)}${nonBreakSpace}${dash}${nonBreakSpace}${format(
-        fromInternalDateFormat(end).toFormat(internalDateFormat)
-      )}`;
-};
-
-export const DateRangeDisplay = ({ locale, ranges }) => {
-  const [base, comparison] = ranges;
-  if (comparison !== undefined) {
-    return (
-      <span>
-        {formatIntervalForDisplay(locale, base)}
-        <CompareIcon />
-        {formatIntervalForDisplay(locale, comparison)}
-      </span>
-    );
-  } else {
-    return <span>{formatIntervalForDisplay(locale, base)}</span>;
-  }
-};
+export const DateRangeDisplay = dateRangeDisplayFactory(toLocalizedFormat);
 
 export const DatePickerButton = ({
   expanded,
   locale,
   ranges,
   className,
+  DateRangeDisplay,
   type = 'outline-secondary',
   ...props
 }) => (
@@ -82,6 +93,9 @@ export const DatePickerButton = ({
 DatePickerButton.propTypes = {
   expanded: PropTypes.bool,
   children: PropTypes.node,
+};
+DatePickerButton.defaultProps = {
+  DateRangeDisplay,
 };
 
 export default DatePickerButton;

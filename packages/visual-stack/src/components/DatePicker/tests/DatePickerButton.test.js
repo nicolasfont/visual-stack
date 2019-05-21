@@ -21,6 +21,7 @@ describe('DatePicker', () => {
     ).toMatch(/^Jan 1, 2018...Jan 3, 2018[^a-zA-Z]*Mar 1, 2019...Jun 3, 2019$/);
   });
 
+
   test('shows two dates when there are two one-day ranges', () => {
     expect(
       mount(
@@ -31,6 +32,7 @@ describe('DatePicker', () => {
       ).text()
     ).toMatch(/^Jan 1, 2018[^a-zA-Z]*Mar 1, 2019$/);
   });
+
   test('shows both dates when there is one multi-day range', () => {
     expect(
       mount(
@@ -41,6 +43,7 @@ describe('DatePicker', () => {
       ).text()
     ).toMatch(/^Jan 1, 2018...Jan 3, 2018$/);
   });
+
   test('shows one date when there is one single-day range', () => {
     expect(
       mount(
@@ -51,14 +54,44 @@ describe('DatePicker', () => {
       ).text()
     ).toMatch(/^Jan 1, 2018$/);
   });
-  test('localizes dates correctly', () => {
-    expect(
-      mount(
-        <uut.DateRangeDisplay
-          locale="de"
-          ranges={[['2018-03-01', '2018-03-01']]}
-        />
-      ).text()
-    ).toMatch(/^1. März 2018$/);
+
+  test('localizes dates correctly for ranges', () => {
+    const expectedLocale = 'de';
+
+    let actualLocale = [];
+    const formatter = locale => () => {
+        actualLocale.push(locale);
+      return '';
+    };
+
+    const DateRangeDisplay = uut.dateRangeDisplayFactory(formatter);
+
+    mount(
+      <DateRangeDisplay
+        locale={expectedLocale}
+        ranges={[['2018-03-01', '2018-03-02']]}
+      />
+    );
+      expect(actualLocale).toEqual([expectedLocale, expectedLocale]);
+  });
+
+  test('localizes dates correctly for single day', () => {
+    const expectedLocale = 'de';
+
+    let actualLocale = [];
+    const formatter = locale => () => {
+        actualLocale.push(locale);
+      return '';
+    };
+
+    const DateRangeDisplay = uut.dateRangeDisplayFactory(formatter);
+
+    mount(
+      <DateRangeDisplay
+        locale={expectedLocale}
+        ranges={[['2018-03-01', '2018-03-01']]}
+      />
+    );
+      expect(actualLocale).toEqual([expectedLocale]);
   });
 });
