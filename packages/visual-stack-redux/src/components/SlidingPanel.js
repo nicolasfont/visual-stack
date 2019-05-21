@@ -30,10 +30,11 @@ export class InternalSlidingPanel extends Component {
   }
 
   render() {
+    const { active = false, children, ...restProps } = this.props;
     return (
-      <div>
-        <BaseSlidingPanel active={this.props.active || false}>
-          {this.props.children}
+      <div className="vs-internal-sliding-panel">
+        <BaseSlidingPanel active={active} {...restProps}>
+          {children}
         </BaseSlidingPanel>
       </div>
     );
@@ -82,23 +83,14 @@ export class InternalSlidingPanelDropdown extends Component {
   constructor(props) {
     super(props);
     if (this.props.initialActive) {
-      this.props.toggleFilterDropdown(this.props.id);
+      this.props.onClick();
     }
   }
   render() {
-    const expanded = R.view(
-      makeExpandedLens(this.props),
-      this.props.slidingPanel
-    );
+    const { children, ...restProps } = this.props;
     return (
-      <BaseSlidingPanelDropdown
-        id={this.props.id}
-        styles={this.props.styles}
-        label={this.props.label}
-        expanded={expanded}
-        onClick={() => this.props.toggleFilterDropdown(this.props.id)}
-      >
-        {this.props.children}
+      <BaseSlidingPanelDropdown {...restProps}>
+        {children}
       </BaseSlidingPanelDropdown>
     );
   }
@@ -114,8 +106,20 @@ InternalSlidingPanelDropdown.propTypes = {
 };
 
 export const SlidingPanelDropdown = connect(
-  state => ({ slidingPanel: R.view(slidingPanelLens, state) }),
-  { toggleFilterDropdown }
+  (state, ownProps) => ({
+    expanded: R.view(
+      R.compose(
+        slidingPanelLens,
+        makeExpandedLens(ownProps)
+      ),
+      state
+    ),
+  }),
+  (dispatch, { id }) => ({
+    onClick() {
+      dispatch(toggleFilterDropdown(id));
+    },
+  })
 )(InternalSlidingPanelDropdown);
 
 export const ToggleIcon = connect(
