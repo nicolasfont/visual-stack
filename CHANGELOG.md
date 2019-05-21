@@ -1,5 +1,9 @@
 ## Upcoming
 
+# 4.5.1 (May 21, 2019)
+## Bug Fixes
+- Fix issue where props in visual-stack-redux SlidingPanel are not passed through to visual-stack SlidingPanel.
+
 # 4.5.0 (May 20, 2019)
 #### Add component
 - Add ButtonWithDropdown component that associates a button with an expansible dropdown area.
