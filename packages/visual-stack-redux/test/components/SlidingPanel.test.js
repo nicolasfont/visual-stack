@@ -68,11 +68,11 @@ describe('SlidingPanel', () => {
     });
 
     test('should render children when Dropdown is expanded', () => {
-      const handleDropdown = sinon.spy();
+      const onClick = sinon.spy();
       const slidingPanel = mount(
         <InternalSlidingPanelDropdown
           label="MyCids"
-          toggleFilterDropdown={handleDropdown}
+          onClick={onClick}
           id="test_dropdown"
         >
           <div>Something</div>
@@ -85,7 +85,8 @@ describe('SlidingPanel', () => {
       expect(
         dropdown.find('div.vs-sliding-panel-section-options')
       ).toHaveLength(1);
-      expect(handleDropdown).toHaveProperty('callCount');
+
+      expect(onClick.callCount).toBeGreaterThan(0);
     });
   });
 });
