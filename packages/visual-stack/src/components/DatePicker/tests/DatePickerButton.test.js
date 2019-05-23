@@ -1,6 +1,5 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import { DateTime } from 'luxon';
+import { mount } from 'enzyme';
 
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -20,7 +19,6 @@ describe('DatePicker', () => {
       ).text()
     ).toMatch(/^Jan 1, 2018...Jan 3, 2018[^a-zA-Z]*Mar 1, 2019...Jun 3, 2019$/);
   });
-
 
   test('shows two dates when there are two one-day ranges', () => {
     expect(
@@ -58,9 +56,9 @@ describe('DatePicker', () => {
   test('localizes dates correctly for ranges', () => {
     const expectedLocale = 'de';
 
-    let actualLocale = [];
+    const actualLocale = [];
     const formatter = locale => () => {
-        actualLocale.push(locale);
+      actualLocale.push(locale);
       return '';
     };
 
@@ -72,15 +70,15 @@ describe('DatePicker', () => {
         ranges={[['2018-03-01', '2018-03-02']]}
       />
     );
-      expect(actualLocale).toEqual([expectedLocale, expectedLocale]);
+    expect(actualLocale).toEqual([expectedLocale, expectedLocale]);
   });
 
   test('localizes dates correctly for single day', () => {
     const expectedLocale = 'de';
 
-    let actualLocale = [];
+    const actualLocale = [];
     const formatter = locale => () => {
-        actualLocale.push(locale);
+      actualLocale.push(locale);
       return '';
     };
 
@@ -92,6 +90,6 @@ describe('DatePicker', () => {
         ranges={[['2018-03-01', '2018-03-01']]}
       />
     );
-      expect(actualLocale).toEqual([expectedLocale]);
+    expect(actualLocale).toEqual([expectedLocale]);
   });
 });
