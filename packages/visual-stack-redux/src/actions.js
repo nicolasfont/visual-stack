@@ -62,6 +62,31 @@ export const selectPaginationValue = (state, ownProps) =>
     state.visualStack.pagination[ownProps.paginationId]
   );
 
+export const forDatepicker = R.assocPath(['payload', 'datePickerId']);
+export const datepickerLensForId = R.memoizeWith(R.identity, id =>
+  R.lensPath(['visualStack', 'datePicker', id])
+);
+const UPDATE_CALENDAR_RANGE = '@cjdev/visual-stack-redux/UPDATE_CALENDAR_RANGE';
+export const updateCalendarRanges = createAction(
+  UPDATE_CALENDAR_RANGE,
+  selectedRanges => ({
+    selectedRanges,
+  })
+);
+
+const UPDATE_NAMED_CALENDAR_RANGES =
+  '@cjdev/visual-stack-redux/UPDATE_NAMED_CALENDAR_RANGES';
+export const updateNamedCalendarRanges = createAction(
+  UPDATE_NAMED_CALENDAR_RANGES,
+  selectedNamedRanges => ({
+    selectedNamedRanges,
+  })
+);
+
+const RESET_CALENDAR_SELECTION =
+  '@cjdev/visual-stack-redux/RESET_CALENDAR_SELECTION';
+export const resetCalendarSelection = createAction(RESET_CALENDAR_SELECTION);
+
 export default handleActions(
   {
     [OPEN_MODAL]: (state, { payload }) =>
@@ -143,6 +168,29 @@ export default handleActions(
         state
       );
     },
+
+    [UPDATE_CALENDAR_RANGE]: (
+      state,
+      { payload: { datePickerId, selectedRanges } }
+    ) =>
+      R.set(
+        R.lensPath(['datePicker', datePickerId, 'selectedRanges']),
+        selectedRanges,
+        state
+      ),
+
+    [UPDATE_NAMED_CALENDAR_RANGES]: (
+      state,
+      { payload: { datePickerId, selectedNamedRanges } }
+    ) =>
+      R.set(
+        R.lensPath(['datePicker', datePickerId, 'selectedNamedRanges']),
+        selectedNamedRanges,
+        state
+      ),
+
+    [RESET_CALENDAR_SELECTION]: (state, { payload: { datePickerId } }) =>
+      R.set(R.lensPath(['datePicker', datePickerId]), {}, state),
   },
   {
     menuBar: {},
@@ -152,5 +200,6 @@ export default handleActions(
     slidingPanel: {},
     tabLayout: {},
     pagination: {},
+    datePicker: {},
   }
 );

@@ -8,6 +8,7 @@ import PageContent from '@cjdev/visual-stack/lib/components/PageContent';
 import BlankSlateDocs from './blankslate';
 import ButtonWithDropdownDocs from './button-with-dropdown';
 import ButtonDocs from './button';
+import DatePickerDocs from './datepicker';
 import FormDocs from './form';
 import ListDocs from './list';
 import ModalDocs from './modal';
@@ -58,6 +59,12 @@ addComponentRoute(
   'Collapsible Panel',
   <CollapsiblePanelDocs />
 );
+addComponentRoute(
+  'button-with-dropdown',
+  'Button With Dropdown',
+  <ButtonWithDropdownDocs />
+);
+addComponentRoute('datepicker', 'Date Picker', <DatePickerDocs />);
 
 const ComponentDocs = ({ params }) => {
   const routeData = routeComponentMap[params.componentName];

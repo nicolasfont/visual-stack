@@ -7,6 +7,10 @@ import reducer, {
   initializePagination,
   setPaginationValue,
   selectPaginationValue,
+  updateCalendarRanges,
+  forDatepicker,
+  updateNamedCalendarRanges,
+  resetCalendarSelection,
 } from '../src/actions';
 
 describe('reducer', () => {
@@ -20,6 +24,7 @@ describe('reducer', () => {
       slidingPanel: {},
       tabLayout: {},
       pagination: {},
+      datePicker: {},
     });
   });
 
@@ -217,5 +222,60 @@ describe('reducer', () => {
 
     const paginationValue = selectPaginationValue(state, ownProps);
     expect(paginationValue).toEqual(existingPaginationValue);
+  });
+
+  test('datepicker updateCalendarRanges action works', () => {
+    const beforeState = { datePicker: { a: {}, b: {} } };
+
+    const afterState = reducer(
+      beforeState,
+      forDatepicker('a', updateCalendarRanges(['1', '2']))
+    );
+
+    expect(afterState).toEqual({
+      datePicker: {
+        a: { selectedRanges: ['1', '2'] },
+        b: {},
+      },
+    });
+  });
+
+  test('datepicker updateNamedCalendarRanges action works', () => {
+    const beforeState = {
+      datePicker: { a: {}, b: { selectedRanges: ['a', 'b'] } },
+    };
+
+    const afterState = reducer(
+      beforeState,
+      forDatepicker('b', updateNamedCalendarRanges(['1', '2']))
+    );
+
+    expect(afterState).toEqual({
+      datePicker: {
+        a: {},
+        b: { selectedRanges: ['a', 'b'], selectedNamedRanges: ['1', '2'] },
+      },
+    });
+  });
+
+  test('datepicker resetCalendarSelection action works', () => {
+    const beforeState = {
+      datePicker: {
+        a: { selectedRanges: ['a', 'b'] },
+        b: { selectedRanges: ['a', 'b'], selectedNamedRanges: ['1', '2'] },
+      },
+    };
+
+    const afterState = reducer(
+      beforeState,
+      forDatepicker('b', resetCalendarSelection())
+    );
+
+    expect(afterState).toEqual({
+      datePicker: {
+        a: { selectedRanges: ['a', 'b'] },
+        b: {},
+      },
+    });
   });
 });

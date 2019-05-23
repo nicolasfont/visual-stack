@@ -1,4 +1,6 @@
 ## Upcoming
+#### Add component
+- Add DatePicker component that lets you select one or two date ranges manually or from a list of predefined ranges.
 
 # 4.5.1 (May 21, 2019)
 ## Bug Fixes
@@ -7,6 +9,8 @@
 # 4.5.0 (May 20, 2019)
 #### Add component
 - Add ButtonWithDropdown component that associates a button with an expansible dropdown area.
+## New Feature
+- SlidingPanel sections take a className prop.
 #### Updated styling
 - Remove footer from DialogLayout and move buttons to the top, changed colors and add support for wide content.
 
