@@ -1,4 +1,4 @@
-## Upcoming
+# 4.6.0 (May 23, 2019)
 #### Add component
 - Add DatePicker component that lets you select one or two date ranges manually or from a list of predefined ranges.
 
