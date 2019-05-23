@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Panel, Body, Header } from '@cjdev/visual-stack/lib/components/Panel';
 import { Demo, Snippet } from '../../../components/Demo';
 
+import { DateTime } from 'luxon';
+
 /* s0:start */
 import ConnectedDatePicker from '@cjdev/visual-stack-redux/lib/components/DatePicker';
 import DatePicker from '@cjdev/visual-stack/lib/components/DatePicker';
@@ -18,7 +20,24 @@ import {
   sectionRange,
 } from '@cjdev/visual-stack/lib/components/DatePicker';
 
-import { DateTime } from 'luxon';
+const formatDateAsString = date =>
+  [date.getFullYear(), date.getMonth() + 1, date.getDate()]
+    .map(v =>
+      new Intl.NumberFormat('en-US', {
+        minimumIntegerDigits: 2,
+        useGrouping: false,
+      }).format(v)
+    )
+    .join('-');
+const dayAfter = date => {
+  date.setDate(date.getDate() + 1);
+  return date;
+};
+const dayBefore = date => {
+  date.setDate(date.getDate() - 1);
+  return date;
+};
+
 /* s0:end */
 
 const TwoCalendarDemo = ({
@@ -41,38 +60,30 @@ const TwoCalendarDemo = ({
       updateCalendarRanges={updateCalendarRanges}
       selectedNamedRanges={selectedNamedRanges}
       updateNamedCalendarRanges={updateNamedCalendarRanges}
-      resetCalendarSelection={() => updateCalendarRanges(appliedRanges)}
+      onCancel={() => updateCalendarRanges(appliedRanges)}
       onApply={setAppliedRanges}
       locale="de"
-      selectableRange={[new Date('2016-01-01'), new Date('2020-01-01')]}
+      selectableRange={['2016-01-01', '2019-12-31']}
       cancelButtonText="Cancel"
       applyButtonText="Apply"
       sidebarConfig={[
         sidebarSection(
           sectionTitle('Predefined Range'),
           sectionRange('today', 'Today', [
-            DateTime.fromJSDate(new Date()).toFormat('yyyy-MM-dd'),
-            DateTime.fromJSDate(new Date()).toFormat('yyyy-MM-dd'),
+            formatDateAsString(new Date()),
+            formatDateAsString(new Date()),
           ]),
           sectionRange('tomorrow', 'Tomorrow', [
-            DateTime.fromJSDate(new Date())
-              .plus({ days: 1 })
-              .toFormat('yyyy-MM-dd'),
-            DateTime.fromJSDate(new Date())
-              .plus({ days: 1 })
-              .toFormat('yyyy-MM-dd'),
+            formatDateAsString(dayAfter(new Date())),
+            formatDateAsString(dayAfter(new Date())),
           ]),
           sectionRange('custom', 'Custom', null)
         ),
         sidebarSection(
           sectionTitle('Comparison Range'),
           sectionRange('yesterday', 'Yesterday', [
-            DateTime.fromJSDate(new Date())
-              .minus({ days: 1 })
-              .toFormat('yyyy-MM-dd'),
-            DateTime.fromJSDate(new Date())
-              .minus({ days: 1 })
-              .toFormat('yyyy-MM-dd'),
+            formatDateAsString(dayBefore(new Date())),
+            formatDateAsString(dayBefore(new Date())),
           ]),
           sectionRange(
             'previous-year',
@@ -118,24 +129,21 @@ const OneCalendarDemo = ({
       updateCalendarRanges={updateCalendarRanges}
       selectedNamedRanges={selectedNamedRanges}
       updateNamedCalendarRanges={updateNamedCalendarRanges}
-      resetCalendarSelection={() => updateCalendarRanges(appliedRanges)}
+      onCancel={() => updateCalendarRanges(appliedRanges)}
       onApply={setAppliedRanges}
-      selectableRange={[new Date('2016-01-01'), new Date('2020-01-01')]}
+      selectableRange={['2016-01-01', '2019-12-31']}
       cancelButtonText="Cancel"
       applyButtonText="Apply"
       sidebarConfig={[
         sidebarSection(
+          sectionTitle('Predefined Range'),
           sectionRange('today', 'Today', [
-            DateTime.fromJSDate(new Date()).toFormat('yyyy-MM-dd'),
-            DateTime.fromJSDate(new Date()).toFormat('yyyy-MM-dd'),
+            formatDateAsString(new Date()),
+            formatDateAsString(new Date()),
           ]),
           sectionRange('tomorrow', 'Tomorrow', [
-            DateTime.fromJSDate(new Date())
-              .plus({ days: 1 })
-              .toFormat('yyyy-MM-dd'),
-            DateTime.fromJSDate(new Date())
-              .plus({ days: 1 })
-              .toFormat('yyyy-MM-dd'),
+            formatDateAsString(dayAfter(new Date())),
+            formatDateAsString(dayAfter(new Date())),
           ]),
           sectionRange('custom', 'Custom', null)
         ),
@@ -162,22 +170,19 @@ const ConnectedDatepickerDemo = ({
       selectedRanges={selectedRanges}
       selectedNamedRanges={selectedNamedRanges}
       onApply={onApply}
-      selectableRange={[new Date('2016-01-01'), new Date('2020-01-01')]}
+      selectableRange={['2016-01-01', '2019-12-31']}
       cancelButtonText="Cancel"
       applyButtonText="Apply"
       sidebarConfig={[
         sidebarSection(
+          sectionTitle('Predefined Range'),
           sectionRange('today', 'Today', [
-            DateTime.fromJSDate(new Date()).toFormat('yyyy-MM-dd'),
-            DateTime.fromJSDate(new Date()).toFormat('yyyy-MM-dd'),
+            formatDateAsString(new Date()),
+            formatDateAsString(new Date()),
           ]),
           sectionRange('tomorrow', 'Tomorrow', [
-            DateTime.fromJSDate(new Date())
-              .plus({ days: 1 })
-              .toFormat('yyyy-MM-dd'),
-            DateTime.fromJSDate(new Date())
-              .plus({ days: 1 })
-              .toFormat('yyyy-MM-dd'),
+            formatDateAsString(dayAfter(new Date())),
+            formatDateAsString(dayAfter(new Date())),
           ]),
           sectionRange('custom', 'Custom', null)
         ),
@@ -197,7 +202,7 @@ const ConnectedDatepickerWithDropdownDemo = ({
   return (
     /* s8:start */
     <ButtonWithDropdown
-      expanded={dropdownState ? 1 : 0}
+      expanded={dropdownState}
       doExpand={() => setDropdownState(!dropdownState)}
       renderButton={props => (
         <DatePickerButton ranges={appliedRanges} locale="en" {...props} />
@@ -211,36 +216,28 @@ const ConnectedDatepickerWithDropdownDemo = ({
           setDropdownState(false);
           onApply(...args);
         }}
-        onCancel={(...args) => setDropdownState(false)}
-        selectableRange={[new Date('2016-01-01'), new Date('2020-01-01')]}
+        onCancel={_ => setDropdownState(false)}
+        selectableRange={['2016-01-01', '2019-12-31']}
         cancelButtonText="Cancel"
         applyButtonText="Apply"
         sidebarConfig={[
           sidebarSection(
             sectionTitle('Predefined Range'),
             sectionRange('today', 'Today', [
-              DateTime.fromJSDate(new Date()).toFormat('yyyy-MM-dd'),
-              DateTime.fromJSDate(new Date()).toFormat('yyyy-MM-dd'),
+              formatDateAsString(new Date()),
+              formatDateAsString(new Date()),
             ]),
             sectionRange('tomorrow', 'Tomorrow', [
-              DateTime.fromJSDate(new Date())
-                .plus({ days: 1 })
-                .toFormat('yyyy-MM-dd'),
-              DateTime.fromJSDate(new Date())
-                .plus({ days: 1 })
-                .toFormat('yyyy-MM-dd'),
+              formatDateAsString(dayAfter(new Date())),
+              formatDateAsString(dayAfter(new Date())),
             ]),
             sectionRange('custom', 'Custom', null)
           ),
           sidebarSection(
             sectionTitle('Comparison Range'),
             sectionRange('yesterday', 'Yesterday', [
-              DateTime.fromJSDate(new Date())
-                .minus({ days: 1 })
-                .toFormat('yyyy-MM-dd'),
-              DateTime.fromJSDate(new Date())
-                .minus({ days: 1 })
-                .toFormat('yyyy-MM-dd'),
+              formatDateAsString(dayBefore(new Date())),
+              formatDateAsString(dayBefore(new Date())),
             ]),
             sectionRange(
               'previous-year',
@@ -287,12 +284,15 @@ export default () => {
   ] = useState(['custom']);
   /* s5:end */
 
-  /* s1:start */
   const [appliedRanges, setAppliedRanges] = useState([
     ['2017-01-01', '2017-01-03'],
     ['2016-04-01', '2016-04-03'],
   ]);
-  const [selectedRanges, updateCalendarRanges] = useState(() => appliedRanges);
+  /* s1:start */
+  const [selectedRanges, updateCalendarRanges] = useState([
+    ['2017-01-01', '2017-01-03'],
+    ['2016-04-01', '2016-04-03'],
+  ]);
   const [selectedNamedRanges, updateNamedCalendarRanges] = useState([
     'custom',
     'custom',
@@ -347,6 +347,7 @@ export default () => {
                 />
                 <br />
                 <DateRangeDisplay ranges={reduxAppliedRange} locale="en" />
+                <Snippet tag="s1" src={snippets} />
                 <Snippet tag="s6" src={snippets} />
               </Body>
             </Panel>
