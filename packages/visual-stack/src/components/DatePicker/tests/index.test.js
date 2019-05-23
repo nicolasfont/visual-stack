@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { DateTime } from 'luxon';
 
 import Enzyme from 'enzyme';
@@ -13,10 +13,10 @@ describe('DatePicker', () => {
   test('basic functionality works', () => {
     const expectedRange = ['2019-02-02', '2019-02-04'];
     const parseDate = d => DateTime.fromFormat(d, 'yyyy-MM-dd').toJSDate();
-    const expectedMinDate = new Date('2016-01-01');
-    const expectedMaxDate = new Date('2020-01-01');
+    const expectedMinDate = '2016-01-01';
+    const expectedMaxDate = '2020-01-01';
     let calendarSelectionReset = false;
-    const resetCalendarSelection = () => {
+    const onCancel = () => {
       calendarSelectionReset = true;
     };
 
@@ -42,7 +42,7 @@ describe('DatePicker', () => {
           selectedNamedRanges = v;
         }}
         onApply={apply}
-        resetCalendarSelection={resetCalendarSelection}
+        onCancel={onCancel}
         sidebarConfig={[
           uut.sidebarSection(
             uut.sectionTitle('Predefined Range'),
@@ -78,8 +78,8 @@ describe('DatePicker', () => {
       wrapper.find('DatePickerSidebar .custom input').prop('checked')
     ).toBeTruthy();
     expect(wrapper.find('DateRange').props()).toMatchObject({
-      minDate: expectedMinDate,
-      maxDate: expectedMaxDate,
+      minDate: uut._internal.fromInternalDateFormat(expectedMinDate).toJSDate(),
+      maxDate: uut._internal.fromInternalDateFormat(expectedMaxDate).toJSDate(),
       ranges: [
         expect.objectContaining({
           startDate: parseDate(expectedRange[0]),
@@ -118,7 +118,7 @@ describe('DatePicker', () => {
     const expectedComparisonRange = ['2018-02-02', '2018-02-04'];
 
     const parseDate = d => DateTime.fromFormat(d, 'yyyy-MM-dd');
-    const selectableRange = [new Date('2016-01-01'), new Date('2020-01-01')];
+    const selectableRange = ['2016-01-01', '2020-01-01'];
 
     let selectedNamedRanges = ['custom', 'none'];
     let selectedRanges = [initialBaseRange, initialComparisonRange];
@@ -135,7 +135,7 @@ describe('DatePicker', () => {
           selectedNamedRanges = v;
         }}
         onApply={() => {}}
-        resetCalendarSelection={() => {}}
+        onCancel={() => {}}
         sidebarConfig={[
           uut.sidebarSection(
             uut.sectionTitle('Base Range'),
@@ -176,10 +176,10 @@ describe('DatePicker', () => {
     const initialComparisonRange = ['2017-04-12', '2017-04-14'];
 
     const parseDate = d => DateTime.fromFormat(d, 'yyyy-MM-dd');
-    const selectableRange = [new Date('2016-01-01'), new Date('2020-01-01')];
+    const selectableRange = ['2016-01-01', '2020-01-01'];
 
-    let selectedNamedRanges = ['custom', 'none'];
-    let selectedRanges = [initialBaseRange, initialComparisonRange];
+    const selectedNamedRanges = ['custom', 'none'];
+    const selectedRanges = [initialBaseRange, initialComparisonRange];
 
     let appliedRanges = null;
     const wrapper = mount(
@@ -187,12 +187,12 @@ describe('DatePicker', () => {
         selectedRanges={selectedRanges}
         selectedNamedRanges={selectedNamedRanges}
         selectableRange={selectableRange}
-        updateCalendarRanges={v => {}}
-        updateNamedCalendarRanges={v => {}}
+        updateCalendarRanges={_ => {}}
+        updateNamedCalendarRanges={_ => {}}
         onApply={v => {
           appliedRanges = v;
         }}
-        resetCalendarSelection={() => {}}
+        onCancel={() => {}}
         sidebarConfig={[
           uut.sidebarSection(
             uut.sectionTitle('Base Range'),

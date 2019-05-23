@@ -175,9 +175,8 @@ export const _internal = { internalDateFormat, fromInternalDateFormat };
 
 const rangeToCalendarInput = (range, intervalColor) => {
   return {
-    startDate:
-      range[0] && DateTime.fromFormat(range[0], 'yyyy-MM-dd').toJSDate(),
-    endDate: range[1] && DateTime.fromFormat(range[1], 'yyyy-MM-dd').toJSDate(),
+    startDate: range[0] && fromInternalDateFormat(range[0]).toJSDate(),
+    endDate: range[1] && fromInternalDateFormat(range[1]).toJSDate(),
     range1: range,
     color: intervalColor,
   };
@@ -204,15 +203,14 @@ const adaptToReactDateRange = (intervalColors, intervals, namedIntervals) => {
 export const DatePicker = ({
   updateCalendarRanges,
   updateNamedCalendarRanges,
-  resetCalendarSelection,
   onApply,
-  onCancel,
+  onCancel = () => {},
   selectableRange: [minDate, maxDate],
   selectedRanges,
   selectedNamedRanges,
   sidebarConfig,
-  cancelButtonText,
-  applyButtonText,
+  cancelButtonText = 'Cancel',
+  applyButtonText = 'Apply',
   locale = 'en',
   dateFormat = languageToDateFormat[locale],
   intervalColors = ['#05afec', '#0061ac'],
@@ -265,8 +263,8 @@ export const DatePicker = ({
                 }}
                 moveRangeOnFirstSelection={false}
                 ranges={[range]}
-                minDate={minDate}
-                maxDate={maxDate}
+                minDate={fromInternalDateFormat(minDate).toJSDate()}
+                maxDate={fromInternalDateFormat(maxDate).toJSDate()}
                 direction="vertical"
                 scroll={{ enabled: false }}
                 locale={languageToLocale[locale]}
@@ -281,9 +279,9 @@ export const DatePicker = ({
       <div className="vs-button-bar">
         <Button
           type="text"
-          onClick={(...args) => (
-            onCancel(...args), resetCalendarSelection(...args)
-          )}
+          onClick={(...args) => {
+            onCancel(...args);
+          }}
           className="vs-cancel-button"
         >
           {cancelButtonText}
@@ -307,12 +305,8 @@ DatePicker.propTypes = {
   updateCalendarRanges: PropTypes.func.isRequired,
   updateNamedCalendarRanges: PropTypes.func.isRequired,
   onApply: PropTypes.func.isRequired,
-  resetCalendarSelection: PropTypes.func.isRequired,
   cancelButtonText: PropTypes.node,
   applyButtonText: PropTypes.node,
-};
-DatePicker.defaultProps = {
-  onCancel() {},
 };
 
 export default withErrorBoundary(DatePicker);

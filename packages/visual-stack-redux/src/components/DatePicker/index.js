@@ -11,7 +11,7 @@ import {
   forDatepicker,
 } from '../../actions';
 
-const mapDispatchToProps = (dispatch, { id }) =>
+const mapDispatchToProps = (dispatch, { id, onCancel = () => {} }) =>
   R.map(
     actionCreator =>
       R.compose(
@@ -22,7 +22,10 @@ const mapDispatchToProps = (dispatch, { id }) =>
     {
       updateCalendarRanges,
       updateNamedCalendarRanges,
-      resetCalendarSelection,
+      onCancel(...args) {
+        onCancel(...args);
+        return resetCalendarSelection(...args);
+      },
     }
   );
 
