@@ -166,6 +166,13 @@ export const languageToDateFormat = {
   ja: 'YYYY年M月D日',
 };
 
+const internalDateFormat = 'yyyy-MM-dd';
+function fromInternalDateFormat(date) {
+  return DateTime.fromFormat(date, internalDateFormat).toLocal();
+}
+
+export const _internal = { internalDateFormat, fromInternalDateFormat };
+
 const rangeToCalendarInput = (range, intervalColor) => {
   return {
     startDate:

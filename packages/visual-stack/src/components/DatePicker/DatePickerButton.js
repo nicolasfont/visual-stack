@@ -2,21 +2,17 @@ import * as R from 'ramda';
 import ChevronRightIcon from 'mdi-react/ChevronRightIcon';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DateTime } from 'luxon';
 import classNames from 'classnames';
 
 import { Button } from '../Button';
 import { CompareIcon } from '../Icons';
+import { _internal } from './index';
 import './DatePicker.css';
 
+const { fromInternalDateFormat, internalDateFormat } = _internal;
 const isAbsent = val => R.isNil(val) || R.isEmpty(val);
-const internalDateFormat = 'yyyy-MM-dd';
 const dash = '\u2013'; // Unicode Character 'EN DASH' (U+2013)
 const nonBreakSpace = '\u00a0'; // Unicode Character 'NO-BREAK SPACE' (U+00A0)
-
-function fromInternalDateFormat(date) {
-  return DateTime.fromFormat(date, internalDateFormat);
-}
 
 const toLocalizedFormat = R.curry((locale, dateTime) =>
   dateTime.toFormat('DD', { locale })
