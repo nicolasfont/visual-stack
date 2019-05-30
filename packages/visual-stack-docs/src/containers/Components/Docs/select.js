@@ -6,6 +6,7 @@ import { Body, Header, Panel } from '@cjdev/visual-stack/lib/components/Panel';
 /* s6:start */
 import Select from '@cjdev/visual-stack/lib/components/Select';
 import CreatableSelect from '@cjdev/visual-stack/lib/components/CreatableSelect';
+import AsyncSelect from '@cjdev/visual-stack/lib/components/AsyncSelect';
 /* s6:end */
 
 const PanelComponent = ({ header, children }) => (
@@ -18,7 +19,20 @@ const PanelComponent = ({ header, children }) => (
 export default () => (
   <Demo srcFile="/samples/src/containers/Components/Docs/select.js">
     {snippets => {
-      return (
+        /* s8:start */
+        const remoteSourceOptions = [{ value: 'chocolate', label: 'Chocolate' },{ value: 'strawberry', label: 'Strawberry' },{ value: 'vanilla', label: 'Vanilla' }];
+        /* s8:end */
+        /* s9:start */
+        const fakeFetch = (inputValue) =>
+            new Promise(resolve => {
+                setTimeout(() => {
+                    resolve(remoteSourceOptions.filter(i =>
+                        i.label.toLowerCase().includes(inputValue.toLowerCase())
+                    ));
+                }, 500);
+            });
+        /* s9:end */
+        return (
         <div>
           <PanelComponent header="Component Imports">
             <Snippet tag="s6" src={snippets} />
@@ -90,6 +104,26 @@ export default () => (
             />
             {/* s5:end */}
             <Snippet tag="s5" src={snippets} />
+          </PanelComponent>
+          <PanelComponent header="Async Select powered by React Select">
+            You may want to use an Async Select Component to load options from a remote source (e.g. fetching as a user types)<br/>
+            A full list supported props can be found at: {' '}
+            <a hre="https://react-select.com/async">react-select.com/async</a>
+            {/* s7:start */}
+            <AsyncSelect
+              components={{ DropdownIndicator: null }}
+              placeholder={'Enter items...'}
+              onChange={(value, actionMeta) => console.log(value, actionMeta)}
+              isMulti
+              cacheOptions={false}
+              isClearable={true}
+              loadOptions= {fakeFetch}
+              noOptionsMessage={() => {return "Type to search"}}
+            />
+            {/* s7:end */}
+            <Snippet tag="s8" src={snippets} />
+            <Snippet tag="s9" src={snippets} />
+            <Snippet tag="s7" src={snippets} />
           </PanelComponent>
         </div>
       );
