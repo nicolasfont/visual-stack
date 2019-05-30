@@ -20,7 +20,10 @@ export default () => (
   <Demo srcFile="/samples/src/containers/Components/Docs/select.js">
     {snippets => {
         /* s8:start */
-        const remoteSourceOptions = [{ value: 'chocolate', label: 'Chocolate' },{ value: 'strawberry', label: 'Strawberry' },{ value: 'vanilla', label: 'Vanilla' }];
+        const remoteSourceOptions = [{ value: 'chocolate', label: 'Chocolate' },
+                                     { value: 'raspberry', label: 'Raspberry' },
+                                     { value: 'strawberry', label: 'Strawberry' },
+                                     { value: 'vanilla', label: 'Vanilla' }];
         /* s8:end */
         /* s9:start */
         const fakeFetch = (inputValue) =>
