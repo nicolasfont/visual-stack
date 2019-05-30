@@ -108,7 +108,7 @@ export default () => (
           <PanelComponent header="Async Select powered by React Select">
             You may want to use an Async Select Component to load options from a remote source (e.g. fetching as a user types)<br/>
             A full list supported props can be found at: {' '}
-            <a hre="https://react-select.com/async">react-select.com/async</a>
+            <a href="https://react-select.com/async">react-select.com/async</a>
             {/* s7:start */}
             <AsyncSelect
               components={{ DropdownIndicator: null }}
