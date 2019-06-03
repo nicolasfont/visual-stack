@@ -13,7 +13,11 @@ export class InternalLinkGroup extends Component {
   };
   constructor(props) {
     super(props);
+      if (this.props.initialActive) {
+          this.props.toggleSideNavLinkGroup(this.props.initialActive, this.props.label);
+      }
   }
+
   render() {
     const expanded =
       R.view(

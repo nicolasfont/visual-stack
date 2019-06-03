@@ -22,6 +22,24 @@ describe('LinkGroup', () => {
     expect(wrapper.find(LinkGroup).prop('label')).toBe('whatever');
   });
 
+  test('should call toggleSideNavLinkGroup to toggle expanded when initialActive is passed in to component', () => {
+    const label = 'LABEL';
+    const state = {};
+    const toggleSideNavLinkGroupSpy = sinon.spy();
+    mount(
+      <InternalLinkGroup
+        label={label}
+        linkGroups={state}
+        toggleSideNav={() => {}}
+        toggleSideNavLinkGroup={toggleSideNavLinkGroupSpy}
+        initialActive={true}
+      />
+    );
+
+    sinon.assert.calledOnce(toggleSideNavLinkGroupSpy);
+
+  });
+
   test('should calculate expanded value based on state', () => {
     const label = 'LABEL';
     const state = {
