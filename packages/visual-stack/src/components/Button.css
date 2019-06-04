@@ -330,6 +330,48 @@ a.vs-btn-d:hover,
   color: #ccd1d7;
 }
 
+/* CJ Button - Inline Button styles*/
+.vs-inline-outline-secondary-btn {
+  padding: 4px 8px;
+  line-height: 24px;
+  border-color: #CCCCCC;
+  font-weight: 400;
+  font-size: 13px;
+  text-transform: none;
+  border-radius: 4px;
+}
+
+.vs-inline-button-icon {
+  margin-right: 4px;
+  float: left;
+}
+
+.vs-inline-button-icon-only {
+  margin-right: 0;
+}
+
+.vs-inline-button-icon.mdi-icon, .vs-inline-button-icon-only.mdi-icon{
+  width: 16px;
+}
+
+.vs-inline-button-chevron {
+  margin-left: 2px;
+  float: right;
+}
+
+.vs-inline-button-chevron.mdi-icon {
+  width: 22px;
+}
+
+.vs-inline-outline-secondary-btn:hover {
+  border-color: hsl(0,0%,70%);
+  transition: color 150ms;
+}
+
+.vs-inline-outline-secondary-btn:hover .mdi-icon{
+  fill: hsl(0,0%,60%);
+}
+
 /* Button sizing */
 
 .vs-lrg-btn,

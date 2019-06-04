@@ -45,6 +45,7 @@ Button.propTypes = SubmitButton.propTypes = {
     'icon',
     'text',
     'text-link',
+    'inline-outline-secondary',
   ]).isRequired,
   large: PropTypes.bool,
 };

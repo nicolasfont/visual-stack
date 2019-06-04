@@ -6,6 +6,17 @@ import {
   AccountIcon,
   CodeIcon,
 } from '@cjdev/visual-stack/lib/components/Icons';
+import ChevronDown from 'mdi-react/ChevronDownIcon';
+import CalendarRange from 'mdi-react/CalendarRangeIcon';
+import FileImport from 'mdi-react/FileImportIcon';
+import FilterVariant from 'mdi-react/FilterVariantIcon';
+import Download from 'mdi-react/DownloadIcon';
+
+export const ChevronDownIcon = ChevronDown;
+export const CalendarRangeIcon = CalendarRange;
+export const FileImportIcon = FileImport;
+export const DownloadIcon = Download;
+export const FilterVariantIcon = FilterVariant;
 
 export default () => (
   <Demo srcFile="/samples/src/containers/Components/Docs/button.js">
@@ -79,6 +90,40 @@ export default () => (
               </Button>
               {/* s1:end */}
               <Snippet tag="s1" src={snippets} />
+            </Body>
+          </Panel>
+
+          <Panel>
+            <Header>
+              <b>New</b> Inline Buttons with Icons (in progress)
+            </Header>
+            <Body>
+              {/* s5:start */}
+              <Button type="inline-outline-secondary">
+                <CalendarRangeIcon className="vs-inline-button-icon"/>Date Range<ChevronDownIcon className="vs-inline-button-chevron"/>
+              </Button>
+              <Button type="inline-outline-secondary">
+                <FileImportIcon className="vs-inline-button-icon"/>Import CSV
+              </Button>
+              <Button type="inline-outline-secondary">
+                <DownloadIcon className="vs-inline-button-icon"/>Download
+              </Button>
+              <Button type="inline-outline-secondary">
+                <FilterVariantIcon className="vs-inline-button-icon"/>Filters
+              </Button>
+              <h6>Icon Only</h6>
+              <Button type="inline-outline-secondary">
+                <FilterVariantIcon className="vs-inline-button-icon-only"/>
+              </Button>
+              <Button type="inline-outline-secondary">
+                <DownloadIcon className="vs-inline-button-icon-only"/>
+              </Button>
+              {/* s5:end */}
+              <Snippet tag="s5" src={snippets} />
+              <h6>When to use</h6>
+              <p>Use when you have to place a button inline with selects in header toolbars and table toolars.</p>
+              <h6>When NOT to use</h6>
+              <p>Do not use as primary or secondary action buttons at the page level.</p>
             </Body>
           </Panel>
 
