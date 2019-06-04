@@ -59,7 +59,7 @@ class DropdownContainer extends React.Component {
       <ButtonWithDropdown
         expanded={this.state.expanded}
         doExpand={() => this.doExpand()}
-        ButtonComponent={CustomButton}
+        renderButton={CustomButton}
         buttonContent="Expand"
         className="dropdown-demo"
         id="range-dropdown"
