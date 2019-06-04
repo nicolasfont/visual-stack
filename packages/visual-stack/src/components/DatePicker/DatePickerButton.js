@@ -70,7 +70,7 @@ export const DatePickerButton = ({
   ranges,
   className,
   DateRangeDisplay,
-  type = 'outline-secondary',
+  type = 'inline-outline-secondary',
   ...props
 }) => (
   <Button

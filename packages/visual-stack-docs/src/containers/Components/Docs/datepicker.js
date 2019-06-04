@@ -266,8 +266,11 @@ const ConnectedDatepickerWithDropdownDemo = ({
 
 export default () => {
   /* s7:start */
-  const [reduxAppliedRange, setReduxAppliedRange] = useState([
+  const [reduxAppliedRanges, setReduxAppliedRange] = useState([
     ['2017-01-01', '2017-01-03'],
+  ]);
+  const [reduxAppliedNamedRange, setReduxAppliedNamedRange] = useState([
+    'tomorrow',
   ]);
   /* s7:end */
 
@@ -309,7 +312,11 @@ export default () => {
                 <p>
                   {' '}
                   Allows a user to select one or more ranges from side-by-side
-                  calendars and to select from a list of named ranges.{' '}
+                  calendars and to select from a list of named ranges. The value
+                  selected when the user clicks the Apply button as well as the
+                  currently selected named ranges will be sent to the{' '}
+                  <code>onApply(selectedRanges, selectedNamedRanges)</code>{' '}
+                  callback.
                 </p>{' '}
                 <p>
                   The sidebar sections correspond to the calendars so that the
@@ -341,12 +348,24 @@ export default () => {
                 <Snippet tag="s0" src={snippets} />
                 <br />
                 <ConnectedDatepickerDemo
-                  selectedRanges={oneCalendarSelectedRanges}
-                  onApply={v => setReduxAppliedRange(v)}
-                  selectedNamedRanges={oneCalendarSelectedSidebarRanges}
+                  selectedRanges={reduxAppliedRanges}
+                  selectedNamedRanges={reduxAppliedNamedRange}
+                  onApply={(selectedRanges, selectedNamedRanges) => {
+                    setReduxAppliedRange(selectedRanges);
+                    setReduxAppliedNamedRange(selectedNamedRanges);
+                  }}
                 />
                 <br />
-                <DateRangeDisplay ranges={reduxAppliedRange} locale="en" />
+                <dl>
+                  <dt>Applied Range:</dt>
+                  <dd>
+                    <DateRangeDisplay ranges={reduxAppliedRanges} locale="en" />
+                  </dd>
+                  <dt>Applied Named Range:</dt>
+                  <dd>
+                    <div>{reduxAppliedNamedRange}</div>
+                  </dd>
+                </dl>
                 <Snippet tag="s1" src={snippets} />
                 <Snippet tag="s6" src={snippets} />
               </Body>
