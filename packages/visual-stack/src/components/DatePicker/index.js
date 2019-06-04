@@ -288,7 +288,12 @@ export const DatePicker = ({
         </Button>
         <Button
           type="solid-primary"
-          onClick={_ => onApply(R.map(R.prop('range1'), calendarRangeInput))}
+          onClick={_ =>
+            onApply(
+              R.map(R.prop('range1'), calendarRangeInput),
+              selectedNamedRanges
+            )
+          }
           className="vs-apply-button"
         >
           {applyButtonText}

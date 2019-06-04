@@ -218,4 +218,61 @@ describe('DatePicker', () => {
 
     expect(appliedRanges).toEqual([initialBaseRange]);
   });
+
+  test('applying sends the selected ranges and named ranges to onApply', () => {
+    const initialBaseRange = ['2019-02-02', '2019-02-04'];
+    const initialComparisonRange = ['2017-04-12', '2017-04-14'];
+
+    const parseDate = d => DateTime.fromFormat(d, 'yyyy-MM-dd');
+    const selectableRange = ['2016-01-01', '2020-01-01'];
+
+    const selectedNamedRanges = ['custom', 'tomorrow'];
+    const selectedRanges = [initialBaseRange, initialComparisonRange];
+
+    const expectedNamedRanges = ['custom', 'tomorrow'];
+
+    let appliedRanges = null;
+    let appliedNamedRanges = null;
+
+    const wrapper = mount(
+      <uut.DatePicker
+        selectedRanges={selectedRanges}
+        selectedNamedRanges={selectedNamedRanges}
+        selectableRange={selectableRange}
+        updateCalendarRanges={_ => {}}
+        updateNamedCalendarRanges={_ => {}}
+        onApply={(v, n) => {
+          appliedRanges = v;
+          appliedNamedRanges = n;
+        }}
+        onCancel={() => {}}
+        sidebarConfig={[
+          uut.sidebarSection(
+            uut.sectionTitle('Base Range'),
+            uut.sectionRange('a', 'b', [])
+          ),
+          uut.sidebarSection(
+            uut.sectionTitle('Predefined Range'),
+            uut.sectionRange('tomorrow', 'Last Year', ([base, _]) => [
+              parseDate(base[0])
+                .plus({ days: 1 })
+                .toFormat('yyyy-MM-dd'),
+              parseDate(base[1])
+                .plus({ days: 1 })
+                .toFormat('yyyy-MM-dd'),
+            ])
+          ),
+        ]}
+      />
+    );
+
+    wrapper.find('DatePickerSidebar .tomorrow input').simulate('change');
+    wrapper.find('button.vs-apply-button').simulate('click');
+
+    expect(appliedRanges).toMatchObject([
+      initialBaseRange,
+      initialComparisonRange,
+    ]);
+    expect(appliedNamedRanges).toEqual(expectedNamedRanges);
+  });
 });
