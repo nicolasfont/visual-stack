@@ -1,3 +1,17 @@
+# 4.8.0
+## New Feature
+- Add Button type "inline-outline-secondary" for Buttons that are lined up in a row with selects.
+- Add second argument to the DatePicker's `onApply` callback that receives the selected named ranges.
+
+# 4.7.1
+## New Feature
+- Add initialActive prop to SideNavLinkGroup to specify that a SideNav section should be expanded on first
+  render.
+
+# 4.7.0
+## Add Component
+- Add AsyncSelect component that lets you get the list of autocomplete options from an asynchronous source.
+
 # 4.6.0 (May 23, 2019)
 #### Add component
 - Add DatePicker component that lets you select one or two date ranges manually or from a list of predefined ranges.
