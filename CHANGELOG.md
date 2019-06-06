@@ -1,3 +1,7 @@
+# Upcoming
+## New Feature
+- The callback for the datepicker now gets the ids of the currently selected sidebar ranges
+
 # 4.8.0
 ## New Feature
 - Add Button type "inline-outline-secondary" for Buttons that are lined up in a row with selects.
