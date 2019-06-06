@@ -57,29 +57,35 @@ const rangeConfigShape = PropTypes.shape({
     })
   ),
 });
+
 SidebarRangeSection.propTypes = {
   config: rangeConfigShape,
   onRangeSelect: PropTypes.func,
   selectedId: PropTypes.string,
 };
 
-const applyRange = R.flip(
-  R.cond([
-    [R.is(Function), R.call],
-    [R.is(Array), R.identity],
-    [R.T, (_, selectedRanges, idx) => selectedRanges[idx]],
-  ])
-);
+const applyRange = R.cond([
+  [R.is(Function), (spec, ...args) => spec(...args)],
+  [R.is(Array), R.identity],
+  [R.T, (_, selectedRanges, idx) => selectedRanges[idx]],
+]);
 
-const rangeFor = ({ ranges }, selected) => {
+const rangeSpecFor = ({ ranges }, selected) => {
   return R.prop('range', R.find(R.propEq('id', selected), ranges));
 };
+const rangeSpecsFor = R.zipWith(rangeSpecFor);
 
-const getIndex = (_, __, v) => v;
-const getAccumulator = v => v;
-const applyRangeSpecs = R.addIndex(R.reduce)(
-  R.converge(R.update, [getIndex, applyRange, getAccumulator])
-);
+const applyRangeSpecs = (rangeSpecs, selectedRanges, namedRangeIds) =>
+  R.addIndex(R.reduce)(
+    (newSelectedRanges, rangeSpec, idx) =>
+      R.update(
+        idx,
+        applyRange(rangeSpec, newSelectedRanges, idx, namedRangeIds),
+        newSelectedRanges
+      ),
+    selectedRanges,
+    rangeSpecs
+  );
 
 const doSidebarRangeSelect = R.curry(
   (
@@ -98,8 +104,9 @@ const doSidebarRangeSelect = R.curry(
     );
 
     const newSelectedRanges = applyRangeSpecs(
+      rangeSpecsFor(rangeConfigs, newSelectedNamedRanges),
       selectedRanges,
-      R.zipWith(rangeFor, rangeConfigs, newSelectedNamedRanges)
+      newSelectedNamedRanges
     );
 
     updateCalendarRanges(newSelectedRanges);
@@ -328,6 +335,5 @@ export const sidebarSection = (title, ...ranges) =>
     ...ranges
   )({});
 export const sectionTitle = R.assoc('title');
-export const sectionRange = R.curry((id, label, range, section) =>
-  R.over(R.lensProp('ranges'), R.append({ id, label, range }), section)
-);
+export const sectionRange = (id, label, range) => section =>
+  R.over(R.lensProp('ranges'), R.append({ id, label, range }), section);
