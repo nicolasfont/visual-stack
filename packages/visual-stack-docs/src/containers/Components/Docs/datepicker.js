@@ -327,15 +327,18 @@ export default () => {
                 <p>
                   The predefined ranges are defined using{' '}
                   <code>sidebarSection</code>, <code>sectionTitle</code> and{' '}
-                  <code>sectionRange</code> (see the examples for usage). The
-                  named ranges can each be specified as a list of start and end
-                  dates in the format <code>yyyy-mm-dd</code>, or a function can
-                  be passed that gets all the currently selected ranges (from
-                  both calendars) and returns a single range for the calendar
-                  corresponding to the sidebar section.
+                  <code>
+                    sectionRange(selectedRanges, curIdx, selectedNamedRangeIds)
+                  </code>{' '}
+                  (see the examples for usage). The named ranges can each be
+                  specified as a list of start and end dates in the format{' '}
+                  <code>yyyy-mm-dd</code>, or a function can be passed that gets
+                  all the currently selected ranges (from both calendars) and
+                  returns a single range for the calendar corresponding to the
+                  sidebar section.
                 </p>
                 <p>
-                  There are two special named intervals: <code>custom</code> and{' '}
+                  There are two special named ranges: <code>custom</code> and{' '}
                   <code>none</code>. If calendar is manipulated directly, the{' '}
                   <code>custom</code> range is selected. If <code>none</code> is
                   selected, the corresponding calendar is hidden.

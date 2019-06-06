@@ -139,7 +139,8 @@ describe('DatePicker', () => {
         sidebarConfig={[
           uut.sidebarSection(
             uut.sectionTitle('Base Range'),
-            uut.sectionRange('a', 'b', [])
+            uut.sectionRange('a', 'b', []),
+            uut.sectionRange('same-period', 'Same Period')
           ),
           uut.sidebarSection(
             uut.sectionTitle('Predefined Range'),
@@ -150,7 +151,23 @@ describe('DatePicker', () => {
               parseDate(base[1])
                 .minus({ years: 1 })
                 .toFormat('yyyy-MM-dd'),
-            ])
+            ]),
+            uut.sectionRange(
+              'opposite-ends',
+              'Opposite Ends',
+              ([base, comparison]) => [base[0], comparison[1]]
+            ),
+            uut.sectionRange(
+              'base-or-comparison',
+              'Base or Comparison',
+              ([base, comparison], [baseId]) => {
+                if (baseId === 'same-period') {
+                  return base;
+                } else {
+                  return comparison;
+                }
+              }
+            )
           ),
         ]}
       />
@@ -168,6 +185,150 @@ describe('DatePicker', () => {
         initialBaseRange,
         expectedComparisonRange,
       ]);
+    });
+  });
+
+  test('computed ranges can use both previous ranges', () => {
+    const initialBaseRange = ['2019-02-02', '2019-02-04'];
+    const initialComparisonRange = ['2017-04-12', '2017-04-14'];
+    const expectedComparisonRange = ['2019-02-02', '2017-04-14'];
+
+    const parseDate = d => DateTime.fromFormat(d, 'yyyy-MM-dd');
+    const selectableRange = ['2016-01-01', '2020-01-01'];
+
+    let selectedNamedRanges = ['custom', 'none'];
+    let selectedRanges = [initialBaseRange, initialComparisonRange];
+
+    const wrapper = mount(
+      <uut.DatePicker
+        selectedRanges={selectedRanges}
+        selectedNamedRanges={selectedNamedRanges}
+        selectableRange={selectableRange}
+        updateCalendarRanges={v => {
+          selectedRanges = v;
+        }}
+        updateNamedCalendarRanges={v => {
+          selectedNamedRanges = v;
+        }}
+        onApply={() => {}}
+        onCancel={() => {}}
+        sidebarConfig={[
+          uut.sidebarSection(
+            uut.sectionTitle('Base Range'),
+            uut.sectionRange('a', 'b', []),
+            uut.sectionRange('same-period', 'Same Period')
+          ),
+          uut.sidebarSection(
+            uut.sectionTitle('Predefined Range'),
+            uut.sectionRange('last-year', 'Last Year', ([base, _]) => [
+              parseDate(base[0])
+                .minus({ years: 1 })
+                .toFormat('yyyy-MM-dd'),
+              parseDate(base[1])
+                .minus({ years: 1 })
+                .toFormat('yyyy-MM-dd'),
+            ]),
+            uut.sectionRange(
+              'opposite-ends',
+              'Opposite Ends',
+              ([base, comparison]) => [base[0], comparison[1]]
+            ),
+            uut.sectionRange(
+              'base-or-comparison',
+              'Base or Comparison',
+              ([base, comparison], [baseId]) => {
+                if (baseId === 'same-period') {
+                  return base;
+                } else {
+                  return comparison;
+                }
+              }
+            )
+          ),
+        ]}
+      />
+    );
+
+    expect.assertions(1);
+    wrapper.find('.opposite-ends').simulate('click');
+    // simulate reactive prop update, as component won't get new values by default
+    wrapper.setProps({ selectedNamedRanges, selectedRanges }, () => {
+      expect([selectedRanges, selectedNamedRanges]).toEqual([
+        [initialBaseRange, expectedComparisonRange],
+        ['custom', 'opposite-ends'],
+      ]);
+    });
+  });
+
+  test('computed ranges can depend on the names of the selected ranges', () => {
+    const initialBaseRange = ['2019-02-02', '2019-02-04'];
+    const initialComparisonRange = ['2017-04-12', '2017-04-14'];
+
+    const parseDate = d => DateTime.fromFormat(d, 'yyyy-MM-dd');
+    const selectableRange = ['2016-01-01', '2020-01-01'];
+
+    let selectedNamedRanges = ['a', 'none'];
+    let selectedRanges = [initialBaseRange, initialComparisonRange];
+
+    const wrapper = mount(
+      <uut.DatePicker
+        selectedRanges={selectedRanges}
+        selectedNamedRanges={selectedNamedRanges}
+        selectableRange={selectableRange}
+        updateCalendarRanges={v => {
+          selectedRanges = v;
+        }}
+        updateNamedCalendarRanges={v => {
+          selectedNamedRanges = v;
+        }}
+        onApply={() => {}}
+        onCancel={() => {}}
+        sidebarConfig={[
+          uut.sidebarSection(
+            uut.sectionTitle('Base Range'),
+            uut.sectionRange('a', 'b'),
+            uut.sectionRange('same-period', 'Same Period')
+          ),
+          uut.sidebarSection(
+            uut.sectionTitle('Predefined Range'),
+            uut.sectionRange('last-year', 'Last Year', ([base, _]) => [
+              parseDate(base[0])
+                .minus({ years: 1 })
+                .toFormat('yyyy-MM-dd'),
+              parseDate(base[1])
+                .minus({ years: 1 })
+                .toFormat('yyyy-MM-dd'),
+            ]),
+            uut.sectionRange(
+              'opposite-ends',
+              'Opposite Ends',
+              ([base, comparison]) => [base[0], comparison[1]]
+            ),
+            uut.sectionRange(
+              'base-or-comparison',
+              'Base or Comparison',
+              ([base, comparison], _, [baseId]) => {
+                if (baseId === 'same-period') {
+                  return base;
+                } else {
+                  return comparison;
+                }
+              }
+            )
+          ),
+        ]}
+      />
+    );
+
+    wrapper.find('.base-or-comparison').simulate('click');
+
+    expect(selectedNamedRanges).toEqual(['a', 'base-or-comparison']);
+    expect(selectedRanges).toEqual([initialBaseRange, initialComparisonRange]);
+
+    // simulate reactive prop update, as component won't get new values by default
+    wrapper.setProps({ selectedNamedRanges, selectedRanges }, () => {
+      wrapper.find('.same-period').simulate('click');
+      expect(selectedRanges).toEqual([initialBaseRange, initialBaseRange]);
     });
   });
 

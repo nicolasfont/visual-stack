@@ -4,6 +4,7 @@
   "scripts": {
     "bootstrap": "lerna bootstrap && lerna run build",
     "start-all": "npm run bootstrap && npx foreman start",
+    "start-all-fast": "npx foreman start",
     "link": "(cd packages/visual-stack && npm link) && (cd packages/visual-stack-redux && npm link)",
     "lint": "lerna run lint",
     "test": "export CI=true; lerna run test",
