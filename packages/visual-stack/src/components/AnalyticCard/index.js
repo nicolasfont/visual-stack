@@ -1,14 +1,28 @@
 import React from 'react';
 import { TrendDown, TrendUp } from '../Icons';
 import './style.css';
+import { isNil } from 'ramda';
+import classNames from 'classnames';
 
 export const AnalyticCardContainer = ({ children, className }) => (
   <div className={`vs-analytic-card-container ${className}`}>{children}</div>
 );
 
-export const AnalyticCard = ({ children, className }) => (
-  <div className={`vs-analytic-card ${className}`}>{children}</div>
-);
+export const AnalyticCard = ({ children, className, onClick }) => {
+  const isClickable = !isNil(onClick);
+  return (
+    <div
+      className={classNames({
+        'vs-analytic-card': true,
+        [className]: true,
+        'vs-analytic-card-clickable': isClickable,
+      })}
+      onClick={onClick}
+    >
+      {children}
+    </div>
+  );
+};
 
 export const AnalyticCardTitle = ({ children, className }) => (
   <div className={`vs-analytic-card-title ${className}`}>{children}</div>

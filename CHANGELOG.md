@@ -1,3 +1,7 @@
+#Upcoming
+## New Feature
+-Add optional onClick prop to analytic cards
+
 # 4.9.0
 ## New Feature
 - The callback for the datepicker now gets the ids of the currently selected sidebar ranges

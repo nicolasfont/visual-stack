@@ -110,6 +110,31 @@ export default () => (
                     </AnalyticCardTrend>
                   </AnalyticCardTrendContainer>
                 </AnalyticCard>
+                <AnalyticCard
+                  onClick={() => {
+                    // eslint-disable-next-line no-alert
+                    window.alert('onClick alert!');
+                  }}
+                >
+                  <AnalyticCardTitle>Clickable Card</AnalyticCardTitle>
+                  <AnalyticCardValue>
+                    4.2 <AnalyticCardValueUnit>hrs</AnalyticCardValueUnit>
+                  </AnalyticCardValue>
+                  <AnalyticCardTrendContainer>
+                    <AnalyticCardTrend>
+                      <AnalyticCardPositiveTrendValue>
+                        +1
+                      </AnalyticCardPositiveTrendValue>
+                      <AnalyticCardTrendLabel>change</AnalyticCardTrendLabel>
+                    </AnalyticCardTrend>
+                    <AnalyticCardTrend>
+                      <AnalyticCardTrendValue>3.2</AnalyticCardTrendValue>
+                      <AnalyticCardTrendLabel>
+                        prev. period
+                      </AnalyticCardTrendLabel>
+                    </AnalyticCardTrend>
+                  </AnalyticCardTrendContainer>
+                </AnalyticCard>
               </AnalyticCardContainer>
               {/* s4:end */}
             </Body>
