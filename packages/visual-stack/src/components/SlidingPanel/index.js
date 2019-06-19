@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import './SlidingPanel.css';
 import FilterVariantIcon from 'mdi-react/FilterVariantIcon';
 import ArrowRightIcon from 'mdi-react/ArrowRightIcon';
+import { Button } from '../Button.js';
 
 export const ToggleIcon = ({
   onClick,
@@ -21,9 +22,9 @@ export const ToggleIcon = ({
       title={hoverText}
       {...restProps}
     >
-      <div className="vs-sliding-panel-section-icon-btn">
+      <Button type="inline-outline-secondary">
         <Icon className="vs-sliding-panel-section-icon" />
-      </div>
+      </Button>
     </a>
   );
 };
