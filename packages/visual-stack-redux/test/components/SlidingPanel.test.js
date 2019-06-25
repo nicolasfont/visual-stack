@@ -68,12 +68,12 @@ describe('SlidingPanel', () => {
     });
 
     test('should render children when Dropdown is expanded', () => {
-      const onClick = sinon.spy();
+      const hideFilterDropdown = jest.fn();
       const slidingPanel = mount(
         <InternalSlidingPanelDropdown
           label="MyCids"
-          onClick={onClick}
           id="test_dropdown"
+          hideFilterDropdown={hideFilterDropdown}
         >
           <div>Something</div>
         </InternalSlidingPanelDropdown>
@@ -86,7 +86,29 @@ describe('SlidingPanel', () => {
         dropdown.find('div.vs-sliding-panel-section-options')
       ).toHaveLength(1);
 
-      expect(onClick.callCount).toBeGreaterThan(0);
+      expect(hideFilterDropdown.mock.calls).toHaveLength(1);
     });
+  });
+
+  test('should expand filter dropdown when initialActive is true', () => {
+    const expandFilterDropdown = jest.fn();
+    const slidingPanel = mount(
+      <InternalSlidingPanelDropdown
+        label="MyCids"
+        id="test_dropdown"
+        initialActive
+        expandFilterDropdown={expandFilterDropdown}
+      >
+        <div>Something</div>
+      </InternalSlidingPanelDropdown>
+    );
+    const dropdown = slidingPanel.find(SlidingPanelDropdown);
+    dropdown
+      .find('a.vs-sliding-panel-section-container-label')
+      .simulate('click');
+    expect(dropdown.find('div.vs-sliding-panel-section-options')).toHaveLength(
+      1
+    );
+    expect(expandFilterDropdown.mock.calls).toHaveLength(1);
   });
 });
