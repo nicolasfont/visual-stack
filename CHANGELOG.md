@@ -1,6 +1,6 @@
 # Upcoming
 ## Bug Fixes
--Fix dropdown filter's incorrect state when re-mounting with the same id
+-Fix dropdown filter's incorrect state when remounting with the same id
 
 # 4.9.1
 ## New Feature
