@@ -11,6 +11,8 @@ import {
 } from '@cjdev/visual-stack/lib/components/SlidingPanel';
 import {
   toggleSlidingPanel,
+  expandFilterDropdown,
+  hideFilterDropdown,
   toggleFilterDropdown,
   setSlidingPanelActiveState,
 } from '../actions';
@@ -83,7 +85,9 @@ export class InternalSlidingPanelDropdown extends Component {
   constructor(props) {
     super(props);
     if (this.props.initialActive) {
-      this.props.onClick();
+      this.props.expandFilterDropdown();
+    } else {
+      this.props.hideFilterDropdown();
     }
   }
   render() {
@@ -95,6 +99,7 @@ export class InternalSlidingPanelDropdown extends Component {
     );
   }
 }
+
 InternalSlidingPanelDropdown.propTypes = {
   slidingPanel: PropTypes.object,
   id: PropTypes.string.isRequired,
@@ -103,6 +108,8 @@ InternalSlidingPanelDropdown.propTypes = {
   children: PropTypes.any,
   toggleFilterDropdown: PropTypes.func,
   styles: PropTypes.object,
+  expandFilterDropdown: PropTypes.func,
+  hideFilterDropdown: PropTypes.func,
 };
 
 export const SlidingPanelDropdown = connect(
@@ -116,6 +123,12 @@ export const SlidingPanelDropdown = connect(
     ),
   }),
   (dispatch, { id }) => ({
+    expandFilterDropdown() {
+      dispatch(expandFilterDropdown(id));
+    },
+    hideFilterDropdown() {
+      dispatch(hideFilterDropdown(id));
+    },
     onClick() {
       dispatch(toggleFilterDropdown(id));
     },

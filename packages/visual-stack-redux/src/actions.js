@@ -43,6 +43,20 @@ export const toggleFilterDropdown = createAction(
   filterLabel => ({ filterLabel })
 );
 
+const HIDE_SLIDING_PANEL_FILTER_DROPDOWN =
+  '@cjdev/visual-stack-redux/HIDE_SLIDING_PANEL_FILTER_DROPDOWN';
+export const hideFilterDropdown = createAction(
+  HIDE_SLIDING_PANEL_FILTER_DROPDOWN,
+  filterLabel => ({ filterLabel })
+);
+
+const EXPAND_SLIDING_PANEL_FILTER_DROPDOWN =
+  '@cjdev/visual-stack-redux/EXPAND_SLIDING_PANEL_FILTER_DROPDOWN';
+export const expandFilterDropdown = createAction(
+  EXPAND_SLIDING_PANEL_FILTER_DROPDOWN,
+  filterLabel => ({ filterLabel })
+);
+
 const SET_SLIDING_PANEL_ACTIVE_STATE =
   '@cjdev/visual-stack-redux/SET_SLIDING_PANEL_ACTIVE_STATE';
 export const setSlidingPanelActiveState = createAction(
@@ -134,7 +148,20 @@ export default handleActions(
         R.not,
         state
       ),
-
+    [HIDE_SLIDING_PANEL_FILTER_DROPDOWN]: (
+      state,
+      { payload: { filterLabel } }
+    ) =>
+      R.set(
+        R.lensPath(['slidingPanel', filterLabel, 'expanded']),
+        false,
+        state
+      ),
+    [EXPAND_SLIDING_PANEL_FILTER_DROPDOWN]: (
+      state,
+      { payload: { filterLabel } }
+    ) =>
+      R.set(R.lensPath(['slidingPanel', filterLabel, 'expanded']), true, state),
     [SET_SLIDING_PANEL_ACTIVE_STATE]: (state, { payload: newActiveState }) =>
       R.set(R.lensPath(['slidingPanel', 'active']), newActiveState, state),
 

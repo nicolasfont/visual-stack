@@ -1,3 +1,7 @@
+# Upcoming
+## Bug Fixes
+-Fix dropdown filter's incorrect state when remounting with the same id
+
 # 4.9.1
 ## New Feature
 -Add optional onClick prop to analytic cards

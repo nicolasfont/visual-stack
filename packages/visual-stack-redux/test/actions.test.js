@@ -11,6 +11,9 @@ import reducer, {
   forDatepicker,
   updateNamedCalendarRanges,
   resetCalendarSelection,
+  toggleFilterDropdown,
+  hideFilterDropdown,
+  expandFilterDropdown,
 } from '../src/actions';
 
 describe('reducer', () => {
@@ -110,6 +113,70 @@ describe('reducer', () => {
     };
     expect(reducer(beforeState, toggleSlidingPanel())).toEqual(afterState);
     expect(reducer(afterState, toggleSlidingPanel())).toEqual(beforeState);
+  });
+
+  test('should toggle filter dropdown', () => {
+    const beforeState = {
+      slidingPanel: {
+        id1: {
+          expanded: true,
+        },
+        active: true,
+      },
+    };
+    const afterState = {
+      slidingPanel: {
+        id1: {
+          expanded: false,
+        },
+        active: true,
+      },
+    };
+    expect(reducer(beforeState, toggleFilterDropdown('id1'))).toEqual(
+      afterState
+    );
+  });
+
+  test('should hide filter dropdown', () => {
+    const beforeState = {
+      slidingPanel: {
+        id1: {
+          expanded: true,
+        },
+        active: true,
+      },
+    };
+    const afterState = {
+      slidingPanel: {
+        id1: {
+          expanded: false,
+        },
+        active: true,
+      },
+    };
+    expect(reducer(beforeState, hideFilterDropdown('id1'))).toEqual(afterState);
+  });
+
+  test('should expand filter dropdown', () => {
+    const beforeState = {
+      slidingPanel: {
+        id1: {
+          expanded: false,
+        },
+        active: true,
+      },
+    };
+    const afterState = {
+      slidingPanel: {
+        id1: {
+          expanded: true,
+        },
+        active: true,
+      },
+    };
+    expect(reducer(beforeState, expandFilterDropdown('id1'))).toEqual(
+      afterState
+    );
   });
 
   test('should update index by tabLayoutId', () => {
