@@ -99,6 +99,7 @@ export class InternalSlidingPanelDropdown extends Component {
     );
   }
 }
+
 InternalSlidingPanelDropdown.propTypes = {
   slidingPanel: PropTypes.object,
   id: PropTypes.string.isRequired,
@@ -107,6 +108,8 @@ InternalSlidingPanelDropdown.propTypes = {
   children: PropTypes.any,
   toggleFilterDropdown: PropTypes.func,
   styles: PropTypes.object,
+  expandFilterDropdown: PropTypes.func,
+  hideFilterDropdown: PropTypes.func,
 };
 
 export const SlidingPanelDropdown = connect(
