@@ -4,6 +4,7 @@ import { SideNav, ToggleIcon, Header, LinkGroup, Link, UserIcon } from '../';
 
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { CategoryLabel } from '../../../../lib/components/SideNav';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('SideNav', () => {
@@ -112,6 +113,13 @@ describe('SideNav', () => {
       const wrapper = shallow(<UserIcon firstInitial="A" lastInitial="B" />);
       wrapper.update();
       expect(wrapper.text()).toEqual('AB');
+    });
+  });
+
+  describe('Link', () => {
+    test('should render', () => {
+      const wrapper = shallow(<CategoryLabel>Text</CategoryLabel>);
+      expect(wrapper.find('.vs-category-label').text()).toEqual('Text');
     });
   });
 });

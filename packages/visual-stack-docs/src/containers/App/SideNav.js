@@ -18,6 +18,7 @@ import {
   UserMenu,
   SettingsIcon,
   UserMenuLink,
+  CategoryLabel,
 } from '@cjdev/visual-stack-redux/lib/components/SideNav';
 import CJLogo from '@cjdev/visual-stack/lib/components/CJLogo';
 /* s3:end */
@@ -91,7 +92,7 @@ export default class AppSideNav extends React.Component {
               </Link>
             ))}
           </LinkGroup>
-
+          <CategoryLabel>Documentation</CategoryLabel>
           <Link hoverText="Getting Started">
             <RRLink to="/gettingStarted">
               <LinkContentWrapper
