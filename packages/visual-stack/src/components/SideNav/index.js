@@ -7,3 +7,4 @@ export { Header } from './Header';
 export { Link, LinkContentWrapper } from './Link';
 export { SideNav } from './SideNav';
 export { LogoutLink, UserMenuLink, UserIcon } from './UserMenu';
+export { CategoryLabel } from './CategoryLabel';

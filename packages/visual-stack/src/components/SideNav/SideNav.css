@@ -392,3 +392,11 @@
   font-weight: 300;
   margin: 3px 0.4px 0;
 }
+
+.vs-category-label {
+  text-transform: uppercase;
+  padding: 8px 16px 8px 16px;
+  color: #bfc3c8;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
