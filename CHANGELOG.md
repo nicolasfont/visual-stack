@@ -1,3 +1,7 @@
+# Upcoming
+## New Feature
+-Add category label to the side nav
+
 # 4.9.2
 ## Bug Fixes
 -Fix dropdown filter's incorrect state when remounting with the same id
