@@ -395,8 +395,10 @@
 
 .vs-category-label {
   text-transform: uppercase;
-  padding: 8px 16px 8px 16px;
-  color: #bfc3c8;
-  font-size: 1.3rem;
-  font-weight: 400;
+  padding: 22px 16px 8px 16px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
 }
