@@ -116,10 +116,17 @@ describe('SideNav', () => {
     });
   });
 
-  describe('Link', () => {
-    test('should render', () => {
-      const wrapper = shallow(<CategoryLabel>Text</CategoryLabel>);
+  describe('CategoryLabel', () => {
+    test('should render when side nav is not collapsed', () => {
+      const wrapper = shallow(
+        <CategoryLabel collapsed={false}>Text</CategoryLabel>
+      );
       expect(wrapper.find('.vs-category-label').text()).toEqual('Text');
+    });
+
+    test('should not render when side nav is collapsed', () => {
+      const wrapper = shallow(<CategoryLabel collapsed>Text</CategoryLabel>);
+      expect(wrapper.find('.vs-category-label').length).toEqual(0);
     });
   });
 });
