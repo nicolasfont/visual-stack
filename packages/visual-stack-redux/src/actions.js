@@ -25,6 +25,8 @@ const TOGGLE_SIDENAV = '@cjdev/visual-stack-redux/TOGGLE_SIDENAV';
 export const toggleSideNav = createAction(TOGGLE_SIDENAV, collapsed => ({
   collapsed,
 }));
+export const selectCollaspedStateFromSideNav = state =>
+  state.visualStack.sideNav.collapsed;
 
 const TOGGLE_SIDENAV_LINKGROUP =
   '@cjdev/visual-stack-redux/TOGGLE_SIDENAV_LINKGROUP';
