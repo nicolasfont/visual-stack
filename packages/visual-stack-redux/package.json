@@ -1,6 +1,6 @@
 {
   "name": "@cjdev/visual-stack-redux",
-  "version": "4.9.2",
+  "version": "4.9.3",
   "main": "lib/index.js",
   "files": [
     "dist",
@@ -46,7 +46,7 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
-    "@cjdev/visual-stack": "^4.9.2",
+    "@cjdev/visual-stack": "^4.9.3",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.3.0",
     "babel-loader": "^8.0.5",
