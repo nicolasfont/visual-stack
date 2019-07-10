@@ -14,6 +14,7 @@ import {
   Th,
   Td,
 } from '@cjdev/visual-stack/lib/components/Table';
+import { DataTable } from '@cjdev/visual-stack/lib/components/Table/DataTable';
 import './table.css'; // for custom styles
 /* s1:end */
 
@@ -22,6 +23,35 @@ export default () => (
     {snippets => {
       return (
         <div>
+          <Panel>
+            <Header>Data Table Example</Header>
+            <Body>
+              <div className="docs">
+                This demonstrates all the features of the data table component.
+              </div>
+              {/* s7:start */}
+              <DataTable
+                searchable
+                caption="Data Table"
+                columns={[
+                  { label: 'Row', width: '5%' },
+                  { label: 'First Name' },
+                  { label: 'Last Name' },
+                  { label: 'Rank', type: 'number', width: '10%' },
+                ]}
+                data={[
+                  [0, 'Arthur', 'Ashe', 1],
+                  [1, 'Barbara', 'Bosell', 34],
+                  [2, 'Chris', 'Canoza', 56],
+                  [3, 'Doug', 'Dangger', 7],
+                  [4, 'Elliot', 'Erwitt', 90],
+                  [5, 'Fanny', 'Flagg', 1],
+                ]}
+              />
+              {/* s7:end */}
+              <Snippet tag="s7" src={snippets} />
+            </Body>
+          </Panel>
           <Panel>
             <Header>Simple Table</Header>
             <Body>

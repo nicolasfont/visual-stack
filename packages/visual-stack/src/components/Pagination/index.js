@@ -32,7 +32,13 @@ const getRowsPerPageOption = pageValue =>
     head
   )(rowsPerPageOptionsMap);
 
-const Pagination = ({ numberOfRows, rowsPerPage, page, onChange }) => {
+const Pagination = ({
+  numberOfRows,
+  rowsPerPage,
+  page,
+  onChange,
+  className,
+}) => {
   const maxPage = Math.ceil(numberOfRows / rowsPerPage);
 
   const handleRowsPerPage = ({ value: nextRowsPerPage }) => {
@@ -58,7 +64,7 @@ const Pagination = ({ numberOfRows, rowsPerPage, page, onChange }) => {
   };
 
   return (
-    <div className="vs-pagination">
+    <div className={`vs-pagination ${className}`}>
       <div className="vs-rows-per-page-container">
         <Select
           name="rows-per-page"
