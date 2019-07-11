@@ -69,7 +69,7 @@ describe('DataTable', () => {
     });
   });
 
-  describe('Pagination', () => {
+  describe('pagination', () => {
     it('should not render if pagination is not enabled', () => {
       const wrapper = mount(<DataTable />);
       expect(wrapper.find('Pagination')).toHaveLength(0);
@@ -132,91 +132,192 @@ describe('DataTable', () => {
   });
 
   describe('sorting', () => {
-    it('should render the correct headers when there is a sorting option', () => {
-      const wrapper = mount(
-        <DataTable
-          columns={[
-            { label: 'id' },
-            {
+    describe('when displaying headers', () => {
+      it('should render the menu up icon', () => {
+        const wrapper = mount(
+          <DataTable
+            columns={[
+              { label: 'id' },
+              {
+                label: 'first name',
+              },
+              {
+                label: 'last name',
+              },
+            ]}
+            sortingOption={{
               label: 'first name',
-            },
-            {
-              label: 'last name',
-            },
-          ]}
-          sortingOption={{
-            label: 'first name',
-            order: ASCENDING,
-          }}
-        />
-      );
-      const targetHeaderWrapper = wrapper
-        .find('.vs-table-header')
-        .filterWhere(node => trim(node.text()) === 'first name');
-      const otherHeadersWrapper = wrapper
-        .find('.vs-table-header')
-        .filterWhere(node => trim(node.text()) !== 'first name');
-      expect(targetHeaderWrapper.find('MenuUpIcon')).toHaveLength(1);
-      expect(
-        sum(otherHeadersWrapper.map(node => node.find('MenuDownIcon').length))
-      ).toEqual(0);
+              order: ASCENDING,
+            }}
+          />
+        );
+        const targetHeaderWrapper = wrapper
+          .find('.vs-table-header')
+          .filterWhere(node => trim(node.text()) === 'first name');
+        const otherHeadersWrapper = wrapper
+          .find('.vs-table-header')
+          .filterWhere(node => trim(node.text()) !== 'first name');
+        expect(targetHeaderWrapper.find('MenuUpIcon')).toHaveLength(1);
+        expect(
+          sum(otherHeadersWrapper.map(node => node.find('MenuDownIcon').length))
+        ).toEqual(0);
+      });
+
+      it('should render menu down icon', () => {
+        const wrapper = mount(
+          <DataTable
+            columns={[
+              { label: 'id' },
+              {
+                label: 'first name',
+              },
+              {
+                label: 'last name',
+              },
+            ]}
+            sortingOption={{
+              label: 'first name',
+              order: DESCENDING,
+            }}
+          />
+        );
+        const targetHeaderWrapper = wrapper
+          .find('.vs-table-header')
+          .filterWhere(node => trim(node.text()) === 'first name');
+        expect(targetHeaderWrapper.find('MenuDownIcon')).toHaveLength(1);
+      });
     });
 
-    it('should render menu down icon when there is a sorting order is descending', () => {
-      const wrapper = mount(
-        <DataTable
-          columns={[
-            { label: 'id' },
-            {
-              label: 'first name',
-            },
-            {
-              label: 'last name',
-            },
-          ]}
-          sortingOption={{
-            label: 'first name',
-            order: DESCENDING,
-          }}
-        />
-      );
-      const targetHeaderWrapper = wrapper
-        .find('.vs-table-header')
-        .filterWhere(node => trim(node.text()) === 'first name');
-      expect(targetHeaderWrapper.find('MenuDownIcon')).toHaveLength(1);
-    });
-
-    it('should call back with the sorting data and option when clicking on the header', () => {
-      const onSort = jest.fn();
-      const label = 'first name';
-      const wrapper = mount(
-        <DataTable
-          columns={[
-            {
+    describe('when clicking on sorted header', () => {
+      it('should callback with the sorting option', () => {
+        const onSort = jest.fn();
+        const label = 'first name';
+        const wrapper = mount(
+          <DataTable
+            columns={[
+              {
+                label,
+              },
+            ]}
+            sortingOption={{
               label,
+              order: DESCENDING,
+            }}
+            onSort={onSort}
+          />
+        );
+        const targetHeaderWrapper = wrapper
+          .find('.vs-table-header')
+          .filterWhere(node => trim(node.text()) === label);
+        targetHeaderWrapper.simulate('click');
+        expect(onSort.mock.calls).toEqual([
+          [
+            {
+              sortingOption: {
+                label,
+                order: ASCENDING,
+              },
             },
-          ]}
-          sortingOption={{
-            label,
-            order: DESCENDING,
-          }}
-          onSort={onSort}
-        />
-      );
-      const targetHeaderWrapper = wrapper
-        .find('.vs-table-header')
-        .filterWhere(node => trim(node.text()) === 'first name');
-      targetHeaderWrapper.simulate('click');
-      expect(onSort.mock.calls).toEqual([
-        [
-          {
-            sortingOption: {
+          ],
+        ]);
+      });
+
+      it('should callback with alternate sorting order', () => {
+        const onSort = jest.fn();
+        const label = 'first name';
+        const wrapper = mount(
+          <DataTable
+            columns={[
+              {
+                label,
+              },
+            ]}
+            sortingOption={{
               label,
               order: ASCENDING,
+            }}
+            onSort={onSort}
+          />
+        );
+        const targetHeaderWrapper = wrapper
+          .find('.vs-table-header')
+          .filterWhere(node => trim(node.text()) === label);
+        targetHeaderWrapper.simulate('click');
+        expect(onSort.mock.calls).toEqual([
+          [
+            {
+              sortingOption: {
+                label,
+                order: DESCENDING,
+              },
             },
-          },
-        ],
-      ]);
+          ],
+        ]);
+      });
+    });
+
+    describe('when clicking on non-sorted header', () => {
+      it('should callback with default sorting order', () => {
+        const onSort = jest.fn();
+        const label = 'first name';
+        const wrapper = mount(
+          <DataTable
+            columns={[
+              {
+                label,
+              },
+            ]}
+            onSort={onSort}
+          />
+        );
+        const targetHeaderWrapper = wrapper
+          .find('.vs-table-header')
+          .filterWhere(node => trim(node.text()) === label);
+        targetHeaderWrapper.simulate('click');
+        expect(onSort.mock.calls).toEqual([
+          [
+            {
+              sortingOption: {
+                label,
+                order: ASCENDING,
+              },
+            },
+          ],
+        ]);
+      });
+
+      it('should callback with default sorting order and ignore the sorted header', () => {
+        const onSort = jest.fn();
+        const label = 'first name';
+        const wrapper = mount(
+          <DataTable
+            columns={[
+              {
+                label,
+              },
+            ]}
+            onSort={onSort}
+            sortingOption={{
+              label: 'id',
+              order: ASCENDING,
+            }}
+          />
+        );
+        const targetHeaderWrapper = wrapper
+          .find('.vs-table-header')
+          .filterWhere(node => trim(node.text()) === label);
+        targetHeaderWrapper.simulate('click');
+        expect(onSort.mock.calls).toEqual([
+          [
+            {
+              sortingOption: {
+                label,
+                order: ASCENDING,
+              },
+            },
+          ],
+        ]);
+      });
     });
   });
 });

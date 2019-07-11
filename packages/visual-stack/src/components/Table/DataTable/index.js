@@ -33,22 +33,33 @@ const getSortingIcon = (sortingOption, currentLabel) => {
   return icon;
 };
 
-const generateHeader = (sortingOption, onSort) => ({ label, width }, index) => (
+const getNextOrder = order => {
+  if (!order) return ASCENDING;
+  if (order === ASCENDING) return DESCENDING;
+  if (order === DESCENDING) return ASCENDING;
+};
+
+const generateHeader = (sortingOption, onSort) => (
+  { label: currentLabel, width },
+  index
+) => (
   <Th
     id="label"
     style={width && { width }}
     className="vs-data-table-header"
     key={index}
     onClick={() => {
+      const { label, order } = sortingOption;
+      const currentOrder = label === currentLabel ? order : null;
       onSort({
         sortingOption: {
-          label,
-          order: ASCENDING,
+          label: currentLabel,
+          order: getNextOrder(currentOrder),
         },
       });
     }}
   >
-    {label} {getSortingIcon(sortingOption, label)}
+    {currentLabel} {getSortingIcon(sortingOption, currentLabel)}
   </Th>
 );
 

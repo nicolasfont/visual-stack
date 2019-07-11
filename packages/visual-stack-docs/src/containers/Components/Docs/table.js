@@ -71,10 +71,11 @@ export default () => (
                 ]}
                 sortingOption={{
                   label: 'Last Name',
-                  order: 'descending',
+                  order: 'ascending',
                 }}
                 page={2}
                 rowsPerPage={10}
+                onSort={console.log}
                 onPageChange={console.log}
                 pagination
               />
