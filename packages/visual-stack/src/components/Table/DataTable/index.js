@@ -16,12 +16,15 @@ import MenuUpIcon from 'mdi-react/MenuUpIcon';
 import * as R from 'ramda';
 import './DataTable.css';
 
+export const ASCENDING = 'ascending';
+export const DESCENDING = 'descending';
+
 const getSortingIcon = (sortingOption, currentLabel) => {
   let icon = null;
-  if (sortingOption.order === 'ascending') {
+  if (sortingOption.order === ASCENDING) {
     icon = <MenuUpIcon />;
   }
-  if (sortingOption.order === 'descending') {
+  if (sortingOption.order === DESCENDING) {
     icon = <MenuDownIcon />;
   }
   if (sortingOption.label !== currentLabel) {
@@ -30,12 +33,20 @@ const getSortingIcon = (sortingOption, currentLabel) => {
   return icon;
 };
 
-const generateHeader = sortingOption => ({ label, width }, index) => (
+const generateHeader = (sortingOption, onSort) => ({ label, width }, index) => (
   <Th
     id="label"
     style={width && { width }}
     className="vs-data-table-header"
     key={index}
+    onClick={() => {
+      onSort({
+        sortingOption: {
+          label,
+          order: ASCENDING,
+        },
+      });
+    }}
   >
     {label} {getSortingIcon(sortingOption, label)}
   </Th>
@@ -64,6 +75,7 @@ export const DataTable = ({
   onPageChange,
   pagination = false,
   sortingOption = {},
+  onSort,
 }) => {
   const normalizedData = pagination
     ? getDataWithPagination(rowsPerPage, page)(data)
@@ -74,7 +86,7 @@ export const DataTable = ({
       <TableTitle>{caption}</TableTitle>
       <Table>
         <THead>
-          <Tr>{columns.map(generateHeader(sortingOption))}</Tr>
+          <Tr>{columns.map(generateHeader(sortingOption, onSort))}</Tr>
         </THead>
         <TBody>{normalizedData.map(generateRow)}</TBody>
       </Table>
