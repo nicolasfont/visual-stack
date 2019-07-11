@@ -1,5 +1,5 @@
 import React from 'react';
-import { DataTable } from './';
+import { DataTable, ASCENDING, DESCENDING } from './';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { trim, range, sum } from 'ramda';
@@ -21,11 +21,6 @@ describe('DataTable', () => {
               label: label2,
             },
           ]}
-          caption=""
-          rowsPerPage={25}
-          page={1}
-          onPageChange={jest.fn()}
-          data={[]}
         />
       );
       expect(
@@ -48,11 +43,6 @@ describe('DataTable', () => {
               width: width2,
             },
           ]}
-          caption=""
-          rowsPerPage={25}
-          page={1}
-          onPageChange={jest.fn()}
-          data={[]}
         />
       );
       expect(
@@ -68,14 +58,7 @@ describe('DataTable', () => {
       const data3 = 'data3';
       const data4 = 'data4';
       const wrapper = mount(
-        <DataTable
-          columns={[]}
-          caption=""
-          rowsPerPage={25}
-          page={1}
-          onPageChange={jest.fn()}
-          data={[[data1, data2], [data3, data4]]}
-        />
+        <DataTable data={[[data1, data2], [data3, data4]]} />
       );
       expect(wrapper.find('td').map(node => node.text())).toEqual([
         data1,
@@ -88,31 +71,14 @@ describe('DataTable', () => {
 
   describe('Pagination', () => {
     it('should not render if pagination is not enabled', () => {
-      const wrapper = mount(
-        <DataTable
-          columns={[]}
-          caption=""
-          rowsPerPage={25}
-          page={1}
-          onPageChange={jest.fn()}
-          data={[]}
-        />
-      );
+      const wrapper = mount(<DataTable />);
       expect(wrapper.find('Pagination')).toHaveLength(0);
     });
 
     it('should render if pagination is enabled', () => {
       const onPageChange = jest.fn();
       const wrapper = mount(
-        <DataTable
-          columns={[]}
-          caption=""
-          rowsPerPage={25}
-          page={1}
-          onPageChange={onPageChange}
-          data={[]}
-          pagination
-        />
+        <DataTable onPageChange={onPageChange} pagination />
       );
       const paginationWrapper = wrapper.find('Pagination');
       const paginationProps = paginationWrapper.props();
@@ -138,12 +104,10 @@ describe('DataTable', () => {
         const onPageChange = jest.fn();
         const wrapper = mount(
           <DataTable
-            columns={[]}
-            caption=""
             rowsPerPage={25}
             page={2}
-            onPageChange={onPageChange}
             data={[...groupedData1, ...groupedData2, ...groupedData3]}
+            onPageChange={onPageChange}
             pagination
           />
         );
@@ -153,14 +117,10 @@ describe('DataTable', () => {
       });
 
       it('should render a all the rows when pagination is disabled', () => {
-        const onPageChange = jest.fn();
         const wrapper = mount(
           <DataTable
-            columns={[]}
-            caption=""
             rowsPerPage={25}
             page={2}
-            onPageChange={onPageChange}
             data={[...groupedData1, ...groupedData2, ...groupedData3]}
           />
         );
@@ -186,13 +146,8 @@ describe('DataTable', () => {
           ]}
           sortingOption={{
             label: 'first name',
-            order: 'ascending',
+            order: ASCENDING,
           }}
-          caption=""
-          rowsPerPage={25}
-          page={2}
-          onPageChange={jest.fn()}
-          data={[]}
         />
       );
       const targetHeaderWrapper = wrapper
@@ -221,19 +176,47 @@ describe('DataTable', () => {
           ]}
           sortingOption={{
             label: 'first name',
-            order: 'descending',
+            order: DESCENDING,
           }}
-          caption=""
-          rowsPerPage={25}
-          page={2}
-          onPageChange={jest.fn()}
-          data={[]}
         />
       );
       const targetHeaderWrapper = wrapper
         .find('.vs-table-header')
         .filterWhere(node => trim(node.text()) === 'first name');
       expect(targetHeaderWrapper.find('MenuDownIcon')).toHaveLength(1);
+    });
+
+    it('should call back with the sorting data and option when clicking on the header', () => {
+      const onSort = jest.fn();
+      const label = 'first name';
+      const wrapper = mount(
+        <DataTable
+          columns={[
+            {
+              label,
+            },
+          ]}
+          sortingOption={{
+            label,
+            order: DESCENDING,
+          }}
+          onSort={onSort}
+        />
+      );
+      const targetHeaderWrapper = wrapper
+        .find('.vs-table-header')
+        .filterWhere(node => trim(node.text()) === 'first name');
+      targetHeaderWrapper.simulate('click');
+      expect(onSort.mock.calls).toEqual([
+        [
+          {
+            sortingOption: {
+              label,
+              order: ASCENDING,
+            },
+          },
+        ],
+      ]);
     });
   });
 });
