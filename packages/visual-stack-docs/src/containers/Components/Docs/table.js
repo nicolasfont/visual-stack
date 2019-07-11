@@ -2,6 +2,7 @@
 import React from 'react';
 import { Panel, Body, Header } from '@cjdev/visual-stack/lib/components/Panel';
 import { Demo, Snippet } from '../../../components/Demo';
+
 /* s1:start */
 import {
   TableContainer,
@@ -31,13 +32,12 @@ export default () => (
               </div>
               {/* s7:start */}
               <DataTable
-                searchable
                 caption="Data Table"
                 columns={[
-                  { label: 'Row', width: '5%' },
+                  { label: 'Row', width: '10%' },
                   { label: 'First Name' },
                   { label: 'Last Name' },
-                  { label: 'Rank', type: 'number', width: '10%' },
+                  { label: 'Rank', type: 'number' },
                 ]}
                 data={[
                   [0, 'Arthur', 'Ashe', 1],
@@ -45,8 +45,34 @@ export default () => (
                   [2, 'Chris', 'Canoza', 56],
                   [3, 'Doug', 'Dangger', 7],
                   [4, 'Elliot', 'Erwitt', 90],
-                  [5, 'Fanny', 'Flagg', 1],
+                  [5, 'Dillon', 'Otwell', 67],
+                  [6, 'Josephina', 'Frost', 23],
+                  [7, 'Timothy', 'Hall', 404],
+                  [8, 'Catherine', 'Terry', 155],
+                  [9, 'Elizabeth', 'Weitz', 2421],
+                  [10, 'David', 'Mora', 6332],
+                  [11, 'Mac', 'Morrow', 6331],
+                  [12, 'Michal', 'Lamont', 8851],
+                  [13, 'Erma', 'Kash', 4186],
+                  [14, 'Bernice', 'Cloutier', 2569],
+                  [15, 'Jodi', 'Kelly', 8082],
+                  [16, 'Carol', 'Wheeler', 8774],
+                  [17, 'Alberto', 'Clark', 770],
+                  [18, 'Margaret', 'Harris', 8305],
+                  [19, 'Jose', 'Bowden', 9796],
+                  [20, 'Ronald', 'Carrillo', 9028],
+                  [21, 'Ruth', 'Childs', 3724],
+                  [22, 'Laverne', 'Drain', 9848],
+                  [23, 'Gerald', 'Alldredge', 2760],
+                  [24, 'Lois', 'Vasquez', 9234],
+                  [25, 'Claud', 'Wallen', 6406],
+                  [26, 'Paul', 'Rodriguez', 3701],
+                  [27, 'Ronald', 'Brown', 3424],
                 ]}
+                page={2}
+                rowsPerPage={10}
+                onPageChange={console.log}
+                pagination
               />
               {/* s7:end */}
               <Snippet tag="s7" src={snippets} />

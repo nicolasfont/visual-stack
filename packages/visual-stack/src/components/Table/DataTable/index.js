@@ -11,12 +11,48 @@ import {
   Th,
 } from '../';
 import Pagination from '../../Pagination';
+import MenuDownIcon from 'mdi-react/MenuDownIcon';
+import * as R from 'ramda';
+import './DataTable.css';
 
-const generateHeader = ({ label, width }) => (
-  <Th style={width && { width }}>{label}</Th>
+const generateHeader = ({ label, width }, index) => (
+  <Th
+    id="label"
+    style={width && { width }}
+    className="vs-data-table-header"
+    key={index}
+  >
+    {label} <MenuDownIcon />
+  </Th>
 );
 
-export const DataTable = ({ caption, columns, data }) => {
+const generateRow = (rowItems, index) => (
+  <Tr key={index}>
+    {rowItems.map((item, index) => (
+      <Td key={index}>{item}</Td>
+    ))}
+  </Tr>
+);
+
+const getDataWithPagination = (rowsPerPage, page) =>
+  R.compose(
+    R.take(rowsPerPage),
+    R.drop(rowsPerPage * (page - 1))
+  );
+
+export const DataTable = ({
+  caption,
+  columns,
+  data,
+  rowsPerPage,
+  page,
+  onPageChange,
+  pagination,
+}) => {
+  const normalizedData = pagination
+    ? getDataWithPagination(rowsPerPage, page)(data)
+    : data;
+
   return (
     <TableContainer>
       <TableTitle>{caption}</TableTitle>
@@ -24,23 +60,17 @@ export const DataTable = ({ caption, columns, data }) => {
         <THead>
           <Tr>{columns.map(generateHeader)}</Tr>
         </THead>
-        <TBody>
-          {data.map(rowItems => (
-            <Tr>
-              {rowItems.map(item => (
-                <Td>{item}</Td>
-              ))}
-            </Tr>
-          ))}
-        </TBody>
+        <TBody>{normalizedData.map(generateRow)}</TBody>
       </Table>
-      <Pagination
-        className="vs-table-pagination"
-        numberOfRows={data.length}
-        rowsPerPage={10}
-        page={1}
-        onChange={() => {}}
-      />
+      {pagination && (
+        <Pagination
+          className="vs-table-pagination"
+          numberOfRows={data.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onChange={onPageChange}
+        />
+      )}
     </TableContainer>
   );
 };
