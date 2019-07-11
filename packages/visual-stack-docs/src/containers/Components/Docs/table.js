@@ -37,7 +37,7 @@ export default () => (
                   { label: 'Row', width: '10%' },
                   { label: 'First Name' },
                   { label: 'Last Name' },
-                  { label: 'Rank', type: 'number' },
+                  { label: 'Rank' },
                 ]}
                 data={[
                   [0, 'Arthur', 'Ashe', 1],
@@ -69,6 +69,10 @@ export default () => (
                   [26, 'Paul', 'Rodriguez', 3701],
                   [27, 'Ronald', 'Brown', 3424],
                 ]}
+                sortingOption={{
+                  label: 'Last Name',
+                  order: 'descending',
+                }}
                 page={2}
                 rowsPerPage={10}
                 onPageChange={console.log}
