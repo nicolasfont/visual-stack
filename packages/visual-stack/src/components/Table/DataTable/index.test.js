@@ -2,7 +2,7 @@ import React from 'react';
 import { DataTable } from './';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { trim, range } from 'ramda';
+import { trim, range, sum } from 'ramda';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -168,6 +168,72 @@ describe('DataTable', () => {
           [...group1, ...group2, ...group3].map(number => number.toString())
         );
       });
+    });
+  });
+
+  describe('sorting', () => {
+    it('should render the correct headers when there is a sorting option', () => {
+      const wrapper = mount(
+        <DataTable
+          columns={[
+            { label: 'id' },
+            {
+              label: 'first name',
+            },
+            {
+              label: 'last name',
+            },
+          ]}
+          sortingOption={{
+            label: 'first name',
+            order: 'ascending',
+          }}
+          caption=""
+          rowsPerPage={25}
+          page={2}
+          onPageChange={jest.fn()}
+          data={[]}
+        />
+      );
+      const targetHeaderWrapper = wrapper
+        .find('.vs-table-header')
+        .filterWhere(node => trim(node.text()) === 'first name');
+      const otherHeadersWrapper = wrapper
+        .find('.vs-table-header')
+        .filterWhere(node => trim(node.text()) !== 'first name');
+      expect(targetHeaderWrapper.find('MenuUpIcon')).toHaveLength(1);
+      expect(
+        sum(otherHeadersWrapper.map(node => node.find('MenuDownIcon').length))
+      ).toEqual(0);
+    });
+
+    it('should render menu down icon when there is a sorting order is descending', () => {
+      const wrapper = mount(
+        <DataTable
+          columns={[
+            { label: 'id' },
+            {
+              label: 'first name',
+            },
+            {
+              label: 'last name',
+            },
+          ]}
+          sortingOption={{
+            label: 'first name',
+            order: 'descending',
+          }}
+          caption=""
+          rowsPerPage={25}
+          page={2}
+          onPageChange={jest.fn()}
+          data={[]}
+        />
+      );
+      const targetHeaderWrapper = wrapper
+        .find('.vs-table-header')
+        .filterWhere(node => trim(node.text()) === 'first name');
+      expect(targetHeaderWrapper.find('MenuDownIcon')).toHaveLength(1);
     });
   });
 });
