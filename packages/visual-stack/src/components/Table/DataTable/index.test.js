@@ -210,16 +210,11 @@ describe('DataTable', () => {
           .find('.vs-table-header')
           .filterWhere(node => trim(node.text()) === label);
         targetHeaderWrapper.simulate('click');
-        expect(onSort.mock.calls).toEqual([
-          [
-            {
-              sortingOption: {
-                label,
-                order: ASCENDING,
-              },
-            },
-          ],
-        ]);
+
+        expect(onSort.mock.calls[0][0].sortingOption).toEqual({
+          label,
+          order: ASCENDING,
+        });
       });
 
       it('should callback with alternate sorting order', () => {
@@ -243,16 +238,10 @@ describe('DataTable', () => {
           .find('.vs-table-header')
           .filterWhere(node => trim(node.text()) === label);
         targetHeaderWrapper.simulate('click');
-        expect(onSort.mock.calls).toEqual([
-          [
-            {
-              sortingOption: {
-                label,
-                order: DESCENDING,
-              },
-            },
-          ],
-        ]);
+        expect(onSort.mock.calls[0][0].sortingOption).toEqual({
+          label,
+          order: DESCENDING,
+        });
       });
     });
 
@@ -274,16 +263,10 @@ describe('DataTable', () => {
           .find('.vs-table-header')
           .filterWhere(node => trim(node.text()) === label);
         targetHeaderWrapper.simulate('click');
-        expect(onSort.mock.calls).toEqual([
-          [
-            {
-              sortingOption: {
-                label,
-                order: ASCENDING,
-              },
-            },
-          ],
-        ]);
+        expect(onSort.mock.calls[0][0].sortingOption).toEqual({
+          label,
+          order: ASCENDING,
+        });
       });
 
       it('should callback with default sorting order and ignore the sorted header', () => {
@@ -307,16 +290,10 @@ describe('DataTable', () => {
           .find('.vs-table-header')
           .filterWhere(node => trim(node.text()) === label);
         targetHeaderWrapper.simulate('click');
-        expect(onSort.mock.calls).toEqual([
-          [
-            {
-              sortingOption: {
-                label,
-                order: ASCENDING,
-              },
-            },
-          ],
-        ]);
+        expect(onSort.mock.calls[0][0].sortingOption).toEqual({
+          label,
+          order: ASCENDING,
+        });
       });
     });
   });

@@ -50,11 +50,13 @@ const generateHeader = (sortingOption, onSort) => (
     key={index}
     onClick={() => {
       const { label, order } = sortingOption;
-      const currentOrder = label === currentLabel ? order : null;
+      const isCurrentColumnSorted = label === currentLabel;
+      const currentOrder = isCurrentColumnSorted ? order : null;
+      const nextOrder = getNextOrder(currentOrder);
       onSort({
         sortingOption: {
           label: currentLabel,
-          order: getNextOrder(currentOrder),
+          order: nextOrder,
         },
       });
     }}
