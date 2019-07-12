@@ -243,6 +243,104 @@ describe('DataTable', () => {
           order: DESCENDING,
         });
       });
+
+      it('should callback with the ascending sorting data on non sorted header', () => {
+        const onSort = jest.fn();
+        const first = 'a';
+        const second = 'b';
+        const third = 'c';
+        const label = 'id';
+        const wrapper = mount(
+          <DataTable
+            columns={[
+              {
+                label,
+              },
+            ]}
+            sortingOption={{
+              label: 'NOT YOUR TARGET HEADER',
+              order: DESCENDING,
+            }}
+            data={[[second], [first], [third]]}
+            onSort={onSort}
+          />
+        );
+        const targetHeaderWrapper = wrapper
+          .find('.vs-table-header')
+          .filterWhere(node => trim(node.text()) === label);
+        targetHeaderWrapper.simulate('click');
+
+        expect(onSort.mock.calls[0][0].data).toEqual([
+          [first],
+          [second],
+          [third],
+        ]);
+      });
+
+      it('should callback with the ascending sorting data', () => {
+        const onSort = jest.fn();
+        const first = 'a';
+        const second = 'b';
+        const third = 'c';
+        const label = 'id';
+        const wrapper = mount(
+          <DataTable
+            columns={[
+              {
+                label,
+              },
+            ]}
+            sortingOption={{
+              label,
+              order: DESCENDING,
+            }}
+            data={[[second], [first], [third]]}
+            onSort={onSort}
+          />
+        );
+        const targetHeaderWrapper = wrapper
+          .find('.vs-table-header')
+          .filterWhere(node => trim(node.text()) === label);
+        targetHeaderWrapper.simulate('click');
+
+        expect(onSort.mock.calls[0][0].data).toEqual([
+          [first],
+          [second],
+          [third],
+        ]);
+      });
+
+      it('should callback with the descending sorting data', () => {
+        const onSort = jest.fn();
+        const label = 'first name';
+        const first = 'a';
+        const second = 'b';
+        const third = 'c';
+        const wrapper = mount(
+          <DataTable
+            columns={[
+              {
+                label,
+              },
+            ]}
+            sortingOption={{
+              label,
+              order: ASCENDING,
+            }}
+            data={[[second], [first], [third]]}
+            onSort={onSort}
+          />
+        );
+        const targetHeaderWrapper = wrapper
+          .find('.vs-table-header')
+          .filterWhere(node => trim(node.text()) === label);
+        targetHeaderWrapper.simulate('click');
+        expect(onSort.mock.calls[0][0].data).toEqual([
+          [third],
+          [second],
+          [first],
+        ]);
+      });
     });
 
     describe('when clicking on non-sorted header', () => {

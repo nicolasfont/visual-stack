@@ -34,12 +34,21 @@ const getSortingIcon = (sortingOption, currentLabel) => {
 };
 
 const getNextOrder = order => {
-  if (!order) return ASCENDING;
+  if (!order || order === DESCENDING) return ASCENDING;
   if (order === ASCENDING) return DESCENDING;
-  if (order === DESCENDING) return ASCENDING;
 };
 
-const generateHeader = (sortingOption, onSort) => (
+const sort = order => index => R.sortWith([order(R.prop(index))]);
+const sortAscendingByIndex = sort(R.ascend);
+const sortDescendingByIndex = sort(R.descend);
+
+const getNextData = (index, currentOrder, data) => {
+  if (!currentOrder || currentOrder === DESCENDING)
+    return sortAscendingByIndex(index)(data);
+  if (currentOrder === ASCENDING) return sortDescendingByIndex(index)(data);
+};
+
+const generateHeader = (sortingOption, onSort, data) => (
   { label: currentLabel, width },
   index
 ) => (
@@ -53,11 +62,13 @@ const generateHeader = (sortingOption, onSort) => (
       const isCurrentColumnSorted = label === currentLabel;
       const currentOrder = isCurrentColumnSorted ? order : null;
       const nextOrder = getNextOrder(currentOrder);
+      const nextData = getNextData(index, currentOrder, data);
       onSort({
         sortingOption: {
           label: currentLabel,
           order: nextOrder,
         },
+        data: nextData,
       });
     }}
   >
@@ -99,7 +110,7 @@ export const DataTable = ({
       <TableTitle>{caption}</TableTitle>
       <Table>
         <THead>
-          <Tr>{columns.map(generateHeader(sortingOption, onSort))}</Tr>
+          <Tr>{columns.map(generateHeader(sortingOption, onSort, data))}</Tr>
         </THead>
         <TBody>{normalizedData.map(generateRow)}</TBody>
       </Table>
