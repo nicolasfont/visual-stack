@@ -77,6 +77,7 @@ export default () => (
                 rowsPerPage={10}
                 onSort={console.log}
                 onPageChange={console.log}
+                sortable
                 pagination
               />
               {/* s7:end */}
