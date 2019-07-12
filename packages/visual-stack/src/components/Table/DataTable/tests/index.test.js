@@ -1,5 +1,5 @@
 import React from 'react';
-import { DataTable, ASCENDING, DESCENDING } from './';
+import { DataTable, ASCENDING, DESCENDING } from '..';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { trim, range, sum } from 'ramda';
@@ -23,9 +23,10 @@ describe('DataTable', () => {
           ]}
         />
       );
-      expect(
-        wrapper.find('.vs-table-header').map(node => trim(node.text()))
-      ).toEqual([label1, label2]);
+      expect(wrapper.find('th').map(node => trim(node.text()))).toEqual([
+        label1,
+        label2,
+      ]);
     });
 
     it('should render with width when there is a width for columns', () => {
@@ -45,9 +46,10 @@ describe('DataTable', () => {
           ]}
         />
       );
-      expect(
-        wrapper.find('.vs-table-header').map(node => node.prop('style'))
-      ).toEqual([{ width: width1 }, { width: width2 }]);
+      expect(wrapper.find('th').map(node => node.prop('style'))).toEqual([
+        { width: width1 },
+        { width: width2 },
+      ]);
     });
   });
 
@@ -133,6 +135,23 @@ describe('DataTable', () => {
 
   describe('sorting', () => {
     describe('when displaying headers', () => {
+      it('should not render any sortable style if sortable is not enabled', () => {
+        const wrapper = mount(
+          <DataTable
+            columns={[{ label: 'id' }]}
+            sortingOption={{
+              label: 'id',
+              order: DESCENDING,
+            }}
+          />
+        );
+        expect(wrapper.find('MenuUpIcon')).toHaveLength(0);
+        expect(wrapper.find('MenuDownIcon')).toHaveLength(0);
+        expect(wrapper.find('th.vs-data-table-header-sortable')).toHaveLength(
+          0
+        );
+      });
+
       it('should render the menu up icon', () => {
         const wrapper = mount(
           <DataTable
@@ -149,13 +168,14 @@ describe('DataTable', () => {
               label: 'first name',
               order: ASCENDING,
             }}
+            sortable
           />
         );
         const targetHeaderWrapper = wrapper
-          .find('.vs-table-header')
+          .find('th.vs-data-table-header-sortable')
           .filterWhere(node => trim(node.text()) === 'first name');
         const otherHeadersWrapper = wrapper
-          .find('.vs-table-header')
+          .find('th.vs-data-table-header-sortable')
           .filterWhere(node => trim(node.text()) !== 'first name');
         expect(targetHeaderWrapper.find('MenuUpIcon')).toHaveLength(1);
         expect(
@@ -179,16 +199,34 @@ describe('DataTable', () => {
               label: 'first name',
               order: DESCENDING,
             }}
+            sortable
           />
         );
         const targetHeaderWrapper = wrapper
-          .find('.vs-table-header')
+          .find('th.vs-data-table-header-sortable')
           .filterWhere(node => trim(node.text()) === 'first name');
         expect(targetHeaderWrapper.find('MenuDownIcon')).toHaveLength(1);
       });
     });
 
     describe('when clicking on sorted header', () => {
+      it('should not be clickable when sortable is not enabled', () => {
+        const label = 'id';
+        const wrapper = mount(
+          <DataTable
+            columns={[{ label: label }]}
+            sortingOption={{
+              label,
+              order: DESCENDING,
+            }}
+          />
+        );
+        const targetHeaderWrapper = wrapper
+          .find('th')
+          .filterWhere(node => trim(node.text()) === label);
+        expect(targetHeaderWrapper.prop('onClick')).toEqual(undefined);
+      });
+
       it('should callback with the sorting option', () => {
         const onSort = jest.fn();
         const label = 'first name';
@@ -204,10 +242,11 @@ describe('DataTable', () => {
               order: DESCENDING,
             }}
             onSort={onSort}
+            sortable
           />
         );
         const targetHeaderWrapper = wrapper
-          .find('.vs-table-header')
+          .find('th.vs-data-table-header-sortable')
           .filterWhere(node => trim(node.text()) === label);
         targetHeaderWrapper.simulate('click');
 
@@ -232,10 +271,11 @@ describe('DataTable', () => {
               order: ASCENDING,
             }}
             onSort={onSort}
+            sortable
           />
         );
         const targetHeaderWrapper = wrapper
-          .find('.vs-table-header')
+          .find('th.vs-data-table-header-sortable')
           .filterWhere(node => trim(node.text()) === label);
         targetHeaderWrapper.simulate('click');
         expect(onSort.mock.calls[0][0].sortingOption).toEqual({
@@ -263,10 +303,11 @@ describe('DataTable', () => {
             }}
             data={[[second], [first], [third]]}
             onSort={onSort}
+            sortable
           />
         );
         const targetHeaderWrapper = wrapper
-          .find('.vs-table-header')
+          .find('th.vs-data-table-header-sortable')
           .filterWhere(node => trim(node.text()) === label);
         targetHeaderWrapper.simulate('click');
 
@@ -296,10 +337,11 @@ describe('DataTable', () => {
             }}
             data={[[second], [first], [third]]}
             onSort={onSort}
+            sortable
           />
         );
         const targetHeaderWrapper = wrapper
-          .find('.vs-table-header')
+          .find('th.vs-data-table-header-sortable')
           .filterWhere(node => trim(node.text()) === label);
         targetHeaderWrapper.simulate('click');
 
@@ -329,10 +371,11 @@ describe('DataTable', () => {
             }}
             data={[[second], [first], [third]]}
             onSort={onSort}
+            sortable
           />
         );
         const targetHeaderWrapper = wrapper
-          .find('.vs-table-header')
+          .find('th.vs-data-table-header-sortable')
           .filterWhere(node => trim(node.text()) === label);
         targetHeaderWrapper.simulate('click');
         expect(onSort.mock.calls[0][0].data).toEqual([
@@ -355,10 +398,11 @@ describe('DataTable', () => {
               },
             ]}
             onSort={onSort}
+            sortable
           />
         );
         const targetHeaderWrapper = wrapper
-          .find('.vs-table-header')
+          .find('th.vs-data-table-header-sortable')
           .filterWhere(node => trim(node.text()) === label);
         targetHeaderWrapper.simulate('click');
         expect(onSort.mock.calls[0][0].sortingOption).toEqual({
@@ -382,10 +426,11 @@ describe('DataTable', () => {
               label: 'id',
               order: ASCENDING,
             }}
+            sortable
           />
         );
         const targetHeaderWrapper = wrapper
-          .find('.vs-table-header')
+          .find('th.vs-data-table-header-sortable')
           .filterWhere(node => trim(node.text()) === label);
         targetHeaderWrapper.simulate('click');
         expect(onSort.mock.calls[0][0].sortingOption).toEqual({
