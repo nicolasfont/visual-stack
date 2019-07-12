@@ -48,33 +48,36 @@ const getNextData = (index, currentOrder, data) => {
   if (currentOrder === ASCENDING) return sortDescendingByIndex(index)(data);
 };
 
-const generateHeader = (sortingOption, onSort, data) => (
+const generateHeader = (sortable, sortingOption, onSort, data) => (
   { label: currentLabel, width },
   index
-) => (
-  <Th
-    id="label"
-    style={width && { width }}
-    className="vs-data-table-header"
-    key={index}
-    onClick={() => {
-      const { label, order } = sortingOption;
-      const isCurrentColumnSorted = label === currentLabel;
-      const currentOrder = isCurrentColumnSorted ? order : null;
-      const nextOrder = getNextOrder(currentOrder);
-      const nextData = getNextData(index, currentOrder, data);
-      onSort({
-        sortingOption: {
-          label: currentLabel,
-          order: nextOrder,
-        },
-        data: nextData,
-      });
-    }}
-  >
-    {currentLabel} {getSortingIcon(sortingOption, currentLabel)}
-  </Th>
-);
+) => {
+  const headerClickHandler = () => {
+    const { label, order } = sortingOption;
+    const isCurrentColumnSorted = label === currentLabel;
+    const currentOrder = isCurrentColumnSorted ? order : null;
+    const nextOrder = getNextOrder(currentOrder);
+    const nextData = getNextData(index, currentOrder, data);
+    onSort({
+      sortingOption: {
+        label: currentLabel,
+        order: nextOrder,
+      },
+      data: nextData,
+    });
+  };
+  return (
+    <Th
+      id="label"
+      style={width && { width }}
+      className={`${sortable && 'vs-data-table-header-sortable'}`}
+      key={index}
+      onClick={sortable ? headerClickHandler : undefined}
+    >
+      {currentLabel} {sortable && getSortingIcon(sortingOption, currentLabel)}
+    </Th>
+  );
+};
 
 const generateRow = (rowItems, index) => (
   <Tr key={index}>
@@ -99,6 +102,7 @@ export const DataTable = ({
   onPageChange,
   pagination = false,
   sortingOption = {},
+  sortable = false,
   onSort,
 }) => {
   const normalizedData = pagination
@@ -110,7 +114,9 @@ export const DataTable = ({
       <TableTitle>{caption}</TableTitle>
       <Table>
         <THead>
-          <Tr>{columns.map(generateHeader(sortingOption, onSort, data))}</Tr>
+          <Tr>
+            {columns.map(generateHeader(sortable, sortingOption, onSort, data))}
+          </Tr>
         </THead>
         <TBody>{normalizedData.map(generateRow)}</TBody>
       </Table>
