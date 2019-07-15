@@ -15,7 +15,7 @@ import {
   Th,
   Td,
 } from '@cjdev/visual-stack/lib/components/Table';
-import { DataTable } from '@cjdev/visual-stack/lib/components/Table/DataTable';
+import { DataTable } from '@cjdev/visual-stack-redux/lib/components/DataTable';
 import './table.css'; // for custom styles
 /* s1:end */
 
@@ -32,6 +32,7 @@ export default () => (
               </div>
               {/* s7:start */}
               <DataTable
+                id="sample-data-table"
                 caption="Data Table"
                 columns={[
                   { label: 'Row', width: '10%' },
@@ -69,14 +70,6 @@ export default () => (
                   [26, 'Paul', 'Rodriguez', 3701],
                   [27, 'Ronald', 'Brown', 3424],
                 ]}
-                sortingOption={{
-                  label: 'Last Name',
-                  order: 'ascending',
-                }}
-                page={2}
-                rowsPerPage={10}
-                onSort={console.log}
-                onPageChange={console.log}
                 sortable
                 pagination
               />
