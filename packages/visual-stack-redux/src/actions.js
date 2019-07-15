@@ -99,6 +99,24 @@ export const updateNamedCalendarRanges = createAction(
   })
 );
 
+const INITIALIZE_DATA_TABLE = '@cjdev/visual-stack-redux/INITIALIZE_DATA_TABLE';
+export const initializeDataTable = createAction(INITIALIZE_DATA_TABLE);
+
+const SET_DATA_TABLE_PAGE = '@cjdev/visual-stack-redux/SET_DATA_TABLE_PAGE';
+export const setDataTablePage = createAction(SET_DATA_TABLE_PAGE);
+
+const SET_DATA_TABLE_SORTING_OPTION =
+  '@cjdev/visual-stack-redux/SET_DATA_TABLE_SORTING_OPTION';
+export const setDataTableSortingOption = createAction(
+  SET_DATA_TABLE_SORTING_OPTION
+);
+
+export const selectDataTable = id => state => {
+  const dataTable = R.view(R.lensPath(['visualStack', 'dataTable', id]))(state);
+  const defaultTable = { data: [], pagination: {} };
+  return dataTable || defaultTable;
+};
+
 const RESET_CALENDAR_SELECTION =
   '@cjdev/visual-stack-redux/RESET_CALENDAR_SELECTION';
 export const resetCalendarSelection = createAction(RESET_CALENDAR_SELECTION);
@@ -217,9 +235,39 @@ export default handleActions(
         selectedNamedRanges,
         state
       ),
-
     [RESET_CALENDAR_SELECTION]: (state, { payload: { datePickerId } }) =>
       R.set(R.lensPath(['datePicker', datePickerId]), {}, state),
+    [INITIALIZE_DATA_TABLE]: (state, { payload: { id, data } }) =>
+      R.set(
+        R.lensPath(['dataTable', id]),
+        {
+          data,
+          pagination: {
+            page: 1,
+            rowsPerPage: 10,
+          },
+          sortingOption: {},
+        },
+        state
+      ),
+    [SET_DATA_TABLE_PAGE]: (state, { payload: { id, pagination } }) =>
+      R.set(R.lensPath(['dataTable', id, 'pagination']), pagination, state),
+    [SET_DATA_TABLE_SORTING_OPTION]: (
+      state,
+      { payload: { id, data, sortingOption } }
+    ) => {
+      const stateWithSortingOption = R.set(
+        R.lensPath(['dataTable', id, 'sortingOption']),
+        sortingOption,
+        state
+      );
+
+      return R.set(
+        R.lensPath(['dataTable', id, 'data']),
+        data,
+        stateWithSortingOption
+      );
+    },
   },
   {
     menuBar: {},

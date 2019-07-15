@@ -14,7 +14,11 @@ import reducer, {
   toggleFilterDropdown,
   hideFilterDropdown,
   expandFilterDropdown,
+  initializeDataTable,
+  setDataTablePage,
+  setDataTableSortingOption,
 } from '../src/actions';
+import { selectDataTable } from '../lib/actions';
 
 describe('reducer', () => {
   test('initial state', () => {
@@ -344,5 +348,78 @@ describe('reducer', () => {
         b: {},
       },
     });
+  });
+
+  test('should initialize dataTable data', () => {
+    const id = 'sample-data-table';
+    const data = [
+      {
+        id: 1,
+      },
+    ];
+    const beforeState = {};
+    const afterState = reducer(beforeState, initializeDataTable({ id, data }));
+    expect(afterState.dataTable[id]).toEqual({
+      data,
+      pagination: {
+        page: 1,
+        rowsPerPage: 10,
+      },
+      sortingOption: {},
+    });
+  });
+
+  test('should setDataTablePage', () => {
+    const id = 'sample-data-table';
+    const pagination = {
+      size: 1,
+      rowsPerPage: 10,
+    };
+    const beforeState = {};
+    const afterState = reducer(
+      beforeState,
+      setDataTablePage({ id, pagination })
+    );
+    expect(afterState.dataTable[id]).toEqual({
+      pagination,
+    });
+  });
+
+  test('should setDataTableSortingOption', () => {
+    const id = 'sample-data-table';
+    const data = [{ id: 1 }];
+    const sortingOption = {
+      label: 'id',
+      order: 'ASCENDING',
+    };
+    const beforeState = {};
+    const afterState = reducer(
+      beforeState,
+      setDataTableSortingOption({ id, data, sortingOption })
+    );
+    expect(afterState.dataTable[id]).toEqual({
+      data,
+      sortingOption,
+    });
+  });
+
+  test('should select data table from tabe id', () => {
+    const dataTable = {
+      data: [{ id: 1 }],
+      sortingOption: { page: 1, rowsPerPage: 10 },
+      pagination: {
+        label: 'id',
+        order: 'ASCENDING',
+      },
+    };
+    const id = 'sample-data-table';
+    const state = {
+      visualStack: {
+        dataTable: {
+          [id]: dataTable,
+        },
+      },
+    };
+    expect(selectDataTable(id)(state)).toEqual(dataTable);
   });
 });
