@@ -14,6 +14,8 @@ import Pagination from '../../Pagination';
 import MenuDownIcon from 'mdi-react/MenuDownIcon';
 import MenuUpIcon from 'mdi-react/MenuUpIcon';
 import * as R from 'ramda';
+import PropTypes from 'prop-types';
+
 import './DataTable.css';
 
 export const ASCENDING = 'ascending';
@@ -131,4 +133,17 @@ export const DataTable = ({
       )}
     </TableContainer>
   );
+};
+
+DataTable.propTypes = {
+  caption: PropTypes.string,
+  columns: PropTypes.array,
+  data: PropTypes.array,
+  rowsPerPage: PropTypes.number,
+  page: PropTypes.number,
+  onPageChange: PropTypes.func,
+  pagination: PropTypes.bool,
+  sortingOption: PropTypes.object,
+  sortable: PropTypes.bool,
+  onSort: PropTypes.func,
 };
