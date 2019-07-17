@@ -3,7 +3,6 @@ import { DataTable, ASCENDING, DESCENDING } from '..';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { trim, range, sum } from 'ramda';
-import { wrap } from 'module';
 
 Enzyme.configure({ adapter: new Adapter() });
 
