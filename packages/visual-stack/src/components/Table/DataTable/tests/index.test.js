@@ -3,6 +3,7 @@ import { DataTable, ASCENDING, DESCENDING } from '..';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { trim, range, sum } from 'ramda';
+import { wrap } from 'module';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -147,9 +148,41 @@ describe('DataTable', () => {
         );
         expect(wrapper.find('MenuUpIcon')).toHaveLength(0);
         expect(wrapper.find('MenuDownIcon')).toHaveLength(0);
+        expect(wrapper.find('th.vs-data-table-header-sorted')).toHaveLength(0);
         expect(wrapper.find('th.vs-data-table-header-sortable')).toHaveLength(
           0
         );
+      });
+
+      it('should bold header if the column is sorted', () => {
+        const wrapper = mount(
+          <DataTable
+            columns={[{ label: 'id' }]}
+            sortingOption={{
+              label: 'id',
+              order: DESCENDING,
+            }}
+            sortable
+          />
+        );
+        const targetHeader = wrapper.find('th.vs-data-table-header-sorted');
+        expect(targetHeader).toHaveLength(1);
+        expect(trim(targetHeader.text())).toEqual('id');
+      });
+
+      it('should not bold header if the column is not sorted', () => {
+        const wrapper = mount(
+          <DataTable
+            columns={[{ label: 'id' }]}
+            sortingOption={{
+              label: 'id2',
+              order: DESCENDING,
+            }}
+            sortable
+          />
+        );
+        const targetHeader = wrapper.find('th.vs-data-table-header-sorted');
+        expect(targetHeader).toHaveLength(0);
       });
 
       it('should render the menu up icon', () => {

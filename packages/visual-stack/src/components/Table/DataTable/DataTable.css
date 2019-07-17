@@ -1,3 +1,9 @@
 .vs-data-table-header-sortable {
   cursor: pointer;
+  color: #757575;
+  user-select: none;
+}
+
+.vs-data-table-header-sorted {
+  color: #333;
 }
