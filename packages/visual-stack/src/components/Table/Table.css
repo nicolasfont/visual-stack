@@ -1,8 +1,8 @@
 .vs-table-container {
   border: 1px solid #c8ccce;
   border-radius: 3px;
-  padding: 1.6rem;
-  margin: 0 0 3.2rem;
+  padding: 16px;
+  margin: 0 0 32px;
 }
 
 .vs-table-container .vs-table {
@@ -13,13 +13,13 @@
   font-weight: 500;
   font-size: 1.6rem;
   border-bottom: 0px solid #c8ccce;
-  margin-bottom: 0.8rem;
+  margin-bottom: 8px;
 }
 
 .vs-table {
   border-collapse: collapse;
   text-align: left;
-  margin: 0 0 3.2rem;
+  margin: 0 0 32px;
   width: 100%;
 }
 
@@ -42,6 +42,8 @@
 
 .vs-thead .vs-cell {
   border-bottom: 1px solid #c8ccce;
+  vertical-align: middle;
+  min-height: 32px;
   font-size: 1.3rem;
 }
 
@@ -52,9 +54,10 @@
 
 .vs-cell {
   border-top: 1px solid #eee;
-  vertical-align: top;
+  vertical-align: middle;
   padding: 4px;
   margin: 0;
+  min-height: 32px;
 }
 
 .vs-cell-right {

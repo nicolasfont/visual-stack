@@ -35,10 +35,10 @@ export default () => (
                 id="sample-data-table"
                 caption="Data Table"
                 columns={[
-                  { label: 'Row', width: '10%' },
-                  { label: 'First Name' },
-                  { label: 'Last Name' },
-                  { label: 'Rank' },
+                  { label: 'Row', width: '5%' },
+                  { label: 'First Name', width: '35%' },
+                  { label: 'Last Name', width: '35%' },
+                  { label: 'Rank', width: '30%' },
                 ]}
                 data={[
                   [0, 'Arthur', 'Ashe', 1],

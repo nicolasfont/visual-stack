@@ -54,10 +54,13 @@ const generateHeader = (sortable, sortingOption, onSort, data) => (
   { label: currentLabel, width },
   index
 ) => {
+  const isCurrentColumnSorted = () => {
+    return sortingOption.label === currentLabel;
+  };
+
   const headerClickHandler = () => {
-    const { label, order } = sortingOption;
-    const isCurrentColumnSorted = label === currentLabel;
-    const currentOrder = isCurrentColumnSorted ? order : null;
+    const { order } = sortingOption;
+    const currentOrder = isCurrentColumnSorted() ? order : null;
     const nextOrder = getNextOrder(currentOrder);
     const nextData = getNextData(index, currentOrder, data);
     onSort({
@@ -68,11 +71,15 @@ const generateHeader = (sortable, sortingOption, onSort, data) => (
       data: nextData,
     });
   };
+
   return (
     <Th
       id="label"
       style={width && { width }}
-      className={`${sortable && 'vs-data-table-header-sortable'}`}
+      className={`
+        ${sortable && 'vs-data-table-header-sortable'}
+        ${sortable && isCurrentColumnSorted() && 'vs-data-table-header-sorted'}
+      `}
       key={index}
       onClick={sortable ? headerClickHandler : undefined}
     >
