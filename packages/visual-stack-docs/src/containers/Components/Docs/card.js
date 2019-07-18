@@ -44,10 +44,12 @@ export default () => (
             <Body>
               <Snippet tag="s3" src={snippets} />
               <Snippet tag="s4" src={snippets} />
+            </Body>
+          </Panel>
               {/* s4:start */}
               <AnalyticCardContainer>
                 <AnalyticCard>
-                  <AnalyticCardTitle># of total violations</AnalyticCardTitle>
+                  <AnalyticCardTitle>Total violations</AnalyticCardTitle>
                   <AnalyticCardValue>7</AnalyticCardValue>
                   <AnalyticCardTrendContainer>
                     <AnalyticCardTrend>
@@ -137,8 +139,6 @@ export default () => (
                 </AnalyticCard>
               </AnalyticCardContainer>
               {/* s4:end */}
-            </Body>
-          </Panel>
         </div>
       );
     }}
