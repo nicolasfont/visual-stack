@@ -94,6 +94,7 @@
   margin-left: 8px;
   font-family: gibson-light;
   white-space: nowrap;
+  -webkit-font-smoothing: auto;
 }
 
 /* SideNav expand and collapse styles */
@@ -391,6 +392,7 @@
   font-size: 12px;
   font-weight: 300;
   margin: 3px 0.4px 0;
+  -webkit-font-smoothing: auto;
 }
 
 .vs-category-label {
