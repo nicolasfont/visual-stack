@@ -1,19 +1,22 @@
 .vs-analytic-card {
   text-align: center;
   padding: 32px;
-  border: 1px solid #d4d4d4;
   flex-basis: 320px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08),
+    /*	0 2px 3px rgba(0,0,0,.1), */ 0 2px 3px -1px rgba(0, 0, 0, 0.08);
   border-radius: 3px;
   background: white;
   transition: 0.1s all ease-in-out;
 }
 
-.vs-analytic-card-clickable:hover {
+.vs-analytic-card-clickable {
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.16);
+	transition: .1s all ease-in-out;
+}
+
+.vs-analytic-card-clickable:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.24);
   border-color: #cacaca;
-  transform: translateY(-1px);
 }
 .vs-analytic-card-container {
   display: flex;
@@ -22,35 +25,32 @@
 }
 
 .vs-analytic-card-container > .vs-analytic-card {
-  margin-right: 10px;
-  margin-bottom: 20px;
+  margin-right: 16px;
+  margin-bottom: 16px;
 }
 
 .vs-analytic-card-title {
-  font-size: 18px;
+  color: #757575;
+  font-size: 1.8rem;
 }
 
 .vs-analytic-card-value {
-  font-size: 36px;
+  font-size: 3.6rem;
   font-weight: 500;
 }
 
 .vs-analytic-card-trend {
   display: flex;
   flex-direction: column;
+  width: 50%;
 }
 
 .vs-analytic-card-value-unit {
-  font-size: 12px;
-}
-
-.vs-analytic-card-trend-container > .vs-analytic-card-trend {
-  padding-right: 22px;
+  font-size: 1.2rem;
 }
 
 .vs-analytic-card-trend-container > .vs-analytic-card-trend:not(:last-child) {
-  margin-right: 22px;
-  border-right: 0.5px solid #d4d4d4;
+  border-right: 1px solid #d4d4d4;
 }
 
 .vs-analytic-card-trend-container {
@@ -62,13 +62,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 19px;
+  font-size: 1.8rem;
+}
+
+.vs-analytic-card-trend-value svg {
+	margin-right: 4px;
 }
 
 .vs-analytic-card-trend-label {
-  font-size: 17px;
+  font-size: 1.5rem;
   font-weight: 400;
-  color: #bec5cd;
+  color: #757575;
 }
 
 .vs-analytic-card-trend-negative {
