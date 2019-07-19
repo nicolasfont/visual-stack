@@ -17,6 +17,7 @@ import {
   AnalyticCardNegativeTrendValue,
   AnalyticCardPositiveTrendValue,
   AnalyticCardValueUnit,
+  ViewDetailButton,
 } from '@cjdev/visual-stack/lib/components/AnalyticCard';
 /* s3:end */
 import './card.css';
@@ -46,99 +47,95 @@ export default () => (
               <Snippet tag="s4" src={snippets} />
             </Body>
           </Panel>
-              {/* s4:start */}
-              <AnalyticCardContainer>
-                <AnalyticCard>
-                  <AnalyticCardTitle>Total violations</AnalyticCardTitle>
-                  <AnalyticCardValue>7</AnalyticCardValue>
-                  <AnalyticCardTrendContainer>
-                    <AnalyticCardTrend>
-                      <AnalyticCardNegativeTrendValue>
-                        -3
-                      </AnalyticCardNegativeTrendValue>
-                      <AnalyticCardTrendLabel>change</AnalyticCardTrendLabel>
-                    </AnalyticCardTrend>
-                    <AnalyticCardTrend>
-                      <AnalyticCardTrendValue>10</AnalyticCardTrendValue>
-                      <AnalyticCardTrendLabel>
-                        prev. period
-                      </AnalyticCardTrendLabel>
-                    </AnalyticCardTrend>
-                  </AnalyticCardTrendContainer>
-                </AnalyticCard>
-                <AnalyticCard>
-                  <AnalyticCardTitle>
-                    High Severity Violations
-                  </AnalyticCardTitle>
-                  <AnalyticCardValue>7</AnalyticCardValue>
-                  <div>Custom Text</div>
-                </AnalyticCard>
-                <AnalyticCard>
-                  <AnalyticCardValue>16</AnalyticCardValue>
-                  <AnalyticCardTrendContainer>
-                    <AnalyticCardTrend>
-                      <AnalyticCardTrendLabel>change</AnalyticCardTrendLabel>
-                      <AnalyticCardNegativeTrendValue>
-                        -4
-                      </AnalyticCardNegativeTrendValue>
-                    </AnalyticCardTrend>
-                    <AnalyticCardTrend>
-                      <AnalyticCardTrendLabel>
-                        prev. period
-                      </AnalyticCardTrendLabel>
-                      <AnalyticCardTrendValue>20</AnalyticCardTrendValue>
-                    </AnalyticCardTrend>
-                  </AnalyticCardTrendContainer>
-                </AnalyticCard>
-                <AnalyticCard className="make-it-different">
-                  <AnalyticCardTitle>
-                    Average Resolution Time (hrs)
-                  </AnalyticCardTitle>
-                  <AnalyticCardValue>
-                    9.91 <AnalyticCardValueUnit>hrs</AnalyticCardValueUnit>
-                  </AnalyticCardValue>
-                  <AnalyticCardTrendContainer>
-                    <AnalyticCardTrend>
-                      <AnalyticCardPositiveTrendValue>
-                        +7.11
-                      </AnalyticCardPositiveTrendValue>
-                      <AnalyticCardTrendLabel>change</AnalyticCardTrendLabel>
-                    </AnalyticCardTrend>
-                    <AnalyticCardTrend>
-                      <AnalyticCardTrendValue>20</AnalyticCardTrendValue>
-                      <AnalyticCardTrendLabel>
-                        prev. period
-                      </AnalyticCardTrendLabel>
-                    </AnalyticCardTrend>
-                  </AnalyticCardTrendContainer>
-                </AnalyticCard>
-                <AnalyticCard
-                  onClick={() => {
-                    // eslint-disable-next-line no-alert
-                    window.alert('onClick alert!');
-                  }}
-                >
-                  <AnalyticCardTitle>Clickable Card</AnalyticCardTitle>
-                  <AnalyticCardValue>
-                    4.2 <AnalyticCardValueUnit>hrs</AnalyticCardValueUnit>
-                  </AnalyticCardValue>
-                  <AnalyticCardTrendContainer>
-                    <AnalyticCardTrend>
-                      <AnalyticCardPositiveTrendValue>
-                        +1
-                      </AnalyticCardPositiveTrendValue>
-                      <AnalyticCardTrendLabel>change</AnalyticCardTrendLabel>
-                    </AnalyticCardTrend>
-                    <AnalyticCardTrend>
-                      <AnalyticCardTrendValue>3.2</AnalyticCardTrendValue>
-                      <AnalyticCardTrendLabel>
-                        prev. period
-                      </AnalyticCardTrendLabel>
-                    </AnalyticCardTrend>
-                  </AnalyticCardTrendContainer>
-                </AnalyticCard>
-              </AnalyticCardContainer>
-              {/* s4:end */}
+          {/* s4:start */}
+          <AnalyticCardContainer>
+            <AnalyticCard>
+              <AnalyticCardTitle>Total violations</AnalyticCardTitle>
+              <AnalyticCardValue>7</AnalyticCardValue>
+              <AnalyticCardTrendContainer>
+                <AnalyticCardTrend>
+                  <AnalyticCardNegativeTrendValue>
+                    -3
+                  </AnalyticCardNegativeTrendValue>
+                  <AnalyticCardTrendLabel>change</AnalyticCardTrendLabel>
+                </AnalyticCardTrend>
+                <AnalyticCardTrend>
+                  <AnalyticCardTrendValue>10</AnalyticCardTrendValue>
+                  <AnalyticCardTrendLabel>prev. period</AnalyticCardTrendLabel>
+                </AnalyticCardTrend>
+              </AnalyticCardTrendContainer>
+              <ViewDetailButton
+                onClick={() => {
+                  // eslint-disable-next-line no-alert
+                  window.alert('onClick View Details');
+                }}
+              />
+            </AnalyticCard>
+            <AnalyticCard>
+              <AnalyticCardTitle>High Severity Violations</AnalyticCardTitle>
+              <AnalyticCardValue>7</AnalyticCardValue>
+              <div>Custom Text</div>
+            </AnalyticCard>
+            <AnalyticCard>
+              <AnalyticCardValue>16</AnalyticCardValue>
+              <AnalyticCardTrendContainer>
+                <AnalyticCardTrend>
+                  <AnalyticCardTrendLabel>change</AnalyticCardTrendLabel>
+                  <AnalyticCardNegativeTrendValue>
+                    -4
+                  </AnalyticCardNegativeTrendValue>
+                </AnalyticCardTrend>
+                <AnalyticCardTrend>
+                  <AnalyticCardTrendLabel>prev. period</AnalyticCardTrendLabel>
+                  <AnalyticCardTrendValue>20</AnalyticCardTrendValue>
+                </AnalyticCardTrend>
+              </AnalyticCardTrendContainer>
+            </AnalyticCard>
+            <AnalyticCard className="make-it-different">
+              <AnalyticCardTitle>
+                Average Resolution Time (hrs)
+              </AnalyticCardTitle>
+              <AnalyticCardValue>
+                9.91 <AnalyticCardValueUnit>hrs</AnalyticCardValueUnit>
+              </AnalyticCardValue>
+              <AnalyticCardTrendContainer>
+                <AnalyticCardTrend>
+                  <AnalyticCardPositiveTrendValue>
+                    +7.11
+                  </AnalyticCardPositiveTrendValue>
+                  <AnalyticCardTrendLabel>change</AnalyticCardTrendLabel>
+                </AnalyticCardTrend>
+                <AnalyticCardTrend>
+                  <AnalyticCardTrendValue>20</AnalyticCardTrendValue>
+                  <AnalyticCardTrendLabel>prev. period</AnalyticCardTrendLabel>
+                </AnalyticCardTrend>
+              </AnalyticCardTrendContainer>
+            </AnalyticCard>
+            <AnalyticCard
+              onClick={() => {
+                // eslint-disable-next-line no-alert
+                window.alert('onClick alert!');
+              }}
+            >
+              <AnalyticCardTitle>Clickable Card</AnalyticCardTitle>
+              <AnalyticCardValue>
+                4.2 <AnalyticCardValueUnit>hrs</AnalyticCardValueUnit>
+              </AnalyticCardValue>
+              <AnalyticCardTrendContainer>
+                <AnalyticCardTrend>
+                  <AnalyticCardPositiveTrendValue>
+                    +1
+                  </AnalyticCardPositiveTrendValue>
+                  <AnalyticCardTrendLabel>change</AnalyticCardTrendLabel>
+                </AnalyticCardTrend>
+                <AnalyticCardTrend>
+                  <AnalyticCardTrendValue>3.2</AnalyticCardTrendValue>
+                  <AnalyticCardTrendLabel>prev. period</AnalyticCardTrendLabel>
+                </AnalyticCardTrend>
+              </AnalyticCardTrendContainer>
+            </AnalyticCard>
+          </AnalyticCardContainer>
+          {/* s4:end */}
         </div>
       );
     }}
