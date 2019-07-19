@@ -3,6 +3,7 @@ import { TrendDown, TrendUp } from '../Icons';
 import './style.css';
 import { isNil } from 'ramda';
 import classNames from 'classnames';
+import { Button } from '../Button';
 
 export const AnalyticCardContainer = ({ children, className }) => (
   <div className={`vs-analytic-card-container ${className}`}>{children}</div>
@@ -70,4 +71,14 @@ export const AnalyticCardTrendLabel = ({ children, className }) => (
 
 export const AnalyticCardValueUnit = ({ children, className }) => (
   <span className={`vs-analytic-card-value-unit ${className}`}>{children}</span>
+);
+
+export const ViewDetailButton = ({ label = 'View Details', onClick }) => (
+  <Button
+    type="outline-secondary"
+    className="vs-analytic-card-view-detail-button"
+    onClick={onClick}
+  >
+    {label}
+  </Button>
 );

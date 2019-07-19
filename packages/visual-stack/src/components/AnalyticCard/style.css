@@ -11,7 +11,7 @@
 
 .vs-analytic-card-clickable {
   cursor: pointer;
-	transition: .1s all ease-in-out;
+  transition: 0.1s all ease-in-out;
 }
 
 .vs-analytic-card-clickable:hover {
@@ -66,7 +66,7 @@
 }
 
 .vs-analytic-card-trend-value svg {
-	margin-right: 4px;
+  margin-right: 4px;
 }
 
 .vs-analytic-card-trend-label {
@@ -81,4 +81,8 @@
 
 .vs-analytic-card-trend-positive {
   color: #f75966;
+}
+
+.vs-analytic-card-view-detail-button {
+  margin: 24px 0px 0px;
 }
