@@ -69,6 +69,73 @@ describe('DataTable', () => {
         data4,
       ]);
     });
+
+    it('should have clickable cell', () => {
+      const targetLabel = 'target';
+      const targetData = 'target data';
+      const columns = [
+        {
+          label: '1',
+        },
+        {
+          label: '2',
+        },
+        {
+          label: targetLabel,
+          clickable: true,
+        },
+        {
+          label: '4',
+        },
+      ];
+      const onClick = jest.fn();
+      const wrapper = mount(
+        <DataTable
+          columns={columns}
+          data={[
+            [1, 2, 3, 4],
+            [1, 2, 3, 4],
+            [1, 2, targetData, 4],
+            [1, 2, 3, 4],
+          ]}
+          onClick={onClick}
+        />
+      );
+      const targetTD = wrapper
+        .find('a')
+        .filterWhere(node => node.text() === targetData);
+      targetTD.simulate('click');
+      expect(onClick.mock.calls).toEqual([
+        [{ label: targetLabel, value: targetData }],
+      ]);
+    });
+
+    it('should should not click on unClickable td', () => {
+      const targetLabel = 'target';
+      const targetData = 'target data';
+      const columns = [
+        {
+          label: targetLabel,
+        },
+        {
+          label: '1',
+          clickable: true,
+        },
+      ];
+      const onClick = jest.fn();
+      const wrapper = mount(
+        <DataTable
+          columns={columns}
+          data={[[targetData, 2], [1, 2]]}
+          onClick={onClick}
+        />
+      );
+      const targetTD = wrapper
+        .find('td.vs-cell')
+        .filterWhere(node => node.text() === targetData);
+      targetTD.simulate('click');
+      expect(onClick.mock.calls).toHaveLength(0);
+    });
   });
 
   describe('pagination', () => {
@@ -184,7 +251,7 @@ describe('DataTable', () => {
         expect(targetHeader).toHaveLength(0);
       });
 
-      it('should render the menu up icon', () => {
+      it('should render the arrow up icon', () => {
         const wrapper = mount(
           <DataTable
             columns={[
@@ -209,13 +276,15 @@ describe('DataTable', () => {
         const otherHeadersWrapper = wrapper
           .find('th.vs-data-table-header-sortable')
           .filterWhere(node => trim(node.text()) !== 'first name');
-        expect(targetHeaderWrapper.find('MenuUpIcon')).toHaveLength(1);
+        expect(targetHeaderWrapper.find('ArrowUpIcon')).toHaveLength(1);
         expect(
-          sum(otherHeadersWrapper.map(node => node.find('MenuDownIcon').length))
+          sum(
+            otherHeadersWrapper.map(node => node.find('ArrowDownIcon').length)
+          )
         ).toEqual(0);
       });
 
-      it('should render menu down icon', () => {
+      it('should render arrow down icon', () => {
         const wrapper = mount(
           <DataTable
             columns={[
@@ -237,7 +306,7 @@ describe('DataTable', () => {
         const targetHeaderWrapper = wrapper
           .find('th.vs-data-table-header-sortable')
           .filterWhere(node => trim(node.text()) === 'first name');
-        expect(targetHeaderWrapper.find('MenuDownIcon')).toHaveLength(1);
+        expect(targetHeaderWrapper.find('ArrowDownIcon')).toHaveLength(1);
       });
     });
 

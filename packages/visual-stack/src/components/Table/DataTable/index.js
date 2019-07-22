@@ -11,15 +11,10 @@ import {
   Th,
 } from '../';
 import Pagination from '../../Pagination';
-import MenuDownIcon from 'mdi-react/ArrowDownIcon';
-import MenuUpIcon from 'mdi-react/ArrowUpIcon';
+import ArrowDownIcon from 'mdi-react/ArrowDownIcon';
+import ArrowUpIcon from 'mdi-react/ArrowUpIcon';
 import * as R from 'ramda';
 import PropTypes from 'prop-types';
-
-import { Button } from '../../Button';
-import DownloadIcon from 'mdi-react/DownloadIcon';
-import ChevronDownIcon from 'mdi-react/ChevronDownIcon';
-
 import './DataTable.css';
 
 export const ASCENDING = 'ascending';
@@ -28,10 +23,10 @@ export const DESCENDING = 'descending';
 const getSortingIcon = (sortingOption, currentLabel) => {
   let icon = null;
   if (sortingOption.order === ASCENDING) {
-    icon = <MenuUpIcon />;
+    icon = <ArrowUpIcon />;
   }
   if (sortingOption.order === DESCENDING) {
-    icon = <MenuDownIcon />;
+    icon = <ArrowDownIcon />;
   }
   if (sortingOption.label !== currentLabel) {
     icon = null;
@@ -88,18 +83,40 @@ const generateHeader = (sortable, sortingOption, onSort, data) => (
       onClick={sortable ? headerClickHandler : undefined}
     >
       <div>
-	      {currentLabel} 
-	      <span>{sortable && getSortingIcon(sortingOption, currentLabel)}</span>
+        {currentLabel}
+        <span>{sortable && getSortingIcon(sortingOption, currentLabel)}</span>
       </div>
     </Th>
   );
 };
 
-const generateRow = (rowItems, index) => (
+const generateRow = (onClick, columns) => (rowItems, index) => (
   <Tr key={index}>
-    {rowItems.map((item, index) => (
-      <Td key={index}>{item}</Td>
-    ))}
+    {rowItems.map((item, columnIndex) => {
+      const getColumn = R.compose(
+        R.defaultTo({}),
+        R.prop(columnIndex)
+      );
+      const { label, clickable } = getColumn(columns);
+      return (
+        <Td key={columnIndex}>
+          {clickable && (
+            <a
+              className="vs-data-table-clickable-cell"
+              onClick={() => {
+                onClick({
+                  value: item,
+                  label,
+                });
+              }}
+            >
+              {item}
+            </a>
+          )}
+          {!clickable && item}
+        </Td>
+      );
+    })}
   </Tr>
 );
 
@@ -120,6 +137,7 @@ export const DataTable = ({
   pagination = false,
   sortingOption = {},
   sortable = false,
+  onClick,
   onSort,
 }) => {
   const normalizedData = pagination
@@ -129,27 +147,18 @@ export const DataTable = ({
   return (
     <TableContainer className="vs-data-table-container">
       <TableTitle>
-      	<div>
-	      	{caption}
-					<p>{description}</p>
-				</div>
-				<div>
-					<Button type="icon">
-						<DownloadIcon />
-					</Button>
-					<Button type="inline-outline-secondary">
-					  Dimension
-					  <ChevronDownIcon className="vs-inline-button-chevron"/>
-					</Button>
-				</div>
-    	</TableTitle>
+        <div>
+          {caption}
+          <p>{description}</p>
+        </div>
+      </TableTitle>
       <Table>
         <THead>
           <Tr>
             {columns.map(generateHeader(sortable, sortingOption, onSort, data))}
           </Tr>
         </THead>
-        <TBody>{normalizedData.map(generateRow)}</TBody>
+        <TBody>{normalizedData.map(generateRow(onClick, columns))}</TBody>
       </Table>
       {pagination && (
         <Pagination
@@ -176,4 +185,5 @@ DataTable.propTypes = {
   sortingOption: PropTypes.object,
   sortable: PropTypes.bool,
   onSort: PropTypes.func,
+  onClick: PropTypes.func,
 };
