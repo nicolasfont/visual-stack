@@ -36,10 +36,12 @@ export class DataTablePure extends Component {
       id,
       setDataTablePage,
       setDataTableSortingOption,
+      onClick,
     } = this.props;
     return (
       <div>
         <VSDataTable
+          onClick={onClick}
           caption={caption}
           description={description}
           sortable={sortable}
@@ -82,6 +84,7 @@ DataTablePure.propTypes = {
   initializeDataTable: PropTypes.func.isRequired,
   setDataTablePage: PropTypes.func,
   setDataTableSortingOption: PropTypes.func,
+  onClick: PropTypes.func,
 };
 
 const mapStateToProps = (state, ownProps) => ({

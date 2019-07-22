@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /** @prettier */
 import React from 'react';
 import { Panel, Body, Header } from '@cjdev/visual-stack/lib/components/Panel';
@@ -24,15 +25,14 @@ export default () => (
     {snippets => {
       return (
         <div>
-        
           {/* s7:start */}
           <DataTable
             id="sample-data-table"
             caption="Sortable Data Table with Pagination"
             description="Description Text"
             columns={[
-              { label: 'Row', width: '5%' },
-              { label: 'First Name', width: '20%' },
+              { label: 'ID', width: '5%', clickable: true },
+              { label: 'First Name', width: '20%', clickable: true },
               { label: 'Last Name', width: '50%' },
               { label: 'Rank', width: '25%' },
             ]}
@@ -66,21 +66,24 @@ export default () => (
               [26, 'Paul', 'Rodriguez', 3701],
               [27, 'Ronald', 'Brown', 3424],
             ]}
+            onClick={e => {
+              window.alert(`You click on a cell: ${JSON.stringify(e)}`);
+            }}
             sortable
             pagination
           />
           {/* s7:end */}
-          
+
           <Panel>
             <Header>Sortable Data Table with Pagination Example</Header>
             <Body>
-	            <div className="docs">
-	              This demonstrates all the features of the data table component.
-	            </div>
+              <div className="docs">
+                This demonstrates all the features of the data table component.
+              </div>
               <Snippet tag="s7" src={snippets} />
             </Body>
           </Panel>
-              
+
           <Panel>
             <Header>Simple Table</Header>
             <Body>
