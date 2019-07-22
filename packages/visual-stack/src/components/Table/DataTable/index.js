@@ -11,10 +11,14 @@ import {
   Th,
 } from '../';
 import Pagination from '../../Pagination';
-import MenuDownIcon from 'mdi-react/MenuDownIcon';
-import MenuUpIcon from 'mdi-react/MenuUpIcon';
+import MenuDownIcon from 'mdi-react/ArrowDownIcon';
+import MenuUpIcon from 'mdi-react/ArrowUpIcon';
 import * as R from 'ramda';
 import PropTypes from 'prop-types';
+
+import { Button } from '../../Button';
+import DownloadIcon from 'mdi-react/DownloadIcon';
+import ChevronDownIcon from 'mdi-react/ChevronDownIcon';
 
 import './DataTable.css';
 
@@ -83,7 +87,10 @@ const generateHeader = (sortable, sortingOption, onSort, data) => (
       key={index}
       onClick={sortable ? headerClickHandler : undefined}
     >
-      {currentLabel} {sortable && getSortingIcon(sortingOption, currentLabel)}
+      <div>
+	      {currentLabel} 
+	      <span>{sortable && getSortingIcon(sortingOption, currentLabel)}</span>
+      </div>
     </Th>
   );
 };
@@ -104,6 +111,7 @@ const getDataWithPagination = (rowsPerPage, page) =>
 
 export const DataTable = ({
   caption = '',
+  description = '',
   columns = [],
   data = [],
   rowsPerPage = 25,
@@ -119,8 +127,22 @@ export const DataTable = ({
     : data;
 
   return (
-    <TableContainer>
-      <TableTitle>{caption}</TableTitle>
+    <TableContainer className="vs-data-table-container">
+      <TableTitle>
+      	<div>
+	      	{caption}
+					<p>{description}</p>
+				</div>
+				<div>
+					<Button type="icon">
+						<DownloadIcon />
+					</Button>
+					<Button type="inline-outline-secondary">
+					  Dimension
+					  <ChevronDownIcon className="vs-inline-button-chevron"/>
+					</Button>
+				</div>
+    	</TableTitle>
       <Table>
         <THead>
           <Tr>
@@ -144,6 +166,7 @@ export const DataTable = ({
 
 DataTable.propTypes = {
   caption: PropTypes.string,
+  description: PropTypes.string,
   columns: PropTypes.array,
   data: PropTypes.array,
   rowsPerPage: PropTypes.number,
