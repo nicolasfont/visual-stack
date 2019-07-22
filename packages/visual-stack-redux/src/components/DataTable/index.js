@@ -21,6 +21,7 @@ export class DataTablePure extends Component {
       sortable,
       columns,
       caption,
+      description,
       dataTable,
       pagination,
       id,
@@ -31,6 +32,7 @@ export class DataTablePure extends Component {
       <div>
         <VSDataTable
           caption={caption}
+          description={description}
           sortable={sortable}
           pagination={pagination}
           data={dataTable.data}
@@ -52,6 +54,7 @@ export class DataTablePure extends Component {
 
 DataTablePure.propTypes = {
   caption: PropTypes.string,
+  description: PropTypes.string,
   sortable: PropTypes.bool,
   pagination: PropTypes.bool,
   data: PropTypes.array,
