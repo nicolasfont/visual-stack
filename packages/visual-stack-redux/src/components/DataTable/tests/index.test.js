@@ -125,4 +125,41 @@ describe('DataTablePure', () => {
     expect(props.rowsPerPage).toEqual(dataTable.pagination.rowsPerPage);
     expect(props.sortingOption).toEqual(dataTable.sortingOption);
   });
+
+  it('should not reset data table data if props isnt changed', () => {
+    const id = 'sample-data-table';
+    const setDataTableSortingOption = jest.fn();
+    const data = [[1]];
+    const wrapper = shallow(
+      <DataTablePure
+        id={id}
+        data={data}
+        dataTable={{ pagination: {} }}
+        initializeDataTable={() => {}}
+        setDataTableSortingOption={setDataTableSortingOption}
+      />
+    );
+    wrapper.setProps({ data });
+    expect(setDataTableSortingOption.mock.calls).toHaveLength(0);
+  });
+
+  it('should set new data table data if props changed', () => {
+    const id = 'sample-data-table';
+    const setDataTableSortingOption = jest.fn();
+    const data = [[1]];
+    const newData = [[2]];
+    const wrapper = shallow(
+      <DataTablePure
+        id={id}
+        data={data}
+        dataTable={{ pagination: {} }}
+        initializeDataTable={() => {}}
+        setDataTableSortingOption={setDataTableSortingOption}
+      />
+    );
+    wrapper.setProps({ data: newData });
+    expect(setDataTableSortingOption.mock.calls).toEqual([
+      [{ data: newData, id }],
+    ]);
+  });
 });

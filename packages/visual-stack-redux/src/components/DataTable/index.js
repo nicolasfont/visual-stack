@@ -16,6 +16,15 @@ export class DataTablePure extends Component {
     this.props.initializeDataTable(initialPayload);
   }
 
+  componentDidUpdate(prevProps) {
+    const selectProps = R.pick(['data', 'sortingOption', 'id']);
+    const previousProps = selectProps(prevProps);
+    const currentProps = selectProps(this.props);
+    if (!R.equals(previousProps.data, currentProps.data)) {
+      this.props.setDataTableSortingOption(currentProps);
+    }
+  }
+
   render() {
     const {
       sortable,
