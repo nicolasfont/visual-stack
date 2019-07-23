@@ -13,7 +13,7 @@
   font-weight: 500;
   letter-spacing: 0.4px;
   line-height: 1;
-  margin: 8px 4px;
+  margin: 0; 
   min-height: 32px;
   min-width: 32px;
   overflow: hidden;
@@ -29,6 +29,10 @@
 .vs-btn-d:focus,
 a.vs-btn-d:focus {
   outline: none;
+}
+
+.vs-btn-d + .vs-btn-d {
+	margin-left: 8px;
 }
 
 /* CJ Button - primary styles*/
@@ -124,7 +128,7 @@ a.vs-btn-d:hover,
 }
 
 .vs-btn-d:hover svg {
-  fill: #49c5b1;
+  fill: #616c78;
 }
 
 .vs-solid-primary-btn {
@@ -179,6 +183,14 @@ a.vs-btn-d:hover,
 
 .vs-rounded-solid-btn:hover {
   background: #35b09c;
+}
+
+.vs-rounded-solid-btn svg {
+	fill: #fff;
+}
+
+.vs-rounded-solid-btn:hover svg {
+	fill: #fff;
 }
 
 .vs-rounded-outline-btn {
@@ -373,9 +385,13 @@ a.vs-btn-d:hover,
 }
 
 /* Button sizing */
+.vs-sm-btn {
+	font-size: 1rem;
+	min-height: 0;
+	padding: 6px 8px;
+}
 
-.vs-lrg-btn,
-.vs-lrg-btn {
-  padding: 10px 28px;
-  font-size: 1.6rem;
+.vs-lg-btn {
+  padding: 12px 28px;
+/*   font-size: 1.6rem; */
 }
