@@ -49,7 +49,7 @@ const getNextData = (index, currentOrder, data) => {
   if (currentOrder === DESCENDING) return sortAscendingByIndex(index)(data);
 };
 
-const generateHeader = (sortable, sortingOption, onSort, data) => (
+const generateHeader = ({ sortable, sortingOption, onSort, data }) => (
   { label: currentLabel, width },
   index
 ) => {
@@ -90,7 +90,7 @@ const generateHeader = (sortable, sortingOption, onSort, data) => (
   );
 };
 
-const generateRow = (onClick, columns) => (rowItems, index) => (
+const generateRow = ({ onClick, columns }) => (rowItems, index) => (
   <Tr key={index}>
     {rowItems.map((item, columnIndex) => {
       const getColumn = R.compose(
@@ -155,10 +155,12 @@ export const DataTable = ({
       <Table>
         <THead>
           <Tr>
-            {columns.map(generateHeader(sortable, sortingOption, onSort, data))}
+            {columns.map(
+              generateHeader({ sortable, sortingOption, onSort, data })
+            )}
           </Tr>
         </THead>
-        <TBody>{normalizedData.map(generateRow(onClick, columns))}</TBody>
+        <TBody>{normalizedData.map(generateRow({ onClick, columns }))}</TBody>
       </Table>
       {pagination && (
         <Pagination
