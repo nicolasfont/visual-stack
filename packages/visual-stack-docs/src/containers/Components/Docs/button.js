@@ -11,6 +11,8 @@ import CalendarRange from 'mdi-react/CalendarRangeIcon';
 import FileImport from 'mdi-react/FileImportIcon';
 import FilterVariant from 'mdi-react/FilterVariantIcon';
 import Download from 'mdi-react/DownloadIcon';
+import Plus from 'mdi-react/PlusIcon';
+import Minus from 'mdi-react/MinusIcon';
 
 export const ChevronDownIcon = ChevronDown;
 export const CalendarRangeIcon = CalendarRange;
@@ -24,44 +26,25 @@ export default () => (
       return (
         <div>
           <Panel>
-            <Header>
-              <b>New</b> Platform Buttons (in progress)
-            </Header>
             <Body>
+              <h5>Platform Buttons</h5>
+              <p>Please be aware that the shape of the round buttons will be deprecated and replaced with with squares with a slight border radius.</p>
               {/* s3:start */}
               <Button type="solid-primary">Solid Primary</Button>
-              <Button type="solid-secondary">Solid Secondary</Button>
-              <Button type="outline-primary">Outline Primary</Button>
               <Button type="outline-secondary">Outline Secondary</Button>
-              <Button type="rounded-solid">+</Button>
-              <Button type="rounded-outline">–</Button>
-              <Button type="icon">
-                <AccountIcon />
-              </Button>
-              <Button type="text">Text</Button>
-              <Button type="text">
-                <CodeIcon /> Icon and Text
-              </Button>
+              <Button type="rounded-solid"><Plus /></Button>
+              <Button type="rounded-outline"><Minus /></Button>
+              <Button type="icon"><AccountIcon /></Button>
+              <Button type="text">Text Button</Button>
               <Button type="text-link">Text Link</Button>
               {/* s3:end */}
               <Snippet tag="s3" src={snippets} />
             </Body>
-          </Panel>
-
-          <Panel>
-            <Header>Disabled States</Header>
             <Body>
+            	<h5>Disabled States</h5>
+              <p>Disable buttons by adding the disabled attribute or the className="disabled"</p>
               {/* s4:start */}
               <Button type="solid-primary" disabled>
-                Disabled
-              </Button>
-              <Button type="solid-primary" className="disabled">
-                Disabled using className
-              </Button>
-              <Button type="solid-secondary" disabled>
-                Disabled
-              </Button>
-              <Button type="outline-primary" disabled>
                 Disabled
               </Button>
               <Button type="outline-secondary" disabled>
@@ -71,7 +54,7 @@ export default () => (
                 <AccountIcon />
               </Button>
               <Button type="text" disabled>
-                Text
+                Text Button
               </Button>
               <Button type="text-link" disabled>
                 Text Link
@@ -82,34 +65,31 @@ export default () => (
           </Panel>
 
           <Panel>
-            <Header>Button Sizing</Header>
-            <Body>
-              {/* s1:start */}
-              <Button type="primary" large={true}>
-                Large
-              </Button>
-              {/* s1:end */}
-              <Snippet tag="s1" src={snippets} />
-            </Body>
-          </Panel>
-
-          <Panel>
             <Header>
               <b>New</b> Inline Buttons with Icons (in progress)
             </Header>
             <Body>
               {/* s5:start */}
               <Button type="inline-outline-secondary">
-                <CalendarRangeIcon className="vs-inline-button-icon"/>Date Range<ChevronDownIcon className="vs-inline-button-chevron"/>
+                Dropdown
+                <ChevronDownIcon className="vs-inline-button-chevron"/>
               </Button>
               <Button type="inline-outline-secondary">
-                <FileImportIcon className="vs-inline-button-icon"/>Import CSV
+                <CalendarRangeIcon className="vs-inline-button-icon"/>
+                Date Range
+                <ChevronDownIcon className="vs-inline-button-chevron"/>
               </Button>
               <Button type="inline-outline-secondary">
-                <DownloadIcon className="vs-inline-button-icon"/>Download
+                <FileImportIcon className="vs-inline-button-icon"/>
+                Import CSV
               </Button>
               <Button type="inline-outline-secondary">
-                <FilterVariantIcon className="vs-inline-button-icon"/>Filters
+                <DownloadIcon className="vs-inline-button-icon"/>
+                Download
+              </Button>
+              <Button type="inline-outline-secondary">
+                <FilterVariantIcon className="vs-inline-button-icon"/>
+                Filters
               </Button>
               <h6>Icon Only</h6>
               <Button type="inline-outline-secondary">
@@ -128,7 +108,19 @@ export default () => (
           </Panel>
 
           <Panel>
-            <Header>Default Buttons [Deprecated]</Header>
+            <Header>Button Sizing</Header>
+            <Body>
+              {/* s1:start */}
+              <Button type="solid-primary" small={true}>Small</Button>
+              <Button type="solid-primary">Default</Button>
+              <Button type="solid-primary" large={true}>Large</Button>
+              {/* s1:end */}
+              <Snippet tag="s1" src={snippets} />
+            </Body>
+          </Panel>
+
+          <Panel>
+            <Header>Deprecated Buttons</Header>
             <Body>
               {/* s2:start */}
               <Button type="primary">Primary</Button>
@@ -137,6 +129,9 @@ export default () => (
               <Button type="default">Default</Button>
               <Button type="warning">Warning</Button>
               <Button type="danger">Danger</Button>
+              <Button type="solid-secondary">Solid Secondary</Button>
+              <Button type="outline-primary">Outline Primary</Button>
+              <Button type="text"><CodeIcon /> Icon and Text</Button>
               {/* s2:end */}
               <Snippet tag="s2" src={snippets} />
             </Body>

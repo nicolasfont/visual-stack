@@ -9,12 +9,14 @@ const mkButton = buttonType => ({
   children,
   className,
   type,
+  small,
   large,
   ...otherProps
 }) => {
   const classes = concatAll(
     ['vs-btn-d', `vs-${type}-btn`],
-    large ? ['vs-lrg-btn'] : [],
+    small ? ['vs-sm-btn'] : [],
+    large ? ['vs-lg-btn'] : [],
     className ? [className] : []
   );
 
@@ -47,5 +49,6 @@ Button.propTypes = SubmitButton.propTypes = {
     'text-link',
     'inline-outline-secondary',
   ]).isRequired,
+  small: PropTypes.bool,
   large: PropTypes.bool,
 };

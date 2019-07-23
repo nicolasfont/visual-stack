@@ -38,7 +38,7 @@ export default () => (
 
 /* s2:start */
 const CustomButton = ({ children, expanded, ...props }) => (
-  <Button {...props} type="solid-secondary">
+  <Button {...props} type="inline-outline-secondary">
     {children}
     {!expanded ? ' >' : ' v'}
   </Button>
