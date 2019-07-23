@@ -31,10 +31,10 @@ export default () => (
             caption="Sortable Data Table with Pagination"
             description="Description Text"
             columns={[
-              { label: 'ID', width: '5%', clickable: true },
-              { label: 'First Name', width: '20%', clickable: true },
-              { label: 'Last Name', width: '50%' },
-              { label: 'Rank', width: '25%' },
+              { label: 'ID', width: '9%', clickable: true },
+              { label: 'First Name', width: '16%', clickable: true },
+              { label: 'Last Name', width: '61%' },
+              { label: 'Rank', width: '14%' },
             ]}
             data={[
               [0, 'Arthur', 'Ashe', 1],
