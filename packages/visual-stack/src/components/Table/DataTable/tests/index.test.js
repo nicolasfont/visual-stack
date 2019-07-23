@@ -385,7 +385,7 @@ describe('DataTable', () => {
         });
       });
 
-      it('should callback with the ascending sorting data on non sorted header', () => {
+      it('should callback with the descending sorting data on non sorted header', () => {
         const onSort = jest.fn();
         const first = 'a';
         const second = 'b';
@@ -413,9 +413,9 @@ describe('DataTable', () => {
         targetHeaderWrapper.simulate('click');
 
         expect(onSort.mock.calls[0][0].data).toEqual([
-          [first],
-          [second],
           [third],
+          [second],
+          [first],
         ]);
       });
 
@@ -508,7 +508,7 @@ describe('DataTable', () => {
         targetHeaderWrapper.simulate('click');
         expect(onSort.mock.calls[0][0].sortingOption).toEqual({
           label,
-          order: ASCENDING,
+          order: DESCENDING,
         });
       });
 
@@ -536,7 +536,7 @@ describe('DataTable', () => {
         targetHeaderWrapper.simulate('click');
         expect(onSort.mock.calls[0][0].sortingOption).toEqual({
           label,
-          order: ASCENDING,
+          order: DESCENDING,
         });
       });
     });

@@ -35,8 +35,8 @@ const getSortingIcon = (sortingOption, currentLabel) => {
 };
 
 const getNextOrder = order => {
-  if (!order || order === DESCENDING) return ASCENDING;
-  if (order === ASCENDING) return DESCENDING;
+  if (!order || order === ASCENDING) return DESCENDING;
+  if (order === DESCENDING) return ASCENDING;
 };
 
 const sort = order => index => R.sortWith([order(R.prop(index))]);
@@ -44,9 +44,9 @@ const sortAscendingByIndex = sort(R.ascend);
 const sortDescendingByIndex = sort(R.descend);
 
 const getNextData = (index, currentOrder, data) => {
-  if (!currentOrder || currentOrder === DESCENDING)
-    return sortAscendingByIndex(index)(data);
-  if (currentOrder === ASCENDING) return sortDescendingByIndex(index)(data);
+  if (!currentOrder || currentOrder === ASCENDING)
+    return sortDescendingByIndex(index)(data);
+  if (currentOrder === DESCENDING) return sortAscendingByIndex(index)(data);
 };
 
 const generateHeader = (sortable, sortingOption, onSort, data) => (
