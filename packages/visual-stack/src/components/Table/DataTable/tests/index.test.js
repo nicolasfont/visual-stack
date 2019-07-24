@@ -273,15 +273,36 @@ describe('DataTable', () => {
         const targetHeaderWrapper = wrapper
           .find('th.vs-data-table-header-sortable')
           .filterWhere(node => trim(node.text()) === 'first name');
+        expect(targetHeaderWrapper.find('ArrowUpIcon')).toHaveLength(1);
+      });
+
+      it('should render default arrow down icon for non sorted header', () => {
+        const wrapper = mount(
+          <DataTable
+            columns={[
+              { label: 'id' },
+              {
+                label: 'first name',
+              },
+              {
+                label: 'last name',
+              },
+            ]}
+            sortingOption={{
+              label: 'first name',
+              order: ASCENDING,
+            }}
+            sortable
+          />
+        );
         const otherHeadersWrapper = wrapper
           .find('th.vs-data-table-header-sortable')
           .filterWhere(node => trim(node.text()) !== 'first name');
-        expect(targetHeaderWrapper.find('ArrowUpIcon')).toHaveLength(1);
         expect(
           sum(
             otherHeadersWrapper.map(node => node.find('ArrowDownIcon').length)
           )
-        ).toEqual(0);
+        ).toEqual(2);
       });
 
       it('should render arrow down icon', () => {

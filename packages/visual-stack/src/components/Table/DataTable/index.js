@@ -29,7 +29,7 @@ const getSortingIcon = (sortingOption, currentLabel) => {
     icon = <ArrowDownIcon />;
   }
   if (sortingOption.label !== currentLabel) {
-    icon = null;
+    icon = <ArrowDownIcon className="vs-unsorted-row-icon" />;
   }
   return icon;
 };
