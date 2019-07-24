@@ -111,7 +111,7 @@ describe('DataTable', () => {
       ]);
     });
 
-    it('should should not click on unClickable td', () => {
+    it('should not be able to click on regular td', () => {
       const targetLabel = 'target';
       const targetData = 'target data';
       const columns = [
