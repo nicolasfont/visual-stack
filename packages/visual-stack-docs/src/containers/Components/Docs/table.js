@@ -22,7 +22,6 @@ import './table.css'; // for custom styles
 /* s8:start */
 import {
   DataTable,
-  ASCENDING,
   DESCENDING,
 } from '@cjdev/visual-stack-redux/lib/components/DataTable';
 /* s8:end */
