@@ -20,7 +20,11 @@ import './table.css'; // for custom styles
 /* s1:end */
 
 /* s8:start */
-import { DataTable } from '@cjdev/visual-stack-redux/lib/components/DataTable';
+import {
+  DataTable,
+  ASCENDING,
+  DESCENDING,
+} from '@cjdev/visual-stack-redux/lib/components/DataTable';
 /* s8:end */
 
 export default () => (
@@ -71,6 +75,10 @@ export default () => (
             ]}
             onClick={e => {
               window.alert(`You click on a cell: ${JSON.stringify(e)}`);
+            }}
+            sortingOption={{
+              label: 'Rank',
+              order: DESCENDING,
             }}
             sortable
             pagination
