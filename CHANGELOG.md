@@ -1,4 +1,3 @@
-#Upcoming
 ## 4.10.0
 - Add new Data table
 
