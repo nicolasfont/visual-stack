@@ -1,5 +1,6 @@
 import React from 'react';
-import { DataTable, ASCENDING, DESCENDING } from '..';
+import { DataTable } from '..';
+import { ASCENDING, DESCENDING } from '../sortingHelper';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { trim, range, sum } from 'ramda';
