@@ -59,7 +59,7 @@
   width: 20px;
 }
 
-.vs-data-table-header-sorted svg {
+.vs-data-table-header-sortable svg {
   fill: #333;
   height: 16px;
   margin-top: -2px;
@@ -85,4 +85,15 @@
 
 .vs-data-table-clickable-cell {
   cursor: pointer;
+}
+
+.vs-unsorted-row-icon {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.vs-cell:hover .vs-unsorted-row-icon {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.2s linear;
 }
