@@ -1,5 +1,6 @@
 import * as R from 'ramda';
 import { createAction, handleActions } from 'redux-actions';
+import { sortData } from '@cjdev/visual-stack/lib/components/Table/DataTable/sortingHelper';
 
 const defaultToEmpty = R.defaultTo({});
 const collapse = R.set(R.lensProp('expanded'), false);
@@ -98,6 +99,16 @@ export const updateNamedCalendarRanges = createAction(
     selectedNamedRanges,
   })
 );
+
+const findSortingIndex = (sortingOption, columns) =>
+  R.findIndex(R.propEq('label', sortingOption.label))(columns);
+
+const getDataTableData = ({ columns, data, sortingOption }) => {
+  if (!sortingOption) return data;
+
+  const sortingIndex = findSortingIndex(sortingOption, columns);
+  return sortData(sortingIndex, sortingOption.order, data);
+};
 
 const INITIALIZE_DATA_TABLE = '@cjdev/visual-stack-redux/INITIALIZE_DATA_TABLE';
 export const initializeDataTable = createAction(INITIALIZE_DATA_TABLE);
@@ -237,16 +248,19 @@ export default handleActions(
       ),
     [RESET_CALENDAR_SELECTION]: (state, { payload: { datePickerId } }) =>
       R.set(R.lensPath(['datePicker', datePickerId]), {}, state),
-    [INITIALIZE_DATA_TABLE]: (state, { payload: { id, data } }) =>
+    [INITIALIZE_DATA_TABLE]: (state, { payload }) =>
       R.set(
-        R.lensPath(['dataTable', id]),
+        R.lensPath(['dataTable', payload.id]),
         {
-          data,
+          data: getDataTableData(payload),
           pagination: {
             page: 1,
             rowsPerPage: 10,
           },
-          sortingOption: {},
+          sortingOption: R.compose(
+            R.defaultTo({}),
+            R.prop('sortingOption')
+          )(payload),
         },
         state
       ),

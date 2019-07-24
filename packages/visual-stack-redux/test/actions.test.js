@@ -19,6 +19,7 @@ import reducer, {
   setDataTableSortingOption,
 } from '../src/actions';
 import { selectDataTable } from '../lib/actions';
+import { DESCENDING } from '@cjdev/visual-stack/lib/components/Table/DataTable/sortingHelper';
 
 describe('reducer', () => {
   test('initial state', () => {
@@ -357,8 +358,13 @@ describe('reducer', () => {
         id: 1,
       },
     ];
+    const columns = [];
+    const sortingOption = null;
     const beforeState = {};
-    const afterState = reducer(beforeState, initializeDataTable({ id, data }));
+    const afterState = reducer(
+      beforeState,
+      initializeDataTable({ id, data, columns, sortingOption })
+    );
     expect(afterState.dataTable[id]).toEqual({
       data,
       pagination: {
@@ -367,6 +373,31 @@ describe('reducer', () => {
       },
       sortingOption: {},
     });
+  });
+
+  test('should initialize dataTable data with default sorting option ', () => {
+    const id = 'sample-data-table';
+    const data = [[4], [3], [7], [1], [2]];
+    const columns = [
+      {
+        label: 'id',
+      },
+    ];
+    const sortingOption = {
+      label: 'id',
+      order: DESCENDING,
+    };
+    const beforeState = {};
+    const afterState = reducer(
+      beforeState,
+      initializeDataTable({ id, data, columns, sortingOption })
+    );
+    const {
+      data: actualData,
+      sortingOption: actualSortingOption,
+    } = afterState.dataTable[id];
+    expect(actualData).toEqual([[7], [4], [3], [2], [1]]);
+    expect(actualSortingOption).toEqual(sortingOption);
   });
 
   test('should setDataTablePage', () => {

@@ -9,10 +9,16 @@ import {
 } from '../../actions';
 import * as R from 'ramda';
 import PropTypes from 'prop-types';
+export {
+  ASCENDING,
+  DESCENDING,
+} from '@cjdev/visual-stack/lib/components/Table/DataTable/sortingHelper';
 
 export class DataTablePure extends Component {
   componentDidMount() {
-    const initialPayload = R.pick(['id', 'data'])(this.props);
+    const initialPayload = R.pick(['id', 'data', 'sortingOption', 'columns'])(
+      this.props
+    );
     this.props.initializeDataTable(initialPayload);
   }
 
