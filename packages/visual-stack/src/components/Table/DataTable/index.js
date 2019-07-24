@@ -151,7 +151,10 @@ DataTable.propTypes = {
   page: PropTypes.number,
   onPageChange: PropTypes.func,
   pagination: PropTypes.bool,
-  sortingOption: PropTypes.object,
+  sortingOption: PropTypes.shape({
+    label: PropTypes.string,
+    order: PropTypes.string,
+  }),
   sortable: PropTypes.bool,
   onSort: PropTypes.func,
   onClick: PropTypes.func,
