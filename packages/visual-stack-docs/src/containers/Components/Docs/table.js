@@ -16,9 +16,12 @@ import {
   Th,
   Td,
 } from '@cjdev/visual-stack/lib/components/Table';
-import { DataTable } from '@cjdev/visual-stack-redux/lib/components/DataTable';
 import './table.css'; // for custom styles
 /* s1:end */
+
+/* s8:start */
+import { DataTable } from '@cjdev/visual-stack-redux/lib/components/DataTable';
+/* s8:end */
 
 export default () => (
   <Demo srcFile="/samples/src/containers/Components/Docs/table.js">
@@ -80,6 +83,7 @@ export default () => (
               <div className="docs">
                 This demonstrates all the features of the data table component.
               </div>
+              <Snippet tag="s8" src={snippets} />
               <Snippet tag="s7" src={snippets} />
             </Body>
           </Panel>
