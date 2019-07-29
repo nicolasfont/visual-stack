@@ -1,3 +1,7 @@
+# Upcoming
+## New Feature
+- Add displaying trend option to data table
+
 # 4.10.0
 ## New Feature
 - Add new Data table

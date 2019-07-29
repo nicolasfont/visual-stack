@@ -137,6 +137,27 @@ describe('DataTable', () => {
       targetTD.simulate('click');
       expect(onClick.mock.calls).toHaveLength(0);
     });
+
+    describe('Displaying custom cell', () => {
+      it('should display custom cell when there is renderCell function', () => {
+        const label = 'change';
+        const targetData = 'value';
+        const renderCell = value => `test ${value}`;
+        const columns = [
+          {
+            label,
+            renderCell,
+          },
+        ];
+        const wrapper = mount(
+          <DataTable columns={columns} data={[[targetData]]} />
+        );
+        const targetTD = wrapper
+          .find('td.vs-cell')
+          .filterWhere(node => node.text() === `test value`);
+        expect(targetTD).toHaveLength(1);
+      });
+    });
   });
 
   describe('pagination', () => {
@@ -337,7 +358,7 @@ describe('DataTable', () => {
         const label = 'id';
         const wrapper = mount(
           <DataTable
-            columns={[{ label: label }]}
+            columns={[{ label }]}
             sortingOption={{
               label,
               order: DESCENDING,

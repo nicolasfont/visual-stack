@@ -22,8 +22,42 @@ import './table.css'; // for custom styles
 /* s8:start */
 import {
   DataTable,
+  renderTrendingUp,
+  renderTrendingDown,
+  renderNoTrending,
   DESCENDING,
 } from '@cjdev/visual-stack-redux/lib/components/DataTable';
+import EmoticonHappyIcon from 'mdi-react/EmoticonHappyIcon';
+import EmoticonSadIcon from 'mdi-react/EmoticonSadIcon';
+const renderTrend = value => {
+  if (value > 0) {
+    return renderTrendingUp(value);
+  }
+  if (value < 0) {
+    return renderTrendingDown(value);
+  }
+  return renderNoTrending(value);
+};
+
+const renderCustomTrend = value => {
+  if (value > 0) {
+    return (
+      <>
+        <EmoticonHappyIcon style={{ fill: '#0ec38f' }} />
+        {value}
+      </>
+    );
+  }
+  if (value < 0) {
+    return (
+      <>
+        <EmoticonSadIcon style={{ fill: '#f65161' }} />
+        {value}
+      </>
+    );
+  }
+  return renderNoTrending(value);
+};
 /* s8:end */
 
 export default () => (
@@ -39,38 +73,48 @@ export default () => (
             columns={[
               { label: 'ID', width: '9%', clickable: true },
               { label: 'First Name', width: '16%', clickable: true },
-              { label: 'Last Name', width: '61%' },
+              { label: 'Last Name', width: '39%' },
               { label: 'Rank', width: '14%' },
+              {
+                label: 'Change',
+                width: '11%',
+                renderCell: renderTrend,
+              },
+              {
+                label: 'Custom Change',
+                width: '11%',
+                renderCell: renderCustomTrend,
+              },
             ]}
             data={[
-              [0, 'Arthur', 'Ashe', 1],
-              [1, 'Barbara', 'Bosell', 34],
-              [2, 'Chris', 'Canoza', 56],
-              [3, 'Doug', 'Dangger', 7],
-              [4, 'Elliot', 'Erwitt', 90],
-              [5, 'Dillon', 'Otwell', 67],
-              [6, 'Josephina', 'Frost', 23],
-              [7, 'Timothy', 'Hall', 404],
-              [8, 'Catherine', 'Terry', 155],
-              [9, 'Elizabeth', 'Weitz', 2421],
-              [10, 'David', 'Mora', 6332],
-              [11, 'Mac', 'Morrow', 6331],
-              [12, 'Michal', 'Lamont', 8851],
-              [13, 'Erma', 'Kash', 4186],
-              [14, 'Bernice', 'Cloutier', 2569],
-              [15, 'Jodi', 'Kelly', 8082],
-              [16, 'Carol', 'Wheeler', 8774],
-              [17, 'Alberto', 'Clark', 770],
-              [18, 'Margaret', 'Harris', 8305],
-              [19, 'Jose', 'Bowden', 9796],
-              [20, 'Ronald', 'Carrillo', 9028],
-              [21, 'Ruth', 'Childs', 3724],
-              [22, 'Laverne', 'Drain', 9848],
-              [23, 'Gerald', 'Alldredge', 2760],
-              [24, 'Lois', 'Vasquez', 9234],
-              [25, 'Claud', 'Wallen', 6406],
-              [26, 'Paul', 'Rodriguez', 3701],
-              [27, 'Ronald', 'Brown', 3424],
+              [0, 'Arthur', 'Ashe', 1, -47, 39],
+              [1, 'Barbara', 'Bosell', 34, 37, -15],
+              [2, 'Chris', 'Canoza', 56, 25, 0],
+              [3, 'Doug', 'Dangger', 7, 14, -48],
+              [4, 'Elliot', 'Erwitt', 90, -84, 65],
+              [5, 'Dillon', 'Otwell', 67, 0, -16],
+              [6, 'Josephina', 'Frost', 23, 48, -75],
+              [7, 'Timothy', 'Hall', 404, 60, 27],
+              [8, 'Catherine', 'Terry', 155, -82, 78],
+              [9, 'Elizabeth', 'Weitz', 2421, 23, -4],
+              [10, 'David', 'Mora', 6332, 43, 76],
+              [11, 'Mac', 'Morrow', 6331, 81, 41],
+              [12, 'Michal', 'Lamont', 8851, -34, -84],
+              [13, 'Erma', 'Kash', 4186, -29, 65],
+              [14, 'Bernice', 'Cloutier', 2569, 98, 53],
+              [15, 'Jodi', 'Kelly', 8082, -87, -38],
+              [16, 'Carol', 'Wheeler', 8774, -50, 5],
+              [17, 'Alberto', 'Clark', 770, -88, 31],
+              [18, 'Margaret', 'Harris', 8305, -92, -52],
+              [19, 'Jose', 'Bowden', 9796, 15, -15],
+              [20, 'Ronald', 'Carrillo', 9028, -77, -69],
+              [21, 'Ruth', 'Childs', 3724, 83, 12],
+              [22, 'Laverne', 'Drain', 9848, -56, 37],
+              [23, 'Gerald', 'Alldredge', 2760, 96, 72],
+              [24, 'Lois', 'Vasquez', 9234, 76, -69],
+              [25, 'Claud', 'Wallen', 6406, 16, -14],
+              [26, 'Paul', 'Rodriguez', 3701, -83, 41],
+              [27, 'Ronald', 'Brown', 3424, -87, -90],
             ]}
             onClick={e => {
               window.alert(`You click on a cell: ${JSON.stringify(e)}`);
