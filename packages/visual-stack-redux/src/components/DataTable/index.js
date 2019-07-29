@@ -13,6 +13,11 @@ export {
   ASCENDING,
   DESCENDING,
 } from '@cjdev/visual-stack/lib/components/Table/DataTable/sortingHelper';
+export {
+  renderNoTrending,
+  renderTrendingUp,
+  renderTrendingDown,
+} from '@cjdev/visual-stack/lib/components/Table/DataTable/Trend';
 
 export class DataTablePure extends Component {
   componentDidMount() {

@@ -64,7 +64,7 @@ const generateRow = ({ onClick, columns }) => (rowItems, index) => (
         R.defaultTo({}),
         R.prop(columnIndex)
       );
-      const { label, clickable } = getColumn(columns);
+      const { label, clickable, renderCell = R.identity } = getColumn(columns);
       return (
         <Td key={columnIndex}>
           {clickable && (
@@ -77,10 +77,10 @@ const generateRow = ({ onClick, columns }) => (rowItems, index) => (
                 });
               }}
             >
-              {item}
+              {renderCell(item)}
             </a>
           )}
-          {!clickable && item}
+          {!clickable && renderCell(item)}
         </Td>
       );
     })}
