@@ -8,6 +8,27 @@ import { trim, range, sum } from 'ramda';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('DataTable', () => {
+  describe('Top Level Header', () => {
+    it('should display tool bar', () => {
+      const renderToolbar = jest.fn(() => <div id="test">TEST</div>);
+      const data = [[1, 2, 3]];
+      const columns = [
+        {
+          label: 'hello',
+        },
+      ];
+      const wrapper = mount(
+        <DataTable
+          renderToolbar={renderToolbar}
+          data={data}
+          columns={columns}
+        />
+      );
+      expect(renderToolbar.mock.calls).toEqual([[{ data, columns }]]);
+      expect(wrapper.find('div#test').text()).toEqual('TEST');
+    });
+  });
+
   describe('headers', () => {
     it('should render when there are columns', () => {
       const label1 = 'label1';

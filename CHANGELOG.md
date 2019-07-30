@@ -1,6 +1,7 @@
 # Upcoming
 ## New Feature
-- Add displaying trend option to data table
+- Add custom cell option to data table
+- Add toolbar option in data table
 
 # 4.10.0
 ## New Feature

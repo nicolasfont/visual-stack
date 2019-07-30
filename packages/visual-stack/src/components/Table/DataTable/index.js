@@ -106,6 +106,7 @@ export const DataTable = ({
   sortable = false,
   onClick,
   onSort,
+  renderToolbar,
 }) => {
   const normalizedData = pagination
     ? getDataWithPagination(rowsPerPage, page)(data)
@@ -114,9 +115,12 @@ export const DataTable = ({
   return (
     <TableContainer className="vs-data-table-container">
       <TableTitle>
-        <div>
-          {caption}
-          <p>{description}</p>
+        <div className="vs-data-table-top-level-header">
+          <div>
+            {caption}
+            <p>{description}</p>
+          </div>
+          <div>{renderToolbar && renderToolbar({ columns, data })}</div>
         </div>
       </TableTitle>
       <Table>
@@ -158,4 +162,5 @@ DataTable.propTypes = {
   sortable: PropTypes.bool,
   onSort: PropTypes.func,
   onClick: PropTypes.func,
+  renderToolbar: PropTypes.func,
 };

@@ -90,6 +90,7 @@ describe('DataTablePure', () => {
     const rowsPerPage = 10;
     const sortable = false;
     const pagination = true;
+    const renderToolbar = jest.fn();
     const sortingOption = {
       label: 'id',
       order: 'ASCENDING',
@@ -115,6 +116,7 @@ describe('DataTablePure', () => {
         initializeDataTable={initializeDataTable}
         dataTable={dataTable}
         onClick={onClick}
+        renderToolbar={renderToolbar}
       />
     );
     const props = wrapper.find(VSDataTable).props();
@@ -127,6 +129,7 @@ describe('DataTablePure', () => {
     expect(props.rowsPerPage).toEqual(dataTable.pagination.rowsPerPage);
     expect(props.sortingOption).toEqual(dataTable.sortingOption);
     expect(props.onClick).toEqual(onClick);
+    expect(props.renderToolbar).toEqual(renderToolbar);
   });
 
   it('should not reset data table data if props isnt changed', () => {
