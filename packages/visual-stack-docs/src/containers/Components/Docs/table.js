@@ -27,10 +27,7 @@ import {
   renderNoTrending,
   DESCENDING,
 } from '@cjdev/visual-stack-redux/lib/components/DataTable';
-<<<<<<< HEAD
 import { Button } from '@cjdev/visual-stack/lib/components/Button';
-=======
->>>>>>> 7eab9c340ea3346dedea442f953f51e38930271c
 import EmoticonHappyIcon from 'mdi-react/EmoticonHappyIcon';
 import EmoticonSadIcon from 'mdi-react/EmoticonSadIcon';
 const renderTrend = value => {
