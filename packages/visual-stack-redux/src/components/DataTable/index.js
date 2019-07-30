@@ -48,6 +48,7 @@ export class DataTablePure extends Component {
       setDataTablePage,
       setDataTableSortingOption,
       onClick,
+      renderToolbar,
     } = this.props;
     return (
       <div>
@@ -68,6 +69,7 @@ export class DataTablePure extends Component {
           onSort={({ data, sortingOption }) => {
             setDataTableSortingOption({ id, data, sortingOption });
           }}
+          renderToolbar={renderToolbar}
         />
       </div>
     );
@@ -96,6 +98,7 @@ DataTablePure.propTypes = {
   setDataTablePage: PropTypes.func,
   setDataTableSortingOption: PropTypes.func,
   onClick: PropTypes.func,
+  renderToolBar: PropTypes.func,
 };
 
 const mapStateToProps = (state, ownProps) => ({

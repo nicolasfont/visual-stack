@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 /** @prettier */
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Panel, Body, Header } from '@cjdev/visual-stack/lib/components/Panel';
 import { Demo, Snippet } from '../../../components/Demo';
 
@@ -27,6 +27,10 @@ import {
   renderNoTrending,
   DESCENDING,
 } from '@cjdev/visual-stack-redux/lib/components/DataTable';
+<<<<<<< HEAD
+import { Button } from '@cjdev/visual-stack/lib/components/Button';
+=======
+>>>>>>> 7eab9c340ea3346dedea442f953f51e38930271c
 import EmoticonHappyIcon from 'mdi-react/EmoticonHappyIcon';
 import EmoticonSadIcon from 'mdi-react/EmoticonSadIcon';
 const renderTrend = value => {
@@ -123,6 +127,26 @@ export default () => (
               label: 'Rank',
               order: DESCENDING,
             }}
+            renderToolbar={({ data, columns }) => (
+              <Fragment>
+                <Button
+                  onClick={() => {
+                    window.alert(JSON.stringify(columns));
+                  }}
+                  type="outline-secondary"
+                >
+                  columns
+                </Button>
+                <Button
+                  onClick={() => {
+                    window.alert(JSON.stringify(data));
+                  }}
+                  type="outline-secondary"
+                >
+                  data
+                </Button>
+              </Fragment>
+            )}
             sortable
             pagination
           />
