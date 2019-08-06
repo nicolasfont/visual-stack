@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, {mount, shallow} from 'enzyme';
+import Enzyme, { mount, shallow } from 'enzyme';
 import DialogLayout from '../';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -98,9 +98,7 @@ describe('DialogLayout', () => {
       onCancelCalled = true;
     };
 
-    const component = shallow(
-      <DialogLayout onCancel={onClickFake} />
-    );
+    const component = shallow(<DialogLayout onCancel={onClickFake} />);
 
     const closeIcon = component.find('.vs-dialog-layout-icon-close');
 
@@ -143,11 +141,7 @@ describe('DialogLayout', () => {
   });
 
   test('should have wide content when contentSize is wide', () => {
-    const component = mount(
-      <DialogLayout
-        contentSize={'wide'}
-      />
-    );
+    const component = mount(<DialogLayout contentSize={'wide'} />);
 
     const content = component.find('.vs-dialog-layout-content');
 
@@ -155,11 +149,7 @@ describe('DialogLayout', () => {
   });
 
   test('should have normal content when contentSize is normal', () => {
-    const component = mount(
-      <DialogLayout
-        contentSize={'normal'}
-      />
-    );
+    const component = mount(<DialogLayout contentSize={'normal'} />);
 
     const content = component.find('.vs-dialog-layout-content');
 
@@ -167,9 +157,7 @@ describe('DialogLayout', () => {
   });
 
   test('should have normal content when contentSize is not passed', () => {
-    const component = mount(
-      <DialogLayout/>
-    );
+    const component = mount(<DialogLayout />);
 
     const content = component.find('.vs-dialog-layout-content');
 

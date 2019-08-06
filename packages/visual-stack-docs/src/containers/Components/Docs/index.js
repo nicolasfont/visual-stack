@@ -8,6 +8,7 @@ import PageContent from '@cjdev/visual-stack/lib/components/PageContent';
 import BlankSlateDocs from './blankslate';
 import ButtonWithDropdownDocs from './button-with-dropdown';
 import ButtonDocs from './button';
+import AlertDocs from './alert';
 import DatePickerDocs from './datepicker';
 import FormDocs from './form';
 import ListDocs from './list';
@@ -40,6 +41,7 @@ addComponentRoute(
   'Button With Dropdown',
   <ButtonWithDropdownDocs />
 );
+addComponentRoute('alert', 'Alert', <AlertDocs />);
 addComponentRoute('form', 'Form', <FormDocs />);
 addComponentRoute('list', 'List', <ListDocs />);
 addComponentRoute('modal', 'Modal', <ModalDocs />);
