@@ -25,6 +25,7 @@ import CardDocs from './card';
 import ListViewDocs from './listview';
 import LoaderDocs from './loader';
 import ExpandingInputButtonDocs from './expanding-input-button';
+import LoaderDocs from './loader';
 
 import CollapsiblePanelDocs from './collapsiblepanel';
 import PaginationDocs from './pagination';
