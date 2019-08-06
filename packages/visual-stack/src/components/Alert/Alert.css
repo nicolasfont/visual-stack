@@ -13,12 +13,12 @@
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 }
 
-.alert-icon {
+.vs-alert-icon {
   display: inline;
   float: left;
 }
 
-.alert-close-icon {
+.vs-alert-close-icon {
   position: absolute;
   display: inline;
   top: 15px;
@@ -26,18 +26,18 @@
   opacity: 0.6;
 }
 
-.alert-close-icon:hover {
+.vs-alert-close-icon:hover {
   opacity: 1;
 }
 
-.alert-close-button {
+.vs-alert-close-button {
   position: absolute;
   display: inline-block;
   right: 16px;
   margin-top: -4px;
 }
 
-.content {
+.vs-alert-content {
   width: 85%;
   display: inline-block;
 }

@@ -26,17 +26,17 @@ const makeAlert = () => ({
   );
 
   const iconMap = {
-    success: <IconSuccess className="alert-icon" />,
-    info: <IconInfo className="alert-icon" />,
-    warning: <IconWarning className="alert-icon" />,
+    success: <IconSuccess className="vs-alert-icon" />,
+    info: <IconInfo className="vs-alert-icon" />,
+    warning: <IconWarning className="vs-alert-icon" />,
   };
 
   const closeButtonMap = {
-    icon: <CloseIcon className="alert-close-icon" onClick={() => onClose()} />,
+    icon: <CloseIcon className="vs-alert-close-icon" onClick={() => onClose()} />,
     button: (
       <Button
         type="outline-secondary"
-        className={'alert-close-button'}
+        className={'vs-alert-close-button'}
         onClick={() => onClose()}
       >
         {closeButtonText}
@@ -47,7 +47,7 @@ const makeAlert = () => ({
   return (
     <div className={classes.join(' ')} {...otherProps}>
       {iconMap[type] || iconMap.info}
-      <span className="content">{children}</span>
+      <span className="vs-alert-content">{children}</span>
       {closeButtonMap[closeType]}
     </div>
   );
