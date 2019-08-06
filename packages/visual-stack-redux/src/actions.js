@@ -16,6 +16,17 @@ export const closeModal = createAction(CLOSE_MODAL);
 
 const emptyModalState = { component: undefined, props: undefined };
 
+const OPEN_ALERT = '@cjdev/visual-stack-redux/OPEN_ALERT';
+const CLOSE_ALERT = '@cjdev/visual-stack-redux/CLOSE_ALERT';
+
+export const openAlert = createAction(OPEN_ALERT, (component, props) => ({
+  component,
+  props,
+}));
+export const closeAlert = createAction(CLOSE_ALERT);
+
+const emptyAlertState = { component: undefined, props: undefined };
+
 const REGISTER_DROPDOWN = '@cjdev/visual-stack-redux/REGISTER_DROPDOWN';
 const TOGGLE_DROPDOWN = '@cjdev/visual-stack-redux/TOGGLE_DROPDOWN';
 
@@ -138,6 +149,11 @@ export default handleActions(
       R.set(R.lensProp('modal'), payload, state),
 
     [CLOSE_MODAL]: state => R.set(R.lensProp('modal'), emptyModalState, state),
+
+    [OPEN_ALERT]: (state, { payload }) =>
+      R.set(R.lensProp('alert'), payload, state),
+
+    [CLOSE_ALERT]: state => R.set(R.lensProp('alert'), emptyAlertState, state),
 
     [REGISTER_DROPDOWN]: (state, { payload }) =>
       R.over(R.lensProp('navGroupDropdown'), R.assoc(payload, false), state),
@@ -286,6 +302,7 @@ export default handleActions(
   {
     menuBar: {},
     modal: emptyModalState,
+    alert: emptyAlertState,
     navGroupDropdown: {},
     sideNav: {},
     slidingPanel: {},

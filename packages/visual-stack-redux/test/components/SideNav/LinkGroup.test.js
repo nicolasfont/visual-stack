@@ -37,7 +37,6 @@ describe('LinkGroup', () => {
     );
 
     sinon.assert.calledOnce(toggleSideNavLinkGroupSpy);
-
   });
 
   test('should calculate expanded value based on state', () => {
