@@ -21,7 +21,7 @@ describe('Alert', () => {
     expect(alert).toHaveLength(1);
     expect(
       alert.contains(
-        <span className="content">You have completed the form.</span>
+        <span className="vs-alert-content">You have completed the form.</span>
       )
     ).toEqual(true);
   });
@@ -36,7 +36,7 @@ describe('Alert', () => {
     );
     const alert = wrapper.find('.vs-info-alert');
 
-    expect(alert.contains(<IconInfo className="alert-icon" />)).toEqual(true);
+    expect(alert.contains(<IconInfo className="vs-alert-icon" />)).toEqual(true);
 
     wrapper.unmount();
   });
@@ -51,7 +51,7 @@ describe('Alert', () => {
     );
     const alert = wrapper.find('.vs-success-alert');
 
-    expect(alert.contains(<IconSuccess className="alert-icon" />)).toEqual(
+    expect(alert.contains(<IconSuccess className="vs-alert-icon" />)).toEqual(
       true
     );
 
@@ -68,7 +68,7 @@ describe('Alert', () => {
     );
     const alert = wrapper.find('.vs-warning-alert');
 
-    expect(alert.contains(<IconWarning className="alert-icon" />)).toEqual(
+    expect(alert.contains(<IconWarning className="vs-alert-icon" />)).toEqual(
       true
     );
 
@@ -89,7 +89,7 @@ describe('Alert', () => {
       alert
         .debug()
         .indexOf(
-          '<CloseIcon className="alert-close-icon" onClick={[Function: onClick]} />'
+          '<CloseIcon className="vs-alert-close-icon" onClick={[Function: onClick]} />'
         ) > -1
     ).toEqual(true);
 
@@ -110,7 +110,7 @@ describe('Alert', () => {
       alert
         .debug()
         .indexOf(
-          '<Component type="outline-secondary" className="alert-close-button" onClick={[Function: onClick]} />'
+          '<Component type="outline-secondary" className="vs-alert-close-button" onClick={[Function: onClick]} />'
         ) > -1
     ).toEqual(true);
 
