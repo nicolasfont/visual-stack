@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import './Alert.css';
 import CloseIcon from 'mdi-react/CloseIcon';
 import { concat, reduce, unapply } from 'ramda';
-import './Button.css';
 import IconSuccess from '../IconSuccess';
 import IconInfo from '../IconInfo';
 import IconWarning from '../IconWarning';
