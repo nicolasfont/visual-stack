@@ -36,7 +36,9 @@ describe('Alert', () => {
     );
     const alert = wrapper.find('.vs-info-alert');
 
-    expect(alert.contains(<IconInfo className="vs-alert-icon" />)).toEqual(true);
+    expect(alert.contains(<IconInfo className="vs-alert-icon" />)).toEqual(
+      true
+    );
 
     wrapper.unmount();
   });

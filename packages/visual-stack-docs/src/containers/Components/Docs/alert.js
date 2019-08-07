@@ -10,14 +10,14 @@ import { connect } from 'react-redux';
 /* s1:end */
 
 /* s2:start*/
-const createButton = (
+const createButton = ({
   buttonType,
   buttonMessage,
   type,
   closeType,
   closeButtonText,
-  children
-) => {
+  children,
+}) => {
   return ({ openAlert, closeAlert }) => (
     <Button
       type={buttonType}
@@ -46,59 +46,59 @@ const connectButton = button =>
 /* s3:end */
 
 /*s4:start*/
-const SuccessAlertWithIconCloseButton = createButton(
-  'success',
-  'Success Alert with Icon Close',
-  'success',
-  'icon',
-  null,
-  'You have successfully completed the form.'
-);
+const SuccessAlertWithIconCloseButton = createButton({
+  buttonType: 'success',
+  buttonMessage: 'Success Alert with Icon Close',
+  type: 'success',
+  closeType: 'icon',
+  closeButtonText: null,
+  children: 'You have successfully completed the form.',
+});
 
-const SuccessAlertWithButtonCloseButton = createButton(
-  'success',
-  'Success Alert with Button Close',
-  'success',
-  'button',
-  'Dismiss',
-  'You have successfully completed the form.'
-);
+const SuccessAlertWithButtonCloseButton = createButton({
+  buttonType: 'success',
+  buttonMessage: 'Success Alert with Button Close',
+  type: 'success',
+  closeType: 'button',
+  closeButtonText: 'Dismiss',
+  children: 'You have successfully completed the form.',
+});
 
-const InfoAlertWithIconCloseButton = createButton(
-  'info',
-  'Info Alert with Icon Close',
-  'info',
-  'icon',
-  null,
-  'Please review the form.'
-);
+const InfoAlertWithIconCloseButton = createButton({
+  buttonType: 'info',
+  buttonMessage: 'Info Alert with Icon Close',
+  type: 'info',
+  closeType: 'icon',
+  closeButtonText: null,
+  children: 'Please review the form.',
+});
 
-const InfoAlertWithButtonCloseButton = createButton(
-  'info',
-  'Info Alert with Button Close',
-  'info',
-  'button',
-  'Dismiss',
-  'Please review the form.'
-);
+const InfoAlertWithButtonCloseButton = createButton({
+  buttonType: 'info',
+  buttonMessage: 'Info Alert with Button Close',
+  type: 'info',
+  closeType: 'button',
+  closeButtonText: 'Dismiss',
+  children: 'Please review the form.',
+});
 
-const WarningAlertWithIconCloseButton = createButton(
-  'danger',
-  'Warning Alert with Icon Close',
-  'warning',
-  'icon',
-  null,
-  'There are errors on the form.'
-);
+const WarningAlertWithIconCloseButton = createButton({
+  buttonType: 'danger',
+  buttonMessage: 'Warning Alert with Icon Close',
+  type: 'warning',
+  closeType: 'icon',
+  closeButtonText: null,
+  children: 'There are errors on the form.',
+});
 
-const WarningAlertWithButtonCloseButton = createButton(
-  'danger',
-  'Warning Alert with Button Close',
-  'warning',
-  'button',
-  'Dismiss',
-  'There are errors on the form.'
-);
+const WarningAlertWithButtonCloseButton = createButton({
+  buttonType: 'danger',
+  buttonMessage: 'Warning Alert with Button Close',
+  type: 'warning',
+  closeType: 'button',
+  closeButtonText: 'Dismiss',
+  children: 'There are errors on the form.',
+});
 
 const ConnectedSuccessAlertWithIconCloseButton = connectButton(
   SuccessAlertWithIconCloseButton
@@ -121,32 +121,19 @@ const ConnectedWarningAlertWithButtonCloseButton = connectButton(
 /* s4:end */
 
 /* s6:start */
-const createButtonWithTimeout = (
-  buttonType,
-  buttonMessage,
-  type,
-  closeType,
-  children
-) => {
-  return ({ openAlert, closeAlert }) => (
-    <Button
-      type={buttonType}
-      onClick={() => {
-        openAlert(Alert, { type, children });
-        setTimeout(closeAlert, 5000);
-      }}
-    >
-      {buttonMessage}
-    </Button>
-  );
-};
-
-const SuccessAlertWithTimeoutCloseButton = createButtonWithTimeout(
-  'success',
-  'Success Alert with Timeout Close',
-  'success',
-  null,
-  'You have successfully completed the form.'
+const SuccessAlertWithTimeoutCloseButton = ({ openAlert, closeAlert }) => (
+  <Button
+    type="success"
+    onClick={() => {
+      openAlert(Alert, {
+        type: 'success',
+        children: 'You have successfully completed the form.',
+      });
+      setTimeout(closeAlert, 5000);
+    }}
+  >
+    Success Alert with Timeout Close
+  </Button>
 );
 
 const ConnectedSuccessAlertWithTimeoutCloseButton = connectButton(

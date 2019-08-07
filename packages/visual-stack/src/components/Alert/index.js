@@ -31,7 +31,9 @@ const makeAlert = () => ({
   };
 
   const closeButtonMap = {
-    icon: <CloseIcon className="vs-alert-close-icon" onClick={() => onClose()} />,
+    icon: (
+      <CloseIcon className="vs-alert-close-icon" onClick={() => onClose()} />
+    ),
     button: (
       <Button
         type="outline-secondary"
