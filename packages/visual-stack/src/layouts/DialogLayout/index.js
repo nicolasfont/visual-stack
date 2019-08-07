@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button} from '../../components/Button';
+import { Button } from '../../components/Button';
 import CloseIcon from 'mdi-react/CloseIcon';
 import cn from 'classnames';
 
@@ -10,7 +10,7 @@ function getSubmitButtonText(submitButtonText, showSubmitButtonSpinner) {
   if (showSubmitButtonSpinner) {
     return (
       <React.Fragment>
-        <Spinner size="button"/> {submitButtonText}
+        <Spinner size="button" /> {submitButtonText}
       </React.Fragment>
     );
   }
@@ -18,18 +18,18 @@ function getSubmitButtonText(submitButtonText, showSubmitButtonSpinner) {
 }
 
 export const DialogLayout = ({
-                               className,
-                               title,
-                               cancelButtonText,
-                               submitButtonText,
-                               disableSubmit,
-                               showSubmitButtonSpinner,
-                               contentSize,
-                               logo,
-                               onCancel,
-                               onSubmit,
-                               children,
-                             }) => (
+  className,
+  title,
+  cancelButtonText,
+  submitButtonText,
+  disableSubmit,
+  showSubmitButtonSpinner,
+  contentSize,
+  logo,
+  onCancel,
+  onSubmit,
+  children,
+}) => (
   <div className={cn(`vs-dialog-layout`, className)}>
     <div className="vs-dialog-layout-header vs-dialog-layout-page-title">
       <div className="vs-dialog-layout-logo-title-container">
@@ -57,13 +57,22 @@ export const DialogLayout = ({
             {getSubmitButtonText(submitButtonText, showSubmitButtonSpinner)}
           </Button>
         )}
-        {!submitButtonText && !cancelButtonText &&
-        <CloseIcon className="vs-dialog-layout-icon-close" onClick={onCancel}/>
-        }
+        {!submitButtonText && !cancelButtonText && (
+          <CloseIcon
+            className="vs-dialog-layout-icon-close"
+            onClick={onCancel}
+          />
+        )}
       </div>
     </div>
     <div
-      className={cn("vs-dialog-layout-content", `vs-dialog-layout-content-${contentSize ? contentSize : 'normal'}`)}>{children}</div>
+      className={cn(
+        'vs-dialog-layout-content',
+        `vs-dialog-layout-content-${contentSize ? contentSize : 'normal'}`
+      )}
+    >
+      {children}
+    </div>
   </div>
 );
 

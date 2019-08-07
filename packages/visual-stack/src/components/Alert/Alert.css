@@ -1,0 +1,43 @@
+.vs-alert-d {
+  z-index: 9999;
+  width: 780px;
+  background-color: white;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 85px;
+  position: fixed;
+  padding: 16px;
+  -webkit-box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.vs-alert-icon {
+  display: inline;
+  float: left;
+}
+
+.vs-alert-close-icon {
+  position: absolute;
+  display: inline;
+  top: 15px;
+  right: 16px;
+  opacity: 0.6;
+}
+
+.vs-alert-close-icon:hover {
+  opacity: 1;
+}
+
+.vs-alert-close-button {
+  position: absolute;
+  display: inline-block;
+  right: 16px;
+  margin-top: -4px;
+}
+
+.vs-alert-content {
+  width: 85%;
+  display: inline-block;
+}

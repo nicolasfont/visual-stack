@@ -27,6 +27,7 @@ describe('reducer', () => {
     expect(initialState).toEqual({
       menuBar: {},
       modal: expect.any(Object),
+      alert: expect.any(Object),
       navGroupDropdown: {},
       sideNav: {},
       slidingPanel: {},
