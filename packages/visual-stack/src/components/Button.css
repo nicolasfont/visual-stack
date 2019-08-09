@@ -173,7 +173,6 @@ a.vs-btn-d:hover,
 
 .vs-outline-secondary-btn:hover,
 .vs-rounded-outline-btn:hover {
-/*   background-color: rgba(172, 176, 181, 0.1); */
   background: rgba(137, 150, 165, 0.1) radial-gradient(circle, transparent 1%, rgba(137, 150, 165, 0.1) 1%) center/15000%;
   color: #414346;
 }
@@ -429,5 +428,4 @@ a.vs-btn-d:hover,
 
 .vs-btn-d.vs-lg-btn {
   padding: 12px 28px;
-/*   font-size: 1.6rem; */
 }
