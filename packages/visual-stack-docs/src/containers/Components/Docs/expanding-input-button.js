@@ -3,9 +3,7 @@ import { Body, Header, Panel } from '@cjdev/visual-stack/lib/components/Panel';
 import { Demo, Snippet } from '../../../components/Demo';
 import { ExpandingInputButton } from '@cjdev/visual-stack/lib/components/ExpandingInputButton';
 
-{
-  /* s1:start */
-}
+/* s1:start */
 class CustomButton extends React.Component {
   constructor(props) {
     super(props);
