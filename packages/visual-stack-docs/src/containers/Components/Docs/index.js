@@ -24,6 +24,7 @@ import TabLayoutDocs from './tablayout';
 import CardDocs from './card';
 import ListViewDocs from './listview';
 import LoaderDocs from './loader';
+import ExpandingInputButtonDocs from './expanding-input-button';
 
 import CollapsiblePanelDocs from './collapsiblepanel';
 import PaginationDocs from './pagination';
@@ -58,6 +59,11 @@ addComponentRoute('card', 'Card', <CardDocs />);
 addComponentRoute('listview', 'List View', <ListViewDocs />);
 addComponentRoute('loader', 'Loader', <LoaderDocs />);
 addComponentRoute('pagination', 'Pagination', <PaginationDocs />);
+addComponentRoute(
+  'expanding-input-button',
+  'Expanding Input Button',
+  <ExpandingInputButtonDocs />
+);
 addComponentRoute(
   'collapsiblepanel',
   'Collapsible Panel',
