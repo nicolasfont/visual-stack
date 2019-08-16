@@ -9,6 +9,7 @@ describe('ExpandingInputButton', () => {
   it('should render when expanded', () => {
     const wrapper = shallow(
       <ExpandingInputButton
+        icon={<MagnifyIcon />}
         expanded={true}
         onFocus={() => {}}
         onBlur={() => {}}
@@ -19,13 +20,11 @@ describe('ExpandingInputButton', () => {
       />
     );
 
-    const inputButton = wrapper.find('.expanding-input-button');
+    const inputButton = wrapper.find('.vs-expanding-input-button');
 
     expect(inputButton).toHaveLength(1);
 
-    expect(
-      inputButton.contains(<MagnifyIcon className="magnify-icon" />)
-    ).toEqual(true);
+    expect(inputButton.contains(<MagnifyIcon />)).toEqual(true);
 
     expect(
       inputButton
@@ -39,7 +38,7 @@ describe('ExpandingInputButton', () => {
       inputButton
         .debug()
         .indexOf(
-          '<WindowCloseIcon className="window-close-icon" onClick={[Function: onClear]} />'
+          '<WindowCloseIcon className="vs-window-close-icon" onClick={[Function: onClear]} />'
         ) > -1
     ).toEqual(true);
 
@@ -51,6 +50,7 @@ describe('ExpandingInputButton', () => {
   it('should render when not expanded', () => {
     const wrapper = shallow(
       <ExpandingInputButton
+        icon={<MagnifyIcon />}
         expanded={false}
         onFocus={() => {}}
         onBlur={() => {}}
@@ -61,13 +61,11 @@ describe('ExpandingInputButton', () => {
       />
     );
 
-    const inputButton = wrapper.find('.expanding-input-button');
+    const inputButton = wrapper.find('.vs-expanding-input-button');
 
     expect(inputButton).toHaveLength(1);
 
-    expect(
-      inputButton.contains(<MagnifyIcon className="magnify-icon" />)
-    ).toEqual(true);
+    expect(inputButton.contains(<MagnifyIcon />)).toEqual(true);
 
     expect(
       inputButton
