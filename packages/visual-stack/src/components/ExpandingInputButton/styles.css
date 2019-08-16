@@ -1,24 +1,24 @@
-.expanding-input-button input[type='text'] {
+.vs-expanding-input-button input[type='text'] {
   cursor: pointer;
   margin: 0px;
   width: 34px;
 }
 
-.expanding-input-button input[type='text']:hover,
-.expanding-input-button.expanding-input-button-focused input[type='text'] {
+.vs-expanding-input-button input[type='text']:hover,
+.vs-expanding-input-button.vs-expanding-input-button-focused input[type='text'] {
   border-color: hsl(0, 0%, 70%);
   box-shadow: none;
   outline: none;
 }
 
-.expanding-input-button.expanding-input-button-focused input[type='text'] {
+.vs-expanding-input-button.vs-expanding-input-button-focused input[type='text'] {
   cursor: auto;
   padding: 2px 33px 2px 33px;
   margin-right: -18px;
   width: 200px;
 }
 
-.expanding-input-button .magnify-icon {
+.vs-expanding-input-button .vs-expanding-input-button-icon  {
   left: 27px;
   margin-left: -20px;
   pointer-events: none;
@@ -26,7 +26,7 @@
   width: 20px;
 }
 
-.expanding-input-button .window-close-icon {
+.vs-expanding-input-button .vs-window-close-icon {
   cursor: pointer;
   position: relative;
   right: 8px;

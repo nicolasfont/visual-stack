@@ -2,6 +2,7 @@ import React from 'react';
 import { Body, Header, Panel } from '@cjdev/visual-stack/lib/components/Panel';
 import { Demo, Snippet } from '../../../components/Demo';
 import { ExpandingInputButton } from '@cjdev/visual-stack/lib/components/ExpandingInputButton';
+import MagnifyIcon from 'mdi-react/MagnifyIcon';
 
 /* s1:start */
 class CustomButton extends React.Component {
@@ -40,11 +41,11 @@ class CustomButton extends React.Component {
   onInputChange(event) {
     this.setState({ value: event.target.value });
   }
-  /* s1:end */
 
   render() {
     return (
       <ExpandingInputButton
+        icon={<MagnifyIcon />}
         expanded={this.state.expanded}
         onFocus={this.onInputFocus}
         onBlur={this.onInputBlur}
@@ -56,6 +57,7 @@ class CustomButton extends React.Component {
     );
   }
 }
+/* s1:end */
 
 export default () => (
   <Demo srcFile="/samples/src/containers/Components/Docs/expanding-input-button.js">
