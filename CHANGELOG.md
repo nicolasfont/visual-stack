@@ -1,3 +1,8 @@
+# 4.11.0
+## Add Component
+- Add Alert component
+- Add ExpandingInputButton
+
 # 4.10.1
 ## New Feature
 - Add custom cell option to data table
