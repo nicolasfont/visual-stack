@@ -4,6 +4,7 @@ import Enzyme, { shallow } from 'enzyme/build';
 import Adapter from 'enzyme-adapter-react-16/build';
 Enzyme.configure({ adapter: new Adapter() });
 import MagnifyIcon from 'mdi-react/MagnifyIcon';
+import { Input } from '../../Form';
 
 describe('ExpandingInputButton', () => {
   it('should render when expanded', () => {
@@ -15,7 +16,7 @@ describe('ExpandingInputButton', () => {
         onBlur={() => {}}
         onClear={() => {}}
         onChange={() => {}}
-        placeholder={'Enter search query'}
+        placeholder={''}
         value={''}
       />
     );
@@ -26,25 +27,9 @@ describe('ExpandingInputButton', () => {
 
     expect(inputButton.contains(<MagnifyIcon />)).toEqual(true);
 
-    expect(
-      inputButton
-        .debug()
-        .indexOf(
-          '<Input type="text" onChange={[Function: onChange]} value="" placeholder="Enter search query" />'
-        ) > -1
-    ).toEqual(true);
+    expect(inputButton.find('Input').length).toEqual(1);
 
-    expect(
-      inputButton
-        .debug()
-        .indexOf(
-          '<WindowCloseIcon className="vs-window-close-icon" onClick={[Function: onClear]} />'
-        ) > -1
-    ).toEqual(true);
-
-    expect(inputButton.debug().indexOf('Enter search query') > -1).toEqual(
-      true
-    );
+    expect(inputButton.find('WindowCloseIcon').length).toEqual(1);
   });
 
   it('should render when not expanded', () => {
@@ -67,21 +52,9 @@ describe('ExpandingInputButton', () => {
 
     expect(inputButton.contains(<MagnifyIcon />)).toEqual(true);
 
-    expect(
-      inputButton
-        .debug()
-        .indexOf(
-          '<Input type="text" onChange={[Function: onChange]} value="" placeholder="" />'
-        ) > -1
-    ).toEqual(true);
+    expect(inputButton.find('Input').length).toEqual(1);
 
-    expect(
-      inputButton
-        .debug()
-        .indexOf(
-          '<WindowCloseIcon className="window-close-icon" onClick={[Function: onClear]} />'
-        )
-    ).toEqual(-1);
+    expect(inputButton.find('WindowCloseIcon').length).toEqual(0);
   });
 
   it('should call onChange when typing text', () => {
