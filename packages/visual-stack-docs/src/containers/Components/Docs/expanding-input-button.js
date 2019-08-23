@@ -72,8 +72,9 @@ export default () => (
               {/* s3:start */}
               <CustomButton />
               {/* s3:end */}
-              The Expanding Input Button is a stateless component. Wrap it in a
-              class component in order to use it:
+              <br />
+              <br />
+              <p>The Expanding Input Button is a stateless component. Wrap it in a class component in order to use it:</p>
               <Snippet tag="s1" src={snippets} />
               <Snippet tag="s3" src={snippets} />
             </Body>
