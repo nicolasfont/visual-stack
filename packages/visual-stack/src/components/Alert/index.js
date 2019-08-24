@@ -47,9 +47,9 @@ const makeAlert = () => ({
 
   return (
     <div className={classes.join(' ')} {...otherProps}>
-      {iconMap[type] || iconMap.info}
-      <span className="vs-alert-content">{children}</span>
-      {closeButtonMap[closeType]}
+      <div className="vs-alert-icon-container">{iconMap[type] || iconMap.info}</div>
+      <div className="vs-alert-content">{children}</div>
+      <div className="vs-alert-close-container">{closeButtonMap[closeType]}</div>
     </div>
   );
 };
