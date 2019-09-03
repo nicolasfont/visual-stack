@@ -18,7 +18,7 @@ import reducer, {
   setDataTablePage,
   setDataTableSortingOption,
 } from '../src/actions';
-import { selectDataTable } from '../lib/actions';
+import { selectDataTable } from '../src/actions';
 import { DESCENDING } from '@cjdev/visual-stack/lib/components/Table/DataTable/sortingHelper';
 
 describe('reducer', () => {
