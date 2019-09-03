@@ -17,6 +17,9 @@ import {
   setSlidingPanelActiveState,
 } from '../actions';
 
+const useFirstDefinedValue = (...values) =>
+  R.reduce((acc, val) => (acc !== undefined ? acc : val), undefined, values);
+
 export const slidingPanelLens = R.lensPath(['visualStack', 'slidingPanel']);
 export const slidingPanelActiveLens = R.compose(
   slidingPanelLens,
@@ -26,8 +29,8 @@ export const slidingPanelActiveLens = R.compose(
 export class InternalSlidingPanel extends Component {
   constructor(props) {
     super(props);
-    if (this.props.initialActive) {
-      this.props.setSlidingPanelActiveState(this.props.initialActive);
+    if (this.props.syncStateToOpen) {
+      this.props.setSlidingPanelActiveState(true);
     }
   }
 
@@ -42,6 +45,7 @@ export class InternalSlidingPanel extends Component {
     );
   }
 }
+
 InternalSlidingPanel.propTypes = {
   active: PropTypes.bool,
   initialActive: PropTypes.bool,
@@ -50,8 +54,17 @@ InternalSlidingPanel.propTypes = {
   setSlidingPanelActiveState: PropTypes.func,
 };
 
+export const slidingPanelStateToProps = (state, ownProps) => {
+  const initialActive = ownProps.initialActive;
+  const activeState = R.view(slidingPanelActiveLens, state);
+  const active = useFirstDefinedValue(activeState, initialActive);
+  const syncStateToOpen = !!(activeState === undefined && initialActive);
+
+  return { active, syncStateToOpen };
+};
+
 export const SlidingPanel = connect(
-  state => ({ active: R.view(slidingPanelActiveLens, state) }),
+  slidingPanelStateToProps,
   { toggleSlidingPanel, setSlidingPanelActiveState }
 )(InternalSlidingPanel);
 
@@ -66,6 +79,7 @@ export class InternalToggleIcon extends Component {
       this.props.toggleSlidingPanel();
     };
   }
+
   render() {
     return (
       <BaseToggleIcon
@@ -75,6 +89,7 @@ export class InternalToggleIcon extends Component {
     );
   }
 }
+
 InternalToggleIcon.propTypes = {
   toggleSlidingPanel: PropTypes.func,
 };
@@ -84,10 +99,8 @@ const makeExpandedLens = ({ id }) => R.lensPath([id, 'expanded']);
 export class InternalSlidingPanelDropdown extends Component {
   constructor(props) {
     super(props);
-    if (this.props.initialActive) {
+    if (props.syncStateToOpen) {
       this.props.expandFilterDropdown();
-    } else {
-      this.props.hideFilterDropdown();
     }
   }
   render() {
@@ -112,16 +125,23 @@ InternalSlidingPanelDropdown.propTypes = {
   hideFilterDropdown: PropTypes.func,
 };
 
-export const SlidingPanelDropdown = connect(
-  (state, ownProps) => ({
-    expanded: R.view(
-      R.compose(
-        slidingPanelLens,
-        makeExpandedLens(ownProps)
-      ),
-      state
+export const slidingPanelDropdownStateToProps = (state, ownProps) => {
+  const initialActive = ownProps.initialActive;
+  const expandedState = R.view(
+    R.compose(
+      slidingPanelLens,
+      makeExpandedLens(ownProps)
     ),
-  }),
+    state
+  );
+  const expanded = useFirstDefinedValue(expandedState, initialActive);
+  const syncStateToOpen = !!(expandedState === undefined && initialActive);
+
+  return { expanded, syncStateToOpen };
+};
+
+export const SlidingPanelDropdown = connect(
+  slidingPanelDropdownStateToProps,
   (dispatch, { id }) => ({
     expandFilterDropdown() {
       dispatch(expandFilterDropdown(id));
