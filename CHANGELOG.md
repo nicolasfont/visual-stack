@@ -1,3 +1,11 @@
+# Upcoming
+
+# 4.11.1
+## Bug Fixes
+- Fix glitches that occur when the SlidingPanel component is remounted
+## Updated styling
+- ExpandingInputButton: add expanding animation and adjust svg sizes, hover interactions
+
 # 4.11.0
 ## Add Component
 - Add Alert component
