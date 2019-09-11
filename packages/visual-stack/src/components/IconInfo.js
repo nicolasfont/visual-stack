@@ -6,7 +6,7 @@ import iconInfoSvg from '../../src/images/ui-kit/icon-info.svg';
 import './CJLogo.css';
 
 const IconSuccess = ({ className }) => (
-  <ReactSVG path={iconInfoSvg} className={classNames('vs-icon', className)} />
+  <ReactSVG src={iconInfoSvg} className={classNames('vs-icon', className)} />
 );
 
 IconSuccess.propTypes = {
