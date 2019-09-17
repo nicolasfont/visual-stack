@@ -32,7 +32,7 @@
 
 .vs-data-table-container .vs-tbody .vs-cell {
   min-height: 0;
-  padding: 4px 12px;
+  padding: 4px 8px;
 }
 
 .vs-data-table-container .vs-thead .vs-cell:first-child,

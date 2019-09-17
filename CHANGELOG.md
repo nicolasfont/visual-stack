@@ -1,4 +1,8 @@
 # Upcoming
+## Bug Fixes
+- Fix styling on DataTable cells not matching the corresponding header styles
+## Update Dependency
+- Updated react-svg to v10 to fix React 16.9 warnings about deprecated lifecycle methods
 
 # 4.11.1
 ## Bug Fixes
