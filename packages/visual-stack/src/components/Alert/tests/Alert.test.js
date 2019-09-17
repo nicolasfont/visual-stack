@@ -21,7 +21,7 @@ describe('Alert', () => {
     expect(alert).toHaveLength(1);
     expect(
       alert.contains(
-        <span className="vs-alert-content">You have completed the form.</span>
+        <div className="vs-alert-content">You have completed the form.</div>
       )
     ).toEqual(true);
   });
