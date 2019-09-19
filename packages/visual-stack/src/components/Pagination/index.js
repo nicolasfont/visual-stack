@@ -39,7 +39,7 @@ const Pagination = ({
   onChange,
   className,
 }) => {
-  const maxPage = Math.ceil(numberOfRows / rowsPerPage);
+  const maxPage = Math.ceil(numberOfRows / rowsPerPage) || 1;
 
   const handleRowsPerPage = ({ value: nextRowsPerPage }) => {
     const paginationValue = {
