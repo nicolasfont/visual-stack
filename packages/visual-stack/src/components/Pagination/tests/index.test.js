@@ -166,6 +166,17 @@ describe('Pagination', () => {
     expect(tester.getPagingInformation()).toEqual('1/5');
   });
 
+  it('should display paging information when empty', () => {
+    // given
+    const numberOfRows = 0;
+
+    // when
+    const tester = createTesterWithOptions({ numberOfRows });
+
+    // then
+    expect(tester.getPagingInformation()).toEqual('1/1');
+  });
+
   it('should display paging information that cant be divided evenly', () => {
     // given
     const numberOfRows = 52;
