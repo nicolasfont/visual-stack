@@ -48,7 +48,7 @@ describe('PaginationPure', () => {
   test('should forward the pagination value to visual stack pagination component', () => {
     // when
     const wrapper = mount(<PaginationPure
-      numberOfRowsTemplate={"numberOfRowsTemplate"}
+      rowsPerPageTemplate={"rowsPerPageTemplate"}
       totalRecordsTemplate={"totalRecordsTemplate"}
       {...defaultProps} />);
 
@@ -57,7 +57,7 @@ describe('PaginationPure', () => {
       page: paginationValue.page,
       numberOfRows,
       onChange: expect.any(Function),
-      numberOfRowsTemplate: "numberOfRowsTemplate",
+      rowsPerPageTemplate: "rowsPerPageTemplate",
       totalRecordsTemplate: "totalRecordsTemplate",
     });
   });
