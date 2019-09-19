@@ -64,13 +64,25 @@ const SuccessAlertWithButtonCloseButton = createButton({
   children: 'You have successfully completed the form.',
 });
 
+const alertHtml = <div>
+  <h3>Please review the form</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat.
+  </p>
+  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+    anim id est laborum.
+  </p>
+</div>;
+
 const InfoAlertWithIconCloseButton = createButton({
   buttonType: 'outline-secondary',
   buttonMessage: 'Alert with Close Icon',
   type: 'info',
   closeType: 'icon',
   closeButtonText: null,
-  children: '<h3>Please review the form</h3> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>',
+  children: alertHtml
 });
 
 const InfoAlertWithButtonCloseButton = createButton({
@@ -157,13 +169,13 @@ export default () => (
               <ConnectedSuccessAlertWithIconCloseButton />
               <ConnectedSuccessAlertWithButtonCloseButton />
               {/* s5:end */}
-              
+
 	            <h6>Informative Buttons</h6>
               {/* s8:start */}
               <ConnectedInfoAlertWithIconCloseButton />
               <ConnectedInfoAlertWithButtonCloseButton />
               {/* s8:end */}
-              
+
 	            <h6>Warning Buttons</h6>
               {/* s9:start */}
               <ConnectedWarningAlertWithIconCloseButton />
@@ -172,7 +184,7 @@ export default () => (
 
               <br />
               <br />
-              
+
               <p>The alert can have one of three options passed through the type
               prop:
               <span className="docs">info</span>,{' '}
@@ -187,7 +199,7 @@ export default () => (
 
               <p>First, import the actions, mountPoint, and Alert pieces, and
               render the mount point somewhere in the page:</p>
-              
+
               <Snippet tag="s1" src={snippets} />
 
 							{/* s7:start */}
@@ -198,11 +210,11 @@ export default () => (
               <span className="docs">onClick</span> calls{' '}
               <span className="docs">openAlert</span>, which takes the Alert
               component and its props.</p>
-              
+
               <Snippet tag="s2" src={snippets} />
-              
+
               <p>This function connects the button to the redux actions.</p>
-              
+
               <Snippet tag="s3" src={snippets} />
 
               <p>Now we can generate the buttons above:</p>
@@ -224,7 +236,7 @@ export default () => (
               not pass the Alert a<span className="docs">closeType</span>.
               Instead, set a timeout for the call to
               <span className="docs">closeAlert</span> when you open it:</p>
-              
+
               <Snippet tag="s6" src={snippets} />
             </Body>
           </Panel>
