@@ -116,6 +116,8 @@ export const DataTable = ({
   onSort,
   renderToolbar,
   noDataLabel = "No data available.",
+  numberOfRowsTemplate,
+  totalRecordsTemplate,
 }) => {
   const normalizedData = pagination
     ? getDataWithPagination(rowsPerPage, page)(data)
@@ -152,6 +154,8 @@ export const DataTable = ({
           rowsPerPage={rowsPerPage}
           page={page}
           onChange={onPageChange}
+          numberOfRowsTemplate={numberOfRowsTemplate}
+          totalRecordsTemplate={totalRecordsTemplate}
         />
       )}
     </TableContainer>
