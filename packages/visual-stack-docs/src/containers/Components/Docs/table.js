@@ -160,6 +160,71 @@ export default () => (
             </Body>
           </Panel>
 
+          {/* s9:start */}
+          <DataTable
+            id="sample-empty-data-table"
+            caption="Empty Sortable Data Table with Pagination"
+            description="Description Text"
+            columns={[
+              { label: 'ID', width: '9%', clickable: true },
+              { label: 'First Name', width: '16%', clickable: true },
+              { label: 'Last Name', width: '39%' },
+              { label: 'Rank', width: '14%' },
+              {
+                label: 'Change',
+                width: '11%',
+                renderCell: renderTrend,
+              },
+              {
+                label: 'Custom Change',
+                width: '11%',
+                renderCell: renderCustomTrend,
+              },
+            ]}
+            data={[]}
+            onClick={e => {
+              window.alert(`You click on a cell: ${JSON.stringify(e)}`);
+            }}
+            sortingOption={{
+              label: 'Rank',
+              order: DESCENDING,
+            }}
+            renderToolbar={({ data, columns }) => (
+              <Fragment>
+                <Button
+                  onClick={() => {
+                    window.alert(JSON.stringify(columns));
+                  }}
+                  type="outline-secondary"
+                >
+                  columns
+                </Button>
+                <Button
+                  onClick={() => {
+                    window.alert(JSON.stringify(data));
+                  }}
+                  type="outline-secondary"
+                >
+                  data
+                </Button>
+              </Fragment>
+            )}
+            noDataLabel="example no data message (default: 'No data available.')"
+            sortable
+            pagination
+          />
+          {/* s9:end */}
+
+          <Panel>
+            <Header>Empty Sortable Data Table with Pagination Example</Header>
+            <Body>
+              <div className="docs">
+                This shows the data table when there is no data
+              </div>
+              <Snippet tag="s9" src={snippets} />
+            </Body>
+          </Panel>
+
           <Panel>
             <Header>Simple Table</Header>
             <Body>
