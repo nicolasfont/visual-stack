@@ -39,6 +39,25 @@ class PaginationDocs extends React.Component {
                   {/* s2:end */}
                 </Body>
               </Panel>
+
+              <Panel>
+                <Header>Pagination with translations</Header>
+                <Body>
+                  <Snippet tag="s3" src={snippets} />
+                  <pre>Server Received: {JSON.stringify(this.state)}</pre>
+                  {/* s3:start */}
+                  <Pagination
+                    paginationId="pagination-example-with-translation"
+                    numberOfRows={250}
+                    onChange={paginationValue => {
+                      letTheServerKnow(paginationValue);
+                    }}
+                    numberOfRowsTemplate={"display {0}"}
+                    totalRecordsTemplate={"I have {0} things"}
+                  />
+                  {/* s3:end */}
+                </Body>
+              </Panel>
             </div>
           );
         }}
