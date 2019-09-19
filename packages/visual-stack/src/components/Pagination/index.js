@@ -8,29 +8,23 @@ import { groupBy, head, prop, pipe } from 'ramda';
 import { withErrorBoundary } from '../ErrorBoundary';
 import './style.css';
 
-const defaultRowsPerPage = {
-  value: 10,
-  label: '10 per page',
+const validRowsPerPageValues = [10, 25, 50];
+
+const getRowsPerPageOptions = (numberOfRowsTemplate) => {
+  return validRowsPerPageValues.map(value => {
+    return {
+      value: value,
+      label: numberOfRowsTemplate.replace("{0}", value)
+    }
+  })
 };
 
-const rowsPerPageOptions = [
-  defaultRowsPerPage,
-  {
-    value: 25,
-    label: '25 per page',
-  },
-  {
-    value: 50,
-    label: '50 per page',
-  },
-];
-
-const rowsPerPageOptionsMap = groupBy(({ value }) => value)(rowsPerPageOptions);
-const getRowsPerPageOption = pageValue =>
+const getRowsPerPageOption = (pageValue, numberOfRowsTemplate) =>
   pipe(
+    groupBy(prop("value")),
     prop(pageValue),
     head
-  )(rowsPerPageOptionsMap);
+  )(getRowsPerPageOptions(numberOfRowsTemplate));
 
 const Pagination = ({
   numberOfRows,
@@ -38,6 +32,8 @@ const Pagination = ({
   page,
   onChange,
   className,
+  numberOfRowsTemplate = "{0} per page",
+  totalRecordsTemplate = "{0} total records",
 }) => {
   const maxPage = Math.ceil(numberOfRows / rowsPerPage) || 1;
 
@@ -63,13 +59,17 @@ const Pagination = ({
     }
   };
 
+  const getTranslatedNumberOfRecords = () => {
+    return totalRecordsTemplate.replace("{0}", numberOfRows);
+  };
+
   return (
     <div className={`vs-pagination ${className}`}>
       <div className="vs-rows-per-page-container">
         <Select
           name="rows-per-page"
-          value={getRowsPerPageOption(rowsPerPage)}
-          options={rowsPerPageOptions}
+          value={getRowsPerPageOption(rowsPerPage, numberOfRowsTemplate)}
+          options={getRowsPerPageOptions(numberOfRowsTemplate)}
           onChange={handleRowsPerPage}
         />
       </div>
@@ -89,7 +89,7 @@ const Pagination = ({
         </Button>
       </div>
       <div className="vs-pagination-total-records">
-        {numberOfRows} total records
+        {getTranslatedNumberOfRecords()}
       </div>
     </div>
   );

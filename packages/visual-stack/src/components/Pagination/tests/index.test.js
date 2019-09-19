@@ -115,6 +115,14 @@ describe('Pagination', () => {
     expect(tester.getTotalRecords()).toEqual(`27 total records`);
   });
 
+  it('should display total records using template', () => {
+    const tester = createTesterWithOptions({
+      numberOfRows: 27,
+      totalRecordsTemplate: "I have {0} entries"
+    });
+    expect(tester.getTotalRecords()).toEqual(`I have 27 entries`);
+  });
+
   it('should have default value for rows per page', () => {
     const tester = createTester();
     expect(tester.getRowsPerPageDropdownValue()).toEqual({
@@ -134,7 +142,7 @@ describe('Pagination', () => {
     });
   });
 
-  it('should display the rows per page options', () => {
+  it('should display the rows per page options using a template', () => {
     // given
     const tester = createTester();
 
@@ -151,6 +159,29 @@ describe('Pagination', () => {
       {
         value: 50,
         label: '50 per page',
+      },
+    ]);
+  });
+
+  it('should display the rows per page options', () => {
+    // given
+    const tester = createTesterWithOptions({
+      numberOfRowsTemplate: "display {0} of them"
+    });
+
+    // then
+    expect(tester.getRowsPerPageOptions()).toEqual([
+      {
+        value: 10,
+        label: 'display 10 of them',
+      },
+      {
+        value: 25,
+        label: 'display 25 of them',
+      },
+      {
+        value: 50,
+        label: 'display 50 of them',
       },
     ]);
   });
