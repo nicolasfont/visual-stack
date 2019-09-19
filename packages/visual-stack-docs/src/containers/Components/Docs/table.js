@@ -210,7 +210,7 @@ export default () => (
               </Fragment>
             )}
             noDataLabel="example no data message (default: 'No data available.')"
-            numberOfRowsTemplate="{0} on a page"
+            rowsPerPageTemplate="{0} on a page"
             totalRecordsTemplate="There are {0} total records"
             sortable
             pagination

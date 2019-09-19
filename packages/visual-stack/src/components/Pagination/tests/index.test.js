@@ -166,7 +166,7 @@ describe('Pagination', () => {
   it('should display the rows per page options', () => {
     // given
     const tester = createTesterWithOptions({
-      numberOfRowsTemplate: "display {0} of them"
+      rowsPerPageTemplate: "display {0} of them"
     });
 
     // then
