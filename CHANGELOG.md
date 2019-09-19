@@ -2,6 +2,11 @@
 ## Bug Fixes
 - Fix styling on DataTable cells not matching the corresponding header styles
 - Allow SideNav to have more children under the fold
+- Pagination with 0 entries now correctly displays total pages
+## New Feature
+- Better handle empty DataTables with a new configurable message
+- Add ability to change hard-coded text in Pagination for customization and translations
+- Add ability for DataTables to change hard-coded text in Pagination
 ## Update Dependency
 - Updated react-svg to v10 to fix React 16.9 warnings about deprecated lifecycle methods
 
