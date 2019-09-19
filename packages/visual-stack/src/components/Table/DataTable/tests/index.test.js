@@ -221,6 +221,32 @@ describe('DataTable', () => {
       });
     });
 
+    it('should pass translation templates to pagination', () => {
+      const onPageChange = jest.fn();
+
+      const numberOfRowsTemplate = "number of rows template";
+      const totalRecordsTemplate = "total records template";
+
+      const wrapper = mount(
+        <DataTable onPageChange={onPageChange}
+                   pagination
+                   numberOfRowsTemplate={numberOfRowsTemplate}
+                   totalRecordsTemplate={totalRecordsTemplate}/>
+      );
+      const paginationWrapper = wrapper.find('Pagination');
+      const paginationProps = paginationWrapper.props();
+      expect(paginationWrapper).toHaveLength(1);
+      expect(paginationProps).toEqual({
+        rowsPerPage: 25,
+        page: 1,
+        onChange: onPageChange,
+        className: 'vs-table-pagination',
+        numberOfRows: 0,
+        numberOfRowsTemplate: numberOfRowsTemplate,
+        totalRecordsTemplate: totalRecordsTemplate
+      });
+    });
+
     describe('Rendering Rows', () => {
       const group1 = range(1, 26);
       const group2 = range(26, 51);
