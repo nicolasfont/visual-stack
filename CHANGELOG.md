@@ -1,4 +1,6 @@
 # Upcoming
+
+# 4.11.2
 ## Bug Fixes
 - Fix styling on DataTable cells not matching the corresponding header styles
 - Allow SideNav to have more children under the fold
