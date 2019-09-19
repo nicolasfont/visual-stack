@@ -97,6 +97,8 @@ describe('DataTablePure', () => {
     };
     const caption = 'I am a table';
     const noDataLabel = "I have no data";
+    const numberOfRowsTemplate = "numberOfRowsTemplate";
+    const totalRecordsTemplate = "totalRecordsTemplate";
     const dataTable = {
       data,
       pagination: {
@@ -113,12 +115,13 @@ describe('DataTablePure', () => {
         sortable={sortable}
         pagination={pagination}
         data={[]}
-        dataTable={{ pagination: {} }}
         initializeDataTable={initializeDataTable}
         dataTable={dataTable}
         onClick={onClick}
         renderToolbar={renderToolbar}
         noDataLabel={noDataLabel}
+        numberOfRowsTemplate={numberOfRowsTemplate}
+        totalRecordsTemplate={totalRecordsTemplate}
       />
     );
     const props = wrapper.find(VSDataTable).props();
@@ -133,6 +136,8 @@ describe('DataTablePure', () => {
     expect(props.onClick).toEqual(onClick);
     expect(props.renderToolbar).toEqual(renderToolbar);
     expect(props.noDataLabel).toEqual(noDataLabel);
+    expect(props.numberOfRowsTemplate).toEqual(numberOfRowsTemplate);
+    expect(props.totalRecordsTemplate).toEqual(totalRecordsTemplate);
   });
 
   it('should not reset data table data if props isnt changed', () => {

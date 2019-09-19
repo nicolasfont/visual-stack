@@ -163,7 +163,7 @@ export default () => (
           {/* s9:start */}
           <DataTable
             id="sample-empty-data-table"
-            caption="Empty Sortable Data Table with Pagination"
+            caption="Empty Sortable Data Table with Pagination and translations"
             description="Description Text"
             columns={[
               { label: 'ID', width: '9%', clickable: true },
@@ -210,6 +210,8 @@ export default () => (
               </Fragment>
             )}
             noDataLabel="example no data message (default: 'No data available.')"
+            numberOfRowsTemplate="{0} on a page"
+            totalRecordsTemplate="There are {0} total records"
             sortable
             pagination
           />
@@ -219,7 +221,8 @@ export default () => (
             <Header>Empty Sortable Data Table with Pagination Example</Header>
             <Body>
               <div className="docs">
-                This shows the data table when there is no data
+                This shows the data table when there is no data. This also shows
+                translation template props for any hard-coded text within the component.
               </div>
               <Snippet tag="s9" src={snippets} />
             </Body>
