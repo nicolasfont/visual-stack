@@ -23,7 +23,7 @@ export class PaginationPure extends React.Component {
       setPaginationValue,
       paginationId,
       onChange,
-      numberOfRowsTemplate,
+      rowsPerPageTemplate,
       totalRecordsTemplate,
     } = this.props;
     return (
@@ -35,7 +35,7 @@ export class PaginationPure extends React.Component {
           onChange(paginationValue);
           setPaginationValue({ ...paginationValue, paginationId });
         }}
-        numberOfRowsTemplate={numberOfRowsTemplate}
+        rowsPerPageTemplate={rowsPerPageTemplate}
         totalRecordsTemplate={totalRecordsTemplate}
       />
     );
@@ -48,7 +48,7 @@ PaginationPure.propTypes = {
   setPaginationValue: PropTypes.func.isRequired,
   paginationId: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  numberOfRowsTemplate: PropTypes.string,
+  rowsPerPageTemplate: PropTypes.string,
   totalRecordsTemplate: PropTypes.string,
 };
 

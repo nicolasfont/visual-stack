@@ -224,13 +224,13 @@ describe('DataTable', () => {
     it('should pass translation templates to pagination', () => {
       const onPageChange = jest.fn();
 
-      const numberOfRowsTemplate = "number of rows template";
+      const rowsPerPageTemplate = "number of rows template";
       const totalRecordsTemplate = "total records template";
 
       const wrapper = mount(
         <DataTable onPageChange={onPageChange}
                    pagination
-                   numberOfRowsTemplate={numberOfRowsTemplate}
+                   rowsPerPageTemplate={rowsPerPageTemplate}
                    totalRecordsTemplate={totalRecordsTemplate}/>
       );
       const paginationWrapper = wrapper.find('Pagination');
@@ -242,7 +242,7 @@ describe('DataTable', () => {
         onChange: onPageChange,
         className: 'vs-table-pagination',
         numberOfRows: 0,
-        numberOfRowsTemplate: numberOfRowsTemplate,
+        rowsPerPageTemplate: rowsPerPageTemplate,
         totalRecordsTemplate: totalRecordsTemplate
       });
     });

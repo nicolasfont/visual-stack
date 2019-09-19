@@ -10,21 +10,21 @@ import './style.css';
 
 const validRowsPerPageValues = [10, 25, 50];
 
-const getRowsPerPageOptions = (numberOfRowsTemplate) => {
+const getRowsPerPageOptions = (rowsPerPageTemplate) => {
   return validRowsPerPageValues.map(value => {
     return {
       value: value,
-      label: numberOfRowsTemplate.replace("{0}", value)
+      label: rowsPerPageTemplate.replace("{0}", value)
     }
   })
 };
 
-const getRowsPerPageOption = (pageValue, numberOfRowsTemplate) =>
+const getRowsPerPageOption = (pageValue, rowsPerPageTemplate) =>
   pipe(
     groupBy(prop("value")),
     prop(pageValue),
     head
-  )(getRowsPerPageOptions(numberOfRowsTemplate));
+  )(getRowsPerPageOptions(rowsPerPageTemplate));
 
 const Pagination = ({
   numberOfRows,
@@ -32,7 +32,7 @@ const Pagination = ({
   page,
   onChange,
   className,
-  numberOfRowsTemplate = "{0} per page",
+  rowsPerPageTemplate = "{0} per page",
   totalRecordsTemplate = "{0} total records",
 }) => {
   const maxPage = Math.ceil(numberOfRows / rowsPerPage) || 1;
@@ -68,8 +68,8 @@ const Pagination = ({
       <div className="vs-rows-per-page-container">
         <Select
           name="rows-per-page"
-          value={getRowsPerPageOption(rowsPerPage, numberOfRowsTemplate)}
-          options={getRowsPerPageOptions(numberOfRowsTemplate)}
+          value={getRowsPerPageOption(rowsPerPage, rowsPerPageTemplate)}
+          options={getRowsPerPageOptions(rowsPerPageTemplate)}
           onChange={handleRowsPerPage}
         />
       </div>

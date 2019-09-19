@@ -97,7 +97,7 @@ describe('DataTablePure', () => {
     };
     const caption = 'I am a table';
     const noDataLabel = "I have no data";
-    const numberOfRowsTemplate = "numberOfRowsTemplate";
+    const rowsPerPageTemplate = "rowsPerPageTemplate";
     const totalRecordsTemplate = "totalRecordsTemplate";
     const dataTable = {
       data,
@@ -120,7 +120,7 @@ describe('DataTablePure', () => {
         onClick={onClick}
         renderToolbar={renderToolbar}
         noDataLabel={noDataLabel}
-        numberOfRowsTemplate={numberOfRowsTemplate}
+        rowsPerPageTemplate={rowsPerPageTemplate}
         totalRecordsTemplate={totalRecordsTemplate}
       />
     );
@@ -136,7 +136,7 @@ describe('DataTablePure', () => {
     expect(props.onClick).toEqual(onClick);
     expect(props.renderToolbar).toEqual(renderToolbar);
     expect(props.noDataLabel).toEqual(noDataLabel);
-    expect(props.numberOfRowsTemplate).toEqual(numberOfRowsTemplate);
+    expect(props.rowsPerPageTemplate).toEqual(rowsPerPageTemplate);
     expect(props.totalRecordsTemplate).toEqual(totalRecordsTemplate);
   });
 

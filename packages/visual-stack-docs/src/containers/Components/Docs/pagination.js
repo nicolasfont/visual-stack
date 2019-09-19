@@ -52,7 +52,7 @@ class PaginationDocs extends React.Component {
                     onChange={paginationValue => {
                       letTheServerKnow(paginationValue);
                     }}
-                    numberOfRowsTemplate={"display {0}"}
+                    rowsPerPageTemplate={"display {0}"}
                     totalRecordsTemplate={"I have {0} things"}
                   />
                   {/* s3:end */}

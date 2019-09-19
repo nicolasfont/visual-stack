@@ -50,7 +50,7 @@ export class DataTablePure extends Component {
       setDataTableSortingOption,
       onClick,
       renderToolbar,
-      numberOfRowsTemplate,
+      rowsPerPageTemplate,
       totalRecordsTemplate,
     } = this.props;
     return (
@@ -74,7 +74,7 @@ export class DataTablePure extends Component {
             setDataTableSortingOption({ id, data, sortingOption });
           }}
           renderToolbar={renderToolbar}
-          numberOfRowsTemplate={numberOfRowsTemplate}
+          rowsPerPageTemplate={rowsPerPageTemplate}
           totalRecordsTemplate={totalRecordsTemplate}
         />
       </div>
@@ -106,7 +106,7 @@ DataTablePure.propTypes = {
   setDataTableSortingOption: PropTypes.func,
   onClick: PropTypes.func,
   renderToolBar: PropTypes.func,
-  numberOfRowsTemplate: PropTypes.string,
+  rowsPerPageTemplate: PropTypes.string,
   totalRecordsTemplate: PropTypes.string,
 };
 
