@@ -93,6 +93,14 @@ const getDataWithPagination = (rowsPerPage, page) =>
     R.drop(rowsPerPage * (page - 1))
   );
 
+const NoDataLabel = ({label}) => {
+  return (
+    <div className="vs-data-table-no-data-label">
+      {label}
+    </div>
+  )
+};
+
 export const DataTable = ({
   caption = '',
   description = '',
@@ -107,6 +115,7 @@ export const DataTable = ({
   onClick,
   onSort,
   renderToolbar,
+  noDataLabel = "No data available.",
 }) => {
   const normalizedData = pagination
     ? getDataWithPagination(rowsPerPage, page)(data)
@@ -131,8 +140,11 @@ export const DataTable = ({
             )}
           </Tr>
         </THead>
-        <TBody>{normalizedData.map(generateRow({ onClick, columns }))}</TBody>
+        <TBody>
+          {normalizedData.map(generateRow({onClick, columns}))}
+        </TBody>
       </Table>
+      {normalizedData.length === 0 && <NoDataLabel label={noDataLabel}/>}
       {pagination && (
         <Pagination
           className="vs-table-pagination"

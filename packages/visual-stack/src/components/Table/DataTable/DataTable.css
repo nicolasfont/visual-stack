@@ -108,3 +108,7 @@
   width: 100%;
   justify-content: space-between;
 }
+
+.vs-data-table-no-data-label {
+  padding: 8px 16px;
+}

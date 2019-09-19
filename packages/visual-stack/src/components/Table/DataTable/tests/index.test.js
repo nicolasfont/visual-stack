@@ -76,6 +76,23 @@ describe('DataTable', () => {
   });
 
   describe('rows', () => {
+    it('should say "No data available." when there is no data', () => {
+      const wrapper = mount(
+        <DataTable data={[]} />
+      );
+      expect(wrapper.find('td')).toHaveLength(0);
+      expect(wrapper.find('div.vs-data-table-no-data-label').text()).toEqual("No data available.");
+    });
+
+    it('should use the overridden label when there is no data', () => {
+      const noDataLabel = "I have no data";
+      const wrapper = mount(
+        <DataTable data={[]} noDataLabel={noDataLabel}/>
+      );
+      expect(wrapper.find('td')).toHaveLength(0);
+      expect(wrapper.find('div.vs-data-table-no-data-label').text()).toEqual(noDataLabel);
+    });
+
     it('should render when there is data', () => {
       const data1 = 'data1';
       const data2 = 'data2';
