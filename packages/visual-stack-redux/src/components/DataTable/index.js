@@ -42,6 +42,7 @@ export class DataTablePure extends Component {
       columns,
       caption,
       description,
+      noDataLabel,
       dataTable,
       pagination,
       id,
@@ -56,6 +57,7 @@ export class DataTablePure extends Component {
           onClick={onClick}
           caption={caption}
           description={description}
+          noDataLabel={noDataLabel}
           sortable={sortable}
           pagination={pagination}
           data={dataTable.data}

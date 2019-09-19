@@ -96,6 +96,7 @@ describe('DataTablePure', () => {
       order: 'ASCENDING',
     };
     const caption = 'I am a table';
+    const noDataLabel = "I have no data";
     const dataTable = {
       data,
       pagination: {
@@ -117,6 +118,7 @@ describe('DataTablePure', () => {
         dataTable={dataTable}
         onClick={onClick}
         renderToolbar={renderToolbar}
+        noDataLabel={noDataLabel}
       />
     );
     const props = wrapper.find(VSDataTable).props();
@@ -130,6 +132,7 @@ describe('DataTablePure', () => {
     expect(props.sortingOption).toEqual(dataTable.sortingOption);
     expect(props.onClick).toEqual(onClick);
     expect(props.renderToolbar).toEqual(renderToolbar);
+    expect(props.noDataLabel).toEqual(noDataLabel);
   });
 
   it('should not reset data table data if props isnt changed', () => {
