@@ -1,4 +1,6 @@
 # Upcoming
+## New Feature
+- Add LoadingAnimation component
 
 # 4.11.2
 ## Bug Fixes
