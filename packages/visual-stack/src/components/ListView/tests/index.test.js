@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import ListView from '../';
 import Adapter from 'enzyme-adapter-react-16';
-import BlankSlate from '../../BlankSlate';
+import { BlankSlate } from '../../BlankSlate';
 
 Enzyme.configure({ adapter: new Adapter() });
 
