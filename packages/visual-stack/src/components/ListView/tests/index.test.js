@@ -105,7 +105,7 @@ describe('List View', () => {
     expect(wrapper.find('div.vs-list-view-footer')).toHaveLength(0);
   });
 
-  it('should render the renderEmptyState without a Footer if data is empty', () => {
+  it('should render custom empty state', () => {
     const wrapper = mount(
       <ListView
         data={[]}
@@ -117,6 +117,5 @@ describe('List View', () => {
       />
     );
     expect(wrapper.find('div.emptyState')).toHaveLength(1);
-    expect(wrapper.find('div.vs-list-view-footer')).toHaveLength(0);
   });
 });
