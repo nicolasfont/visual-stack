@@ -1,5 +1,6 @@
 # Upcoming
 ## New Feature
+- Add Empty State to List View Component
 - Add LoadingAnimation component
 
 # 4.11.2
