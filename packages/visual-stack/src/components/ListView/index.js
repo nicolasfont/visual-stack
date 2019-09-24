@@ -1,11 +1,14 @@
 import React from 'react';
-import { isNil, defaultTo } from 'ramda';
+import { isNil, defaultTo, isEmpty } from 'ramda';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { withErrorBoundary } from '../ErrorBoundary';
 import Spinner from '../Spinner';
+import BlankSlate from '../BlankSlate';
 
 import './style.css';
+
+const renderDefaultEmptyState = () => <BlankSlate />;
 
 const ListView = ({
   data,
@@ -14,7 +17,9 @@ const ListView = ({
   renderHeader,
   renderFooter,
   isLoading,
+  renderEmptyState = renderDefaultEmptyState,
 }) => {
+  const isDataEmpty = isEmpty(data);
   const isClickable = !isNil(onClick);
   const header = renderHeader && (
     <div className="vs-list-view-header">{renderHeader()}</div>
@@ -40,13 +45,14 @@ const ListView = ({
       ))}
     </div>
   );
-  const footer = renderFooter && (
+  const footer = renderFooter && !isDataEmpty && (
     <div className="vs-list-view-footer">{renderFooter()}</div>
   );
   return (
     <div className="vs-list-view-container">
       {header}
       {isLoading && spinner}
+      {isDataEmpty && renderEmptyState()}
       {!isLoading && listViewContent}
       {footer}
     </div>

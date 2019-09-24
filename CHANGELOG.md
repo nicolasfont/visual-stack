@@ -1,4 +1,6 @@
 # Upcoming
+## New Feature
+- Add Empty State to List View Component
 
 # 4.11.2
 ## Bug Fixes
