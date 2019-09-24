@@ -2,6 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import ListView from '../';
 import Adapter from 'enzyme-adapter-react-16';
+import BlankSlate from '../../BlankSlate';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -88,5 +89,34 @@ describe('List View', () => {
     );
     expect(wrapper.find('div.vs-list-item')).toHaveLength(0);
     expect(wrapper.find('i.fa-spinner')).toHaveLength(1);
+  });
+
+  it('should render a BlankSlate when data is empty', () => {
+    const wrapper = mount(
+      <ListView data={[]} renderFooter={() => <div>footer</div>} />
+    );
+    expect(wrapper.find(BlankSlate)).toHaveLength(1);
+  });
+
+  it('should not render footer when data is empty', () => {
+    const wrapper = mount(
+      <ListView data={[]} renderFooter={() => <div>footer</div>} />
+    );
+    expect(wrapper.find('div.vs-list-view-footer')).toHaveLength(0);
+  });
+
+  it('should render the renderEmptyState without a Footer if data is empty', () => {
+    const wrapper = mount(
+      <ListView
+        data={[]}
+        isLoading
+        renderContent={() => null}
+        renderHeader={() => <div>header</div>}
+        renderFooter={() => <div>footer</div>}
+        renderEmptyState={() => <div className="emptyState" />}
+      />
+    );
+    expect(wrapper.find('div.emptyState')).toHaveLength(1);
+    expect(wrapper.find('div.vs-list-view-footer')).toHaveLength(0);
   });
 });
