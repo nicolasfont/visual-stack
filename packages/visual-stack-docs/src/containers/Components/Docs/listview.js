@@ -89,6 +89,29 @@ export default () => (
               <Snippet tag="s5" src={snippets} />
             </Body>
           </Panel>
+          <Panel>
+            <Header>List View With Empty State</Header>
+            <Body>
+              {/* s6:start */}
+              <ListView data={[]} />
+              {/* s6:end */}
+              <Snippet tag="s6" src={snippets} />
+            </Body>
+          </Panel>
+          <Panel>
+            <Header>List View With Custom Empty State</Header>
+            <Body>
+              {/* s7:start */}
+              <ListView
+                data={[]}
+                renderHeader={() => <div>Header</div>}
+                renderFooter={() => <div>Footer</div>}
+                renderEmptyState={() => <div>There is no data.</div>}
+              />
+              {/* s7:end */}
+              <Snippet tag="s7" src={snippets} />
+            </Body>
+          </Panel>
         </div>
       );
     }}
