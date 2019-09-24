@@ -65,6 +65,7 @@ ListView.propTypes = {
   onClick: PropTypes.func,
   renderHeader: PropTypes.func,
   renderFooter: PropTypes.func,
+  renderEmptyState: PropTypes.func,
   isLoading: PropTypes.bool.isRequired,
 };
 
