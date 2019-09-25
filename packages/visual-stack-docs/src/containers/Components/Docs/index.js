@@ -24,7 +24,7 @@ import TabLayoutDocs from './tablayout';
 import CardDocs from './card';
 import ListViewDocs from './listview';
 import ExpandingInputButtonDocs from './expanding-input-button';
-import LoaderDocs from './loader';
+import LoaderDocs from './loading-animation';
 
 import CollapsiblePanelDocs from './collapsiblepanel';
 import PaginationDocs from './pagination';
