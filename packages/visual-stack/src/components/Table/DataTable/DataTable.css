@@ -50,14 +50,14 @@
   color: #333;
 }
 
-.vs-data-table-container
-  .vs-thead
-  .vs-cell.vs-data-table-header-sorted
-  > div
+.vs-data-table-container,
+  .vs-thead,
+  .vs-cell.vs-data-table-header-sorted,
+  > div,
   > span {
-  display: inline-block;
-  width: 20px;
-}
+    display: inline-block;
+    width: 20px;
+  }
 
 .vs-data-table-header-sortable svg {
   fill: #333;
@@ -107,6 +107,13 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+}
+
+.vs-data-table-loading-animation-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
 }
 
 .vs-data-table-no-data-label {

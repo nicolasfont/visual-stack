@@ -4,6 +4,7 @@ import { ASCENDING, DESCENDING } from '../sortingHelper';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { trim, range, sum } from 'ramda';
+import LoadingAnimation from "../../../LoadingAnimation";
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -107,6 +108,7 @@ describe('DataTable', () => {
         data3,
         data4,
       ]);
+      expect(wrapper.find(LoadingAnimation)).toHaveLength(0);
     });
 
     it('should have clickable cell', () => {
@@ -648,4 +650,22 @@ describe('DataTable', () => {
       });
     });
   });
+
+  describe('loading animation', () => {
+    it('should render with loadingMessage when isLoading is true', () => {
+      const loadingMessage = "Loading data...";
+      const wrapper = mount(
+        <DataTable
+          isLoading={true}
+          pagination={true}
+          loadingMessage={loadingMessage}
+        />
+      );
+      expect(wrapper.find(LoadingAnimation)).toHaveLength(1);
+      expect(wrapper.find(LoadingAnimation).prop("loadingMessage")).toEqual(loadingMessage);
+      expect(wrapper.find('Pagination')).toHaveLength(0);
+      expect(wrapper.find('Table')).toHaveLength(0);
+    });
+  });
+
 });
