@@ -1,10 +1,9 @@
 import React from 'react';
 import { Panel, Body, Header } from '@cjdev/visual-stack/lib/components/Panel';
 import { Demo, Snippet } from '../../../components/Demo';
-
-/* s2:start */
-import { Loader } from '@cjdev/visual-stack/lib/components/Loader';
-/* s2:end */
+/* s1:start */
+import LoadingAnimation from "@cjdev/visual-stack/lib/components/Loader";
+/* s1:end */
 
 export default () => (
   <Demo srcFile="/samples/src/containers/Components/Docs/loader.js">
@@ -12,13 +11,13 @@ export default () => (
       return (
         <div>
           <Panel>
-            <Header>Basic List View</Header>
+            <Header>Loading Animation</Header>
             <Body>
-              <Snippet tag="s2" src={snippets} />
-              {/* s1:start */}
-              <Loader/>
-              {/* s1:end */}
+              {/* s2:start */}
+              <LoadingAnimation loadingMessage={"Loading Data..."}/>
+              {/* s2:end */}
               <Snippet tag="s1" src={snippets} />
+              <Snippet tag="s2" src={snippets} />
             </Body>
           </Panel>
         </div>
