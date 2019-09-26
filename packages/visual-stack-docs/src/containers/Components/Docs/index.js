@@ -58,7 +58,6 @@ addComponentRoute('table', 'Table', <TableDocs />);
 addComponentRoute('tablayout', 'TabLayout', <TabLayoutDocs />);
 addComponentRoute('card', 'Card', <CardDocs />);
 addComponentRoute('listview', 'List View', <ListViewDocs />);
-addComponentRoute('loader', 'Loader', <LoaderDocs />);
 addComponentRoute('pagination', 'Pagination', <PaginationDocs />);
 addComponentRoute(
   'expanding-input-button',
