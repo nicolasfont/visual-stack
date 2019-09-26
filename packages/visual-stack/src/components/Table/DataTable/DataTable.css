@@ -113,7 +113,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 300px;
+  min-height: 132px;
 }
 
 .vs-data-table-no-data-label {
