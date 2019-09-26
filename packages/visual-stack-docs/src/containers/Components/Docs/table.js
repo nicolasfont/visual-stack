@@ -165,7 +165,7 @@ export default () => (
             id="sample-empty-data-table"
             caption="Loading Data Table"
             isLoading={true}
-            loadingText={"hullo"}
+            loadingMessage={"Custom Loading Message..."}
           />
           {/* s10:end */}
 
