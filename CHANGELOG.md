@@ -7,6 +7,10 @@
 ## New Feature
 - Add Empty State to List View Component
 
+# 4.11.3
+## New Feature
+- Add Empty State to List View Component
+
 # 4.11.2
 ## Bug Fixes
 - Fix styling on DataTable cells not matching the corresponding header styles
