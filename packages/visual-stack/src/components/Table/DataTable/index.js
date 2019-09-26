@@ -15,6 +15,7 @@ import * as R from 'ramda';
 import { getNextData, getNextOrder, getSortingIcon } from './sortingHelper';
 import PropTypes from 'prop-types';
 import './DataTable.css';
+import LoadingAnimation from "../../LoadingAnimation";
 
 const generateHeader = ({ sortable, sortingOption, onSort, data }) => (
   { label: currentLabel, width },
@@ -106,6 +107,8 @@ export const DataTable = ({
   description = '',
   columns = [],
   data = [],
+  isLoading = false,
+  loadingMessage,
   rowsPerPage = 25,
   page = 1,
   onPageChange,
@@ -134,30 +137,37 @@ export const DataTable = ({
           <div>{renderToolbar && renderToolbar({ columns, data })}</div>
         </div>
       </TableTitle>
-      <Table>
-        <THead>
-          <Tr>
-            {columns.map(
-              generateHeader({ sortable, sortingOption, onSort, data })
+      {isLoading
+        ? <div className={"vs-data-table-loading-animation-wrapper"}>
+          <LoadingAnimation loadingMessage={loadingMessage}/>
+        </div>
+        : <>
+          <Table>
+            <THead>
+              <Tr>
+                {columns.map(
+                  generateHeader({ sortable, sortingOption, onSort, data })
+                )}
+              </Tr>
+            </THead>
+            <TBody>
+              {normalizedData.map(generateRow({onClick, columns}))}
+            </TBody>
+          </Table>
+          {normalizedData.length === 0 && <NoDataLabel label={noDataLabel}/>}
+          {pagination && (
+            <Pagination
+            className="vs-table-pagination"
+            numberOfRows={data.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onChange={onPageChange}
+            rowsPerPageTemplate={rowsPerPageTemplate}
+            totalRecordsTemplate={totalRecordsTemplate}
+            />
             )}
-          </Tr>
-        </THead>
-        <TBody>
-          {normalizedData.map(generateRow({onClick, columns}))}
-        </TBody>
-      </Table>
-      {normalizedData.length === 0 && <NoDataLabel label={noDataLabel}/>}
-      {pagination && (
-        <Pagination
-          className="vs-table-pagination"
-          numberOfRows={data.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onChange={onPageChange}
-          rowsPerPageTemplate={rowsPerPageTemplate}
-          totalRecordsTemplate={totalRecordsTemplate}
-        />
-      )}
+          </>
+      }
     </TableContainer>
   );
 };
@@ -167,6 +177,8 @@ DataTable.propTypes = {
   description: PropTypes.string,
   columns: PropTypes.array,
   data: PropTypes.array,
+  isLoading: PropTypes.bool,
+  loadingMessage: PropTypes.string,
   rowsPerPage: PropTypes.number,
   page: PropTypes.number,
   onPageChange: PropTypes.func,

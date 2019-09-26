@@ -52,6 +52,8 @@ export class DataTablePure extends Component {
       renderToolbar,
       rowsPerPageTemplate,
       totalRecordsTemplate,
+      isLoading,
+      loadingMessage,
     } = this.props;
     return (
       <div>
@@ -63,6 +65,8 @@ export class DataTablePure extends Component {
           sortable={sortable}
           pagination={pagination}
           data={dataTable.data}
+          isLoading={isLoading}
+          loadingMessage={loadingMessage}
           columns={columns}
           page={dataTable.pagination.page}
           rowsPerPage={dataTable.pagination.rowsPerPage}
@@ -108,6 +112,8 @@ DataTablePure.propTypes = {
   renderToolBar: PropTypes.func,
   rowsPerPageTemplate: PropTypes.string,
   totalRecordsTemplate: PropTypes.string,
+  isLoading: PropTypes.bool,
+  loadingMessage: PropTypes.string,
 };
 
 const mapStateToProps = (state, ownProps) => ({

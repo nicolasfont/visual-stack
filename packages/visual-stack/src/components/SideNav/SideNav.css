@@ -37,9 +37,9 @@
     width: 48px;
     transition: 0.4s width ease-out;
   }
-  .vs-sidenav.collapsed
-    .vs-sidenav-user-menu
-    > a
+  .vs-sidenav.collapsed,
+    .vs-sidenav-user-menu,
+    > a,
     .vs-sidenav-container-chevron {
     opacity: 0;
   }
@@ -273,7 +273,7 @@
 }
 
 .vs-sidenav .vs-sidenav-container.expanded ul {
-  max-height: 1008px;
+  max-height: 1056px;
 }
 
 .vs-sidenav.collapsed .vs-sidenav-header,

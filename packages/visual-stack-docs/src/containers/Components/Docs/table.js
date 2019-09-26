@@ -160,6 +160,25 @@ export default () => (
             </Body>
           </Panel>
 
+          {/* s10:start */}
+          <DataTable
+            id="sample-empty-data-table"
+            caption="Loading Data Table"
+            isLoading={true}
+            loadingMessage={"Custom Loading Message..."}
+          />
+          {/* s10:end */}
+
+          <Panel>
+            <Header>Loading Animation Data Table Example</Header>
+            <Body>
+              <div className="docs">
+                This shows the data table when data is being loaded.  Relevant props are: isLoading, loadingText.
+              </div>
+              <Snippet tag="s10" src={snippets} />
+            </Body>
+          </Panel>
+
           {/* s9:start */}
           <DataTable
             id="sample-empty-data-table"

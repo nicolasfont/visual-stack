@@ -176,4 +176,21 @@ describe('DataTablePure', () => {
       [{ data: newData, id }],
     ]);
   });
+
+  it('should pass isLoading and loadingText props to VSDataTable', () => {
+
+    const expectedLoadingMessage = "Loading Test...";
+
+    const id = 'sample-data-table';
+    const wrapper = shallow(
+      <DataTablePure
+        id={id}
+        dataTable={{ pagination: {} }}
+        initializeDataTable={() => {}}
+        isLoading={true}
+        loadingMessage={expectedLoadingMessage}
+      />);
+    expect(wrapper.find(VSDataTable).prop('isLoading')).toEqual(true);
+    expect(wrapper.find(VSDataTable).prop('loadingMessage')).toEqual(expectedLoadingMessage);
+  });
 });
