@@ -1,4 +1,6 @@
 # Upcoming
+
+# 4.12.0
 ## New Feature
 - Add LoadingAnimation component
 - DataTable supports integrated LoadingAnimation
