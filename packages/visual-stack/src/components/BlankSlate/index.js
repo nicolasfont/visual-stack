@@ -4,13 +4,17 @@ import { Button } from '../Button';
 import './BlankSlate.css';
 import IconExample from 'mdi-react/BlurIcon';
 
-export const BlankSlate = ({ children, title, headerGraphic }) => {
-  const img = headerGraphic || <IconExample />;
-  const titleText = title || 'You do not have any content.';
+export const BlankSlate = ({
+  children,
+  title = 'You do not have any content.',
+  headerGraphic = <IconExample />,
+  className = '',
+  ...restProps
+}) => {
   return (
-    <div className="vs-bs-container">
-      <div className="vs-bs-img">{img}</div>
-      <h1 className="vs-bs-title">{titleText}</h1>
+    <div {...restProps} className={`vs-bs-container ${className}`}>
+      <div className="vs-bs-img">{headerGraphic}</div>
+      <h1 className="vs-bs-title">{title}</h1>
       {children}
     </div>
   );
@@ -29,12 +33,15 @@ export const Description = ({ children }) => (
 export const PrimaryActionButton = ({
   label,
   handler = clickEvent => clickEvent,
+  className = '',
+  ...restProps
 }) => {
   return (
     <div>
       <Button
+        {...restProps}
         type="solid-primary"
-        className="vs-bs-button-primary"
+        className={`vs-bs-button-primary ${className}`}
         onClick={handler}
       >
         {label}
@@ -51,10 +58,17 @@ PrimaryActionButton.propTypes = {
 export const SecondaryActionButton = ({
   label,
   handler = clickEvent => clickEvent,
+  className = '',
+  ...restProps
 }) => {
   return (
     <div>
-      <Button type="text" onClick={handler}>
+      <Button
+        {...restProps}
+        type="text"
+        className={`vs-bs-button-secondary ${className}`}
+        onClick={handler}
+      >
         {label}
       </Button>
     </div>
