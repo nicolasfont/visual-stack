@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { withErrorBoundary } from '../ErrorBoundary';
 import Spinner from '../Spinner';
-import BlankSlate from '../BlankSlate';
+import { BlankSlate } from '../BlankSlate';
 
 import './style.css';
 

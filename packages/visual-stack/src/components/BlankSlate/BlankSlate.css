@@ -15,7 +15,7 @@
 
 .vs-blankslate-description,
 .vs-blankslate-title {
-  color: #858585;
+  color: #333;
 }
 .vs-blankslate-title {
   font-weight: 500;
@@ -49,8 +49,9 @@
 }
 
 .vs-bs-description-text {
-  color: #858585;
-  white-space: normal;
+  color: #757575;
+  margin: 0 auto 24px;
+  max-width: 768px;
 }
 
 .vs-bs-description-wrapper {
@@ -84,4 +85,24 @@
   padding: 2em 0 0;
   margin: 2em auto;
   width: 80%;
+}
+
+.vs-bs-container {
+	text-align: center;
+	padding: 64px 32px;
+}
+
+.vs-bs-img svg {
+	width: 128px;
+	height: 128px;
+	fill: #D8DCDF;
+}
+
+.vs-bs-title {
+	font-size: 1.8rem;
+	margin-bottom: 24px;
+}
+
+.vs-bs-button-primary {
+	margin: 0 0 16px;
 }

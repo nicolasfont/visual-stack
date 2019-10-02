@@ -1,5 +1,9 @@
 # Upcoming
 
+# 4.13.0
+## New Feature
+- Additional BlankSlate functionality
+
 # 4.12.0
 ## New Feature
 - Add LoadingAnimation component
