@@ -16,6 +16,27 @@ export default () => (
       return (
         <div>
           <Panel>
+          	<div className="vs-bs-container vs-bs-leftalign">
+          		<div className="vs-bs-img">
+          				<IconExample />
+          		</div>
+          		<div className="vs-bs-content">
+        				<h1 className="vs-bs-title">New, Lapsed, Return Customer Analysis</h1>
+          			<div className="vs-bs-subtitle">
+          				<p>What percent of my affiliate transactions came from my new, lapsed, and return customer segments?</p>
+									<p>Which of my publisher partners are driving the most new customers?</p>
+									<p>Are specific links in my program driving more of one customer segment than another?</p>
+          			</div>
+          			<div className="vs-bs-description-text">
+          				<p>The New, Lapsed, Return Affiliate Customer Analysis dashboard enables you to answer these questions and more in real-time and on-demand. In order to access the Affiliate Customer Analysis dashboard powered by your CJ integration, your account must be enabled to pass customer recency parameters.</p>
+          			</div>
+          			<div>
+          				<button type="button" class="vs-btn-d vs-solid-primary-btn vs-bs-button-primary">Learn More</button>
+          			</div>
+          		</div>
+          	</div>
+          </Panel>
+          <Panel>
             <Header>Blank Slate - Basic Example</Header>
             <Body>
               {/* s0:start */}
@@ -71,6 +92,7 @@ export default () => (
               <Snippet tag="s3" src={snippets} />
             </Body>
           </Panel>
+          
         </div>
       );
     }}
