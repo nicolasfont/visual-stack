@@ -6,16 +6,19 @@ import IconExample from 'mdi-react/BlurIcon';
 
 export const BlankSlate = ({
   children,
+  alignment = '',
   title = 'You do not have any content.',
   headerGraphic = <IconExample />,
   className = '',
   ...restProps
 }) => {
   return (
-    <div {...restProps} className={`vs-bs-container ${className}`}>
+    <div {...restProps} className={`vs-bs-container ${alignment === 'left-side' && 'vs-bs-leftalign'} ${className}`}>
       <div className="vs-bs-img">{headerGraphic}</div>
-      <h1 className="vs-bs-title">{title}</h1>
-      {children}
+      <div className="vs-bs-content">
+        <h1 className="vs-bs-title">{title}</h1>
+        {children}
+      </div>
     </div>
   );
 };
@@ -23,6 +26,7 @@ export const BlankSlate = ({
 BlankSlate.propTypes = {
   title: PropTypes.string,
   subTitle: PropTypes.string,
+  alignment: PropTypes.string,
   headerGraphic: PropTypes.string,
 };
 
