@@ -8,6 +8,7 @@ import {
   PrimaryActionButton,
   SecondaryActionButton,
   Description,
+  SubTitle,
 } from '@cjdev/visual-stack/lib/components/BlankSlate';
 
 export default () => (
@@ -49,50 +50,42 @@ export default () => (
             <Header>Blank Slate - Full Example</Header>
             <Body>
               {/* s1:start */}
-              <BlankSlate
-                title="Start adding your promotional properties to build your network."
-                headerGraphic={<IconExample />}
-              >
+              <BlankSlate title="Title" headerGraphic={<IconExample />}>
+                <SubTitle>
+                  <p>Sub Title 1</p>
+                  <p>Sub Title 2</p>
+                  <p>Sub Title 3</p>
+                </SubTitle>
                 <Description>
-                  Promotional properties are websites and social media accounts
-                  that you’d like to promote on the network.
+                  Descriptive Content
                 </Description>
-                <PrimaryActionButton
-                  label="Add New Property"
-                  handler={clickEvent => clickEvent}
-                />
-                <SecondaryActionButton
-                  label="Need Help?"
-                  handler={clickEvent => clickEvent}
-                />
-              </BlankSlate>
-              {/* s1:end */}
+                <PrimaryActionButton label="Learn More" handler={ clickEvent => clickEvent } />
+                <SecondaryActionButton label="Need Help?" handler={ clickEvent => clickEvent } />
+              </BlankSlate>              {/* s1:end */}
               <Snippet tag="s1" src={snippets} />
             </Body>
           </Panel>
           <Panel>
             <Header>
-              Blank Slate - No Interaction, Default Title, Long Description
+              Blank Slate - Left Alignment
             </Header>
             <Body>
-              {/* s3:start */}
-              <BlankSlate headerGraphic={<IconExample />}>
+              {/* s2:start */}
+              <BlankSlate alignment="left-side" title="Title" headerGraphic={<IconExample />}>
+                <SubTitle>
+                  <p>Sub Title 1</p>
+                  <p>Sub Title 2</p>
+                  <p>Sub Title 3</p>
+                </SubTitle>
                 <Description>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
+                  Descriptive Content
                 </Description>
+                <PrimaryActionButton label="Learn More" handler={ clickEvent => clickEvent } />
               </BlankSlate>
-              {/* s3:end */}
-              <Snippet tag="s3" src={snippets} />
+              {/* s2:end */}
+              <Snippet tag="s2" src={snippets} />
             </Body>
           </Panel>
-          
         </div>
       );
     }}

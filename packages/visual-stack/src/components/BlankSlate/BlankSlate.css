@@ -17,6 +17,11 @@
 	padding-top: 16px;
 }
 
+.vs-bs-container.vs-bs-leftalign h1.vs-bs-title {
+	margin-top: 0;	
+	margin-bottom: 24px;
+}
+
 .vs-bs-container.vs-bs-leftalign .vs-bs-subtitle {
 	margin-bottom: 24px;
 }
@@ -31,9 +36,10 @@
 	fill: #D8DCDF;
 }
 
-.vs-bs-title {
+h1.vs-bs-title {
 	font-size: 1.8rem;
 	margin-bottom: 24px;
+	margin-top: 32px;
 }
 
 .vs-bs-subtitle {
