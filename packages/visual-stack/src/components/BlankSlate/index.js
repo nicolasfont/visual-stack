@@ -3,28 +3,41 @@ import PropTypes from 'prop-types';
 import { Button } from '../Button';
 import './BlankSlate.css';
 import IconExample from 'mdi-react/BlurIcon';
+import { Panel } from '../../../lib/components/Panel';
 
 export const BlankSlate = ({
   children,
+  alignment = '',
   title = 'You do not have any content.',
   headerGraphic = <IconExample />,
   className = '',
   ...restProps
 }) => {
   return (
-    <div {...restProps} className={`vs-bs-container ${className}`}>
-      <div className="vs-bs-img">{headerGraphic}</div>
-      <h1 className="vs-bs-title">{title}</h1>
-      {children}
-    </div>
+    <Panel>
+      <div {...restProps} className={`vs-bs-container ${alignment === 'left-side' && 'vs-bs-leftalign'} ${className}`}>
+        <div className="vs-bs-img">{headerGraphic}</div>
+        <div className="vs-bs-content">
+          <h1 className="vs-bs-title">{title}</h1>
+          {children}
+        </div>
+      </div>
+    </Panel>
   );
 };
 
 BlankSlate.propTypes = {
   title: PropTypes.string,
   subTitle: PropTypes.string,
+  alignment: PropTypes.string,
   headerGraphic: PropTypes.string,
 };
+
+export const SubTitle = ({ children }) => (
+  <div className="vs-bs-subtitle">
+    {children}
+  </div>
+);
 
 export const Description = ({ children }) => (
   <p className="vs-bs-description-text">{children}</p>

@@ -84,9 +84,21 @@ describe('BlankSlate', () => {
   test('should render', () => {
     const wrapper = mount(<BlankSlate title="title" />);
     expect(wrapper.find(BlankSlate).length).toEqual(1);
-    expect(
-      wrapper.find(<h1 className="vs-bs-title">"You have no content."</h1>)
-    );
+    expect(wrapper.find(".vs-bs-content").length).toEqual(1);
+    expect(wrapper.find(".vs-bs-leftalign").length).toEqual(0);
+    expect(wrapper.find(".vs-bs-title").length).toEqual(1);
+    // TODO: Figure out why this isn't working ...
+    // expect(wrapper.find(<div className="vs-bs-content"><h1 className="vs-bs-title">"You have no content."</h1></div>).length).toEqual(1);
+  });
+
+  test('should render left aligned', () => {
+    const wrapper = mount(<BlankSlate title="title" alignment="left-side" />);
+    expect(wrapper.find(BlankSlate).length).toEqual(1);
+    expect(wrapper.find(".vs-bs-content").length).toEqual(1);
+    expect(wrapper.find(".vs-bs-leftalign").length).toEqual(1);
+    expect(wrapper.find(".vs-bs-title").length).toEqual(1);
+    // TODO: Figure out why this isn't working ...
+    // expect(wrapper.find(<div className="vs-bs-content"><h1 className="vs-bs-title">"You have no content."</h1></div>).length).toEqual(1);
   });
 
   test('should render container, image, and title', () => {
@@ -94,7 +106,8 @@ describe('BlankSlate', () => {
     expect(wrapper.find('.vs-bs-container').length).toEqual(1);
     expect(wrapper.find('.vs-bs-img').length).toEqual(1);
     expect(wrapper.find('.vs-bs-title').length).toEqual(1);
-    expect(wrapper.find(<h1 className="vs-bs-title">"title"</h1>));
+    // TODO: Figure out why this isn't working
+    // expect(wrapper.find(<h1 className="vs-bs-title">"title"</h1>)).toEqual(1);
   });
 
   test('should render a primary action button', () => {
