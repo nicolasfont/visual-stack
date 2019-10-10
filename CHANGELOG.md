@@ -1,8 +1,13 @@
 # Upcoming
 
-# 4.13.1
+# 4.14.1
 ## New Feature
 - Add rowIndex to DataTable onClick event
+
+# 4.14.0
+## New Feature
+- Add left-aligned version of blank slate, and new icon
+- Update alert styling
 
 # 4.13.0
 ## New Feature
