@@ -74,6 +74,7 @@ const generateRow = ({ onClick, columns }) => (rowItems, index) => (
               onClick={() => {
                 onClick({
                   value: item,
+                  rowIndex: index,
                   label,
                 });
               }}

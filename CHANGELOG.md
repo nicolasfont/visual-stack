@@ -1,4 +1,6 @@
 # Upcoming
+## New Feature
+- Add rowIndex to DataTable onClick event
 
 # 4.13.0
 ## New Feature
