@@ -147,7 +147,7 @@ describe('DataTable', () => {
         .filterWhere(node => node.text() === targetData);
       targetTD.simulate('click');
       expect(onClick.mock.calls).toEqual([
-        [{ label: targetLabel, value: targetData }],
+        [{ label: targetLabel, rowIndex: 2, value: targetData }],
       ]);
     });
 
