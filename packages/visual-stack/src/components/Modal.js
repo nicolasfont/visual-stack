@@ -8,17 +8,26 @@ const backgroundClick = (event, onBackgroundClick) => {
   }
 };
 
-export const Modal = ({ children, onBackgroundClick }) => (
-  <div
+const keyUpHandler = (onEscapeKeyUp, e) => {
+  if (e.keyCode === 27) {
+    if(onEscapeKeyUp) onEscapeKeyUp()
+  }
+};
+
+export const Modal = ({ children, onBackgroundClick, onEscapeKeyUp }) => {
+
+  document.addEventListener("keyup", (e) => keyUpHandler(onEscapeKeyUp, e));
+
+  return <div
     className="modal"
-    style={{ display: 'block' }}
+    style={{display: 'block'}}
     onClick={event =>
       onBackgroundClick ? backgroundClick(event, onBackgroundClick) : {}
     }
   >
     {children}
   </div>
-);
+};
 
 export const Header = ({ title, children }) => (
   <div className="modal-header">

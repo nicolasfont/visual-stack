@@ -59,7 +59,7 @@ const OpenModalButton = connect(
 
 /* s6:start */
 const OptionsModalDialog = ({ takeAction, closeModal }) => (
-  <M.Modal onBackgroundClick={closeModal}>
+  <M.Modal onBackgroundClick={closeModal} onEscapeKeyUp={closeModal}>
     <M.Dialog>
       <M.Content>
         <M.Header title="Header Title" />
@@ -131,9 +131,8 @@ export default () => (
             <Header>Modal Options</Header>
             <Body>
               <div>
-                The Modal component can be passed an 'onBackgroundClick' prop
-                (function) to define what should happen when a click occurs
-                outside the Modal. Typically this would be used to pass in the
+                The Modal component accepts optional props 'onBackgroundClick' and 'onEscapeKeyUp' to define what should happen when a click occurs
+                outside the Modal / when Escape is pressed. Typically these would be used to pass in the
                 'closeModal' function.
               </div>
               <OpenOptionsModalButton />
