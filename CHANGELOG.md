@@ -1,5 +1,9 @@
 # Upcoming
 
+# 4.14.2
+## New Feature
+- Add onEscapeKeyUp function to Modal
+
 # 4.14.1
 ## New Feature
 - Add rowIndex to DataTable onClick event
