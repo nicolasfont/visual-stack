@@ -39,7 +39,7 @@ export class Modal extends React.Component {
   };
 
   render() {
-    return (<div
+    return <div
       className="modal"
       style={{display: 'block'}}
       onClick={event =>
@@ -47,7 +47,7 @@ export class Modal extends React.Component {
       }
     >
       {this.children}
-    </div>);
+    </div>;
   }
 }
 
