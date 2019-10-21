@@ -43,7 +43,7 @@ export class Modal extends React.Component {
       className="modal"
       style={{display: 'block'}}
       onClick={event =>
-        this.onBackgroundClick ? backgroundClick(event, this.onBackgroundClick) : {}
+        this.onBackgroundClick ? this.backgroundClick(event, this.onBackgroundClick) : {}
       }
     >
       {this.children}
