@@ -15,9 +15,8 @@ describe('Modal', () => {
       map[event] = cb;
     });
 
-    let removeWasCalled = false;
     document.removeEventListener = jest.fn((event, cb) => {
-      removeWasCalled = true;
+      map[event] = () => {};
     });
 
     const fakeKeyFunction = jest.fn();
@@ -26,9 +25,9 @@ describe('Modal', () => {
     //when
     map.keyup({ keyCode: 27 });
     wrapper.unmount();
+    map.keyup({ keyCode: 27 });
 
     //then
-    expect(fakeKeyFunction).toHaveBeenCalled();
-    expect(removeWasCalled).toBe(true);
+    expect(fakeKeyFunction).toHaveBeenCalledTimes(1);
   });
 });
