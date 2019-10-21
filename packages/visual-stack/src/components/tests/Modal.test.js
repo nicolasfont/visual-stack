@@ -15,13 +15,19 @@ describe('Modal', () => {
       map[event] = cb;
     });
 
+    document.removeEventListener = jest.fn((event, cb) => {
+      map[event] = () => {};
+    });
+
     const fakeKeyFunction = jest.fn();
     const wrapper = mount(<Modal onEscapeKeyUp={fakeKeyFunction} />);
 
     //when
     map.keyup({ keyCode: 27 });
+    wrapper.unmount();
+    map.keyup({ keyCode: 27 });
 
     //then
-    expect(fakeKeyFunction).toHaveBeenCalled();
+    expect(fakeKeyFunction).toHaveBeenCalledTimes(1);
   });
 });
