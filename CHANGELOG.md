@@ -1,5 +1,9 @@
 # Upcoming
 
+# 4.14.3
+## Bug Fixes
+- Fix Escape listener cleanup on Modal
+
 # 4.14.2
 ## New Feature
 - Add onEscapeKeyUp function to Modal
