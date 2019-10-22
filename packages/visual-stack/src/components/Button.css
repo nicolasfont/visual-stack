@@ -130,7 +130,7 @@ a.vs-btn-d:hover,
   background-color: #49c5b1;
   background-position: center;
   color: #fff;
-  transition: background 0.6s;
+  transition: background 0.4s;
 }
 
 .vs-solid-primary-btn:hover {
@@ -138,6 +138,25 @@ a.vs-btn-d:hover,
 }
 
 .vs-solid-primary-btn:active {
+	background-color: #44cbb4;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+.vs-solid-primary-raised-btn {
+  background-color: #49c5b1;
+  background-position: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,.14), 0 2px 3px -1px rgba(0,0,0,.14);
+  color: #fff;
+  transition: 0.4s all ease-in-out;
+}
+
+.vs-solid-primary-raised-btn:hover {
+  background: #14AB93 radial-gradient(circle, transparent 1%, #14AB93 1%) center/15000%;
+  box-shadow: 0 1px 3px rgba(0,0,0,.25), 0 2px 3px -1px rgba(0,0,0,.25);
+}
+
+.vs-solid-primary-raised-btn:active {
 	background-color: #44cbb4;
   background-size: 100%;
   transition: background 0s;
@@ -153,7 +172,7 @@ a.vs-btn-d:hover,
 }
 
 .vs-outline-primary-btn {
-  background: transparent;
+  background: #fff;
   border-color: #49c5b1;
   color: #49c5b1;
 }
@@ -164,12 +183,19 @@ a.vs-btn-d:hover,
 }
 
 .vs-outline-secondary-btn,
+.vs-outline-secondary-raised-btn,
 .vs-rounded-outline-btn {
   border-color: #adb1b6;
   background-position: center;
   color: #686f78;
-  transition: all 0.6s;
+  transition: all 0.4s;
 }
+
+.vs-outline-secondary-raised-btn {
+  box-shadow: 0 1px 3px rgba(0,0,0,.14), 0 2px 3px -1px rgba(0,0,0,.14);
+  transition: 0.4s all ease-in-out;
+}
+
 
 .vs-outline-secondary-btn:hover,
 .vs-rounded-outline-btn:hover {
@@ -177,7 +203,14 @@ a.vs-btn-d:hover,
   color: #414346;
 }
 
+.vs-outline-secondary-raised-btn:hover {
+  background: rgba(137, 150, 165, 0.1) radial-gradient(circle, transparent 1%, rgba(137, 150, 165, 0.1) 1%) center/15000%;
+  color: #414346;
+  box-shadow: 0 1px 3px rgba(0,0,0,.25), 0 2px 3px -1px rgba(0,0,0,.25);
+}
+
 .vs-outline-secondary-btn:active,
+.vs-outline-secondary-raised-btn:active,
 .vs-rounded-outline-btn:active {
   background-color: rgba(167, 179, 192, 0.04);
   background-size: 100%;
