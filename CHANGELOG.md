@@ -1,5 +1,9 @@
 # Upcoming
 
+# 4.14.4
+## Bug Fixes
+- Revert change for Escape handler on Modal because it does not work with hooks
+
 # 4.14.3
 ## Bug Fixes
 - Fix Escape listener cleanup on Modal
