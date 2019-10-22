@@ -2,54 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Modal.css';
 
-export class Modal extends React.Component {
-
-  constructor(props) {
-    super(props);
-
-    this.children = props.children;
-    this.onBackgroundClick = props.onBackgroundClick;
-    this.onEscapeKeyUp = props.onEscapeKeyUp;
+const backgroundClick = (event, onBackgroundClick) => {
+  if (event.target.matches('.modal')) {
+    onBackgroundClick();
   }
+};
 
-  backgroundClick = (event, onBackgroundClick) => {
-    if (event.target.matches('.modal')) {
-      onBackgroundClick();
+export const Modal = ({ children, onBackgroundClick }) => (
+  <div
+    className="modal"
+    style={{ display: 'block' }}
+    onClick={event =>
+      onBackgroundClick ? backgroundClick(event, onBackgroundClick) : {}
     }
-  };
-
-  keyUpHandler = (onEscapeKeyUp, e) => {
-    if (e.keyCode === 27) {
-      if(onEscapeKeyUp) onEscapeKeyUp()
-    }
-  };
-
-  keyUpListener = (e) => this.keyUpHandler(this.onEscapeKeyUp, e);
-
-  componentDidMount = () => {
-    if (this.onEscapeKeyUp) {
-      document.addEventListener("keyup", this.keyUpListener);
-    }
-  };
-
-  componentWillUnmount = () => {
-    if (this.onEscapeKeyUp) {
-      document.removeEventListener("keyup", this.keyUpListener);
-    }
-  };
-
-  render() {
-    return <div
-      className="modal"
-      style={{display: 'block'}}
-      onClick={event =>
-        this.onBackgroundClick ? this.backgroundClick(event, this.onBackgroundClick) : {}
-      }
-    >
-      {this.children}
-    </div>;
-  }
-}
+  >
+    {children}
+  </div>
+);
 
 export const Header = ({ title, children }) => (
   <div className="modal-header">
