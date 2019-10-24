@@ -20,14 +20,13 @@ import {
   ViewDetailButton,
 } from '@cjdev/visual-stack/lib/components/AnalyticCard';
 /* s3:end */
-import './card.css';
 
 export default () => (
   <Demo srcFile="/samples/src/containers/Components/Docs/card.js">
     {snippets => {
       return (
         <div>
-					<h3>Basic Card</h3>
+          <h3>Basic Card</h3>
           {/* s1:start */}
           <Card href="https://cj.com" className="additional-classes">
             Go to cj.com
@@ -40,7 +39,7 @@ export default () => (
               <Snippet tag="s1" src={snippets} />
             </Body>
           </Panel>
-					<h3>Analytic Cards</h3>
+          <h3>Analytic Cards</h3>
           {/* s4:start */}
           <AnalyticCardContainer>
             <AnalyticCard>
@@ -111,7 +110,7 @@ export default () => (
             </AnalyticCard>
           </AnalyticCardContainer>
           {/* s4:end */}
-          
+
           <Panel>
             <Header>Example Source</Header>
             <Body>
