@@ -1,4 +1,7 @@
-# Upcoming
+# 4.14.5
+## Updated styling
+- update analytic cards to use css grid 
+- update style in basic card
 
 # 4.14.4
 ## Bug Fixes
