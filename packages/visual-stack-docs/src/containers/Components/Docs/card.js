@@ -27,30 +27,24 @@ export default () => (
     {snippets => {
       return (
         <div>
+					<h3>Basic Card</h3>
+          {/* s1:start */}
+          <Card href="https://cj.com" className="additional-classes">
+            Go to cj.com
+          </Card>
+          {/* s1:end */}
           <Panel>
-            <Header>Card</Header>
+            <Header>Example Source</Header>
             <Body>
               <Snippet tag="s2" src={snippets} />
-              {/* s1:start */}
-              <Card href="https://cj.com" className="additional-classes">
-                Go to cj.com
-              </Card>
-              {/* s1:end */}
               <Snippet tag="s1" src={snippets} />
             </Body>
           </Panel>
-
-          <Panel>
-            <Header>Analytic Cards</Header>
-            <Body>
-              <Snippet tag="s3" src={snippets} />
-              <Snippet tag="s4" src={snippets} />
-            </Body>
-          </Panel>
+					<h3>Analytic Cards</h3>
           {/* s4:start */}
           <AnalyticCardContainer>
             <AnalyticCard>
-              <AnalyticCardTitle>Total violations</AnalyticCardTitle>
+              <AnalyticCardTitle>Total Violations</AnalyticCardTitle>
               <AnalyticCardValue>7</AnalyticCardValue>
               <AnalyticCardTrendContainer>
                 <AnalyticCardTrend>
@@ -74,9 +68,10 @@ export default () => (
             <AnalyticCard>
               <AnalyticCardTitle>High Severity Violations</AnalyticCardTitle>
               <AnalyticCardValue>7</AnalyticCardValue>
-              <div>Custom Text</div>
+              <div className="vs-analytic-card-custom-text">Custom Text</div>
             </AnalyticCard>
             <AnalyticCard>
+              <AnalyticCardTitle>Total Error Points</AnalyticCardTitle>
               <AnalyticCardValue>16</AnalyticCardValue>
               <AnalyticCardTrendContainer>
                 <AnalyticCardTrend>
@@ -88,26 +83,6 @@ export default () => (
                 <AnalyticCardTrend>
                   <AnalyticCardTrendLabel>prev. period</AnalyticCardTrendLabel>
                   <AnalyticCardTrendValue>20</AnalyticCardTrendValue>
-                </AnalyticCardTrend>
-              </AnalyticCardTrendContainer>
-            </AnalyticCard>
-            <AnalyticCard className="make-it-different">
-              <AnalyticCardTitle>
-                Average Resolution Time (hrs)
-              </AnalyticCardTitle>
-              <AnalyticCardValue>
-                9.91 <AnalyticCardValueUnit>hrs</AnalyticCardValueUnit>
-              </AnalyticCardValue>
-              <AnalyticCardTrendContainer>
-                <AnalyticCardTrend>
-                  <AnalyticCardPositiveTrendValue>
-                    +7.11
-                  </AnalyticCardPositiveTrendValue>
-                  <AnalyticCardTrendLabel>change</AnalyticCardTrendLabel>
-                </AnalyticCardTrend>
-                <AnalyticCardTrend>
-                  <AnalyticCardTrendValue>20</AnalyticCardTrendValue>
-                  <AnalyticCardTrendLabel>prev. period</AnalyticCardTrendLabel>
                 </AnalyticCardTrend>
               </AnalyticCardTrendContainer>
             </AnalyticCard>
@@ -136,6 +111,14 @@ export default () => (
             </AnalyticCard>
           </AnalyticCardContainer>
           {/* s4:end */}
+          
+          <Panel>
+            <Header>Example Source</Header>
+            <Body>
+              <Snippet tag="s3" src={snippets} />
+              <Snippet tag="s4" src={snippets} />
+            </Body>
+          </Panel>
         </div>
       );
     }}

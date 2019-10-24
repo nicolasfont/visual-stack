@@ -1,11 +1,8 @@
-.vs-analytic-card {
-  text-align: center;
-  padding: 32px;
-  flex-basis: 320px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 2px 3px -1px rgba(0, 0, 0, 0.08);
-  border-radius: 3px;
-  background: white;
-  transition: 0.1s all ease-in-out;
+.vs-analytic-card-container {
+  display: grid;
+	grid-column-gap: 16px;
+	grid-row-gap: 16px;
+	margin-bottom: 16px;
 }
 
 .vs-analytic-card-clickable {
@@ -17,25 +14,37 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.24);
   border-color: #cacaca;
 }
-.vs-analytic-card-container {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1500px;
+
+.vs-analytic-card {
+  text-align: center;
+  padding: 24px;
+  flex-basis: 320px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 2px 3px -1px rgba(0, 0, 0, 0.08);
+  border-radius: 3px;
+  background: white;
+  transition: 0.1s all ease-in-out;
 }
 
-.vs-analytic-card-container > .vs-analytic-card {
-  margin-right: 16px;
-  margin-bottom: 16px;
+@media (min-width: 1024px) {
+	
+	.vs-analytic-card {
+	  padding: 32px;
+	}
+	
 }
 
 .vs-analytic-card-title {
-  color: #757575;
-  font-size: 1.8rem;
+  color: #333;
+  font-size: 1.6rem;
 }
 
 .vs-analytic-card-value {
-  font-size: 3.6rem;
+  font-size: 3.2rem;
   font-weight: 500;
+}
+
+.vs-analytic-card-custom-text {
+	color: #757575;
 }
 
 .vs-analytic-card-trend {
@@ -69,7 +78,7 @@
 }
 
 .vs-analytic-card-trend-label {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 400;
   color: #757575;
 }

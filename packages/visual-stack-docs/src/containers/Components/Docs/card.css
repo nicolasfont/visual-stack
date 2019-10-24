@@ -1,9 +1,22 @@
-.make-it-different {
-  background: #283640;
+.vs-analytic-card-container {
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
 }
-.make-it-different .vs-analytic-card-title,
-.make-it-different .vs-analytic-card-trend-label,
-.make-it-different .vs-analytic-card-trend-value,
-.make-it-different .vs-analytic-card-value {
-	color: #fff;
+
+@media (min-width: 768px) {
+	
+	.vs-analytic-card-container {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+	}
+	
+}
+
+@media (min-width: 1024px) {
+	
+	.vs-analytic-card-container {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: auto;
+	}
+	
 }
