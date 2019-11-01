@@ -1,0 +1,36 @@
+.vs-popover-container {
+  margin: 8px;
+  background: #ffffff;
+  padding: 8px;
+  filter: drop-shadow(1px 1px 2px gray);
+  border-radius: 2px;
+  border-left: 4px solid #49c5b1;
+}
+
+.vs-popover-arrow {
+  position: absolute;
+}
+
+.vs-popover-arrow[data-placement="right"], .vs-popover-arrow[data-placement="right-start"], .vs-popover-arrow[data-placement="right-end"] {
+  left: -20px;
+  border: 8px solid transparent;
+  border-right-color: #49c5b1;
+}
+
+.vs-popover-arrow[data-placement="left"], .vs-popover-arrow[data-placement="left-start"], .vs-popover-arrow[data-placement="left-end"] {
+  right: -16px;
+  border: 8px solid transparent;
+  border-left-color: #ffffff;
+}
+
+.vs-popover-arrow[data-placement="top"], .vs-popover-arrow[data-placement="top-start"], .vs-popover-arrow[data-placement="top-end"] {
+  bottom: -16px;
+  border: 8px solid transparent;
+  border-top-color: #ffffff;
+}
+
+.vs-popover-arrow[data-placement="bottom"], .vs-popover-arrow[data-placement="bottom-start"], .vs-popover-arrow[data-placement="bottom-end"] {
+  top: -16px;
+  border: 8px solid transparent;
+  border-bottom-color: #ffffff;
+}
