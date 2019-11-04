@@ -1,5 +1,5 @@
 import React from 'react';
-import Popover from "../index";
+import Popover, {HoverPopover} from "../index";
 import Enzyme, {mount} from 'enzyme';
 import {Popper} from 'react-popper';
 
@@ -13,7 +13,7 @@ describe("Popover", () => {
       <Popover shown={true} />
     );
 
-    expect(wrapper.find(".vs-popover-container").prop("hidden")).toBe(false);
+    expect(wrapper.find(".vs-popover-container")).toHaveLength(1);
     expect(wrapper.find(Popper).prop("placement")).toBe("bottom");
   });
 
@@ -22,7 +22,7 @@ describe("Popover", () => {
       <Popover shown={false} />
     );
 
-    expect(wrapper.find(".vs-popover-container").prop("hidden")).toBe(true);
+    expect(wrapper.find(".vs-popover-container")).toHaveLength(0);
   });
 
   it("should accept a placement prop to control default placement", () => {
@@ -48,7 +48,7 @@ describe("Popover", () => {
   it("should render content as the popover content", () => {
     const expectedContentElement = <div className={"test-target-content-element"}/>;
     const wrapper = mount(
-      <Popover shown={false} content={expectedContentElement}>
+      <Popover shown={true} content={expectedContentElement}>
         <div className={"test-target-element"}/>
       </Popover>
     );
@@ -72,5 +72,23 @@ describe("Popover", () => {
 
     wrapper.find(".vs-popover-wrapper").simulate("mouseLeave");
     expect(onMouseLeave).toHaveBeenCalled();
+  });
+});
+
+describe('HoverPopover', () => {
+  it('should show when hovered over and hide when mouse leaves', () => {
+    const wrapper = mount(
+      <HoverPopover>
+        <div className={"test-target-element"}/>
+      </HoverPopover>
+    );
+
+    expect(wrapper.find(Popover).prop("shown")).toBe(false);
+
+    wrapper.find(".vs-popover-wrapper").simulate("mouseOver");
+    expect(wrapper.find(Popover).prop("shown")).toBe(true);
+
+    wrapper.find(".vs-popover-wrapper").simulate("mouseLeave");
+    expect(wrapper.find(Popover).prop("shown")).toBe(false);
   });
 });
