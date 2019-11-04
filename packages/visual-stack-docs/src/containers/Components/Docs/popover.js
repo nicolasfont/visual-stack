@@ -14,7 +14,13 @@ export default () => (
             <Header>Popover</Header>
             <Body>
               {/* s2:start */}
-              <Popover/>
+              <div style={{margin: "75px 200px"}}>
+                <Popover shown={true} placement={"right"} content={<span style={{color: "red"}}>This is the content</span>}>
+                  <button type="button">
+                    I'm the reference element
+                  </button>
+                </Popover>
+              </div>
               {/* s2:end */}
               <Snippet tag="s1" src={snippets} />
               <Snippet tag="s2" src={snippets} />

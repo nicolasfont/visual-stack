@@ -54,6 +54,23 @@ describe("Popover", () => {
     );
 
     expect(wrapper.find(".vs-popover-container").find(".test-target-content-element")).toHaveLength(1);
-    expect(wrapper.find(".vs-popover-container").children().at(0).getElement()).toEqual(expectedContentElement);
+    expect(wrapper.find(".vs-popover-content").children().at(0).getElement()).toEqual(expectedContentElement);
+  });
+
+  it("should call onMouseOver and onMouseLeave events", () => {
+    const onMouseOver = jest.fn();
+    const onMouseLeave = jest.fn();
+
+    const wrapper = mount(
+      <Popover shown={false} onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
+        <div className={"test-target-element"}/>
+      </Popover>
+    );
+
+    wrapper.find(".vs-popover-wrapper").simulate("mouseOver");
+    expect(onMouseOver).toHaveBeenCalled();
+
+    wrapper.find(".vs-popover-wrapper").simulate("mouseLeave");
+    expect(onMouseLeave).toHaveBeenCalled();
   });
 });
