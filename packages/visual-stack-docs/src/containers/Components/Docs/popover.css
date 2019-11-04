@@ -6,4 +6,5 @@
 
 .popover-demo-dashed-underline {
   border-bottom: 1px dashed black;
+  margin-left: 4px;
 }
