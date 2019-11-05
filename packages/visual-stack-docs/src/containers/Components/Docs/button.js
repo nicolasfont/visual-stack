@@ -31,7 +31,9 @@ export default () => (
               <p>Please be aware that the shape of the round buttons will be deprecated and replaced with with squares with a slight border radius.</p>
               {/* s3:start */}
               <Button type="solid-primary">Solid Primary</Button>
+              <Button type="solid-primary-raised">Raised Primary</Button>
               <Button type="outline-secondary">Outline Secondary</Button>
+              <Button type="outline-secondary-raised">Raised Secondary</Button>
               <Button type="rounded-solid"><Plus /></Button>
               <Button type="rounded-outline"><Minus /></Button>
               <Button type="icon"><AccountIcon /></Button>
