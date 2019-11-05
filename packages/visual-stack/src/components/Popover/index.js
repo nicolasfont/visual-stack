@@ -1,13 +1,12 @@
 import React from 'react';
 import {Manager, Popper, Reference} from 'react-popper';
+import cn from 'classnames';
 import "./Popover.css";
 
-const Popover = ({shown, content, children, placement = "bottom", onMouseOver, onMouseLeave}) => {
+const Popover = ({shown, content, children, placement = "bottom", className, ...otherProps}) => {
   return (
     <Manager>
-      <div className="vs-popover-wrapper"
-           onMouseOver={onMouseOver}
-           onMouseLeave={onMouseLeave}>
+      <div className="vs-popover-wrapper" {...otherProps}>
         <Reference>
           {({ref}) => (
             <div ref={ref} className="vs-popover-reference">
@@ -19,7 +18,7 @@ const Popover = ({shown, content, children, placement = "bottom", onMouseOver, o
           shown ?
             <Popper placement={placement}>
               {({ref, style, placement, arrowProps}) => (
-                <div className="vs-popover-container" ref={ref} style={style} data-placement={placement}>
+                <div className={cn("vs-popover-container", className)} ref={ref} style={style} data-placement={placement}>
                   <div className="vs-popover-content">
                     {content}
                   </div>
@@ -55,10 +54,9 @@ export class HoverPopover extends React.Component {
   render() {
     return (
       <Popover shown={this.state.shown}
-               content={this.props.content}
-               placement={this.props.placement}
                onMouseOver={this.onMouseOver}
-               onMouseLeave={this.onMouseLeave}>
+               onMouseLeave={this.onMouseLeave}
+               {...this.props}>
         {this.props.children}
       </Popover>
     );
