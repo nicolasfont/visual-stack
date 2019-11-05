@@ -1,6 +1,10 @@
+# Upcoming
+## New Feature
+- add solid-primary-raised and outline-secondary-raised button types
+
 # 4.14.5
 ## Updated styling
-- update analytic cards to use css grid 
+- update analytic cards to use css grid
 - update style in basic card
 
 # 4.14.4
