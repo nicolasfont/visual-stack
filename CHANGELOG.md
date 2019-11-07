@@ -1,5 +1,7 @@
 # Upcoming
 ## New Feature
+- Added Popover component
+- Also included a stateful HoverPopover that shows the popover on hover
 - add solid-primary-raised and outline-secondary-raised button types
 
 # 4.14.5

@@ -1,0 +1,10 @@
+.popover-demo-bordered-div {
+  display: inline-block;
+  border: 1px solid black;
+  padding: 0 4px;
+}
+
+.popover-demo-dashed-underline {
+  border-bottom: 1px dashed black;
+  margin-left: 4px;
+}
