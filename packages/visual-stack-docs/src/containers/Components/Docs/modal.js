@@ -20,11 +20,11 @@ const ModalDialog = ({ takeAction, closeModal }) => (
         <M.Header title="Header Title" />
         <M.Body>Header Body goes here</M.Body>
         <M.Footer>
-          <Button type="primary" onClick={() => closeModal()}>
+          <Button type="text" onClick={() => closeModal()}>
             Cancel
           </Button>
           <Button
-            type="danger"
+            type="solid-primary"
             onClick={() => {
               takeAction();
               closeModal();
@@ -43,7 +43,7 @@ const ModalDialog = ({ takeAction, closeModal }) => (
 // The openModal action takes the dialog component and its props
 const ModalButton = ({ openModal, closeModal, takeAction }) => (
   <Button
-    type="primary"
+    type="solid-primary"
     onClick={() => openModal(ModalDialog, { takeAction, closeModal })}
   >
     Open Modal
@@ -65,11 +65,11 @@ const OptionsModalDialog = ({ takeAction, closeModal }) => (
         <M.Header title="Header Title" />
         <M.Body>Click outside the modal to close me</M.Body>
         <M.Footer>
-          <Button type="primary" onClick={() => closeModal()}>
+          <Button type="text" onClick={() => closeModal()}>
             Cancel
           </Button>
           <Button
-            type="danger"
+            type="solid-primary"
             onClick={() => {
               takeAction();
               closeModal();
@@ -86,7 +86,7 @@ const OptionsModalDialog = ({ takeAction, closeModal }) => (
 
 const OptionsModalButton = ({ openModal, closeModal, takeAction }) => (
   <Button
-    type="primary"
+    type="solid-primary"
     onClick={() => openModal(OptionsModalDialog, { takeAction, closeModal })}
   >
     Open Options Modal
@@ -103,6 +103,18 @@ export default () => (
     {snippets => {
       return (
         <div>
+          <Panel>
+            <Header>Modal Options</Header>
+            <Body>
+              <p>
+                The Modal component accepts optional props 'onBackgroundClick' and 'onEscapeKeyUp' to define what should happen when a click occurs
+                outside the Modal / when Escape is pressed. Typically these would be used to pass in the
+                'closeModal' function.
+              </p>
+              <OpenOptionsModalButton />
+              <Snippet tag="s6" src={snippets} />
+            </Body>
+          </Panel>
           <Panel>
             <Header>Modal</Header>
             <Body>
@@ -125,18 +137,6 @@ export default () => (
               <Snippet tag="s3" src={snippets} />
               <Snippet tag="s4" src={snippets} />
               <Snippet tag="s5" src={snippets} />
-            </Body>
-          </Panel>
-          <Panel>
-            <Header>Modal Options</Header>
-            <Body>
-              <div>
-                The Modal component accepts optional props 'onBackgroundClick' and 'onEscapeKeyUp' to define what should happen when a click occurs
-                outside the Modal / when Escape is pressed. Typically these would be used to pass in the
-                'closeModal' function.
-              </div>
-              <OpenOptionsModalButton />
-              <Snippet tag="s6" src={snippets} />
             </Body>
           </Panel>
         </div>
