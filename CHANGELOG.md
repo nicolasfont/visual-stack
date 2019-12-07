@@ -1,3 +1,7 @@
+# 4.15.1
+## New Icon
+- Added CJ logo icon
+
 # 4.15.0
 ## New Feature
 - Added Popover component
