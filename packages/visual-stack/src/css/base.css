@@ -59,7 +59,8 @@ body {
   padding: 0;
   text-align: left;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: auto;
+  -moz-osx-font-smoothing: grayscale;
+  
 }
 
 ::selection {
@@ -294,7 +295,6 @@ samp {
 
 pre,
 pre code {
-  display: block;
   hyphens: none;
 }
 
@@ -303,12 +303,13 @@ pre {
   border: 1px solid #c8ccce;
   border-radius: 2px;
   color: #333;
+  display: block;
   font-size: 1.3rem;
   line-height: 1.6;
   margin: 0 0 1.6rem;
-  overflow: auto;
+  overflow-x: auto;
   padding: 0.8rem 1.6rem;
-  white-space: pre;
+  white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word;
 }
@@ -326,11 +327,13 @@ pre code {
   background-color: transparent;
   border-radius: 0;
   color: inherit;
+  display: inline;
   font-size: inherit;
   margin: 0;
   overflow-x: auto;
   padding: 0;
   white-space: pre;
+  word-break: normal;
 }
 
 kbd {
