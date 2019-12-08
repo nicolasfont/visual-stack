@@ -1,6 +1,6 @@
 .vs-popover-container {
   padding: 8px;
-  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.24));
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.24));
   max-width: 340px;
   z-index: 10;
 }
@@ -25,25 +25,33 @@
   position: absolute;
 }
 
-.vs-popover-arrow[data-placement="right"], .vs-popover-arrow[data-placement="right-start"], .vs-popover-arrow[data-placement="right-end"] {
+.vs-popover-arrow[data-placement='right'],
+.vs-popover-arrow[data-placement='right-start'],
+.vs-popover-arrow[data-placement='right-end'] {
   left: -8px;
   border: 8px solid transparent;
   border-right-color: #49c5b1;
 }
 
-.vs-popover-arrow[data-placement="left"], .vs-popover-arrow[data-placement="left-start"], .vs-popover-arrow[data-placement="left-end"] {
+.vs-popover-arrow[data-placement='left'],
+.vs-popover-arrow[data-placement='left-start'],
+.vs-popover-arrow[data-placement='left-end'] {
   right: -8px;
   border: 8px solid transparent;
   border-left-color: #ffffff;
 }
 
-.vs-popover-arrow[data-placement="top"], .vs-popover-arrow[data-placement="top-start"], .vs-popover-arrow[data-placement="top-end"] {
+.vs-popover-arrow[data-placement='top'],
+.vs-popover-arrow[data-placement='top-start'],
+.vs-popover-arrow[data-placement='top-end'] {
   bottom: -8px;
   border: 8px solid transparent;
   border-top-color: #ffffff;
 }
 
-.vs-popover-arrow[data-placement="bottom"], .vs-popover-arrow[data-placement="bottom-start"], .vs-popover-arrow[data-placement="bottom-end"] {
+.vs-popover-arrow[data-placement='bottom'],
+.vs-popover-arrow[data-placement='bottom-start'],
+.vs-popover-arrow[data-placement='bottom-end'] {
   top: -8px;
   border: 8px solid transparent;
   border-bottom-color: #ffffff;

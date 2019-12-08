@@ -15,7 +15,7 @@ import * as R from 'ramda';
 import { getNextData, getNextOrder, getSortingIcon } from './sortingHelper';
 import PropTypes from 'prop-types';
 import './DataTable.css';
-import LoadingAnimation from "../../LoadingAnimation";
+import LoadingAnimation from '../../LoadingAnimation';
 
 const generateHeader = ({ sortable, sortingOption, onSort, data }) => (
   { label: currentLabel, width },
@@ -95,12 +95,8 @@ const getDataWithPagination = (rowsPerPage, page) =>
     R.drop(rowsPerPage * (page - 1))
   );
 
-const NoDataLabel = ({label}) => {
-  return (
-    <div className="vs-data-table-no-data-label">
-      {label}
-    </div>
-  )
+const NoDataLabel = ({ label }) => {
+  return <div className="vs-data-table-no-data-label">{label}</div>;
 };
 
 export const DataTable = ({
@@ -119,7 +115,7 @@ export const DataTable = ({
   onClick,
   onSort,
   renderToolbar,
-  noDataLabel = "No data available.",
+  noDataLabel = 'No data available.',
   rowsPerPageTemplate,
   totalRecordsTemplate,
 }) => {
@@ -138,11 +134,12 @@ export const DataTable = ({
           <div>{renderToolbar && renderToolbar({ columns, data })}</div>
         </div>
       </TableTitle>
-      {isLoading
-        ? <div className={"vs-data-table-loading-animation-wrapper"}>
-          <LoadingAnimation loadingMessage={loadingMessage}/>
+      {isLoading ? (
+        <div className={'vs-data-table-loading-animation-wrapper'}>
+          <LoadingAnimation loadingMessage={loadingMessage} />
         </div>
-        : <>
+      ) : (
+        <>
           <Table>
             <THead>
               <Tr>
@@ -152,23 +149,23 @@ export const DataTable = ({
               </Tr>
             </THead>
             <TBody>
-              {normalizedData.map(generateRow({onClick, columns}))}
+              {normalizedData.map(generateRow({ onClick, columns }))}
             </TBody>
           </Table>
-          {normalizedData.length === 0 && <NoDataLabel label={noDataLabel}/>}
+          {normalizedData.length === 0 && <NoDataLabel label={noDataLabel} />}
           {pagination && (
             <Pagination
-            className="vs-table-pagination"
-            numberOfRows={data.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onChange={onPageChange}
-            rowsPerPageTemplate={rowsPerPageTemplate}
-            totalRecordsTemplate={totalRecordsTemplate}
+              className="vs-table-pagination"
+              numberOfRows={data.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              onChange={onPageChange}
+              rowsPerPageTemplate={rowsPerPageTemplate}
+              totalRecordsTemplate={totalRecordsTemplate}
             />
-            )}
-          </>
-      }
+          )}
+        </>
+      )}
     </TableContainer>
   );
 };

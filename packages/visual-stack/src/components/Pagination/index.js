@@ -10,18 +10,18 @@ import './style.css';
 
 const validRowsPerPageValues = [10, 25, 50];
 
-const getRowsPerPageOptions = (rowsPerPageTemplate) => {
+const getRowsPerPageOptions = rowsPerPageTemplate => {
   return validRowsPerPageValues.map(value => {
     return {
       value: value,
-      label: rowsPerPageTemplate.replace("{0}", value)
-    }
-  })
+      label: rowsPerPageTemplate.replace('{0}', value),
+    };
+  });
 };
 
 const getRowsPerPageOption = (pageValue, rowsPerPageTemplate) =>
   pipe(
-    groupBy(prop("value")),
+    groupBy(prop('value')),
     prop(pageValue),
     head
   )(getRowsPerPageOptions(rowsPerPageTemplate));
@@ -32,8 +32,8 @@ const Pagination = ({
   page,
   onChange,
   className,
-  rowsPerPageTemplate = "{0} per page",
-  totalRecordsTemplate = "{0} total records",
+  rowsPerPageTemplate = '{0} per page',
+  totalRecordsTemplate = '{0} total records',
 }) => {
   const maxPage = Math.ceil(numberOfRows / rowsPerPage) || 1;
 
@@ -60,7 +60,7 @@ const Pagination = ({
   };
 
   const getTranslatedNumberOfRecords = () => {
-    return totalRecordsTemplate.replace("{0}", numberOfRows);
+    return totalRecordsTemplate.replace('{0}', numberOfRows);
   };
 
   return (

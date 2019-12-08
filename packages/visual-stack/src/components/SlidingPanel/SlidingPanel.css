@@ -34,8 +34,8 @@
 }
 
 .vs-sliding-panel-toggle-icon .vs-inline-outline-secondary-btn {
-	width: 32px;
-	padding: 0;
+  width: 32px;
+  padding: 0;
 }
 
 .vs-sliding-panel-section-container {
@@ -89,11 +89,14 @@
   transition: 0.3s all ease-in-out;
 }
 
-.vs-sliding-panel-section-container a:not(.vs-sliding-panel-section-container-label) {
+.vs-sliding-panel-section-container
+  a:not(.vs-sliding-panel-section-container-label) {
   display: block;
 }
 
-.vs-sliding-panel-section-container .vs-sliding-panel-section-container-label i {
+.vs-sliding-panel-section-container
+  .vs-sliding-panel-section-container-label
+  i {
   color: #999;
   font-size: 10px;
   transform: rotate(0);
@@ -101,7 +104,9 @@
 }
 
 .vs-sliding-panel-section-container-label:hover div,
-.vs-sliding-panel-section-container.vs-expanded .vs-sliding-panel-section-container-label div {
+.vs-sliding-panel-section-container.vs-expanded
+  .vs-sliding-panel-section-container-label
+  div {
   opacity: 1;
 }
 
@@ -109,7 +114,9 @@
   display: inline;
 }
 
-.vs-sliding-panel-section-container.vs-expanded .vs-sliding-panel-section-container-label i {
+.vs-sliding-panel-section-container.vs-expanded
+  .vs-sliding-panel-section-container-label
+  i {
   color: #3abda7;
   transform: rotate(90deg);
 }

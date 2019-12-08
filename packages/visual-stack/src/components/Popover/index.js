@@ -1,34 +1,46 @@
 import React from 'react';
-import {Manager, Popper, Reference} from 'react-popper';
+import { Manager, Popper, Reference } from 'react-popper';
 import cn from 'classnames';
-import "./Popover.css";
+import './Popover.css';
 
-const Popover = ({shown, content, children, placement = "bottom", className, ...otherProps}) => {
+const Popover = ({
+  shown,
+  content,
+  children,
+  placement = 'bottom',
+  className,
+  ...otherProps
+}) => {
   return (
     <Manager>
       <div className="vs-popover-wrapper" {...otherProps}>
         <Reference>
-          {({ref}) => (
+          {({ ref }) => (
             <div ref={ref} className="vs-popover-reference">
               {children}
             </div>
           )}
         </Reference>
-        {
-          shown ?
-            <Popper placement={placement}>
-              {({ref, style, placement, arrowProps}) => (
-                <div className={cn("vs-popover-container", className)} ref={ref} style={style} data-placement={placement}>
-                  <div className="vs-popover-content">
-                    {content}
-                  </div>
-                  <span className="vs-popover-arrow" ref={arrowProps.ref} style={arrowProps.style}
-                        data-placement={placement}/>
-                </div>
-              )}
-            </Popper>
-            : null
-        }
+        {shown ? (
+          <Popper placement={placement}>
+            {({ ref, style, placement, arrowProps }) => (
+              <div
+                className={cn('vs-popover-container', className)}
+                ref={ref}
+                style={style}
+                data-placement={placement}
+              >
+                <div className="vs-popover-content">{content}</div>
+                <span
+                  className="vs-popover-arrow"
+                  ref={arrowProps.ref}
+                  style={arrowProps.style}
+                  data-placement={placement}
+                />
+              </div>
+            )}
+          </Popper>
+        ) : null}
       </div>
     </Manager>
   );
@@ -36,7 +48,7 @@ const Popover = ({shown, content, children, placement = "bottom", className, ...
 
 export class HoverPopover extends React.Component {
   state = {
-    shown: false
+    shown: false,
   };
 
   constructor(props) {
@@ -44,19 +56,21 @@ export class HoverPopover extends React.Component {
   }
 
   onMouseOver = () => {
-    this.setState({shown: true});
+    this.setState({ shown: true });
   };
 
   onMouseLeave = () => {
-    this.setState({shown: false});
+    this.setState({ shown: false });
   };
 
   render() {
     return (
-      <Popover shown={this.state.shown}
-               onMouseOver={this.onMouseOver}
-               onMouseLeave={this.onMouseLeave}
-               {...this.props}>
+      <Popover
+        shown={this.state.shown}
+        onMouseOver={this.onMouseOver}
+        onMouseLeave={this.onMouseLeave}
+        {...this.props}
+      >
         {this.props.children}
       </Popover>
     );

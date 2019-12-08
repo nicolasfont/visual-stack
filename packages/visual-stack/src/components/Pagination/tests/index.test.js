@@ -118,7 +118,7 @@ describe('Pagination', () => {
   it('should display total records using template', () => {
     const tester = createTesterWithOptions({
       numberOfRows: 27,
-      totalRecordsTemplate: "I have {0} entries"
+      totalRecordsTemplate: 'I have {0} entries',
     });
     expect(tester.getTotalRecords()).toEqual(`I have 27 entries`);
   });
@@ -166,7 +166,7 @@ describe('Pagination', () => {
   it('should display the rows per page options', () => {
     // given
     const tester = createTesterWithOptions({
-      rowsPerPageTemplate: "display {0} of them"
+      rowsPerPageTemplate: 'display {0} of them',
     });
 
     // then

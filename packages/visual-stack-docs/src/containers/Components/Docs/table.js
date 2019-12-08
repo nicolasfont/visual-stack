@@ -165,7 +165,7 @@ export default () => (
             id="sample-empty-data-table"
             caption="Loading Data Table"
             isLoading={true}
-            loadingMessage={"Custom Loading Message..."}
+            loadingMessage={'Custom Loading Message...'}
           />
           {/* s10:end */}
 
@@ -173,7 +173,8 @@ export default () => (
             <Header>Loading Animation Data Table Example</Header>
             <Body>
               <div className="docs">
-                This shows the data table when data is being loaded.  Relevant props are: isLoading, loadingText.
+                This shows the data table when data is being loaded. Relevant
+                props are: isLoading, loadingText.
               </div>
               <Snippet tag="s10" src={snippets} />
             </Body>
@@ -241,7 +242,8 @@ export default () => (
             <Body>
               <div className="docs">
                 This shows the data table when there is no data. This also shows
-                translation template props for any hard-coded text within the component.
+                translation template props for any hard-coded text within the
+                component.
               </div>
               <Snippet tag="s9" src={snippets} />
             </Body>

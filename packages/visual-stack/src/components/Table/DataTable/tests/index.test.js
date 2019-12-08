@@ -4,7 +4,7 @@ import { ASCENDING, DESCENDING } from '../sortingHelper';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { trim, range, sum } from 'ramda';
-import LoadingAnimation from "../../../LoadingAnimation";
+import LoadingAnimation from '../../../LoadingAnimation';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -78,20 +78,20 @@ describe('DataTable', () => {
 
   describe('rows', () => {
     it('should say "No data available." when there is no data', () => {
-      const wrapper = mount(
-        <DataTable data={[]} />
-      );
+      const wrapper = mount(<DataTable data={[]} />);
       expect(wrapper.find('td')).toHaveLength(0);
-      expect(wrapper.find('div.vs-data-table-no-data-label').text()).toEqual("No data available.");
+      expect(wrapper.find('div.vs-data-table-no-data-label').text()).toEqual(
+        'No data available.'
+      );
     });
 
     it('should use the overridden label when there is no data', () => {
-      const noDataLabel = "I have no data";
-      const wrapper = mount(
-        <DataTable data={[]} noDataLabel={noDataLabel}/>
-      );
+      const noDataLabel = 'I have no data';
+      const wrapper = mount(<DataTable data={[]} noDataLabel={noDataLabel} />);
       expect(wrapper.find('td')).toHaveLength(0);
-      expect(wrapper.find('div.vs-data-table-no-data-label').text()).toEqual(noDataLabel);
+      expect(wrapper.find('div.vs-data-table-no-data-label').text()).toEqual(
+        noDataLabel
+      );
     });
 
     it('should render when there is data', () => {
@@ -226,14 +226,16 @@ describe('DataTable', () => {
     it('should pass translation templates to pagination', () => {
       const onPageChange = jest.fn();
 
-      const rowsPerPageTemplate = "number of rows template";
-      const totalRecordsTemplate = "total records template";
+      const rowsPerPageTemplate = 'number of rows template';
+      const totalRecordsTemplate = 'total records template';
 
       const wrapper = mount(
-        <DataTable onPageChange={onPageChange}
-                   pagination
-                   rowsPerPageTemplate={rowsPerPageTemplate}
-                   totalRecordsTemplate={totalRecordsTemplate}/>
+        <DataTable
+          onPageChange={onPageChange}
+          pagination
+          rowsPerPageTemplate={rowsPerPageTemplate}
+          totalRecordsTemplate={totalRecordsTemplate}
+        />
       );
       const paginationWrapper = wrapper.find('Pagination');
       const paginationProps = paginationWrapper.props();
@@ -245,7 +247,7 @@ describe('DataTable', () => {
         className: 'vs-table-pagination',
         numberOfRows: 0,
         rowsPerPageTemplate: rowsPerPageTemplate,
-        totalRecordsTemplate: totalRecordsTemplate
+        totalRecordsTemplate: totalRecordsTemplate,
       });
     });
 
@@ -653,7 +655,7 @@ describe('DataTable', () => {
 
   describe('loading animation', () => {
     it('should render with loadingMessage when isLoading is true', () => {
-      const loadingMessage = "Loading data...";
+      const loadingMessage = 'Loading data...';
       const wrapper = mount(
         <DataTable
           isLoading={true}
@@ -662,10 +664,11 @@ describe('DataTable', () => {
         />
       );
       expect(wrapper.find(LoadingAnimation)).toHaveLength(1);
-      expect(wrapper.find(LoadingAnimation).prop("loadingMessage")).toEqual(loadingMessage);
+      expect(wrapper.find(LoadingAnimation).prop('loadingMessage')).toEqual(
+        loadingMessage
+      );
       expect(wrapper.find('Pagination')).toHaveLength(0);
       expect(wrapper.find('Table')).toHaveLength(0);
     });
   });
-
 });
