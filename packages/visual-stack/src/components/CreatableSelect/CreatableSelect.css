@@ -9,21 +9,29 @@ div.vs-react-select-creatable__input input:focus {
 }
 
 div.vs-default-react-select-creatable {
-  margin-bottom: 0.8rem;
+  margin-bottom: 8px;
 }
 
+div.vs-react-select-async__control,
 div.vs-react-select-creatable__control {
+  height: 32px;
   min-height: 32px;
 }
 
+div.vs-default-react-select-creatable__control--is-focused,
+div.vs-default-react-select-creatable__control--is-focused:hover,
 div.vs-react-select-creatable__control--is-focused,
 div.vs-react-select-creatable__control--is-focused:hover {
-  outline: 1px solid rgba(73, 197, 176, 0.2);
-  border-color: #49c5b1;
-  box-shadow: 0 0 4px rgba(73, 197, 176, 0.4);
+  outline: 1px solid #979C9F;
+  border-color: #979C9F;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.1);
 }
 
+.vs-react-select-async__value-container,
+.vs-react-select-async__value-container--is-multi,
 .vs-react-select-creatable__value-container div {
+	font-size: 1.3rem;
+	line-height: 20px;
   margin-top: 0px;
   margin-bottom: 0px;
   padding: 0;
@@ -34,13 +42,29 @@ div.vs-react-select-creatable__value-container {
   padding-bottom: 0px;
 }
 
+div.vs-react-select-creatable__placeholder {
+	font-size: 1.3rem;
+	line-height: 1.4rem;
+}
+
 div.vs-react-select-creatable__indicator {
   padding: 6px;
+}
+
+div.vs-react-select-creatable__indicator svg {
+	position: relative;
+	top: -1px;
+	width: 16px;
+	transition: .2s all ease-in-out;
 }
 
 div.vs-react-select-creatable__option {
   padding: 6px 12px;
   word-break: break-all;
+}
+
+div.vs-react-select__control:hover div.vs-react-select__dropdown-indicator svg {
+	color: #333;
 }
 
 div.vs-react-select-creatable__control.vs-react-select-creatable__control--is-disabled,
@@ -52,46 +76,53 @@ div.vs-react-select-creatable__control[disabled] {
 }
 
 div.vs-react-select-creatable__option--is-focused {
-  background-color: #d4f6f1;
+  background-color: #f5f5f5;
 }
 
 div.vs-react-select-creatable__option:active,
 div.vs-react-select-creatable__option--is-focused:active {
-  background-color: #ace6dc;
+  background-color: #f5f5f5;
 }
 
 div.vs-react-select-creatable__option.vs-react-select-creatable__option--is-selected,
 div.vs-react-select-creatable__option.vs-react-select-creatable__option--is-selected:active {
-  background-color: #29c3aa;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
 div.vs-react-select-creatable__multi-value {
-  background-color: rgba(172, 230, 220, 0.35);
+  background-color: #6D7684;
   border-radius: 2px;
-  border: 1px solid #29c3aa;
-  color: #068e78;
-  font-size: 0.9em;
-  line-height: 1.4;
-  vertical-align: top;
-  white-space: wrap;
-  padding: 2px 20px 2px 4px;
-  position: relative;
+  color: #fff;
+  height: 24px;
+  line-height: 1.6;
+  margin: -2px 4px 0 0;
   max-width: 200px;
+  padding: 2px 22px 2px 6px;
+  position: relative;
+  vertical-align: middle;
+  white-space: wrap;
+}
+
+div.vs-react-select-creatable__multi-value:first-child {
+	margin-left: -4px;
 }
 
 div.vs-react-select-creatable__multi-value__label {
   white-space: nowrap;
   text-overflow: ellipsis;
   color: inherit;
+  font-size: 1.2rem;
 }
 
 div.vs-react-select-creatable__multi-value__remove:hover {
-  background-color: #29c3aa;
+  background-color: #8791a1;
   color: white;
 }
 
 div.vs-react-select-creatable__multi-value__remove {
   margin-left: 2px;
   position: absolute;
-  right: 2px;
+  right: 4px;
+  top: 5px;
 }
