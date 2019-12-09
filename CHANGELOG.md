@@ -1,6 +1,11 @@
-# 4.15.1
-## New Icon
-- Added CJ logo icon
+# 5.0.0
+## Updated styling
+- Update select styles
+- Update `<pre>` and `<code>` styles
+- Update Collapsible Panel header title styles
+- Update modal styles
+## New Feature
+- Add CJ logo icon
 
 # 4.15.0
 ## New Feature
