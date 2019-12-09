@@ -1,4 +1,17 @@
-# Upcoming
+# 4.15.1
+## New Icon
+- Added CJ logo icon
+
+# 4.15.0
+## New Feature
+- Added Popover component
+- Also included a stateful HoverPopover that shows the popover on hover
+- add solid-primary-raised and outline-secondary-raised button types
+
+# 4.14.5
+## Updated styling
+- update analytic cards to use css grid
+- update style in basic card
 
 # 4.14.4
 ## Bug Fixes

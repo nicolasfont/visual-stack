@@ -15,7 +15,11 @@ export const BlankSlate = ({
 }) => {
   return (
     <Panel>
-      <div {...restProps} className={`vs-bs-container ${alignment === 'left-side' && 'vs-bs-leftalign'} ${className}`}>
+      <div
+        {...restProps}
+        className={`vs-bs-container ${alignment === 'left-side' &&
+          'vs-bs-leftalign'} ${className}`}
+      >
         <div className="vs-bs-img">{headerGraphic}</div>
         <div className="vs-bs-content">
           <h1 className="vs-bs-title">{title}</h1>
@@ -34,9 +38,7 @@ BlankSlate.propTypes = {
 };
 
 export const SubTitle = ({ children }) => (
-  <div className="vs-bs-subtitle">
-    {children}
-  </div>
+  <div className="vs-bs-subtitle">{children}</div>
 );
 
 export const Description = ({ children }) => (

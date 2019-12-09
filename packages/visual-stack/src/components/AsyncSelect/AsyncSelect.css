@@ -13,7 +13,7 @@ div.vs-default-react-select-creatable {
 }
 
 div.vs-react-select-async__control {
-	border-radius: 3px;
+  border-radius: 3px;
   height: 32px;
   min-height: 32px;
 }
@@ -26,8 +26,8 @@ div.vs-react-select-async__control--is-focused:hover {
 }
 
 .vs-react-select-async__value-container div {
-	font-size: 1.3rem;
-	line-height: 20px;
+  font-size: 1.3rem;
+  line-height: 20px;
   margin-top: 0px;
   margin-bottom: 0px;
   padding: 0;

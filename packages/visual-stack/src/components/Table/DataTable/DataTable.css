@@ -51,13 +51,13 @@
 }
 
 .vs-data-table-container,
-  .vs-thead,
-  .vs-cell.vs-data-table-header-sorted,
-  > div,
-  > span {
-    display: inline-block;
-    width: 20px;
-  }
+.vs-thead,
+.vs-cell.vs-data-table-header-sorted,
+> div,
+> span {
+  display: inline-block;
+  width: 20px;
+}
 
 .vs-data-table-header-sortable svg {
   fill: #333;

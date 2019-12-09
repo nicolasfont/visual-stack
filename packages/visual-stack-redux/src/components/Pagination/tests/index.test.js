@@ -47,18 +47,21 @@ describe('PaginationPure', () => {
 
   test('should forward the pagination value to visual stack pagination component', () => {
     // when
-    const wrapper = mount(<PaginationPure
-      rowsPerPageTemplate={"rowsPerPageTemplate"}
-      totalRecordsTemplate={"totalRecordsTemplate"}
-      {...defaultProps} />);
+    const wrapper = mount(
+      <PaginationPure
+        rowsPerPageTemplate={'rowsPerPageTemplate'}
+        totalRecordsTemplate={'totalRecordsTemplate'}
+        {...defaultProps}
+      />
+    );
 
     expect(wrapper.find(PaginationFromVS).props()).toEqual({
       rowsPerPage: paginationValue.rowsPerPage,
       page: paginationValue.page,
       numberOfRows,
       onChange: expect.any(Function),
-      rowsPerPageTemplate: "rowsPerPageTemplate",
-      totalRecordsTemplate: "totalRecordsTemplate",
+      rowsPerPageTemplate: 'rowsPerPageTemplate',
+      totalRecordsTemplate: 'totalRecordsTemplate',
     });
   });
 

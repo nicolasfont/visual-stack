@@ -10,14 +10,18 @@ describe('LoadingAnimation', () => {
   test('should render with default text', () => {
     const wrapper = mount(<LoadingAnimation />);
     expect(wrapper.find(LoadingAnimation)).toHaveLength(1);
-    expect(wrapper.find('div.loading-text').text()).toEqual("Loading...");
+    expect(wrapper.find('div.loading-text').text()).toEqual('Loading...');
   });
 
   test('should render with loading text from prop', () => {
-    const expectedLoadingMessage = "Loading Data...";
+    const expectedLoadingMessage = 'Loading Data...';
 
-    const wrapper = mount(<LoadingAnimation loadingMessage={expectedLoadingMessage}/>);
+    const wrapper = mount(
+      <LoadingAnimation loadingMessage={expectedLoadingMessage} />
+    );
     expect(wrapper.find(LoadingAnimation)).toHaveLength(1);
-    expect(wrapper.find('div.loading-text').text()).toEqual(expectedLoadingMessage);
+    expect(wrapper.find('div.loading-text').text()).toEqual(
+      expectedLoadingMessage
+    );
   });
 });

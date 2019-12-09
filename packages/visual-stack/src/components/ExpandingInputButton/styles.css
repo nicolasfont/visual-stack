@@ -1,33 +1,35 @@
 .vs-expanding-input-button {
-	display: inline-block;
-	position: relative;
+  display: inline-block;
+  position: relative;
 }
 
 .vs-expanding-input-button input[type='text'] {
-	border-color: #BABBBD;
+  border-color: #babbbd;
   cursor: pointer;
   margin: 0px;
   width: 32px;
-	transition: .4s all ease-in-out;
+  transition: 0.4s all ease-in-out;
 }
 
 .vs-expanding-input-button input[type='text']:hover,
-.vs-expanding-input-button.vs-expanding-input-button-focused input[type='text'] {
+.vs-expanding-input-button.vs-expanding-input-button-focused
+  input[type='text'] {
   border-color: #333;
   box-shadow: none;
   outline: none;
 }
 
-.vs-expanding-input-button.vs-expanding-input-button-focused input[type='text'] {
-  box-shadow: 0 0 0 2px #E6E6E6;
+.vs-expanding-input-button.vs-expanding-input-button-focused
+  input[type='text'] {
+  box-shadow: 0 0 0 2px #e6e6e6;
   cursor: auto;
   padding: 2px 32px 2px 32px;
   width: 200px;
 }
 
 .vs-expanding-input-button .vs-expanding-input-button-icon {
-	background: #fff;
-	border-radius: 3px;
+  background: #fff;
+  border-radius: 3px;
   pointer-events: none;
   position: absolute;
   top: 1px;
@@ -37,36 +39,43 @@
 }
 
 .vs-expanding-input-button .vs-expanding-input-button-icon svg {
-	fill: #757575;
-	margin-top: 4px;
-	margin-left: 6px;
-	width: 18px;
-	transition: .2s all ease-in-out;
+  fill: #757575;
+  margin-top: 4px;
+  margin-left: 6px;
+  width: 18px;
+  transition: 0.2s all ease-in-out;
 }
 
 .vs-expanding-input-button:hover .vs-expanding-input-button-icon svg,
-.vs-expanding-input-button.vs-expanding-input-button-focused .vs-expanding-input-button-icon svg {
-	fill: #333;
+.vs-expanding-input-button.vs-expanding-input-button-focused
+  .vs-expanding-input-button-icon
+  svg {
+  fill: #333;
 }
 
 .vs-expanding-input-button .vs-window-close-icon {
   cursor: pointer;
-	fill: #757575;
+  fill: #757575;
   position: absolute;
   right: 8px;
   top: 4px;
   width: 18px;
-	transition: .2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
 }
-.vs-expanding-input-button.vs-expanding-input-button-focused .vs-window-close-icon {
-	animation: opacity 0.8s;
+.vs-expanding-input-button.vs-expanding-input-button-focused
+  .vs-window-close-icon {
+  animation: opacity 0.8s;
 }
 
 .vs-expanding-input-button .vs-window-close-icon:hover {
-	fill: #333;
+  fill: #333;
 }
 
 @keyframes opacity {
-	0% {opacity: 0;}
-	100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

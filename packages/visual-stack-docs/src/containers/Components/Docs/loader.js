@@ -16,7 +16,7 @@ export default () => (
             <Body>
               <Snippet tag="s2" src={snippets} />
               {/* s1:start */}
-              <Loader/>
+              <Loader />
               {/* s1:end */}
               <Snippet tag="s1" src={snippets} />
             </Body>

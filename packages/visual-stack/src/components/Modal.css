@@ -60,6 +60,7 @@
   left: 0;
   z-index: 1040;
   background-color: #000;
+  transition: 0.2s all ease-in-out;
 }
 
 .modal-backdrop.fade {
@@ -83,7 +84,7 @@
 
 .modal-header h1 {
   margin: 0;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 500;
 }
 

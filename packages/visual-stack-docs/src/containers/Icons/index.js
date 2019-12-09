@@ -22,6 +22,7 @@ import {
   ProductIcon,
   TokenIcon,
   IssueIcon,
+  CJIcon,
 } from '@cjdev/visual-stack/lib/components/Icons';
 
 const IconDisplay = ({ icon, snippets, tag }) => {
@@ -111,6 +112,11 @@ const issueIcon = (
   <IssueIcon />
 );
 /* s15:end */
+const cjIcon = (
+  /* s16:start */
+  <CJIcon />
+);
+/* s16:end*/
 
 const Icons = () => (
   <Demo srcFile="/samples/src/containers/Icons/index.js">
@@ -128,6 +134,7 @@ const Icons = () => (
               <Panel>
                 <Body>
                   <div className="icon-grid">
+                    {makeDisplay(cjIcon, 's16')}
                     {makeDisplay(appIcon, 's10')}
                     {makeDisplay(codeIcon, 's11')}
                     {makeDisplay(legacyIcon, 's12')}

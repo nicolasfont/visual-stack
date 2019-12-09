@@ -37,7 +37,7 @@
 .loading-animation.loading-bars div:nth-child(3) {
   left: 20px;
   animation: bar-animation 1.6s ease infinite;
-  animation-delay: -.8s;
+  animation-delay: -0.8s;
 }
 @keyframes bar-animation {
   0% {
