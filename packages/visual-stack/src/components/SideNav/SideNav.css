@@ -38,9 +38,9 @@
     transition: 0.4s width ease-out;
   }
   .vs-sidenav.collapsed,
-    .vs-sidenav-user-menu,
-    > a,
-    .vs-sidenav-container-chevron {
+  .vs-sidenav-user-menu,
+  > a,
+  .vs-sidenav-container-chevron {
     opacity: 0;
   }
 }
@@ -267,7 +267,7 @@
 .vs-sidenav .vs-sidenav-container ul {
   max-height: 0;
   overflow: hidden;
-  transition: .3s max-height ease-in-out;
+  transition: 0.3s max-height ease-in-out;
   /* transition: 0.4s all cubic-bezier(0.22, 0.61, 0.36, 1); */
   padding: 0;
 }

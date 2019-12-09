@@ -19,23 +19,27 @@ const PanelComponent = ({ header, children }) => (
 export default () => (
   <Demo srcFile="/samples/src/containers/Components/Docs/select.js">
     {snippets => {
-        /* s8:start */
-        const remoteSourceOptions = [{ value: 'chocolate', label: 'Chocolate' },
-                                     { value: 'raspberry', label: 'Raspberry' },
-                                     { value: 'strawberry', label: 'Strawberry' },
-                                     { value: 'vanilla', label: 'Vanilla' }];
-        /* s8:end */
-        /* s9:start */
-        const fakeFetch = (inputValue) =>
-            new Promise(resolve => {
-                setTimeout(() => {
-                    resolve(remoteSourceOptions.filter(i =>
-                        i.label.toLowerCase().includes(inputValue.toLowerCase())
-                    ));
-                }, 500);
-            });
-        /* s9:end */
-        return (
+      /* s8:start */
+      const remoteSourceOptions = [
+        { value: 'chocolate', label: 'Chocolate' },
+        { value: 'raspberry', label: 'Raspberry' },
+        { value: 'strawberry', label: 'Strawberry' },
+        { value: 'vanilla', label: 'Vanilla' },
+      ];
+      /* s8:end */
+      /* s9:start */
+      const fakeFetch = inputValue =>
+        new Promise(resolve => {
+          setTimeout(() => {
+            resolve(
+              remoteSourceOptions.filter(i =>
+                i.label.toLowerCase().includes(inputValue.toLowerCase())
+              )
+            );
+          }, 500);
+        });
+      /* s9:end */
+      return (
         <div>
           <PanelComponent header="Component Imports">
             <Snippet tag="s6" src={snippets} />
@@ -109,8 +113,9 @@ export default () => (
             <Snippet tag="s5" src={snippets} />
           </PanelComponent>
           <PanelComponent header="Async Select powered by React Select">
-            You may want to use an Async Select Component to load options from a remote source (e.g. fetching as a user types)<br/>
-            A full list supported props can be found at: {' '}
+            You may want to use an Async Select Component to load options from a
+            remote source (e.g. fetching as a user types)
+            <br />A full list supported props can be found at:{' '}
             <a href="https://react-select.com/async">react-select.com/async</a>
             {/* s7:start */}
             <AsyncSelect
@@ -120,8 +125,10 @@ export default () => (
               isMulti
               cacheOptions={false}
               isClearable={true}
-              loadOptions= {fakeFetch}
-              noOptionsMessage={() => {return "Type to search"}}
+              loadOptions={fakeFetch}
+              noOptionsMessage={() => {
+                return 'Type to search';
+              }}
             />
             {/* s7:end */}
             <Snippet tag="s8" src={snippets} />

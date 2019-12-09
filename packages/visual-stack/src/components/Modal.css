@@ -60,7 +60,7 @@
   left: 0;
   z-index: 1040;
   background-color: #000;
-  transition: .2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
 }
 
 .modal-backdrop.fade {

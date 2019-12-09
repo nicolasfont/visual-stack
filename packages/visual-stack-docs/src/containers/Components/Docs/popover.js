@@ -1,10 +1,12 @@
 import React from 'react';
-import {Body, Header, Panel} from '@cjdev/visual-stack/lib/components/Panel';
-import {Demo, Snippet} from '../../../components/Demo';
+import { Body, Header, Panel } from '@cjdev/visual-stack/lib/components/Panel';
+import { Demo, Snippet } from '../../../components/Demo';
 import InformationOutlineIcon from 'mdi-react/InformationOutlineIcon';
-import "./popover.css";
+import './popover.css';
 /* s1:start */
-import Popover, {HoverPopover} from "@cjdev/visual-stack/lib/components/Popover";
+import Popover, {
+  HoverPopover,
+} from '@cjdev/visual-stack/lib/components/Popover';
 /* s1:end */
 
 export default () => (
@@ -16,10 +18,16 @@ export default () => (
             <Header>Popover</Header>
             <Body>
               {/* s2:start */}
-              <div style={{margin: "75px 200px"}}>
-                <Popover shown={true} placement={"top"} content={<span style={{color: "red"}}>This is the content</span>}
+              <div style={{ margin: '75px 200px' }}>
+                <Popover
+                  shown={true}
+                  placement={'top'}
+                  content={
+                    <span style={{ color: 'red' }}>This is the content</span>
+                  }
                   onMouseOver={() => console.log('mouseOver')}
-                  onMouseLeave={() => console.log('mouseLeave')}>
+                  onMouseLeave={() => console.log('mouseLeave')}
+                >
                   <div className="popover-demo-bordered-div">
                     I'm the reference element
                   </div>
@@ -34,8 +42,13 @@ export default () => (
             <Header>Hover Popover</Header>
             <Body>
               {/* s3:start */}
-              <div style={{margin: "75px 200px"}}>
-                <HoverPopover placement={"bottom"} content={<span style={{color: "blue"}}>This is the content</span>}>
+              <div style={{ margin: '75px 200px' }}>
+                <HoverPopover
+                  placement={'bottom'}
+                  content={
+                    <span style={{ color: 'blue' }}>This is the content</span>
+                  }
+                >
                   <div className="popover-demo-bordered-div">
                     I'm the reference element
                   </div>
@@ -49,9 +62,17 @@ export default () => (
             <Header>Popover for some text</Header>
             <Body>
               {/* s4:start */}
-              <div style={{margin: "75px 200px"}}>
-                <HoverPopover placement={"bottom"} content={<span style={{color: "green"}}>This is the content</span>}>
-                  <InformationOutlineIcon/><span className="popover-demo-dashed-underline">I am some text</span>
+              <div style={{ margin: '75px 200px' }}>
+                <HoverPopover
+                  placement={'bottom'}
+                  content={
+                    <span style={{ color: 'green' }}>This is the content</span>
+                  }
+                >
+                  <InformationOutlineIcon />
+                  <span className="popover-demo-dashed-underline">
+                    I am some text
+                  </span>
                 </HoverPopover>
               </div>
               {/* s4:end */}

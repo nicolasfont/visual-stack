@@ -28,23 +28,36 @@ export default () => (
           <Panel>
             <Body>
               <h5>Platform Buttons</h5>
-              <p>Please be aware that the shape of the round buttons will be deprecated and replaced with with squares with a slight border radius.</p>
+              <p>
+                Please be aware that the shape of the round buttons will be
+                deprecated and replaced with with squares with a slight border
+                radius.
+              </p>
               {/* s3:start */}
               <Button type="solid-primary">Solid Primary</Button>
               <Button type="solid-primary-raised">Raised Primary</Button>
               <Button type="outline-secondary">Outline Secondary</Button>
               <Button type="outline-secondary-raised">Raised Secondary</Button>
-              <Button type="rounded-solid"><Plus /></Button>
-              <Button type="rounded-outline"><Minus /></Button>
-              <Button type="icon"><AccountIcon /></Button>
+              <Button type="rounded-solid">
+                <Plus />
+              </Button>
+              <Button type="rounded-outline">
+                <Minus />
+              </Button>
+              <Button type="icon">
+                <AccountIcon />
+              </Button>
               <Button type="text">Text Button</Button>
               <Button type="text-link">Text Link</Button>
               {/* s3:end */}
               <Snippet tag="s3" src={snippets} />
             </Body>
             <Body>
-            	<h5>Disabled States</h5>
-              <p>Disable buttons by adding the disabled attribute or the className="disabled"</p>
+              <h5>Disabled States</h5>
+              <p>
+                Disable buttons by adding the disabled attribute or the
+                className="disabled"
+              </p>
               {/* s4:start */}
               <Button type="solid-primary" disabled>
                 Disabled
@@ -74,38 +87,44 @@ export default () => (
               {/* s5:start */}
               <Button type="inline-outline-secondary">
                 Dropdown
-                <ChevronDownIcon className="vs-inline-button-chevron"/>
+                <ChevronDownIcon className="vs-inline-button-chevron" />
               </Button>
               <Button type="inline-outline-secondary">
-                <CalendarRangeIcon className="vs-inline-button-icon"/>
+                <CalendarRangeIcon className="vs-inline-button-icon" />
                 Date Range
-                <ChevronDownIcon className="vs-inline-button-chevron"/>
+                <ChevronDownIcon className="vs-inline-button-chevron" />
               </Button>
               <Button type="inline-outline-secondary">
-                <FileImportIcon className="vs-inline-button-icon"/>
+                <FileImportIcon className="vs-inline-button-icon" />
                 Import CSV
               </Button>
               <Button type="inline-outline-secondary">
-                <DownloadIcon className="vs-inline-button-icon"/>
+                <DownloadIcon className="vs-inline-button-icon" />
                 Download
               </Button>
               <Button type="inline-outline-secondary">
-                <FilterVariantIcon className="vs-inline-button-icon"/>
+                <FilterVariantIcon className="vs-inline-button-icon" />
                 Filters
               </Button>
               <h6>Icon Only</h6>
               <Button type="inline-outline-secondary">
-                <FilterVariantIcon className="vs-inline-button-icon-only"/>
+                <FilterVariantIcon className="vs-inline-button-icon-only" />
               </Button>
               <Button type="inline-outline-secondary">
-                <DownloadIcon className="vs-inline-button-icon-only"/>
+                <DownloadIcon className="vs-inline-button-icon-only" />
               </Button>
               {/* s5:end */}
               <Snippet tag="s5" src={snippets} />
               <h6>When to use</h6>
-              <p>Use when you have to place a button inline with selects in header toolbars and table toolars.</p>
+              <p>
+                Use when you have to place a button inline with selects in
+                header toolbars and table toolars.
+              </p>
               <h6>When NOT to use</h6>
-              <p>Do not use as primary or secondary action buttons at the page level.</p>
+              <p>
+                Do not use as primary or secondary action buttons at the page
+                level.
+              </p>
             </Body>
           </Panel>
 
@@ -113,9 +132,13 @@ export default () => (
             <Header>Button Sizing</Header>
             <Body>
               {/* s1:start */}
-              <Button type="solid-primary" small={true}>Small</Button>
+              <Button type="solid-primary" small={true}>
+                Small
+              </Button>
               <Button type="solid-primary">Default</Button>
-              <Button type="solid-primary" large={true}>Large</Button>
+              <Button type="solid-primary" large={true}>
+                Large
+              </Button>
               {/* s1:end */}
               <Snippet tag="s1" src={snippets} />
             </Body>
@@ -133,7 +156,9 @@ export default () => (
               <Button type="danger">Danger</Button>
               <Button type="solid-secondary">Solid Secondary</Button>
               <Button type="outline-primary">Outline Primary</Button>
-              <Button type="text"><CodeIcon /> Icon and Text</Button>
+              <Button type="text">
+                <CodeIcon /> Icon and Text
+              </Button>
               {/* s2:end */}
               <Snippet tag="s2" src={snippets} />
             </Body>

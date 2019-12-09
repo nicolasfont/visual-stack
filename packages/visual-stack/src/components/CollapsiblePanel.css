@@ -12,7 +12,7 @@
 }
 
 .vs-collapsible-panel-header-title {
-	font-weight: 500;
+  font-weight: 500;
 }
 
 .vs-collapsible-panel-header-title:hover {
@@ -20,7 +20,7 @@
 }
 
 .vs-collapsible-panel-header-button {
-	margin: 0 8px 0 0;
+  margin: 0 8px 0 0;
 }
 
 .vs-collapsible-panel-header-title {

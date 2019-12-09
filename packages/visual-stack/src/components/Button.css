@@ -13,7 +13,7 @@
   font-weight: 500;
   letter-spacing: 0.4px;
   line-height: 1.2;
-  margin: 0 4px; 
+  margin: 0 4px;
   min-height: 32px;
   min-width: 32px;
   overflow: hidden;
@@ -117,13 +117,13 @@ a.vs-btn-d:hover,
 /* Platform Buttons */
 
 .vs-btn-d svg {
-  fill: #979C9F;
+  fill: #979c9f;
   transition: 0.2s all ease-in-out;
   vertical-align: middle;
 }
 
 .vs-btn-d:hover svg {
-  fill: #4D5051;
+  fill: #4d5051;
 }
 
 .vs-solid-primary-btn {
@@ -134,11 +134,12 @@ a.vs-btn-d:hover,
 }
 
 .vs-solid-primary-btn:hover {
-  background: #14AB93 radial-gradient(circle, transparent 1%, #14AB93 1%) center/15000%;
+  background: #14ab93 radial-gradient(circle, transparent 1%, #14ab93 1%)
+    center/15000%;
 }
 
 .vs-solid-primary-btn:active {
-	background-color: #44cbb4;
+  background-color: #44cbb4;
   background-size: 100%;
   transition: background 0s;
 }
@@ -146,18 +147,19 @@ a.vs-btn-d:hover,
 .vs-solid-primary-raised-btn {
   background-color: #49c5b1;
   background-position: center;
-  box-shadow: 0 1px 3px rgba(0,0,0,.14), 0 2px 3px -1px rgba(0,0,0,.14);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.14), 0 2px 3px -1px rgba(0, 0, 0, 0.14);
   color: #fff;
   transition: 0.4s all ease-in-out;
 }
 
 .vs-solid-primary-raised-btn:hover {
-  background: #14AB93 radial-gradient(circle, transparent 1%, #14AB93 1%) center/15000%;
-  box-shadow: 0 1px 3px rgba(0,0,0,.25), 0 2px 3px -1px rgba(0,0,0,.25);
+  background: #14ab93 radial-gradient(circle, transparent 1%, #14ab93 1%)
+    center/15000%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 2px 3px -1px rgba(0, 0, 0, 0.25);
 }
 
 .vs-solid-primary-raised-btn:active {
-	background-color: #44cbb4;
+  background-color: #44cbb4;
   background-size: 100%;
   transition: background 0s;
 }
@@ -192,21 +194,24 @@ a.vs-btn-d:hover,
 }
 
 .vs-outline-secondary-raised-btn {
-  box-shadow: 0 1px 3px rgba(0,0,0,.14), 0 2px 3px -1px rgba(0,0,0,.14);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.14), 0 2px 3px -1px rgba(0, 0, 0, 0.14);
   transition: 0.4s all ease-in-out;
 }
 
-
 .vs-outline-secondary-btn:hover,
 .vs-rounded-outline-btn:hover {
-  background: rgba(137, 150, 165, 0.1) radial-gradient(circle, transparent 1%, rgba(137, 150, 165, 0.1) 1%) center/15000%;
+  background: rgba(137, 150, 165, 0.1)
+    radial-gradient(circle, transparent 1%, rgba(137, 150, 165, 0.1) 1%)
+    center/15000%;
   color: #414346;
 }
 
 .vs-outline-secondary-raised-btn:hover {
-  background: rgba(137, 150, 165, 0.1) radial-gradient(circle, transparent 1%, rgba(137, 150, 165, 0.1) 1%) center/15000%;
+  background: rgba(137, 150, 165, 0.1)
+    radial-gradient(circle, transparent 1%, rgba(137, 150, 165, 0.1) 1%)
+    center/15000%;
   color: #414346;
-  box-shadow: 0 1px 3px rgba(0,0,0,.25), 0 2px 3px -1px rgba(0,0,0,.25);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 2px 3px -1px rgba(0, 0, 0, 0.25);
 }
 
 .vs-outline-secondary-btn:active,
@@ -232,12 +237,12 @@ a.vs-btn-d:hover,
 }
 
 .vs-rounded-solid-btn svg {
-	fill: #fff;
+  fill: #fff;
   width: 16px;
 }
 
 .vs-rounded-solid-btn:hover svg {
-	fill: #fff;
+  fill: #fff;
 }
 
 .vs-rounded-outline-btn {
@@ -403,7 +408,7 @@ a.vs-btn-d:hover,
 
 /* CJ Button - Inline Button styles*/
 .vs-inline-outline-secondary-btn {
-  border-color: #CCCCCC;
+  border-color: #cccccc;
   border-radius: 3px;
   font-weight: 400;
   font-size: 13px;
@@ -414,28 +419,28 @@ a.vs-btn-d:hover,
 }
 
 .vs-inline-outline-secondary-btn:active {
-	box-shadow: 0 0 0 2px rgba(0,0,0,.1);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
 .vs-inline-outline-secondary-btn:hover {
-  border-color: #979C9F;
+  border-color: #979c9f;
 }
 
 .vs-inline-outline-secondary-btn svg {
-	margin-top: -2px;
+  margin-top: -2px;
 }
 
 .vs-inline-outline-secondary-btn .mdi-icon {
-	width: 16px;
+  width: 16px;
 }
 
 .vs-inline-button-icon {
-	margin-left: -4px;
+  margin-left: -4px;
   margin-right: 6px;
 }
 
 .vs-inline-button-icon-only {
-	margin-left: -6px;
+  margin-left: -6px;
   margin-right: -6px;
 }
 
@@ -450,13 +455,11 @@ a.vs-btn-d:hover,
   width: 20px;
 }
 
-
-
 /* Button sizing */
 .vs-btn-d.vs-sm-btn {
-	font-size: 1rem;
-	min-height: 0;
-	padding: 6px 8px;
+  font-size: 1rem;
+  min-height: 0;
+  padding: 6px 8px;
 }
 
 .vs-btn-d.vs-lg-btn {

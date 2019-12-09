@@ -96,9 +96,9 @@ describe('DataTablePure', () => {
       order: 'ASCENDING',
     };
     const caption = 'I am a table';
-    const noDataLabel = "I have no data";
-    const rowsPerPageTemplate = "rowsPerPageTemplate";
-    const totalRecordsTemplate = "totalRecordsTemplate";
+    const noDataLabel = 'I have no data';
+    const rowsPerPageTemplate = 'rowsPerPageTemplate';
+    const totalRecordsTemplate = 'totalRecordsTemplate';
     const dataTable = {
       data,
       pagination: {
@@ -178,8 +178,7 @@ describe('DataTablePure', () => {
   });
 
   it('should pass isLoading and loadingText props to VSDataTable', () => {
-
-    const expectedLoadingMessage = "Loading Test...";
+    const expectedLoadingMessage = 'Loading Test...';
 
     const id = 'sample-data-table';
     const wrapper = shallow(
@@ -189,8 +188,11 @@ describe('DataTablePure', () => {
         initializeDataTable={() => {}}
         isLoading={true}
         loadingMessage={expectedLoadingMessage}
-      />);
+      />
+    );
     expect(wrapper.find(VSDataTable).prop('isLoading')).toEqual(true);
-    expect(wrapper.find(VSDataTable).prop('loadingMessage')).toEqual(expectedLoadingMessage);
+    expect(wrapper.find(VSDataTable).prop('loadingMessage')).toEqual(
+      expectedLoadingMessage
+    );
   });
 });

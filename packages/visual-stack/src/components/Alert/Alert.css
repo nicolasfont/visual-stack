@@ -1,8 +1,8 @@
 .vs-alert-d {
-	border-radius: 3px;
-	display: flex;
-	justify-content: space-between;
-	flex-grow: 1 2 1;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1 2 1;
   z-index: 9999;
   width: 75vw;
   max-width: 728px;
@@ -19,48 +19,47 @@
 }
 
 .vs-alert-d.vs-success-alert {
-	border-left: 4px solid #49c5b1;
+  border-left: 4px solid #49c5b1;
 }
 
 .vs-alert-d.vs-info-alert {
-	border-left: 4px solid #757575;
+  border-left: 4px solid #757575;
 }
 
 .vs-alert-d.vs-warning-alert {
-	border-left: 4px solid #FF5959;
+  border-left: 4px solid #ff5959;
 }
 
 .vs-alert-icon-container {
-	width: 32px;
-	height: 32px;
+  width: 32px;
+  height: 32px;
   margin-right: 16px;
 }
 
 .vs-alert-icon {
-	margin-top: 4px;
+  margin-top: 4px;
 }
 
-
 .vs-alert-content {
-	padding-top: 6px;
-	width: 100%;
+  padding-top: 6px;
+  width: 100%;
 }
 
 .vs-alert-content p:last-child {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .vs-alert-close-container {
-	min-height: 32px;
-	margin-left: 16px;
-	text-align: right;
+  min-height: 32px;
+  margin-left: 16px;
+  text-align: right;
 }
 
 .vs-alert-close-icon {
   cursor: pointer;
-	fill: #757575;
-	margin-top: 4px;
-	transition: .2s all ease-in-out;
+  fill: #757575;
+  margin-top: 4px;
+  transition: 0.2s all ease-in-out;
 }
 
 .vs-alert-close-icon:hover {

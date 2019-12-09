@@ -107,9 +107,10 @@ export default () => (
             <Header>Modal Options</Header>
             <Body>
               <p>
-                The Modal component accepts optional props 'onBackgroundClick' and 'onEscapeKeyUp' to define what should happen when a click occurs
-                outside the Modal / when Escape is pressed. Typically these would be used to pass in the
-                'closeModal' function.
+                The Modal component accepts optional props 'onBackgroundClick'
+                and 'onEscapeKeyUp' to define what should happen when a click
+                occurs outside the Modal / when Escape is pressed. Typically
+                these would be used to pass in the 'closeModal' function.
               </p>
               <OpenOptionsModalButton />
               <Snippet tag="s6" src={snippets} />
