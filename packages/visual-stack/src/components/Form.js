@@ -59,9 +59,9 @@ export const FormGroup = ({
   children,
   error,
   label,
-  required,
   vertical,
   classes,
+  ...otherProps
 }) => (
   <div
     className={`form-group ${classes ? classes : ''} ${
@@ -72,7 +72,7 @@ export const FormGroup = ({
       <Label
         vertical={vertical}
         className={!vertical ? 'col-sm-3' : ''}
-        required={required}
+        {...otherProps}
       >
         {label}
       </Label>
@@ -165,14 +165,13 @@ export const ChoiceInput = ({
   label,
   checked,
   style,
-  required,
   ...otherProps
 }) => (
   <div
     className={`vs-choice-input ${className ? className : ''}`}
     style={style}
   >
-    <Label fontWeight="normal" required={required}>
+    <Label fontWeight="normal" {...otherProps}>
       <Input
         type={type}
         name={name}
