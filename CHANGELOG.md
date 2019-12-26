@@ -1,3 +1,7 @@
+# Upcoming
+## New Feature
+- Support required label in choice input and form field
+
 # 5.0.0
 ## Updated styling
 - Update select styles

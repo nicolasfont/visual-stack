@@ -100,9 +100,10 @@ export const Field = ({
   optional,
   optionalLabel,
   children,
+  ...otherProps
 }) => (
   <div className={`vs-field ${className ? className : ''}`}>
-    <Label className="vs-field-label" weight="bold">
+    <Label className="vs-field-label" weight="bold" {...otherProps}>
       {label}{' '}
       <span className="vs-field-optional">
         {optional ? `- ${optionalLabel}` : null}
@@ -170,7 +171,7 @@ export const ChoiceInput = ({
     className={`vs-choice-input ${className ? className : ''}`}
     style={style}
   >
-    <Label fontWeight="normal">
+    <Label fontWeight="normal" {...otherProps}>
       <Input
         type={type}
         name={name}
