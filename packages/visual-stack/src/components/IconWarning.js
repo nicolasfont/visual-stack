@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactSVG from 'react-svg';
+import SVG from 'react-inlinesvg';
 import classNames from 'classnames';
 import iconWarningSvg from '../../src/images/ui-kit/icon-warning.svg';
 import './CJLogo.css';
 
-const IconSuccess = ({ className }) => (
-  <ReactSVG src={iconWarningSvg} className={classNames('vs-icon', className)} />
+const IconWarning = ({ className }) => (
+  <SVG src={iconWarningSvg} className={classNames('vs-icon', className)} />
 );
 
-IconSuccess.propTypes = {
+IconWarning.propTypes = {
   className: PropTypes.string,
 };
 
-export default IconSuccess;
+export default IconWarning;
