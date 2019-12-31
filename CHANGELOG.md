@@ -1,3 +1,7 @@
+# 5.1.0
+## Update Dependency
+- Use react-inlinesvg instead of react-svg
+
 # 5.0.1
 ## New Feature
 - Support required label in choice input and form field
