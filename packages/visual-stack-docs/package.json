@@ -1,6 +1,6 @@
 {
   "name": "@cjdev/visual-stack-docs",
-  "version": "5.0.1",
+  "version": "5.1.0",
   "private": true,
   "devDependencies": {
     "concurrently": "^4.1.0",
@@ -15,8 +15,8 @@
     "rimraf": "^2.6.3"
   },
   "dependencies": {
-    "@cjdev/visual-stack": "^5.0.1",
-    "@cjdev/visual-stack-redux": "^5.0.1",
+    "@cjdev/visual-stack": "^5.1.0",
+    "@cjdev/visual-stack-redux": "^5.1.0",
     "express": "^4.16.4",
     "luxon": "^1.13.2",
     "material-ui": "^1.0.0-beta.46",
