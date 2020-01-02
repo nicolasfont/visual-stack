@@ -1,3 +1,7 @@
+# 5.1.1
+## Bug Fix
+- Additional Popover props are now being passed to the correct sub-component 
+
 # 5.1.0
 ## Update Dependency
 - Use react-inlinesvg instead of react-svg

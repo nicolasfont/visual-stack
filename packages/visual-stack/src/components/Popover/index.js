@@ -1,5 +1,5 @@
 import React from 'react';
-import { Manager, Popper, Reference } from 'react-popper';
+import {Manager, Popper, Reference} from 'react-popper';
 import cn from 'classnames';
 import './Popover.css';
 
@@ -9,6 +9,9 @@ const Popover = ({
   children,
   placement = 'bottom',
   className,
+  eventsEnabled,
+  modifiers,
+  positionFixed,
   ...otherProps
 }) => {
   return (
@@ -22,7 +25,12 @@ const Popover = ({
           )}
         </Reference>
         {shown ? (
-          <Popper placement={placement}>
+          <Popper
+            placement={placement}
+            eventsEnabled={eventsEnabled}
+            modifiers={modifiers}
+            positionFixed={positionFixed}
+          >
             {({ ref, style, placement, arrowProps }) => (
               <div
                 className={cn('vs-popover-container', className)}

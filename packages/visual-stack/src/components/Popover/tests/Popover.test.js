@@ -1,7 +1,7 @@
 import React from 'react';
-import Popover, { HoverPopover } from '../index';
-import Enzyme, { mount } from 'enzyme';
-import { Popper } from 'react-popper';
+import Popover, {HoverPopover} from '../index';
+import Enzyme, {mount} from 'enzyme';
+import {Popper} from 'react-popper';
 
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -85,6 +85,32 @@ describe('Popover', () => {
 
     wrapper.find('.vs-popover-wrapper').simulate('mouseLeave');
     expect(onMouseLeave).toHaveBeenCalled();
+  });
+
+  it('should pass popper props down to popper', () => {
+    const eventsEnabled = false;
+    const modifiers = {
+      flip: {
+        enabled: false
+      }
+    };
+    const positionFixed = true;
+
+    const wrapper = mount(
+      <Popover
+        shown={true}
+        eventsEnabled={eventsEnabled}
+        modifiers={modifiers}
+        positionFixed={positionFixed}
+      >
+        <div className={'test-target-element'} />
+      </Popover>
+    );
+
+    const popper = wrapper.find(Popper);
+    expect(popper.prop("eventsEnabled")).toBe(eventsEnabled);
+    expect(popper.prop("modifiers")).toBe(modifiers);
+    expect(popper.prop("positionFixed")).toBe(positionFixed);
   });
 });
 
