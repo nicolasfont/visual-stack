@@ -164,3 +164,7 @@ fieldset.group ul.checkbox li.focus {
 .vs-label-font-normal {
   font-weight: normal;
 }
+
+.vs-field .form-group-required-sign {
+  padding-left: 0;
+}
