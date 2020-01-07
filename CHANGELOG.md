@@ -1,3 +1,7 @@
+# 5.1.2
+## Bug Fix
+- SelectField passes react-select props only to react-select
+
 # 5.1.1
 ## Bug Fix
 - Additional Popover props are now being passed to the correct sub-component 
