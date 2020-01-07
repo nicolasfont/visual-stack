@@ -71,6 +71,7 @@ export default () => (
               {/* s4:start */}
               <Form>
                 <TextField
+                  required
                   label="Some Label"
                   help="this is some field"
                   placeholder="placeholder text"
