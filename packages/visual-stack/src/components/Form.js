@@ -192,6 +192,13 @@ export const SelectField = ({
   value,
   onChange,
   onBlur,
+  noOptionsMessage,
+  isClearable,
+  isDisabled,
+  isMulti,
+  isSearchable,
+  autoFocus,
+  placeholder,
   ...otherProps
 }) => (
   <Field label={label} error={error} help={help} {...otherProps}>
@@ -202,6 +209,13 @@ export const SelectField = ({
         value={value}
         onChange={onChange}
         onBlur={onBlur}
+        autoFocus={autoFocus}
+        noOptionsMessage={noOptionsMessage}
+        isClearable={isClearable}
+        isDisabled={isDisabled}
+        isMulti={isMulti}
+        isSearchable={isSearchable}
+        placeholder={placeholder}
         {...otherProps}
       />
     </FieldContent>
