@@ -34,7 +34,7 @@ BlankSlate.propTypes = {
   title: PropTypes.string,
   subTitle: PropTypes.string,
   alignment: PropTypes.string,
-  headerGraphic: PropTypes.string,
+  headerGraphic: PropTypes.object,
 };
 
 export const SubTitle = ({ children }) => (

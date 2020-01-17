@@ -52,7 +52,7 @@ export default () => (
                 <div>
                   <button
                     type="button"
-                    class="vs-btn-d vs-solid-primary-btn vs-bs-button-primary"
+                    className="vs-btn-d vs-solid-primary-btn vs-bs-button-primary"
                   >
                     Learn More
                   </button>
