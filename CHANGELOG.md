@@ -1,3 +1,8 @@
+# 5.1.3
+## Bug Fix
+- Fix BlankSlate errors
+- Fix required sign padding
+
 # 5.1.2
 ## Bug Fix
 - SelectField passes react-select props only to react-select
