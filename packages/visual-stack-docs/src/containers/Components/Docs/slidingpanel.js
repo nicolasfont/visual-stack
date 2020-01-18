@@ -185,7 +185,7 @@ class VSRSlidingPanelDemo extends React.Component {
                         anywhere. The caveat with this is that, if your Toggle
                         Panel is clicked, and there is no Sliding Panel to
                         display, the Application Layout will still change the
-                        size of the Page Conent, and everything will Look Ugly.
+                        size of the Page Content, and everything will Look Ugly.
                       </div>
                       {/* s9:start */}
                       <VSRToggleIcon hoverText={'hey look at me!'} />
