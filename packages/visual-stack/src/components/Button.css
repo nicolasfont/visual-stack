@@ -115,7 +115,6 @@ a.vs-btn-d:hover,
 }
 
 /* Platform Buttons */
-
 .vs-btn-d svg {
   fill: #979c9f;
   transition: 0.2s all ease-in-out;
@@ -126,24 +125,31 @@ a.vs-btn-d:hover,
   fill: #4d5051;
 }
 
-.vs-solid-primary-btn {
+
+/* Primary Buttons */
+.vs-solid-primary-btn,
+.vs-solid-primary-pill-btn {
   background-color: #49c5b1;
   background-position: center;
   color: #fff;
   transition: background 0.4s;
 }
 
-.vs-solid-primary-btn:hover {
+.vs-solid-primary-btn:hover,
+.vs-solid-primary-pill-btn:hover {
   background: #14ab93 radial-gradient(circle, transparent 1%, #14ab93 1%)
     center/15000%;
 }
 
-.vs-solid-primary-btn:active {
+.vs-solid-primary-btn:active,
+.vs-solid-primary-pill-btn:active {
   background-color: #44cbb4;
   background-size: 100%;
   transition: background 0s;
 }
 
+
+/* Primary Raised Buttons */
 .vs-solid-primary-raised-btn {
   background-color: #49c5b1;
   background-position: center;
@@ -164,12 +170,17 @@ a.vs-btn-d:hover,
   transition: background 0s;
 }
 
-.vs-solid-secondary-btn {
+
+
+/* Secondary Buttons */
+.vs-solid-secondary-btn,
+.vs-solid-secondary-pill-btn {
   background-color: #616c78;
   color: #fff;
 }
 
-.vs-solid-secondary-btn:hover {
+.vs-solid-secondary-btn:hover,
+.vs-solid-secondary-pill-btn:hover {
   background-color: #48535f;
 }
 
@@ -223,6 +234,8 @@ a.vs-btn-d:hover,
   transition: background 0s;
 }
 
+
+/* Round Circle Buttons */
 .vs-rounded-solid-btn {
   background: #49c5b1;
   border-radius: 16px;
@@ -306,11 +319,27 @@ a.vs-btn-d:hover,
   color: #414346;
 }
 
+
+
+/* Pill Buttons */
+.vs-solid-primary-pill-btn,
+.vs-solid-secondary-pill-btn {
+	border-radius: 16px;
+	padding-left: 16px;
+	padding-right:  16px;
+}
+
+
+
 /* Disabled state */
 .vs-primary-btn.disabled,
 .vs-primary-btn[disabled],
 .vs-primary-btn.disabled:hover,
 .vs-primary-btn[disabled]:hover,
+.vs-solid-primary-pill-btn.disabled,
+.vs-solid-primary-pill-btn[disabled],
+.vs-solid-primary-pill-btn.disabled:hover,
+.vs-solid-primary-pill-btn[disabled]:hover,
 .vs-default-btn.disabled,
 .vs-default-btn[disabled],
 .vs-default-btn.disabled:hover,
@@ -354,7 +383,11 @@ a.vs-btn-d:hover,
 .vs-solid-secondary-btn.disabled,
 .vs-solid-secondary-btn[disabled],
 .vs-solid-secondary-btn.disabled:hover,
-.vs-solid-secondary-btn[disabled]:hover {
+.vs-solid-secondary-btn[disabled]:hover,
+.vs-solid-secondary-pill-btn.disabled,
+.vs-solid-secondary-pill-btn[disabled],
+.vs-solid-secondary-pill-btn.disabled:hover,
+.vs-solid-secondary-pill-btn[disabled]:hover, {
   color: #c0c2c4;
   background: #7f848a;
 }
@@ -454,6 +487,9 @@ a.vs-btn-d:hover,
   margin-right: -4px;
   width: 20px;
 }
+
+
+
 
 /* Button sizing */
 .vs-btn-d.vs-sm-btn {

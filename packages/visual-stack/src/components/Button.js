@@ -50,6 +50,8 @@ Button.propTypes = SubmitButton.propTypes = {
     'text',
     'text-link',
     'inline-outline-secondary',
+    'solid-primary-pill',
+    'solid-secondary-pill',
   ]).isRequired,
   small: PropTypes.bool,
   large: PropTypes.bool,
