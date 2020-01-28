@@ -40,7 +40,7 @@ export default () => (
             </Body>
             <Body>
               <h2>Buttons</h2>
-              <p>Please refer to the UX guidelines documented in the <a href="https://cj.invisionapp.com/dsm/cjaffiliate/visual-stack" target="_blank">CJ Design System Manager</a> for proper usage and placement of buttons (currently in development).</p>
+              <p>Please refer to the UX guidelines documented in the <a href="https://cj.invisionapp.com/dsm/cjaffiliate/visual-stack" target="_blank" rel="noopener noreferrer">CJ Design System Manager</a> for proper usage and placement of buttons (currently in development).</p>
               {/* s3:start */}
               <Button type="solid-primary">Primary Solid</Button>
               <Button type="solid-primary-raised"><Plus /> Primary Solid Raised</Button>
@@ -99,8 +99,8 @@ export default () => (
               <p>Do not use as primary or secondary action buttons at the page level.</p>
             </Body>
           </Panel>
-          
-          
+
+
           <Panel>
             <Body>
               <h5>Disabled States</h5>
