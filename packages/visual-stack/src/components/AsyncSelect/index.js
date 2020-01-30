@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactAsyncSelect from 'react-select/lib/Async';
+import ReactAsyncSelect from 'react-select/async';
 import cn from 'classnames';
 import './AsyncSelect.css';
 
