@@ -1,4 +1,5 @@
 import React from 'react';
+import './button.css';
 import { Body, Header, Panel } from '@cjdev/visual-stack/lib/components/Panel';
 import { Demo, Snippet } from '../../../components/Demo';
 import { Button } from '@cjdev/visual-stack/lib/components/Button';
@@ -27,55 +28,32 @@ export default () => (
         <div>
           <Panel>
             <Body>
-              <h5>Platform Buttons</h5>
-              <p>
-                Please be aware that the shape of the round buttons will be
-                deprecated and replaced with with squares with a slight border
-                radius.
-              </p>
-              {/* s3:start */}
-              <Button type="solid-primary">Solid Primary</Button>
-              <Button type="solid-primary-raised">Raised Primary</Button>
-              <Button type="outline-secondary">Outline Secondary</Button>
-              <Button type="outline-secondary-raised">Raised Secondary</Button>
-              <Button type="rounded-solid">
-                <Plus />
-              </Button>
-              <Button type="rounded-outline">
-                <Minus />
-              </Button>
-              <Button type="icon">
-                <AccountIcon />
-              </Button>
-              <Button type="text">Text Button</Button>
-              <Button type="text-link">Text Link</Button>
-              {/* s3:end */}
-              <Snippet tag="s3" src={snippets} />
+              <h4>Transitional MemberWeb/Platform Pill Buttons</h4>
+              <p>The pill buttons will be used in memberweb to introduce more features in the new platform. The pill shape and solid color of the button will help call out a call to actions of highest priority, such as the onboarding checklist guide or to finish setting up an account.</p>
+              {/* s6:start */}
+              <Button type="solid-primary-pill">Primary</Button>
+              <Button type="solid-primary-pill"><Plus /> Primary with Icon</Button>
+              <Button type="solid-secondary-pill">Secondary</Button>
+              <Button type="solid-secondary-pill"><Plus /> Secondary with Icon</Button>
+              {/* s6:end */}
+              <Snippet tag="s6" src={snippets} />
             </Body>
             <Body>
-              <h5>Disabled States</h5>
-              <p>
-                Disable buttons by adding the disabled attribute or the
-                className="disabled"
-              </p>
-              {/* s4:start */}
-              <Button type="solid-primary" disabled>
-                Disabled
-              </Button>
-              <Button type="outline-secondary" disabled>
-                Disabled
-              </Button>
-              <Button type="icon" disabled>
-                <AccountIcon />
-              </Button>
-              <Button type="text" disabled>
-                Text Button
-              </Button>
-              <Button type="text-link" disabled>
-                Text Link
-              </Button>
-              {/* s4:end */}
-              <Snippet tag="s4" src={snippets} />
+              <h2>Buttons</h2>
+              <p>Please refer to the UX guidelines documented in the <a href="https://cj.invisionapp.com/dsm/cjaffiliate/visual-stack" target="_blank" rel="noopener noreferrer">CJ Design System Manager</a> for proper usage and placement of buttons (currently in development).</p>
+              {/* s3:start */}
+              <Button type="solid-primary">Primary Solid</Button>
+              <Button type="solid-primary-raised"><Plus /> Primary Solid Raised</Button>
+              <Button type="outline-secondary">Secondary Outline</Button>
+              <Button type="outline-secondary-raised"><Plus /> Secondary Raised</Button>
+              <Button type="rounded-solid"><Plus /></Button>
+              <Button type="rounded-outline"><Minus /></Button>
+              <Button type="icon"><AccountIcon /></Button>
+              <Button type="text">Text Button</Button>
+              <Button type="text-link">Text Link</Button>
+              <Button type="solid-secondary">Solid Secondary</Button>
+              {/* s3:end */}
+              <Snippet tag="s3" src={snippets} />
             </Body>
           </Panel>
 
@@ -116,17 +94,31 @@ export default () => (
               {/* s5:end */}
               <Snippet tag="s5" src={snippets} />
               <h6>When to use</h6>
-              <p>
-                Use when you have to place a button inline with selects in
-                header toolbars and table toolars.
-              </p>
+              <p>Use when you have to place a button inline with selects inheader toolbars and table toolars.</p>
               <h6>When NOT to use</h6>
-              <p>
-                Do not use as primary or secondary action buttons at the page
-                level.
-              </p>
+              <p>Do not use as primary or secondary action buttons at the page level.</p>
             </Body>
           </Panel>
+
+
+          <Panel>
+            <Body>
+              <h5>Disabled States</h5>
+              <p>
+                Disable buttons by adding the disabled attribute or the
+                className="disabled"
+              </p>
+              {/* s4:start */}
+              <Button type="solid-primary" disabled>Disabled</Button>
+              <Button type="outline-secondary" disabled>Disabled</Button>
+              <Button type="icon" disabled><AccountIcon /></Button>
+              <Button type="text" disabled>Text Button</Button>
+              <Button type="text-link" disabled>Text Link</Button>
+              {/* s4:end */}
+              <Snippet tag="s4" src={snippets} />
+            </Body>
+          </Panel>
+
 
           <Panel>
             <Header>Button Sizing</Header>
@@ -147,6 +139,7 @@ export default () => (
           <Panel>
             <Header>Deprecated Buttons</Header>
             <Body>
+	            <p>Please check to make sure these buttons are not being used in your application. Please contact the UX team if you have any questions.</p>
               {/* s2:start */}
               <Button type="primary">Primary</Button>
               <Button type="success">Success</Button>
@@ -154,7 +147,6 @@ export default () => (
               <Button type="default">Default</Button>
               <Button type="warning">Warning</Button>
               <Button type="danger">Danger</Button>
-              <Button type="solid-secondary">Solid Secondary</Button>
               <Button type="outline-primary">Outline Primary</Button>
               <Button type="text">
                 <CodeIcon /> Icon and Text
