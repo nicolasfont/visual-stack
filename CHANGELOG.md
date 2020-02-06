@@ -1,3 +1,7 @@
+# 6.0.0
+## Update Dependency
+- updating react-select from 2 to 3. This fixes `componentWillReceiveProps has been renamed` warnings
+
 # 5.1.3
 ## Bug Fix
 - Fix BlankSlate errors

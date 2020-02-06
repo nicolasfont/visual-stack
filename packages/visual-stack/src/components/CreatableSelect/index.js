@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactCreatableSelect from 'react-select/lib/Creatable';
+import ReactCreatableSelect from 'react-select/creatable';
 import cn from 'classnames';
 import './CreatableSelect.css';
 
