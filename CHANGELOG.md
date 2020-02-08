@@ -1,3 +1,8 @@
+# 6.1.0
+## New Feature
+- Pass id prop to TextField, ChoiceInput and SelectField and it will be passed as `for` prop to label to help with 
+accessibility and testing-library getByLabel. 
+
 # 6.0.0
 ## Update Dependency
 - updating react-select from 2 to 3. This fixes `componentWillReceiveProps has been renamed` warnings
