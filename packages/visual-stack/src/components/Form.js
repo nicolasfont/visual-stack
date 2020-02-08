@@ -93,6 +93,7 @@ FormGroup.propTypes = {
 
 // Component that renders a label and error/help message
 export const Field = ({
+  htmlFor,
   className,
   label,
   error,
@@ -103,7 +104,12 @@ export const Field = ({
   ...otherProps
 }) => (
   <div className={`vs-field ${className ? className : ''}`}>
-    <Label className="vs-field-label" weight="bold" {...otherProps}>
+    <Label
+      htmlFor={htmlFor}
+      className="vs-field-label"
+      weight="bold"
+      {...otherProps}
+    >
       {label}{' '}
       <span className="vs-field-optional">
         {optional ? `- ${optionalLabel}` : null}
@@ -126,6 +132,7 @@ export const FieldContent = ({ className, children }) => (
 
 // Input with label and error/help message
 export const TextField = ({
+  id,
   className,
   name,
   value,
@@ -137,6 +144,7 @@ export const TextField = ({
   ...otherProps
 }) => (
   <Field
+    htmlFor={id}
     classes={`vs-text-field ${className ? className : ''}`}
     label={label}
     error={error}
@@ -147,6 +155,7 @@ export const TextField = ({
   >
     <FieldContent>
       <Input
+        id={id}
         className={error ? 'input-error' : ''}
         name={name}
         value={value}
@@ -158,6 +167,7 @@ export const TextField = ({
 
 // Just radio button and label
 export const ChoiceInput = ({
+  id,
   className,
   type = 'radio',
   name,
@@ -171,8 +181,9 @@ export const ChoiceInput = ({
     className={`vs-choice-input ${className ? className : ''}`}
     style={style}
   >
-    <Label fontWeight="normal" {...otherProps}>
+    <Label htmlFor={id} fontWeight="normal" {...otherProps}>
       <Input
+        id={id}
         type={type}
         name={name}
         value={value}
@@ -185,6 +196,7 @@ export const ChoiceInput = ({
 );
 
 export const SelectField = ({
+  id,
   name,
   label,
   error,
@@ -201,9 +213,10 @@ export const SelectField = ({
   placeholder,
   ...otherProps
 }) => (
-  <Field label={label} error={error} help={help} {...otherProps}>
+  <Field htmlFor={id} label={label} error={error} help={help} {...otherProps}>
     <FieldContent>
       <Select
+        id={id}
         name={name}
         error={error}
         value={value}
