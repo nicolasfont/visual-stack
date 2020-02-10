@@ -198,6 +198,7 @@ export const ChoiceInput = ({
 export const SelectField = ({
   id,
   name,
+  options,
   label,
   error,
   help,
@@ -218,6 +219,7 @@ export const SelectField = ({
       <Select
         id={id}
         name={name}
+        options={options}
         error={error}
         value={value}
         onChange={onChange}

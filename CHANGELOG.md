@@ -1,3 +1,7 @@
+# 6.1.2
+## Bug Fix
+- SelectField passes options to Select and not to Field/Label
+
 # 6.1.1
 ## Bug Fix
 - Change SideNav height to fit-content instead of a fixed height
