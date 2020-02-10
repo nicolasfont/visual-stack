@@ -9,9 +9,11 @@
 
 .vs-collapsible-panel-item {
   padding: 8px 40px;
+  display: flex;
 }
 
 .vs-collapsible-panel-header-title {
+  display: flex;
   font-weight: 500;
 }
 
@@ -29,4 +31,25 @@
 
 .vs-collapsible-panel + .vs-collapsible-panel {
   border-top: 1px solid #c8ccce;
+}
+
+.vs-collapsible-panel-icon-container {
+  display: inline-block;
+}
+
+.vs-collapsible-panel-icon-container > * {
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 50px;
+  max-height: 50px;
+  margin-right: 8px;
+}
+
+.vs-collapsible-panel-icon-placeholder {
+  min-width: 58px;
+  display: inline-block;
+}
+
+.vs-collapsible-panel-item-content {
+  width: 100%;
 }

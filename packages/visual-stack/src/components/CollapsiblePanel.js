@@ -36,7 +36,9 @@ export class CollapsiblePanel extends React.Component {
           >
             {this.state.collapsed ? <ChevronRightIcon /> : <ChevronDownIcon />}
           </Button>
-
+          <div className="vs-collapsible-panel-icon-container">
+            {this.props.titleIcon}
+          </div>
           <span
             className="vs-collapsible-panel-header-title"
             onClick={this.toggleCollapsed}
@@ -45,7 +47,14 @@ export class CollapsiblePanel extends React.Component {
           </span>
         </div>
         {!this.state.collapsed && (
-          <div className="vs-collapsible-panel-item">{this.props.children}</div>
+          <div className="vs-collapsible-panel-item">
+            {this.props.titleIcon && (
+              <div className="vs-collapsible-panel-icon-placeholder" />
+            )}
+            <div className="vs-collapsible-panel-item-content">
+              {this.props.children}
+            </div>
+          </div>
         )}
       </div>
     );

@@ -46,4 +46,31 @@ describe('CollapsiblePanel', () => {
       expect(shallowWrapper.find('div#test-marker').length).toBe(1);
     });
   });
+
+  describe('when rendering icon', () => {
+    it('should render icon when I pass in an icon prop', () => {
+      const titleIcon = <div id="titleIcon" />;
+      const container = shallow(
+        <CollapsiblePanel titleIcon={titleIcon} initializedCollapsed={false} />
+      );
+      expect(
+        container.find('.vs-collapsible-panel-icon-container #titleIcon')
+      ).toHaveLength(1);
+      expect(
+        container.find('.vs-collapsible-panel-icon-placeholder')
+      ).toHaveLength(1);
+    });
+
+    it('should not render icon when I dont pass in an icon prop', () => {
+      const container = shallow(
+        <CollapsiblePanel initializedCollapsed={false} />
+      );
+      expect(
+        container.find('.vs-collapsible-panel-icon-container #titleIcon')
+      ).toHaveLength(0);
+      expect(
+        container.find('.vs-collapsible-panel-icon-placeholder')
+      ).toHaveLength(0);
+    });
+  });
 });
