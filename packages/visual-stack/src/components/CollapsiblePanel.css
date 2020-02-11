@@ -2,6 +2,10 @@
   padding: 8px;
 }
 
+.vs-collapsible-panel-padding-large {
+  padding: 32px 16px;
+}
+
 .vs-collapsible-panel-header {
   display: flex;
   align-items: center;
@@ -35,18 +39,19 @@
 
 .vs-collapsible-panel-icon-container {
   display: inline-block;
+  align-self: flex-start;
 }
 
 .vs-collapsible-panel-icon-container > * {
-  min-width: 50px;
-  min-height: 50px;
-  max-width: 50px;
-  max-height: 50px;
-  margin-right: 8px;
+  min-width: 60px;
+  min-height: 60px;
+  max-width: 60px;
+  max-height: 60px;
+  margin-right: 16px;
 }
 
 .vs-collapsible-panel-icon-placeholder {
-  min-width: 58px;
+  min-width: 76px;
   display: inline-block;
 }
 

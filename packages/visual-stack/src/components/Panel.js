@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Panel.css';
 
 export const Panel = ({ children }) => (
-  <div className="cj-panel panel panel-default">{children}</div>
+  <div className="cj-panel panel vs-panel-default">{children}</div>
 );
 
 export const Footer = ({ children }) => (
