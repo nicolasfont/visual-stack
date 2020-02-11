@@ -62,5 +62,21 @@ describe('Form', () => {
           .prop('id')
       ).toBe('test-id');
     });
+    it('should pass options to select only', () => {
+      const options = [{ id: 1, label: 'one' }, { id: 2, label: 'two' }];
+
+      const wrapper = mount(<SelectField id="test-id" options={options}/>);
+
+      expect(
+        wrapper.find('label[htmlFor="test-id"]').prop('options')
+      ).toBeUndefined();
+
+      expect(
+        wrapper
+          .find('Select')
+          .at(0)
+          .prop('options')
+      ).toBe(options);
+    });
   });
 });

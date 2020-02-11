@@ -1,3 +1,11 @@
+# 6.1.2
+## Bug Fix
+- SelectField passes options to Select and not to Field/Label
+
+# 6.1.1
+## Bug Fix
+- Change SideNav height to fit-content instead of a fixed height
+
 # 6.1.0
 ## New Feature
 - Pass id prop to TextField, ChoiceInput and SelectField and it will be passed as `for` prop to label to help with 
