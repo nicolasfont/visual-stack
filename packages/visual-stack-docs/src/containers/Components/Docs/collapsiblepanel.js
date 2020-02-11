@@ -119,7 +119,11 @@ export default () => {
             {/* s3:end */}
             {/* s4:start */}
             <CollapsiblePanel
-              title="Collapsible Panel With Large Padding"
+              title={
+                <h3 className="inline-remove-margin">
+                  Collapsible Panel With Large Padding
+                </h3>
+              }
               titleIcon={<SampleIcon />}
               padding="large"
             >
