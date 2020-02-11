@@ -1,3 +1,7 @@
+# 6.2.0
+## New Feature
+- Enhance Collapsible Panel to accept an icon
+
 # 6.1.2
 ## Bug Fix
 - SelectField passes options to Select and not to Field/Label
