@@ -4,6 +4,7 @@ import ChevronRightIcon from 'mdi-react/ChevronRightIcon';
 import ChevronDownIcon from 'mdi-react/ChevronDownIcon';
 import classnames from 'classnames';
 import './CollapsiblePanel.css';
+import PropTypes from 'prop-types';
 
 const paddingSize = {
   LARGE: 'large',
@@ -72,5 +73,9 @@ export class CollapsiblePanel extends React.Component {
     );
   }
 }
+
+CollapsiblePanel.prototypes = {
+  padding: PropTypes.oneOf([paddingSize.LARGE]),
+};
 
 export default CollapsiblePanel;
