@@ -10,6 +10,12 @@ import {
   Field,
 } from '@cjdev/visual-stack/lib/components/Form';
 import { Demo, Snippet } from '../../../components/Demo';
+import SVG from 'react-inlinesvg';
+import sampleIconPath from './reporting.svg';
+
+const SampleIcon = () => {
+  return <SVG src={sampleIconPath} />;
+};
 
 export default () => {
   return (
@@ -90,6 +96,27 @@ export default () => {
               <Snippet tag="s2" src={snippets} />
             </CollapsiblePanel>
             {/* s2:end */}
+
+            {/* s3:start */}
+            <CollapsiblePanel
+              title="Collapsible Panel With Icon"
+              titleIcon={<SampleIcon />}
+            >
+              <div className="summary-content">
+                <Label>Default commissioning</Label>
+                <Label fontWeight="normal">3%</Label>
+              </div>
+              <div className="summary-content">
+                <Label>Situation 1</Label>
+                <Label fontWeight="normal">4%</Label>
+              </div>
+              <div className="summary-content">
+                <Label>Situation 2</Label>
+                <Label fontWeight="normal">5%</Label>
+              </div>
+              <Snippet tag="s3" src={snippets} />
+            </CollapsiblePanel>
+            {/* s3:end */}
           </Body>
         </Panel>
       )}

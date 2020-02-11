@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="61px" height="54px" viewBox="0 0 61 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>Group 29 Copy 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Nurture-Checklist" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Nurture-Checklist---final--2-Copy" transform="translate(-258.000000, -662.000000)">
+            <g id="Group-29-Copy-2" transform="translate(258.992188, 662.500000)">
+                <g id="Group-31">
+                    <circle id="Oval-Copy-9" fill-opacity="0.59918597" fill="#2045A6" cx="33.1661533" cy="26.235" r="26.235"></circle>
+                    <circle id="Oval" stroke="#798FC9" stroke-width="0.5" fill="#E8F3FF" cx="26.235" cy="26.235" r="26.235"></circle>
+                    <g id="Group-28" transform="translate(10.111153, 15.557289)">
+                        <rect id="Rectangle" fill="#344F98" x="0" y="0.347710833" width="30.0690873" height="22.2032143" rx="1"></rect>
+                        <g id="Group-26" transform="translate(1.791705, 2.505702)">
+                            <g id="Group-18" transform="translate(0.000000, 2.252961)" fill="#FFFEE6">
+                                <g id="Group-10-Copy-3" transform="translate(12.635043, 7.880766) scale(-1, 1) rotate(-90.000000) translate(-12.635043, -7.880766) translate(5.215043, -3.779234)">
+                                    <g id="Group-8" transform="translate(0.308152, 0.539883)">
+                                        <rect id="Rectangle" x="0.457662337" y="0.945317753" width="12.4136382" height="2.42310861" rx="1.2115543"></rect>
+                                        <rect id="Rectangle" x="0.457662337" y="6.92231899" width="7.08388272" height="2.42310861" rx="1.2115543"></rect>
+                                        <rect id="Rectangle" x="0.457662337" y="12.8993202" width="8.74720088" height="2.42310861" rx="1.2115543"></rect>
+                                        <rect id="Rectangle" x="0.457662337" y="18.8763215" width="5.10847035" height="2.42310861" rx="1.2115543"></rect>
+                                    </g>
+                                </g>
+                            </g>
+                            <g id="Group-27" transform="translate(20.563024, 12.369402)">
+                                <circle id="Oval-Copy-3" fill="#1DA8B3" cx="5.46424149" cy="5.46424149" r="5.46424149"></circle>
+                                <path d="M5.60674881,5.06229777 C4.77728313,4.84670977 4.51053866,4.62381371 4.51053866,4.2766805 C4.51053866,3.87839081 4.87959608,3.60068423 5.4971278,3.60068423 C6.14754582,3.60068423 6.38871205,3.91127711 6.41063626,4.36803134 L7.21817774,4.36803134 C7.1925995,3.73953752 6.80892595,3.16220017 6.04523287,2.97584445 L6.04523287,2.17561104 L4.94902272,2.17561104 L4.94902272,2.96488235 C4.24014016,3.11835177 3.67011088,3.57876003 3.67011088,4.28398856 C3.67011088,5.12807038 4.36803134,5.54828427 5.38750678,5.79310454 C6.30101524,6.01234657 6.48371693,6.33390155 6.48371693,6.67372669 C6.48371693,6.92585503 6.30466928,7.32779875 5.4971278,7.32779875 C4.74439683,7.32779875 4.44842009,6.99162764 4.40822571,6.56045165 L3.60433827,6.56045165 C3.64818667,7.36068506 4.24744822,7.81013122 4.94902272,7.95994661 L4.94902272,8.75287195 L6.04523287,8.75287195 L6.04523287,7.96725467 C6.75776947,7.83205542 7.32414472,7.4191496 7.32414472,6.67007266 C7.32414472,5.63232705 6.43621449,5.27788577 5.60674881,5.06229777 L5.60674881,5.06229777 Z" id="Shape" fill="#E8F3FF"></path>
+                            </g>
+                            <polyline id="Path-2" stroke="#FF4496" points="2.35640755 8.29492063 9.61446311 3.62902778 15.317221 6.22119048 22.5752766 0"></polyline>
+                        </g>
+                    </g>
+                </g>
+                <g id="Group-5-Copy" transform="translate(10.111153, 11.317289)">
+                    <rect id="Rectangle" fill="#170538" x="0" y="0" width="29.9527637" height="3.6640767"></rect>
+                    <rect id="Rectangle" fill="#E8F3FF" x="22.8276509" y="1.13844602" width="5.96379395" height="1.38718466" rx="0.69359233"></rect>
+                    <circle id="Oval" fill="#3ABDA7" cx="2.74250533" cy="1.83203835" r="1.09922301"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

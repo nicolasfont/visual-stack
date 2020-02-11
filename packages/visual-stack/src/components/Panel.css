@@ -101,6 +101,10 @@
   background-color: #ffffff;
 }
 
+.cj-panel.panel-footer {
+  background-color: #ffffff;
+}
+
 .cj-panel.panel-heading legend {
   text-transform: uppercase;
   color: #bbb;
