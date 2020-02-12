@@ -117,6 +117,31 @@ export default () => {
               <Snippet tag="s3" src={snippets} />
             </CollapsiblePanel>
             {/* s3:end */}
+            {/* s4:start */}
+            <CollapsiblePanel
+              title={
+                <h3 className="inline-remove-margin">
+                  Collapsible Panel With Large Padding
+                </h3>
+              }
+              titleIcon={<SampleIcon />}
+              padding="large"
+            >
+              <div className="summary-content">
+                <Label>Default commissioning</Label>
+                <Label fontWeight="normal">3%</Label>
+              </div>
+              <div className="summary-content">
+                <Label>Situation 1</Label>
+                <Label fontWeight="normal">4%</Label>
+              </div>
+              <div className="summary-content">
+                <Label>Situation 2</Label>
+                <Label fontWeight="normal">5%</Label>
+              </div>
+              <Snippet tag="s4" src={snippets} />
+            </CollapsiblePanel>
+            {/* s4:end */}
           </Body>
         </Panel>
       )}

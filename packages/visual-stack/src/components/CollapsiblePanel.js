@@ -2,7 +2,13 @@ import * as React from 'react';
 import { Button } from './Button';
 import ChevronRightIcon from 'mdi-react/ChevronRightIcon';
 import ChevronDownIcon from 'mdi-react/ChevronDownIcon';
+import classnames from 'classnames';
 import './CollapsiblePanel.css';
+import PropTypes from 'prop-types';
+
+const paddingSize = {
+  LARGE: 'large',
+};
 
 export class CollapsiblePanel extends React.Component {
   constructor(props) {
@@ -22,9 +28,16 @@ export class CollapsiblePanel extends React.Component {
   }
 
   render() {
+    const displayLargePadding = this.props.padding === paddingSize.LARGE;
+
+    const panelClassNames = classnames({
+      'vs-collapsible-panel': true,
+      'vs-collapsible-panel-padding-large': displayLargePadding,
+    });
+
     return (
       <div
-        className={`vs-collapsible-panel ${
+        className={`${panelClassNames} ${
           this.props.className ? this.props.className : ''
         }`}
       >
@@ -60,5 +73,9 @@ export class CollapsiblePanel extends React.Component {
     );
   }
 }
+
+CollapsiblePanel.prototypes = {
+  padding: PropTypes.oneOf([paddingSize.LARGE]),
+};
 
 export default CollapsiblePanel;

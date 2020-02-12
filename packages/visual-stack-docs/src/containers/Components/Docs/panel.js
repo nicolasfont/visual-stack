@@ -25,7 +25,7 @@ export default () => (
           <Panel>
             <Header>Body padding</Header>
             {/* s2:start */}
-            <Body paddingSize="wide">
+            <Body padding="large">
               This is the Panel Body with 32px padding.
               <Snippet tag="s2" src={snippets} />
             </Body>
@@ -37,7 +37,7 @@ export default () => (
             </Body>
             {/* s3:end */}
             {/* s4:start */}
-            <Body paddingSize="none">
+            <Body padding="none">
               This is the Panel Body with no padding.
               <Snippet tag="s4" src={snippets} />
             </Body>
