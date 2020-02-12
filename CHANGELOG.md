@@ -1,3 +1,8 @@
+# 6.3.0
+## Updated styling
+- Add padding option to panel and collapsible panel
+- Changing padding between icon and text in collapsible panel
+
 # 6.2.0
 ## New Feature
 - Enhance Collapsible Panel to accept an icon
