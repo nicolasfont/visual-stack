@@ -5,7 +5,7 @@ import Text from '@cjdev/visual-stack/lib/experimental/Text';
 
 export default () => {
   return (
-    <Demo srcFile="/samples/src/containers/Components/Docs/text.js">
+    <Demo srcFile="/samples/src/containers/Experimental/Docs/text.js">
         {snippets =>
             <div>
               <Panel>
