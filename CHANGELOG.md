@@ -1,3 +1,8 @@
+# 6.4.0
+## New Feature
+- Add Text component to render text without relying on globals
+- Split Form.js so that components can be imported independently
+
 # 6.3.0
 ## Updated styling
 - Add padding option to panel and collapsible panel
