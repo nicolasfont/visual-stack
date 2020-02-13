@@ -11,6 +11,8 @@ import App from './containers/App/';
 import Home from './containers/Home/';
 import Components from './containers/Components/';
 import ComponentDocs from './containers/Components/Docs/';
+import Experimental from './containers/Experimental/';
+import ExperimentalDocs from './containers/Experimental/Docs/';
 import Icons from './containers/Icons/';
 import Layouts, { LayoutsDocs } from './containers/Layouts';
 import GettingStarted from './containers/GettingStarted/';
@@ -44,6 +46,9 @@ ReactDOM.render(
         <Route path="icons" component={Icons} />
         <Route path="layouts" component={Layouts}>
           <Route path=":layoutName" component={LayoutsDocs} />
+        </Route>
+        <Route path="experimental" component={Experimental}>
+          <Route path=":componentName" component={ExperimentalDocs} />
         </Route>
         <Route path="gettingStarted" component={GettingStarted} />
       </Route>

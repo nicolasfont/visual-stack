@@ -24,6 +24,7 @@ import CJLogo from '@cjdev/visual-stack/lib/components/CJLogo';
 /* s3:end */
 import { routeComponentMap } from '../Components/Docs/';
 import { layoutsRouteMap } from '../Layouts';
+import { experimentalRouteMap } from '../Experimental/Docs/';
 
 const toLinks = map =>
   R.pipe(
@@ -34,6 +35,7 @@ const toLinks = map =>
 
 const componentLinks = toLinks(routeComponentMap);
 const layoutLinks = toLinks(layoutsRouteMap);
+const experimentalLinks = toLinks(experimentalRouteMap);
 
 export default class AppSideNav extends React.Component {
   render() {
@@ -87,6 +89,15 @@ export default class AppSideNav extends React.Component {
             {layoutLinks.map(link => (
               <Link key={link.key}>
                 <RRLink to={`/layouts/${link.key}`}>
+                  <LinkContentWrapper label={link.linkName} />
+                </RRLink>
+              </Link>
+            ))}
+          </LinkGroup>
+          <LinkGroup label="Experimental" svgIcon={<ComponentIcon />}>
+            {experimentalLinks.map(link => (
+              <Link key={link.key}>
+                <RRLink to={`/experimental/${link.key}`}>
                   <LinkContentWrapper label={link.linkName} />
                 </RRLink>
               </Link>
