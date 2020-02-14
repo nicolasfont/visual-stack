@@ -10,9 +10,9 @@ export default () => {
             <div>
               <Panel>
                 <Body>
-                  <p>
-                      Renders text with the correct font and styles without relying on globals.
-                  </p>
+                  <Text>
+                      Renders text with correct font and styles without relying on globals.
+                  </Text>
                 </Body>
               </Panel>
               <Panel>
