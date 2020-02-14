@@ -1,6 +1,13 @@
+# 6.5.0
+## New Feature
+- Add experimental Box component as a layout primitive with standardized styling props
+
+## Updates
+- Improved PropTypes on Text component
+
 # 6.4.0
 ## New Feature
-- Add Text component to render text without relying on globals
+- Add experimental Text component to render text without relying on globals
 - Split Form.js so that components can be imported independently
 
 # 6.3.0
