@@ -596,9 +596,9 @@ a.vs-btn-d:hover,
 .vs-outline-secondary-btn[disabled],
 .vs-outline-secondary-btn.disabled:hover,
 .vs-outline-secondary-btn[disabled]:hover {
-  background: transparent;
-  border-color: #c3c8ce;
-  color: #b2b9c2;
+  background: #edeef0;
+  border-color: transparent;
+  color: rgba(33, 33, 33, 0.34);
 }
 
 .vs-icon-btn.disabled svg,
