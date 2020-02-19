@@ -1,3 +1,7 @@
+# 6.6.0
+## Updated styling
+- Update disabled button style
+
 # 6.5.0
 ## New Feature
 - Add experimental Box component as a layout primitive with standardized styling props
