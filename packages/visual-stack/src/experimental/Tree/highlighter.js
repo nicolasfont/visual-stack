@@ -1,4 +1,5 @@
 import React from 'react';
+import * as R from 'ramda';
 
 export const createHighlighter = (getName, highlightClass, sizeThreshold) => (
   nodeId,
@@ -11,9 +12,10 @@ export const createHighlighter = (getName, highlightClass, sizeThreshold) => (
     .filter(x => x.length >= sizeThreshold);
   if (snippetArray.length === 0)
     return [<span key={'0-' + targetText}>{targetText}</span>];
-  const matchedAreas = snippetArray
-    .flatMap(snippet => findAll(targetText.toLowerCase(), snippet))
-    .sort(compareArea);
+  const matchedAreas = R.chain(
+    snippet => findAll(targetText.toLowerCase(), snippet),
+    snippetArray
+  ).sort(compareArea);
   const simplifiedAreas = simplifyAreas(matchedAreas);
   return makeSpans(targetText, simplifiedAreas, highlightClass);
 };
