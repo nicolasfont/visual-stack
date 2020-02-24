@@ -27,9 +27,9 @@ const treeSelector = new TreeSelector({
   children: (nodeId, hierarchy) => hierarchy[nodeId].children,
   isChild: (nodeId, hierarchy) => hierarchy[nodeId].children.length == 0,
   all: (predicate, hierarchy) =>
-    function*() {
+    (function*() {
       for (let id in hierarchy) if (predicate(id)) yield id;
-    },
+    })(),
   rootId: _ => 'root',
   name: (nodeId, hierarchy) => hierarchy[nodeId].name,
 });

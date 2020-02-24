@@ -86,7 +86,7 @@ export class TreeSelector {
     const children = this.all(
       R.allPass([x => this.isChild(x, context), x => predicate(x, context)]),
       context
-    )();
+    );
     return R.reduce(
       (acc, item) => this.select(item, newState, acc, context),
       initialSelection,

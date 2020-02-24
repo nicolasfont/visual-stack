@@ -1,10 +1,9 @@
 import React from 'react';
-import { Tree } from '../index';
+import * as uut from '../index';
 import { TreeSelector } from '../tree-selector';
 import Enzyme, { mount, render } from 'enzyme';
 
 import Adapter from 'enzyme-adapter-react-16';
-import { TriStateCheckbox } from '../../TriStateCheckbox';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -35,7 +34,7 @@ const treeSelector = new TreeSelector({
 describe('Tree', () => {
   it('should render all content', () => {
     const wrapper = render(
-      <Tree
+      <uut.Tree
         treeStructure={treeSelector}
         rootVisible={false}
         selection={treeSelector.createMap(_ => 1)}
@@ -48,7 +47,7 @@ describe('Tree', () => {
   it('should use the labelContent property', () => {
     const labelContent = id => `label ${id}-`;
     const wrapper = render(
-      <Tree
+      <uut.Tree
         treeStructure={treeSelector}
         rootVisible={false}
         selection={treeSelector.createMap(_ => 1)}
@@ -66,7 +65,7 @@ describe('Tree', () => {
       return `label ${id}-`;
     };
     const wrapper = render(
-      <Tree
+      <uut.Tree
         treeStructure={treeSelector}
         rootVisible={false}
         selection={treeSelector.createMap(_ => 1)}
@@ -80,7 +79,7 @@ describe('Tree', () => {
 
   it('should render checkbox content correctly', () => {
     const wrapper = mount(
-      <Tree
+      <uut.Tree
         treeStructure={treeSelector}
         rootVisible={true}
         selection={{ root: -1, a: 1, b: 0 }}

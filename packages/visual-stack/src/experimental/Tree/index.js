@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TriStateCheckbox } from '../TriStateCheckbox';
 import './Tree.css';
+import { withErrorBoundary } from '../../components/ErrorBoundary';
 
 export class Tree extends React.Component {
   shouldComponentUpdate(nextProps) {
@@ -48,12 +49,13 @@ export class Tree extends React.Component {
 
     return (
       <div
-        className={
-          'vs-tree ' +
-          (filterOut && filterOut[_nodeId]
+        className={`${
+          _nodeId === props.treeStructure.rootId() ? 'vs-tree' : ''
+        } ${
+          filterOut && filterOut[_nodeId]
             ? `vs-hidden ${props.className}`
-            : props.className)
-        }
+            : props.className
+        }`}
       >
         {rootVisible ? (
           children(_nodeId).length > 0 ? (
@@ -129,3 +131,5 @@ Tree.propTypes = {
   onSelectionToggle: PropTypes.func,
   onExpansionToggle: PropTypes.func,
 };
+
+export default withErrorBoundary(Tree);

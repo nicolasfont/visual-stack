@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withErrorBoundary } from '../../components/ErrorBoundary';
 
 export class TriStateCheckbox extends React.Component {
   constructor() {
@@ -24,7 +25,7 @@ export class TriStateCheckbox extends React.Component {
   render() {
     return (
       <input
-        className={this.props.className}
+        className={`vs-tristatecheckbox ${this.props.className}`}
         type="checkbox"
         onClick={ev => this.onBoxClick(ev)}
         ref={this.inputRef}
@@ -59,3 +60,5 @@ TriStateCheckbox.propTypes = {
   value: PropTypes.number.isRequired,
   onClick: PropTypes.func,
 };
+
+export default withErrorBoundary(TriStateCheckbox);
