@@ -10,7 +10,6 @@ import {
   TreeSelector,
   SELECTION_FULL,
   SELECTION_EMPTY,
-  SELECTION_PARTIAL,
 } from '@cjdev/visual-stack/lib/experimental/Tree/tree-selector';
 /* s1:end */
 /* s2:start */
