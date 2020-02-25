@@ -1,0 +1,32 @@
+.vs-hidden {
+  display: none;
+}
+
+.vs-summary {
+  display: list-item;
+  outline: none;
+}
+
+.vs-labelContent {
+  display: flex;
+  margin-top: -2.1rem;
+  margin-left: 1.2rem;
+}
+
+.vs-leafContent {
+  display: flex;
+  margin-left: 1.2rem;
+}
+
+.vs-treeChildren {
+  margin-left: 1.5rem;
+}
+
+.vs-treecheckbox {
+  margin-left: 0.5rem !important;
+  margin-right: 0 !important;
+}
+
+.vs-tree-bold-highlight {
+  font-weight: bold;
+}

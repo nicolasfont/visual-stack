@@ -1,3 +1,7 @@
+# 6.7.0
+## New Feature
+- Add experimental Tree and TriStateCheckbox components
+
 # 6.6.0
 ## Updated styling
 - Update disabled button style
