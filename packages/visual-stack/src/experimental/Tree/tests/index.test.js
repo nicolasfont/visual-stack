@@ -59,12 +59,12 @@ describe('Tree', () => {
   });
 
   it('should pass the highlight property to the labelContent function', () => {
-    var ok = true;
+    let ok = false;
     const labelContent = (id, highlight) => {
-      ok = highlight == 'test';
+      ok = highlight === 'test';
       return `label ${id}-`;
     };
-    const wrapper = render(
+    render(
       <uut.Tree
         treeStructure={treeSelector}
         rootVisible={false}
@@ -87,9 +87,9 @@ describe('Tree', () => {
       />
     );
     [-1, 1, 0].forEach((value, index) =>
-      expect(
-        wrapper.find('TriStateCheckbox').get(index).props['value']
-      ).toEqual(value)
+      expect(wrapper.find('TriStateCheckbox').get(index).props.value).toEqual(
+        value
+      )
     );
   });
 });

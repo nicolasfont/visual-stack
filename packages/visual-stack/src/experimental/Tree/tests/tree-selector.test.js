@@ -25,10 +25,10 @@ const initialSelection = R.map(R.always(SELECTION_FULL), hierarchy);
 const treeSelector = new TreeSelector({
   parent: (nodeId, hierarchy) => hierarchy[nodeId].parentId,
   children: (nodeId, hierarchy) => hierarchy[nodeId].children,
-  isChild: (nodeId, hierarchy) => hierarchy[nodeId].children.length == 0,
+  isChild: (nodeId, hierarchy) => hierarchy[nodeId].children.length === 0,
   all: (predicate, hierarchy) =>
     (function*() {
-      for (let id in hierarchy) if (predicate(id)) yield id;
+      for (const id in hierarchy) if (predicate(id)) yield id;
     })(),
   rootId: _ => 'root',
   name: (nodeId, hierarchy) => hierarchy[nodeId].name,
@@ -186,7 +186,7 @@ test('setting selection of all leaves is idempotent', () => {
 });
 
 test('setting selection of a set of leaves works', () => {
-  const predicate = id => id == 'a2' || id == 'b3';
+  const predicate = id => id === 'a2' || id === 'b3';
   const actual1 = selectAllLeaves(predicate, SELECTION_EMPTY);
   expect(actual1).toEqual({
     root: SELECTION_PARTIAL,
@@ -207,7 +207,7 @@ test('setting selection of a set of leaves works', () => {
 });
 
 test('setting selection of a set of leaves is idempotent', () => {
-  const predicate = id => id == 'a2' || id == 'b3';
+  const predicate = id => id === 'a2' || id === 'b3';
   const actual1 = selectAllLeaves(
     predicate,
     SELECTION_EMPTY,

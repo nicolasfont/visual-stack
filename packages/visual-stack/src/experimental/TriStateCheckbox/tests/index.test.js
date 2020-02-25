@@ -27,7 +27,7 @@ describe('TriStateCheckbox', () => {
     expect(checkbox.indeterminate).toEqual(true);
   });
   it('should trigger events on click', () => {
-    var clicked = false;
+    let clicked = false;
     const wrapper = mount(
       <uut.TriStateCheckbox
         value={1}

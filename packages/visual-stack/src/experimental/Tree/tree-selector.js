@@ -21,7 +21,7 @@ export class TreeSelector {
     this.name = props.name || (nodeId => nodeId);
     this.isChild =
       props.isChild ||
-      ((nodeId, context) => this.children(nodeId, context).length == 0);
+      ((nodeId, context) => this.children(nodeId, context).length === 0);
     this.all =
       props.all ||
       ((predicate, context) =>
@@ -35,7 +35,7 @@ export class TreeSelector {
   }
 
   createMap(fn) {
-    let map = {};
+    const map = {};
     for (const nodeId of this._all(R.T, this.rootId()))
       map[nodeId] = fn(nodeId);
     return map;
@@ -107,7 +107,7 @@ export class TreeSelector {
       let empty = 0;
       let partial = 0;
       let full = 0;
-      for (let id of idArray) {
+      for (const id of idArray) {
         switch (selection[id]) {
           case SELECTION_EMPTY:
             empty += 1;

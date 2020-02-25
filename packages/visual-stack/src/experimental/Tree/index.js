@@ -9,7 +9,7 @@ export class Tree extends React.Component {
     const ts = nextProps.treeStructure;
     const nodeId = this.props.nodeId;
     if (nodeId === undefined || nodeId === ts.rootId()) return true;
-    let parentId = ts.parent(nodeId);
+    const parentId = ts.parent(nodeId);
     if (parentId === undefined) return true;
     if (!nextProps.expansion[parentId]) return false;
     if (nextProps.filterOut[parentId]) return false;
