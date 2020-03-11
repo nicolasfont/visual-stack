@@ -35,9 +35,14 @@ export default () => (
               <Button type="solid-primary-pill"><Plus /> Primary with Icon</Button>
               <Button type="solid-secondary-pill">Secondary</Button>
               <Button type="solid-secondary-pill"><Plus /> Secondary with Icon</Button>
+              <Button type="solid-outline-raised-pill">Raised Secondary Outline</Button>
+              <Button type="solid-outline-raised-pill"><Plus /> Raised Secondary Outline with Icon</Button>
               {/* s6:end */}
               <Snippet tag="s6" src={snippets} />
             </Body>
+          </Panel>
+
+          <Panel>
             <Body>
               <h2>Buttons</h2>
               <p>Please refer to the UX guidelines documented in the <a href="https://cj.invisionapp.com/dsm/cjaffiliate/visual-stack" target="_blank" rel="noopener noreferrer">CJ Design System Manager</a> for proper usage and placement of buttons (currently in development).</p>
