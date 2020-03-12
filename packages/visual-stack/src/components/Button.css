@@ -290,8 +290,11 @@ a.vs-btn-d:hover,
 	fill: #fff;
 }
 
-
-
+.vs-btn-d.vs-solid-outline-raised-pill-btn {
+	background-color: #fff;
+  border-color: transparent;
+  border-radius: 16px;
+}
 
 
 /* ------------------------------------ */
@@ -300,32 +303,37 @@ a.vs-btn-d:hover,
 
 .vs-outline-secondary-btn,
 .vs-outline-secondary-raised-btn,
-.vs-rounded-outline-btn {
-  border-color: #adb1b6;
+.vs-rounded-outline-btn,
+.vs-solid-outline-raised-pill-btn {
+  border-color: #D8DCDF;
   background-position: center;
   color: #686f78;
   transition: all 0.4s;
 }
 
-.vs-outline-secondary-raised-btn {
+.vs-outline-secondary-raised-btn,
+.vs-solid-outline-raised-pill-btn {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.14), 0 2px 3px -1px rgba(0, 0, 0, 0.14);
   transition: 0.4s all ease-in-out;
 }
 
 .vs-outline-secondary-btn svg,
-.vs-outline-secondary-raised-btn svg {
+.vs-outline-secondary-raised-btn svg,
+.vs-solid-outline-raised-pill-btn svg {
 	margin-left: -4px;
 }
 
 .vs-outline-secondary-btn:hover,
-.vs-rounded-outline-btn:hover {
+.vs-rounded-outline-btn:hover,
+.vs-solid-outline-raised-pill-btn:hover {
   background: rgba(137, 150, 165, 0.1)
     radial-gradient(circle, transparent 1%, rgba(137, 150, 165, 0.1) 1%)
     center/15000%;
   color: #414346;
 }
 
-.vs-outline-secondary-raised-btn:hover {
+.vs-outline-secondary-raised-btn:hover,
+.vs-solid-outline-raised-pill-btn:hover {
   background: rgba(137, 150, 165, 0.1)
     radial-gradient(circle, transparent 1%, rgba(137, 150, 165, 0.1) 1%)
     center/15000%;
@@ -335,7 +343,8 @@ a.vs-btn-d:hover,
 
 .vs-outline-secondary-btn:active,
 .vs-outline-secondary-raised-btn:active,
-.vs-rounded-outline-btn:active {
+.vs-rounded-outline-btn:active,
+.vs-solid-outline-raised-pill-btn:active {
   background-color: rgba(167, 179, 192, 0.04);
   background-size: 100%;
   color: #414346;
@@ -449,7 +458,7 @@ a.vs-btn-d:hover,
 /* ------------------------------------ */
 
 .vs-inline-outline-secondary-btn {
-  border-color: #cccccc;
+  border-color: #D8DCDF;
   border-radius: 3px;
   font-weight: 400;
   font-size: 13px;

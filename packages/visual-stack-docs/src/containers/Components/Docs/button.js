@@ -28,17 +28,6 @@ export default () => (
         <div>
           <Panel>
             <Body>
-              <h4>Transitional MemberWeb/Platform Pill Buttons</h4>
-              <p>The pill buttons will be used in memberweb to introduce more features in the new platform. The pill shape and solid color of the button will help call out a call to actions of highest priority, such as the onboarding checklist guide or to finish setting up an account.</p>
-              {/* s6:start */}
-              <Button type="solid-primary-pill">Primary</Button>
-              <Button type="solid-primary-pill"><Plus /> Primary with Icon</Button>
-              <Button type="solid-secondary-pill">Secondary</Button>
-              <Button type="solid-secondary-pill"><Plus /> Secondary with Icon</Button>
-              {/* s6:end */}
-              <Snippet tag="s6" src={snippets} />
-            </Body>
-            <Body>
               <h2>Buttons</h2>
               <p>Please refer to the UX guidelines documented in the <a href="https://cj.invisionapp.com/dsm/cjaffiliate/visual-stack" target="_blank" rel="noopener noreferrer">CJ Design System Manager</a> for proper usage and placement of buttons (currently in development).</p>
               {/* s3:start */}
@@ -54,6 +43,22 @@ export default () => (
               <Button type="solid-secondary">Solid Secondary</Button>
               {/* s3:end */}
               <Snippet tag="s3" src={snippets} />
+            </Body>
+          </Panel>
+
+          <Panel>
+            <Body>
+              <h4>Transitional MemberWeb/Platform Pill Buttons</h4>
+              <p>The pill buttons will be used in memberweb to introduce more features in the new platform. The pill shape and solid color of the button will help call out a call to actions of highest priority, such as the onboarding checklist guide or to finish setting up an account.</p>
+              {/* s6:start */}
+              <Button type="solid-primary-pill">Primary</Button>
+              <Button type="solid-primary-pill"><Plus /> Primary with Icon</Button>
+              <Button type="solid-secondary-pill">Secondary</Button>
+              <Button type="solid-secondary-pill"><Plus /> Secondary with Icon</Button>
+              <Button type="solid-outline-raised-pill">Raised Secondary Outline</Button>
+              <Button type="solid-outline-raised-pill"><Plus /> Raised Secondary Outline with Icon</Button>
+              {/* s6:end */}
+              <Snippet tag="s6" src={snippets} />
             </Body>
           </Panel>
 
@@ -100,7 +105,6 @@ export default () => (
             </Body>
           </Panel>
 
-
           <Panel>
             <Body>
               <h5>Disabled States</h5>
@@ -118,7 +122,6 @@ export default () => (
               <Snippet tag="s4" src={snippets} />
             </Body>
           </Panel>
-
 
           <Panel>
             <Header>Button Sizing</Header>
