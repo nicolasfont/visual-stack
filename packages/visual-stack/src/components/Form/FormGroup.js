@@ -3,14 +3,7 @@ import PropTypes from 'prop-types';
 import Label from './Label';
 import './Form.css';
 
-const FormGroup = ({
-  children,
-  error,
-  label,
-  required,
-  vertical,
-  classes,
-}) => (
+const FormGroup = ({ children, error, label, required, vertical, classes }) => (
   <div
     className={`form-group ${classes ? classes : ''} ${
       error ? 'has-error' : ''

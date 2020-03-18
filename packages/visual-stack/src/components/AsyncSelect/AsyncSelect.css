@@ -20,9 +20,9 @@ div.vs-react-select-async__control {
 
 div.vs-react-select-async__control--is-focused,
 div.vs-react-select-async__control--is-focused:hover {
-  outline: 1px solid #979C9F;
-  border-color: #979C9F;
-  box-shadow: 0 0 0 2px rgba(0,0,0,.1);
+  outline: 1px solid #979c9f;
+  border-color: #979c9f;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
 .vs-react-select-async__value-container div {
@@ -39,8 +39,8 @@ div.vs-react-select-async__value-container {
 }
 
 div.vs-react-select-async__placeholder {
-	font-size: 1.3rem;
-	line-height: 1.4rem;
+  font-size: 1.3rem;
+  line-height: 1.4rem;
 }
 
 div.vs-react-select-async__indicator {
@@ -48,10 +48,10 @@ div.vs-react-select-async__indicator {
 }
 
 div.vs-react-select-async__indicators svg {
-	position: relative;
-	top: -1px;
-	width: 16px;
-	transition: .2s all ease-in-out;
+  position: relative;
+  top: -1px;
+  width: 16px;
+  transition: 0.2s all ease-in-out;
 }
 
 div.vs-react-select-async__option {
@@ -83,7 +83,7 @@ div.vs-react-select-async__option.vs-react-select-async__option--is-selected:act
 }
 
 div.vs-react-select-async__multi-value {
-  background-color: #6D7684;
+  background-color: #6d7684;
   border-radius: 2px;
   color: #fff;
   height: 24px;
@@ -97,7 +97,7 @@ div.vs-react-select-async__multi-value {
 }
 
 div.vs-react-select-async__multi-value:first-child {
-	margin-left: -4px;
+  margin-left: -4px;
 }
 
 div.vs-react-select-async__multi-value__label {
@@ -113,8 +113,8 @@ div.vs-react-select-async__multi-value__remove:hover {
 }
 
 div.vs-react-select-async__multi-value__remove {
-	margin-left: 2px;
-	position: absolute;
-	right: 4px;
-	top: 5px;
+  margin-left: 2px;
+  position: absolute;
+  right: 4px;
+  top: 5px;
 }

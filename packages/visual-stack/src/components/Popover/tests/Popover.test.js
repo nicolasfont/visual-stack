@@ -1,7 +1,7 @@
 import React from 'react';
-import Popover, {HoverPopover} from '../index';
-import Enzyme, {mount} from 'enzyme';
-import {Popper} from 'react-popper';
+import Popover, { HoverPopover } from '../index';
+import Enzyme, { mount } from 'enzyme';
+import { Popper } from 'react-popper';
 
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -91,8 +91,8 @@ describe('Popover', () => {
     const eventsEnabled = false;
     const modifiers = {
       flip: {
-        enabled: false
-      }
+        enabled: false,
+      },
     };
     const positionFixed = true;
 
@@ -108,9 +108,9 @@ describe('Popover', () => {
     );
 
     const popper = wrapper.find(Popper);
-    expect(popper.prop("eventsEnabled")).toBe(eventsEnabled);
-    expect(popper.prop("modifiers")).toBe(modifiers);
-    expect(popper.prop("positionFixed")).toBe(positionFixed);
+    expect(popper.prop('eventsEnabled')).toBe(eventsEnabled);
+    expect(popper.prop('modifiers')).toBe(modifiers);
+    expect(popper.prop('positionFixed')).toBe(positionFixed);
   });
 });
 

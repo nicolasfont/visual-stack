@@ -1,5 +1,5 @@
 import React from 'react';
-import {Manager, Popper, Reference} from 'react-popper';
+import { Manager, Popper, Reference } from 'react-popper';
 import cn from 'classnames';
 import './Popover.css';
 

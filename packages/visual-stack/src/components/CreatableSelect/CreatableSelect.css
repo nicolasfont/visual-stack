@@ -22,16 +22,16 @@ div.vs-default-react-select-creatable__control--is-focused,
 div.vs-default-react-select-creatable__control--is-focused:hover,
 div.vs-react-select-creatable__control--is-focused,
 div.vs-react-select-creatable__control--is-focused:hover {
-  outline: 1px solid #979C9F;
-  border-color: #979C9F;
-  box-shadow: 0 0 0 2px rgba(0,0,0,.1);
+  outline: 1px solid #979c9f;
+  border-color: #979c9f;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
 .vs-react-select-async__value-container,
 .vs-react-select-async__value-container--is-multi,
 .vs-react-select-creatable__value-container div {
-	font-size: 1.3rem;
-	line-height: 20px;
+  font-size: 1.3rem;
+  line-height: 20px;
   margin-top: 0px;
   margin-bottom: 0px;
   padding: 0;
@@ -43,8 +43,8 @@ div.vs-react-select-creatable__value-container {
 }
 
 div.vs-react-select-creatable__placeholder {
-	font-size: 1.3rem;
-	line-height: 1.4rem;
+  font-size: 1.3rem;
+  line-height: 1.4rem;
 }
 
 div.vs-react-select-creatable__indicator {
@@ -52,10 +52,10 @@ div.vs-react-select-creatable__indicator {
 }
 
 div.vs-react-select-creatable__indicator svg {
-	position: relative;
-	top: -1px;
-	width: 16px;
-	transition: .2s all ease-in-out;
+  position: relative;
+  top: -1px;
+  width: 16px;
+  transition: 0.2s all ease-in-out;
 }
 
 div.vs-react-select-creatable__option {
@@ -64,7 +64,7 @@ div.vs-react-select-creatable__option {
 }
 
 div.vs-react-select__control:hover div.vs-react-select__dropdown-indicator svg {
-	color: #333;
+  color: #333;
 }
 
 div.vs-react-select-creatable__control.vs-react-select-creatable__control--is-disabled,
@@ -91,7 +91,7 @@ div.vs-react-select-creatable__option.vs-react-select-creatable__option--is-sele
 }
 
 div.vs-react-select-creatable__multi-value {
-  background-color: #6D7684;
+  background-color: #6d7684;
   border-radius: 2px;
   color: #fff;
   height: 24px;
@@ -105,7 +105,7 @@ div.vs-react-select-creatable__multi-value {
 }
 
 div.vs-react-select-creatable__multi-value:first-child {
-	margin-left: -4px;
+  margin-left: -4px;
 }
 
 div.vs-react-select-creatable__multi-value__label {
