@@ -69,7 +69,7 @@ export const CompareIcon = props => (
 
 export const CountedIcon = ({ className, ...restProps }) => {
   return (
-    <Icon {...restprops}>
+    <Icon {...restProps}>
       <path
         className={className}
         d="M17.5,21.2c2,0,3.7-1.7,3.7-3.7s-1.6-3.7-3.7-3.7s-3.7,1.7-3.7,3.7S15.5,21.2,17.5,21.2z M6.5,21.2 c2,0,3.7-1.7,3.7-3.7s-1.6-3.7-3.7-3.7s-3.7,1.7-3.7,3.7S4.4,21.2,6.5,21.2z M6.5,10.2c2,0,3.7-1.7,3.7-3.7S8.5,2.8,6.5,2.8 S2.8,4.4,2.8,6.5S4.4,10.2,6.5,10.2z"

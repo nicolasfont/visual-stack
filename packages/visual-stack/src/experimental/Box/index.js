@@ -32,7 +32,9 @@ const Box = ({
     paddingLeft &&
       `vs-box-padding-left-${paddingLeft === true ? 'default' : paddingLeft}`,
     paddingRight &&
-      `vs-box-padding-right-${paddingRight == true ? 'default' : paddingRight}`,
+      `vs-box-padding-right-${
+        paddingRight === true ? 'default' : paddingRight
+      }`,
     paddingTop &&
       `vs-box-padding-top-${paddingTop === true ? 'default' : paddingTop}`,
     alignItems && `vs-box-align-items-${alignItems}`,

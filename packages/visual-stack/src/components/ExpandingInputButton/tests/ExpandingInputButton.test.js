@@ -4,7 +4,6 @@ import Enzyme, { shallow } from 'enzyme/build';
 import Adapter from 'enzyme-adapter-react-16/build';
 Enzyme.configure({ adapter: new Adapter() });
 import MagnifyIcon from 'mdi-react/MagnifyIcon';
-import { Input } from '../../Form';
 
 describe('ExpandingInputButton', () => {
   it('should render when expanded', () => {

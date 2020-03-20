@@ -3,7 +3,6 @@ import Text from '../index';
 import Enzyme, { mount } from 'enzyme';
 
 import Adapter from 'enzyme-adapter-react-16';
-import Box from '../../Box';
 
 Enzyme.configure({ adapter: new Adapter() });
 
