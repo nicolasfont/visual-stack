@@ -1,3 +1,9 @@
+# 6.7.1
+## New Feature
+- Added a new Button Type - Raised Solid White
+## Updates
+- Improved restProps support in all components
+
 # 6.7.0
 ## New Feature
 - Add experimental Tree and TriStateCheckbox components
@@ -37,8 +43,8 @@
 
 # 6.1.0
 ## New Feature
-- Pass id prop to TextField, ChoiceInput and SelectField and it will be passed as `for` prop to label to help with 
-accessibility and testing-library getByLabel. 
+- Pass id prop to TextField, ChoiceInput and SelectField and it will be passed as `for` prop to label to help with
+accessibility and testing-library getByLabel.
 
 # 6.0.0
 ## Update Dependency
@@ -55,7 +61,7 @@ accessibility and testing-library getByLabel.
 
 # 5.1.1
 ## Bug Fix
-- Additional Popover props are now being passed to the correct sub-component 
+- Additional Popover props are now being passed to the correct sub-component
 
 # 5.1.0
 ## Update Dependency
