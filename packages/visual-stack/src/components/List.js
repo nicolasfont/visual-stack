@@ -4,10 +4,12 @@ import { map, omit } from 'ramda';
 
 import './List.css';
 
-export const List = ({ children }) => <div>{children}</div>;
+export const List = ({ children, ...restProps }) => (
+  <div {...restProps}>{children}</div>
+);
 
-export const Toolbar = ({ title, children }) => (
-  <div className="vs-list-toolbar vs-toolbar-widget-header">
+export const Toolbar = ({ title, children, ...restProps }) => (
+  <div {...restProps} className="vs-list-toolbar vs-toolbar-widget-header">
     {title && <span className="vs-list-toolbar-title">{title}</span>}
     {children}
   </div>
@@ -16,8 +18,10 @@ Toolbar.propTypes = {
   title: PropTypes.string,
 };
 
-export const ActionButton = ({ icon, className, onClick }) => {
-  return <span className={`${icon} ${className}`} onClick={onClick} />;
+export const ActionButton = ({ icon, className, onClick, ...restProps }) => {
+  return (
+    <span {...restProps} className={`${icon} ${className}`} onClick={onClick} />
+  );
 };
 ActionButton.propTypes = {
   icon: PropTypes.string.isRequired,
@@ -28,16 +32,16 @@ ActionButton.defaultProps = {
   className: '',
 };
 
-const renderHeaderCell = ({ width, alignment, text }) => (
-  <Cell key={text} width={width}>
+const renderHeaderCell = ({ width, alignment, text, ...restProps }) => (
+  <Cell {...restProps} key={text} width={width}>
     <div className={`vs-list-header-label text-${alignment || 'left'}`}>
       {text}
     </div>
   </Cell>
 );
 
-export const Header = ({ labels }) => (
-  <div className="vs-list-header">
+export const Header = ({ labels, ...restProps }) => (
+  <div className="vs-list-header" {...restProps}>
     <Row>{map(renderHeaderCell, labels)}</Row>
   </div>
 );
@@ -51,8 +55,10 @@ Header.propTypes = {
   ).isRequired,
 };
 
-export const Rows = ({ children }) => (
-  <div className="vs-list-rows">{children}</div>
+export const Rows = ({ children, ...restProps }) => (
+  <div className="vs-list-rows" {...restProps}>
+    {children}
+  </div>
 );
 
 export const Row = props => (
@@ -66,12 +72,16 @@ export const Row = props => (
   </div>
 );
 
-const ExpandedRowPanel = ({ children }) => (
-  <div className="vs-list-row-expanded">{children}</div>
+const ExpandedRowPanel = ({ children, ...restProps }) => (
+  <div {...restProps} className="vs-list-row-expanded">
+    {children}
+  </div>
 );
 
-export const Cell = ({ width, children }) => (
-  <div className={`vs-list-cell col-xs-${width || 1}`}>{children}</div>
+export const Cell = ({ width, children, ...restProps }) => (
+  <div {...restProps} className={`vs-list-cell col-xs-${width || 1}`}>
+    {children}
+  </div>
 );
 Cell.propTypes = {
   width: PropTypes.number,

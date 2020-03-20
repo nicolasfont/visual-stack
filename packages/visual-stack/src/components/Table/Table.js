@@ -2,44 +2,44 @@ import React from 'react';
 import cn from 'classnames';
 import './Table.css';
 
-export const TableContainer = ({ className, children, ...rest }) => (
-  <div className={cn('vs-table-container', className)} {...rest}>
+export const TableContainer = ({ className, children, ...restProps }) => (
+  <div {...restProps} className={cn('vs-table-container', className)}>
     {children}
   </div>
 );
 
-export const TableTitle = ({ className, children, ...rest }) => (
-  <div className={cn('vs-table-title', className)} {...rest}>
+export const TableTitle = ({ className, children, ...restProps }) => (
+  <div {...restProps} className={cn('vs-table-title', className)}>
     {children}
   </div>
 );
 
-export const Table = ({ className, children, ...rest }) => (
-  <table className={cn('vs-table', className)} {...rest}>
+export const Table = ({ className, children, ...restProps }) => (
+  <table {...restProps} className={cn('vs-table', className)}>
     {children}
   </table>
 );
 
-export const TBody = ({ className, children, ...rest }) => (
-  <tbody className={cn('vs-tbody', className)} {...rest}>
+export const TBody = ({ className, children, ...restProps }) => (
+  <tbody {...restProps} className={cn('vs-tbody', className)}>
     {children}
   </tbody>
 );
 
-export const THead = ({ className, children, ...rest }) => (
-  <thead className={cn('vs-thead', className)} {...rest}>
+export const THead = ({ className, children, ...restProps }) => (
+  <thead {...restProps} className={cn('vs-thead', className)}>
     {children}
   </thead>
 );
 
-export const TFoot = ({ className, children, ...rest }) => (
-  <tfoot className={cn('vs-tfoot', className)} {...rest}>
+export const TFoot = ({ className, children, ...restProps }) => (
+  <tfoot {...restProps} className={cn('vs-tfoot', className)}>
     {children}
   </tfoot>
 );
 
-export const Tr = ({ className, children, ...rest }) => (
-  <tr className={cn('vs-row', className)} {...rest}>
+export const Tr = ({ className, children, ...restProps }) => (
+  <tr {...restProps} className={cn('vs-row', className)}>
     {children}
   </tr>
 );
@@ -54,22 +54,39 @@ const buildCellClasses = (center, className, nowrap, right) => {
   );
 };
 
-export const Th = ({ center, className, nowrap, right, children, ...rest }) => (
+export const Th = ({
+  center,
+  className,
+  nowrap,
+  right,
+  children,
+  ...restProps
+}) => (
   <th
+    {...restProps}
     className={`${buildCellClasses(
       center,
       className,
       nowrap,
       right
     )} vs-table-header`}
-    {...rest}
   >
     {children}
   </th>
 );
 
-export const Td = ({ center, className, nowrap, right, children, ...rest }) => (
-  <td className={buildCellClasses(center, className, nowrap, right)} {...rest}>
+export const Td = ({
+  center,
+  className,
+  nowrap,
+  right,
+  children,
+  ...restProps
+}) => (
+  <td
+    {...restProps}
+    className={buildCellClasses(center, className, nowrap, right)}
+  >
     {children}
   </td>
 );

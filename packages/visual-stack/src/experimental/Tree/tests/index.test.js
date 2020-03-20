@@ -92,4 +92,19 @@ describe('Tree', () => {
       )
     );
   });
+
+  it('should render with arbitrary data-id prop', () => {
+    const wrapper = render(
+      <uut.Tree
+        treeStructure={treeSelector}
+        rootVisible={false}
+        selection={treeSelector.createMap(_ => 1)}
+        expansion={treeSelector.createMap(id => id === 'root')}
+        data-id="test"
+      />
+    );
+    expect(
+      wrapper.find('.vs-tree[data-id="test"] .vs-leafContent').text()
+    ).toEqual('Node ANode B');
+  });
 });

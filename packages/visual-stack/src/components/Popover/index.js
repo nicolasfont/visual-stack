@@ -1,5 +1,5 @@
 import React from 'react';
-import {Manager, Popper, Reference} from 'react-popper';
+import { Manager, Popper, Reference } from 'react-popper';
 import cn from 'classnames';
 import './Popover.css';
 
@@ -12,11 +12,11 @@ const Popover = ({
   eventsEnabled,
   modifiers,
   positionFixed,
-  ...otherProps
+  ...restProps
 }) => {
   return (
     <Manager>
-      <div className="vs-popover-wrapper" {...otherProps}>
+      <div {...restProps} className="vs-popover-wrapper">
         <Reference>
           {({ ref }) => (
             <div ref={ref} className="vs-popover-reference">
@@ -63,20 +63,24 @@ export class HoverPopover extends React.Component {
     super(props);
   }
 
-  onMouseOver = () => {
+  onMouseOver() {
     this.setState({ shown: true });
-  };
+  }
 
-  onMouseLeave = () => {
+  onMouseLeave() {
     this.setState({ shown: false });
-  };
+  }
 
   render() {
     return (
       <Popover
         shown={this.state.shown}
-        onMouseOver={this.onMouseOver}
-        onMouseLeave={this.onMouseLeave}
+        onMouseOver={() => {
+          this.onMouseOver();
+        }}
+        onMouseLeave={() => {
+          this.onMouseLeave();
+        }}
         {...this.props}
       >
         {this.props.children}

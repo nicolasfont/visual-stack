@@ -55,6 +55,7 @@ class SideNavP extends React.Component {
       children,
       userMenu,
       homeLink,
+      ...restProps
     } = this.props;
 
     const toggle = () => onClick(!collapsed);
@@ -63,7 +64,10 @@ class SideNavP extends React.Component {
       ? React.cloneElement(userMenu, { color: '#49c5b1' })
       : null;
     return (
-      <ul className={'vs-sidenav' + (collapsed ? ' collapsed' : ' active')}>
+      <ul
+        {...restProps}
+        className={'vs-sidenav' + (collapsed ? ' collapsed' : ' active')}
+      >
         <li className="vs-sideNav-left-logo">
           <a
             href={`${homeLink ? homeLink : '/'}`}

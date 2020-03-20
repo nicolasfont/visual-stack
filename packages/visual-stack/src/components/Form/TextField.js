@@ -14,9 +14,10 @@ export default ({
   help,
   optional,
   optionalLabel,
-  ...otherProps
+  ...restProps
 }) => (
   <Field
+    {...restProps}
     htmlFor={id}
     classes={`vs-text-field ${className ? className : ''}`}
     label={label}
@@ -24,15 +25,14 @@ export default ({
     help={help}
     optional={optional}
     optionalLabel={optionalLabel}
-    {...otherProps}
   >
     <FieldContent>
       <Input
+        {...restProps}
         id={id}
         className={error ? 'input-error' : ''}
         name={name}
         value={value}
-        {...otherProps}
       />
     </FieldContent>
   </Field>

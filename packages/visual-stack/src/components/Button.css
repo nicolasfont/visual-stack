@@ -1,4 +1,3 @@
-
 /* ------------------------------------ */
 /* Global Button Styles                 */
 /* ------------------------------------ */
@@ -50,9 +49,6 @@ a.vs-btn-d:hover,
 .vs-btn-d:hover svg {
   fill: #4d5051;
 }
-
-
-
 
 /* ------------------------------------ */
 /* Deprecated MemberWeb Buttons         */
@@ -119,13 +115,9 @@ a.vs-btn-d:hover,
   color: #35b09c;
 }
 
-
-
 /* ------------------------------------ */
 /* Platform Buttons                     */
 /* ------------------------------------ */
-
-
 
 /* ------------------------------------ */
 /* Primary Solid Buttons                      */
@@ -139,7 +131,8 @@ a.vs-btn-d:hover,
 }
 
 .vs-solid-primary-btn:hover {
-  background: #14ab93 radial-gradient(circle, transparent 1%, #14ab93 1%) center/15000%;
+  background: #14ab93 radial-gradient(circle, transparent 1%, #14ab93 1%)
+    center/15000%;
 }
 
 .vs-solid-primary-btn:active {
@@ -149,15 +142,13 @@ a.vs-btn-d:hover,
 }
 
 .vs-solid-primary-btn svg {
-	fill: #fff;
-	margin-left: -4px;
+  fill: #fff;
+  margin-left: -4px;
 }
 
 .vs-solid-primary-btn:hover svg {
-	fill: #fff;
+  fill: #fff;
 }
-
-
 
 /* ------------------------------------ */
 /* Primary Raised Buttons */
@@ -184,15 +175,13 @@ a.vs-btn-d:hover,
 }
 
 .vs-solid-primary-raised-btn svg {
-	fill: #fff;
-	margin-left: -4px;
+  fill: #fff;
+  margin-left: -4px;
 }
 
 .vs-solid-primary-raised-btn:hover svg {
-	fill: #fff;
+  fill: #fff;
 }
-
-
 
 /* ------------------------------------ */
 /* Secondary Soild Button */
@@ -206,7 +195,8 @@ a.vs-btn-d:hover,
 }
 
 .vs-solid-secondary-btn:hover {
-  background: #48535f radial-gradient(circle, transparent 1%, #48535f 1%) center/15000%;
+  background: #48535f radial-gradient(circle, transparent 1%, #48535f 1%)
+    center/15000%;
 }
 
 .vs-solid-secondary-btn:hover {
@@ -214,21 +204,19 @@ a.vs-btn-d:hover,
 }
 
 .vs-solid-secondary-btn:active {
-	background-color: #75808c;
+  background-color: #75808c;
   background-size: 100%;
   transition: background 0s;
 }
 
 .vs-solid-secondary-btn svg {
-	fill: #fff;
-	margin-left: -4px;
+  fill: #fff;
+  margin-left: -4px;
 }
 
 .vs-solid-secondary-btn:hover svg {
-	fill: #fff;
+  fill: #fff;
 }
-
-
 
 /* ------------------------------------ */
 /* Pill Buttons */
@@ -236,9 +224,9 @@ a.vs-btn-d:hover,
 
 .vs-solid-primary-pill-btn,
 .vs-solid-secondary-pill-btn {
-	border-radius: 16px;
-	padding-left: 16px;
-	padding-right:  16px;
+  border-radius: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .vs-solid-primary-pill-btn {
@@ -249,11 +237,12 @@ a.vs-btn-d:hover,
 }
 
 .vs-solid-primary-pill-btn:hover {
-  background: #14ab93 radial-gradient(circle, transparent 1%, #14ab93 1%) center/15000%;
+  background: #14ab93 radial-gradient(circle, transparent 1%, #14ab93 1%)
+    center/15000%;
 }
 
 .vs-solid-primary-pill-btn:active {
-	background-color: #44cbb4;
+  background-color: #44cbb4;
   background-size: 100%;
   transition: background 0s;
 }
@@ -266,7 +255,8 @@ a.vs-btn-d:hover,
 }
 
 .vs-solid-secondary-pill-btn:hover {
-  background: #48535f radial-gradient(circle, transparent 1%, #48535f 1%) center/15000%;
+  background: #48535f radial-gradient(circle, transparent 1%, #48535f 1%)
+    center/15000%;
 }
 
 .vs-solid-secondary-pill-btn:hover {
@@ -274,28 +264,27 @@ a.vs-btn-d:hover,
 }
 
 .vs-solid-secondary-pill-btn:active {
-	background-color: #75808c;
+  background-color: #75808c;
   background-size: 100%;
   transition: background 0s;
 }
 
 .vs-solid-primary-pill-btn svg,
 .vs-solid-secondary-pill-btn svg {
-	fill: #fff;
-	margin-left: -6px;
+  fill: #fff;
+  margin-left: -6px;
 }
 
 .vs-solid-primary-pill-btn:hover svg,
 .vs-solid-secondary-pill-btn:hover svg {
-	fill: #fff;
+  fill: #fff;
 }
 
 .vs-btn-d.vs-solid-outline-raised-pill-btn {
-	background-color: #fff;
+  background-color: #fff;
   border-color: transparent;
   border-radius: 16px;
 }
-
 
 /* ------------------------------------ */
 /* Secondary Outline Buttons */
@@ -305,7 +294,7 @@ a.vs-btn-d:hover,
 .vs-outline-secondary-raised-btn,
 .vs-rounded-outline-btn,
 .vs-solid-outline-raised-pill-btn {
-  border-color: #D8DCDF;
+  border-color: #d8dcdf;
   background-position: center;
   color: #686f78;
   transition: all 0.4s;
@@ -320,7 +309,7 @@ a.vs-btn-d:hover,
 .vs-outline-secondary-btn svg,
 .vs-outline-secondary-raised-btn svg,
 .vs-solid-outline-raised-pill-btn svg {
-	margin-left: -4px;
+  margin-left: -4px;
 }
 
 .vs-outline-secondary-btn:hover,
@@ -351,9 +340,6 @@ a.vs-btn-d:hover,
   transition: background 0s;
 }
 
-
-
-
 /* ------------------------------------ */
 /* Round Circle Buttons */
 /* ------------------------------------ */
@@ -373,7 +359,7 @@ a.vs-btn-d:hover,
 
 .vs-rounded-solid-btn svg {
   fill: #fff;
-/*   width: 16px; */
+  /*   width: 16px; */
 }
 
 .vs-rounded-solid-btn:hover svg {
@@ -388,16 +374,13 @@ a.vs-btn-d:hover,
 }
 
 .vs-rounded-outline-btn svg {
-/*   width: 16px; */
+  /*   width: 16px; */
 }
 
 .vs-rounded-outline-btn:hover {
   background: rgba(172, 176, 181, 0.1);
   color: #6f7376;
 }
-
-
-
 
 /* ------------------------------------ */
 /* Text Buttons */
@@ -448,17 +431,12 @@ a.vs-btn-d:hover,
   color: #414346;
 }
 
-
-
-
-
-
 /* ------------------------------------ */
 /* Dropdown Buttons */
 /* ------------------------------------ */
 
 .vs-inline-outline-secondary-btn {
-  border-color: #D8DCDF;
+  border-color: #d8dcdf;
   border-radius: 3px;
   font-weight: 400;
   font-size: 13px;
@@ -505,17 +483,14 @@ a.vs-btn-d:hover,
   width: 20px;
 }
 
-
-
-
 /* ------------------------------------ */
 /* Button sizing */
 /* ------------------------------------ */
 
 .vs-btn-d.vs-sm-btn {
   font-size: 1rem;
-	height: auto;
-	line-height: 1;
+  height: auto;
+  line-height: 1;
   padding: 6px 8px;
 }
 
@@ -524,9 +499,6 @@ a.vs-btn-d:hover,
   height: 40px;
   line-height: 1;
 }
-
-
-
 
 /* ------------------------------------ */
 /* Disabled state */

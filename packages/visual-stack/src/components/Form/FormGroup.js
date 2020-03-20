@@ -10,8 +10,10 @@ const FormGroup = ({
   required,
   vertical,
   classes,
+  ...restProps
 }) => (
   <div
+    {...restProps}
     className={`form-group ${classes ? classes : ''} ${
       error ? 'has-error' : ''
     }`}

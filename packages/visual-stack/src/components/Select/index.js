@@ -3,7 +3,7 @@ import ReactSelect from 'react-select';
 import cn from 'classnames';
 import './Select.css';
 
-const Select = ({ className, error, disabled, ...otherProps }) => (
+const Select = ({ className, error, disabled, ...restProps }) => (
   <ReactSelect
     className={cn(
       { 'vs-input-error': error },
@@ -12,7 +12,7 @@ const Select = ({ className, error, disabled, ...otherProps }) => (
     )}
     classNamePrefix={'vs-react-select'}
     isDisabled={disabled}
-    {...otherProps}
+    {...restProps}
   />
 );
 

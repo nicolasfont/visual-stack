@@ -11,7 +11,7 @@ const mkButton = buttonType => ({
   type,
   small,
   large,
-  ...otherProps
+  ...restProps
 }) => {
   const classes = concatAll(
     ['vs-btn-d', `vs-${type}-btn`],
@@ -21,7 +21,7 @@ const mkButton = buttonType => ({
   );
 
   return (
-    <button type={buttonType} {...otherProps} className={classes.join(' ')}>
+    <button {...restProps} type={buttonType} className={classes.join(' ')}>
       {children}
     </button>
   );

@@ -11,14 +11,14 @@ export default ({
   optional,
   optionalLabel,
   children,
-  ...otherProps
+  ...restProps
 }) => (
   <div className={`vs-field ${className ? className : ''}`}>
     <Label
+      {...restProps}
       htmlFor={htmlFor}
       className="vs-field-label"
       weight="bold"
-      {...otherProps}
     >
       {label}{' '}
       <span className="vs-field-optional">

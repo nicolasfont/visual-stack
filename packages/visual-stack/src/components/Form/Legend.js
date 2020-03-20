@@ -1,6 +1,6 @@
 import React from 'react';
 import './Form.css';
 
-export default ({ children, ...otherProps }) => (
-  <legend {...otherProps}>{children}</legend>
+export default ({ children, ...restProps }) => (
+  <legend {...restProps}>{children}</legend>
 );

@@ -1,95 +1,95 @@
 @import url('//fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700');
 
 .vs-text {
-    font-family: 'Roboto', -system-ui, -apple-system, BlinkMacSystemFont,
+  font-family: 'Roboto', -system-ui, -apple-system, BlinkMacSystemFont,
     'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol';
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 .vs-text.vs-text-type-default {
-    color: #333333;
-    font-size: 14px;
-    font-weight: 400;
+  color: #333333;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .vs-text.vs-text-type-light {
-    color: #757575;
-    font-size: 14px;
-    font-weight: 400;
+  color: #757575;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .vs-text.vs-text-type-bold {
-    color: #333333;
-    font-size: 14px;
-    font-weight: 500;
+  color: #333333;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .vs-text.vs-text-type-small {
-    color: #333333;
-    font-size: 12px;
-    font-weight: 400;
+  color: #333333;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .vs-text.vs-text-type-small-light {
-    color: #757575;
-    font-size: 12px;
-    font-weight: 400;
+  color: #757575;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .vs-text.vs-text-type-h1 {
-    color: #333333;
-    font-size: 28px;
-    font-weight: 500;
+  color: #333333;
+  font-size: 28px;
+  font-weight: 500;
 }
 
 .vs-text.vs-text-type-h2 {
-    color: #333333;
-    font-size: 24px;
-    font-weight: 500;
+  color: #333333;
+  font-size: 24px;
+  font-weight: 500;
 }
 
 .vs-text.vs-text-type-h3 {
-    color: #333333;
-    font-size: 20px;
-    font-weight: 500;
+  color: #333333;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .vs-text.vs-text-type-h4 {
-    color: #333333;
-    font-size: 18px;
-    font-weight: 500;
+  color: #333333;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .vs-text.vs-text-type-h5 {
-    color: #333333;
-    font-size: 16px;
-    font-weight: 500;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .vs-text.vs-text-type-h6 {
-    color: #333333;
-    font-size: 14px;
-    font-weight: 500;
+  color: #333333;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .vs-text.vs-text-type-subheading {
-    color: #757575;
-    font-size: 18px;
-    font-weight: 400;
+  color: #757575;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .vs-text.vs-text-type-link {
-    color: #0F88C6;
-    font-size: 14px;
-    font-weight: 400;
+  color: #0f88c6;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .vs-text.vs-text-type-link:hover {
-    color: #2A6CA6;
+  color: #2a6ca6;
 }
 
 .vs-text.vs-text.vs-text-italic {
-    font-style: italic;
+  font-style: italic;
 }

@@ -8,13 +8,13 @@ const Label = ({
   required,
   vertical,
   fontWeight,
-  ...otherProps
+  ...restProps
 }) => (
   <label
+    {...restProps}
     className={`form-label control-label form-label-${
       vertical ? 'vertical' : 'horizontal'
     } ${fontWeight ? `vs-label-font-${fontWeight}` : ''} ${className || ''}`}
-    {...otherProps}
   >
     {children}
     {required && <span className="form-group-required-sign">*</span>}

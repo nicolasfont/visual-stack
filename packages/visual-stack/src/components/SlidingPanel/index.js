@@ -17,10 +17,10 @@ export const ToggleIcon = ({
 
   return (
     <a
+      {...restProps}
       className={`vs-sliding-panel-toggle-icon ${className}`}
       onClick={onClick}
       title={hoverText}
-      {...restProps}
     >
       <Button type="inline-outline-secondary">
         <Icon className="vs-sliding-panel-section-icon" />
@@ -35,12 +35,18 @@ ToggleIcon.propTypes = {
   label: PropTypes.string,
 };
 
-export const SlidingPanel = ({ className = '', children, active }) => {
+export const SlidingPanel = ({
+  className = '',
+  children,
+  active,
+  ...restProps
+}) => {
   return (
     <div
       className={classNames(`${className} vs-sliding-panel`, {
         'vs-active': active,
       })}
+      {...restProps}
     >
       <ul className="vs-force-sliding-panel-width">{children}</ul>
     </div>
@@ -51,17 +57,31 @@ SlidingPanel.propTypes = {
   active: PropTypes.bool,
 };
 
-export const SlidingPanelHeader = ({ className = '', children }) => {
-  return <li className={`${className} vs-sliding-panel-header`}>{children}</li>;
+export const SlidingPanelHeader = ({
+  className = '',
+  children,
+  ...restProps
+}) => {
+  return (
+    <li className={`${className} vs-sliding-panel-header`} {...restProps}>
+      {children}
+    </li>
+  );
 };
 SlidingPanelHeader.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
 };
 
-export const SlidingPanelSection = ({ className = '', children }) => {
+export const SlidingPanelSection = ({
+  className = '',
+  children,
+  ...restProps
+}) => {
   return (
-    <li className={`${className} vs-sliding-panel-section`}>{children}</li>
+    <li className={`${className} vs-sliding-panel-section`} {...restProps}>
+      {children}
+    </li>
   );
 };
 SlidingPanelSection.propTypes = {
@@ -75,6 +95,7 @@ export const SlidingPanelDropdown = ({
   onClick,
   expanded,
   id = '',
+  ...restProps
 }) => {
   const containerClasses = classNames(
     `${className} vs-sliding-panel-section-container`,
@@ -86,7 +107,7 @@ export const SlidingPanelDropdown = ({
     'vs-expanded': expanded,
   });
   return (
-    <ul className={containerClasses} id={id}>
+    <ul className={containerClasses} id={id} {...restProps}>
       <a className="vs-sliding-panel-section-container-label" onClick={onClick}>
         <div>{label}</div>
         <i className="fa fa-chevron-right" />

@@ -65,7 +65,7 @@ describe('Form', () => {
     it('should pass options to select only', () => {
       const options = [{ id: 1, label: 'one' }, { id: 2, label: 'two' }];
 
-      const wrapper = mount(<SelectField id="test-id" options={options}/>);
+      const wrapper = mount(<SelectField id="test-id" options={options} />);
 
       expect(
         wrapper.find('label[htmlFor="test-id"]').prop('options')

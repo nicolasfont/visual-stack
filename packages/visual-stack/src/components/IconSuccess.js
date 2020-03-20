@@ -5,8 +5,12 @@ import classNames from 'classnames';
 import iconSuccessSvg from '../../src/images/ui-kit/icon-success.svg';
 import './CJLogo.css';
 
-const IconSuccess = ({ className }) => (
-  <SVG src={iconSuccessSvg} className={classNames('vs-icon', className)} />
+const IconSuccess = ({ className, ...restProps }) => (
+  <SVG
+    {...restProps}
+    src={iconSuccessSvg}
+    className={classNames('vs-icon', className)}
+  />
 );
 
 IconSuccess.propTypes = {

@@ -25,6 +25,7 @@ export class TriStateCheckbox extends React.Component {
   render() {
     return (
       <input
+        {...this.props}
         className={`vs-tristatecheckbox ${this.props.className}`}
         type="checkbox"
         onClick={ev => this.onBoxClick(ev)}

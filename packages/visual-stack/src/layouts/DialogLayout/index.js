@@ -29,8 +29,9 @@ export const DialogLayout = ({
   onCancel,
   onSubmit,
   children,
+  ...restProps
 }) => (
-  <div className={cn(`vs-dialog-layout`, className)}>
+  <div className={cn(`vs-dialog-layout`, className)} {...restProps}>
     <div className="vs-dialog-layout-header vs-dialog-layout-page-title">
       <div className="vs-dialog-layout-logo-title-container">
         <div className="vs-dialog-layout-logo-container">

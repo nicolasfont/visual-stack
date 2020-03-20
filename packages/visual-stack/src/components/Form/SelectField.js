@@ -21,9 +21,9 @@ export default ({
   isSearchable,
   autoFocus,
   placeholder,
-  ...otherProps
+  ...restProps
 }) => (
-  <Field htmlFor={id} label={label} error={error} help={help} {...otherProps}>
+  <Field {...restProps} htmlFor={id} label={label} error={error} help={help}>
     <FieldContent>
       <Select
         id={id}
@@ -40,7 +40,7 @@ export default ({
         isMulti={isMulti}
         isSearchable={isSearchable}
         placeholder={placeholder}
-        {...otherProps}
+        {...restProps}
       />
     </FieldContent>
   </Field>

@@ -8,8 +8,9 @@ const backgroundClick = (event, onBackgroundClick) => {
   }
 };
 
-export const Modal = ({ children, onBackgroundClick }) => (
+export const Modal = ({ children, onBackgroundClick, ...restProps }) => (
   <div
+    {...restProps}
     className="modal"
     style={{ display: 'block' }}
     onClick={event =>
@@ -20,8 +21,8 @@ export const Modal = ({ children, onBackgroundClick }) => (
   </div>
 );
 
-export const Header = ({ title, children }) => (
-  <div className="modal-header">
+export const Header = ({ title, children, ...restProps }) => (
+  <div {...restProps} className="modal-header">
     {title && <h1>{title}</h1>}
     {children}
   </div>
@@ -31,20 +32,30 @@ Header.propTypes = {
   title: PropTypes.string,
 };
 
-export const Dialog = ({ children }) => (
-  <div className="modal-dialog">{children}</div>
+export const Dialog = ({ children, ...restProps }) => (
+  <div {...restProps} className="modal-dialog">
+    {children}
+  </div>
 );
 
-export const Content = ({ children }) => (
-  <div className="modal-content">{children}</div>
+export const Content = ({ children, ...restProps }) => (
+  <div {...restProps} className="modal-content">
+    {children}
+  </div>
 );
 
-export const Body = ({ children }) => (
-  <div className="modal-body">{children}</div>
+export const Body = ({ children, ...restProps }) => (
+  <div {...restProps} className="modal-body">
+    {children}
+  </div>
 );
 
-export const Footer = ({ children }) => (
-  <div className="modal-footer">{children}</div>
+export const Footer = ({ children, ...restProps }) => (
+  <div {...restProps} className="modal-footer">
+    {children}
+  </div>
 );
 
-export const Backdrop = () => <div className="modal-backdrop fade in" />;
+export const Backdrop = props => (
+  <div {...props} className="modal-backdrop fade in" />
+);

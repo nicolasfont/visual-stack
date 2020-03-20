@@ -17,7 +17,7 @@ const makeAlert = () => ({
   closeType,
   onClose,
   closeButtonText,
-  ...otherProps
+  ...restProps
 }) => {
   const classes = concatAll(
     ['vs-alert-d', `vs-${type}-alert`],
@@ -46,7 +46,7 @@ const makeAlert = () => ({
   };
 
   return (
-    <div className={classes.join(' ')} {...otherProps}>
+    <div {...restProps} className={classes.join(' ')}>
       <div className="vs-alert-icon-container">
         {iconMap[type] || iconMap.info}
       </div>

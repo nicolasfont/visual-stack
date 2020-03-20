@@ -29,6 +29,7 @@ export class Tree extends React.Component {
 
       onSelectionToggle,
       onExpansionToggle,
+      ...restProps
     } = props;
 
     const _nodeId = props._nodeId || props.treeStructure.rootId();
@@ -49,6 +50,7 @@ export class Tree extends React.Component {
 
     return (
       <div
+        {...restProps}
         className={`${
           _nodeId === props.treeStructure.rootId() ? 'vs-tree' : ''
         } ${
