@@ -167,4 +167,14 @@ describe('Box', () => {
     const wrapper = mount(<Box grow>Lorem ipsum</Box>);
     expect(wrapper.find('.vs-box.vs-box-grow').text()).toEqual('Lorem ipsum');
   });
+  it('should render with arbitrary data-id prop', () => {
+    const wrapper = mount(
+      <Box data-id="test" id="test">
+        Lorem ipsum
+      </Box>
+    );
+    expect(wrapper.find('.vs-box[data-id="test"]').text()).toEqual(
+      'Lorem ipsum'
+    );
+  });
 });

@@ -118,4 +118,19 @@ describe('List View', () => {
     );
     expect(wrapper.find('div.emptyState')).toHaveLength(1);
   });
+
+  it('should render arbitrary data-id prop', () => {
+    const wrapper = mount(
+      <ListView
+        data={[{ name: 'CJ' }, { name: 'Affiliate' }]}
+        renderContent={item => <div>{item.name}</div>}
+        data-id="test"
+      />
+    );
+    const texts = wrapper
+      .find('div.vs-list-view-container[data-id="test"]')
+      .find('div.vs-list-item')
+      .map(element => element.text());
+    expect(texts).toEqual(['CJ', 'Affiliate']);
+  });
 });

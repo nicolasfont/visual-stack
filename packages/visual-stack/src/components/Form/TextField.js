@@ -14,7 +14,7 @@ export default ({
   help,
   optional,
   optionalLabel,
-  ...otherProps
+  ...restProps
 }) => (
   <Field
     htmlFor={id}
@@ -24,7 +24,7 @@ export default ({
     help={help}
     optional={optional}
     optionalLabel={optionalLabel}
-    {...otherProps}
+    {...restProps}
   >
     <FieldContent>
       <Input
@@ -32,7 +32,7 @@ export default ({
         className={error ? 'input-error' : ''}
         name={name}
         value={value}
-        {...otherProps}
+        {...restProps}
       />
     </FieldContent>
   </Field>

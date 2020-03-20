@@ -12,11 +12,11 @@ const Popover = ({
   eventsEnabled,
   modifiers,
   positionFixed,
-  ...otherProps
+  ...restProps
 }) => {
   return (
     <Manager>
-      <div className="vs-popover-wrapper" {...otherProps}>
+      <div className="vs-popover-wrapper" {...restProps}>
         <Reference>
           {({ ref }) => (
             <div ref={ref} className="vs-popover-reference">

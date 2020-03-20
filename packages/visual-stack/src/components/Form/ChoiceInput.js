@@ -12,20 +12,20 @@ export default ({
   label,
   checked,
   style,
-  ...otherProps
+  ...restProps
 }) => (
   <div
     className={`vs-choice-input ${className ? className : ''}`}
     style={style}
   >
-    <Label htmlFor={id} fontWeight="normal" {...otherProps}>
+    <Label htmlFor={id} fontWeight="normal" {...restProps}>
       <Input
         id={id}
         type={type}
         name={name}
         value={value}
         checked={checked}
-        {...otherProps}
+        {...restProps}
       />
       {label}
     </Label>

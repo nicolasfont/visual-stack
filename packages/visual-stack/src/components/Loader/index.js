@@ -1,8 +1,8 @@
 import React from 'react';
 import './styles.css';
 
-export const Loader = ({}) => (
-  <div className="loading-container">
+export const Loader = ({ props }) => (
+  <div className="loading-container" {...props}>
     <div className="loading-bars">
       <div />
       <div />

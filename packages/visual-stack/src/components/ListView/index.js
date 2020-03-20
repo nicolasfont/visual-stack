@@ -18,6 +18,7 @@ const ListView = ({
   renderFooter,
   isLoading,
   renderEmptyState = renderDefaultEmptyState,
+  ...restProps
 }) => {
   const isDataEmpty = isEmpty(data);
   const isClickable = !isNil(onClick);
@@ -49,7 +50,7 @@ const ListView = ({
     <div className="vs-list-view-footer">{renderFooter()}</div>
   );
   return (
-    <div className="vs-list-view-container">
+    <div className="vs-list-view-container" {...restProps}>
       {header}
       {isLoading && spinner}
       {isDataEmpty && renderEmptyState()}

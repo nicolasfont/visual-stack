@@ -29,6 +29,7 @@ export class TriStateCheckbox extends React.Component {
         type="checkbox"
         onClick={ev => this.onBoxClick(ev)}
         ref={this.inputRef}
+        {...this.props}
       />
     );
   }

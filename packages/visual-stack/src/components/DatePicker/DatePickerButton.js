@@ -71,10 +71,10 @@ export const DatePickerButton = ({
   className,
   DateRangeDisplay,
   type = 'inline-outline-secondary',
-  ...props
+  ...restProps
 }) => (
   <Button
-    {...props}
+    {...restProps}
     className={classNames(
       className,
       { 'vs-date-picker-button-expanded': expanded },

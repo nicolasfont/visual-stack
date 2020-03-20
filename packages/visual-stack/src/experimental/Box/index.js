@@ -17,6 +17,7 @@ const Box = ({
   paddingLeft,
   paddingRight,
   paddingTop,
+  ...restProps
 }) => {
   const classes = classNames(
     'vs-box',
@@ -39,7 +40,11 @@ const Box = ({
     grow && 'vs-box-grow',
     className
   );
-  return <div className={classes}>{children}</div>;
+  return (
+    <div className={classes} {...restProps}>
+      {children}
+    </div>
+  );
 };
 
 Box.defaultProps = {

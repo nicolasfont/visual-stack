@@ -5,10 +5,11 @@ import classNames from 'classnames';
 import logoSvg from '../../src/images/ui-kit/new-cj-logo-icon.svg';
 import './CJLogo.css';
 
-const CJLogo = ({ className }) => (
+const CJLogo = ({ className, ...restProps }) => (
   <SVG
     src={logoSvg}
     className={classNames('vs-cj-logo', 'vs-cj-logo-svg', className)}
+    {...restProps}
   />
 );
 

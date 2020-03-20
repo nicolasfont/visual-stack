@@ -3,6 +3,7 @@ import Text from '../index';
 import Enzyme, { mount } from 'enzyme';
 
 import Adapter from 'enzyme-adapter-react-16';
+import Box from '../../Box';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -117,5 +118,12 @@ describe('Text', () => {
         wrapper.find('.vs-text.vs-text-type-h4.vs-text-italic').text()
       ).toEqual('Lorem ipsum');
     });
+  });
+  it('should render with arbitrary data-id prop', () => {
+    const wrapper = mount(<Text data-id="test">Lorem ipsum</Text>);
+
+    expect(wrapper.find('.vs-text[data-id="test"]').text()).toEqual(
+      'Lorem ipsum'
+    );
   });
 });

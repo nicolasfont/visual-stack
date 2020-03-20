@@ -28,16 +28,16 @@ ActionButton.defaultProps = {
   className: '',
 };
 
-const renderHeaderCell = ({ width, alignment, text }) => (
-  <Cell key={text} width={width}>
+const renderHeaderCell = ({ width, alignment, text, ...restProps }) => (
+  <Cell key={text} width={width} {...restProps}>
     <div className={`vs-list-header-label text-${alignment || 'left'}`}>
       {text}
     </div>
   </Cell>
 );
 
-export const Header = ({ labels }) => (
-  <div className="vs-list-header">
+export const Header = ({ labels, ...restProps }) => (
+  <div className="vs-list-header" {...restProps}>
     <Row>{map(renderHeaderCell, labels)}</Row>
   </div>
 );
@@ -51,8 +51,10 @@ Header.propTypes = {
   ).isRequired,
 };
 
-export const Rows = ({ children }) => (
-  <div className="vs-list-rows">{children}</div>
+export const Rows = ({ children, ...restProps }) => (
+  <div className="vs-list-rows" {...restProps}>
+    {children}
+  </div>
 );
 
 export const Row = props => (
@@ -66,12 +68,16 @@ export const Row = props => (
   </div>
 );
 
-const ExpandedRowPanel = ({ children }) => (
-  <div className="vs-list-row-expanded">{children}</div>
+const ExpandedRowPanel = ({ children, ...restProps }) => (
+  <div className="vs-list-row-expanded" {...restProps}>
+    {children}
+  </div>
 );
 
-export const Cell = ({ width, children }) => (
-  <div className={`vs-list-cell col-xs-${width || 1}`}>{children}</div>
+export const Cell = ({ width, children, ...restProps }) => (
+  <div className={`vs-list-cell col-xs-${width || 1}`} {...restProps}>
+    {children}
+  </div>
 );
 Cell.propTypes = {
   width: PropTypes.number,

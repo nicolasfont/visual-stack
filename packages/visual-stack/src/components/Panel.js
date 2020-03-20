@@ -3,12 +3,16 @@ import PropTypes from 'prop-types';
 import './Panel.css';
 import { deprecated } from 'prop-types-extra';
 
-export const Panel = ({ children }) => (
-  <div className="cj-panel panel vs-panel-default">{children}</div>
+export const Panel = ({ children, ...restProps }) => (
+  <div className="cj-panel panel vs-panel-default" {...restProps}>
+    {children}
+  </div>
 );
 
-export const Footer = ({ children }) => (
-  <div className="cj-panel panel-footer">{children}</div>
+export const Footer = ({ children, ...restProps }) => (
+  <div className="cj-panel panel-footer" {...restProps}>
+    {children}
+  </div>
 );
 
 const paddingMapping = {
@@ -16,7 +20,7 @@ const paddingMapping = {
   large: 'wide',
 };
 
-export const Body = ({ children, paddingSize, padding }) => {
+export const Body = ({ children, paddingSize, padding, ...restProps }) => {
   const paddingSizeClass = paddingSize
     ? `cj-panel-body-padding-${paddingSize}`
     : '';
@@ -24,14 +28,17 @@ export const Body = ({ children, paddingSize, padding }) => {
     ? `cj-panel-body-padding-${paddingMapping[padding]}`
     : '';
   return (
-    <div className={`cj-panel panel-body ${paddingSizeClass} ${paddingClass}`}>
+    <div
+      className={`cj-panel panel-body ${paddingSizeClass} ${paddingClass}`}
+      {...restProps}
+    >
       {children}
     </div>
   );
 };
 
-export const Header = ({ title, children }) => (
-  <div className="cj-panel panel-heading">
+export const Header = ({ title, children, ...restProps }) => (
+  <div className="cj-panel panel-heading" {...restProps}>
     {title && <legend>{title}</legend>}
     {children}
   </div>

@@ -34,6 +34,7 @@ const Pagination = ({
   className,
   rowsPerPageTemplate = '{0} per page',
   totalRecordsTemplate = '{0} total records',
+  ...restProps
 }) => {
   const maxPage = Math.ceil(numberOfRows / rowsPerPage) || 1;
 
@@ -64,7 +65,7 @@ const Pagination = ({
   };
 
   return (
-    <div className={`vs-pagination ${className}`}>
+    <div className={`vs-pagination ${className}`} {...restProps}>
       <div className="vs-rows-per-page-container">
         <Select
           name="rows-per-page"

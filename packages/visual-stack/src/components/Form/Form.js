@@ -1,10 +1,10 @@
 import React from 'react';
 import './Form.css';
 
-export default ({ children, vertical, ...otherProps }) => (
+export default ({ children, vertical, ...restProps }) => (
   <form
     className={vertical ? 'form-vertical' : 'form-horizontal'}
-    {...otherProps}
+    {...restProps}
   >
     {children}
   </form>

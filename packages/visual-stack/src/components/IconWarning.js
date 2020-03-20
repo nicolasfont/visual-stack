@@ -5,8 +5,12 @@ import classNames from 'classnames';
 import iconWarningSvg from '../../src/images/ui-kit/icon-warning.svg';
 import './CJLogo.css';
 
-const IconWarning = ({ className }) => (
-  <SVG src={iconWarningSvg} className={classNames('vs-icon', className)} />
+const IconWarning = ({ className, ...restProps }) => (
+  <SVG
+    src={iconWarningSvg}
+    className={classNames('vs-icon', className)}
+    {...restProps}
+  />
 );
 
 IconWarning.propTypes = {

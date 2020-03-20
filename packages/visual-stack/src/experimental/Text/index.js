@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import './Text.css';
 
-const Text = ({ children, className, italic, type }) => {
+const Text = ({ children, className, italic, type, ...restProps }) => {
   return (
     <span
       className={classNames(
@@ -12,6 +12,7 @@ const Text = ({ children, className, italic, type }) => {
         italic && 'vs-text-italic',
         className
       )}
+      {...restProps}
     >
       {children}
     </span>

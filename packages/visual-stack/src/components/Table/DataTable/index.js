@@ -118,13 +118,14 @@ export const DataTable = ({
   noDataLabel = 'No data available.',
   rowsPerPageTemplate,
   totalRecordsTemplate,
+  ...restProps
 }) => {
   const normalizedData = pagination
     ? getDataWithPagination(rowsPerPage, page)(data)
     : data;
 
   return (
-    <TableContainer className="vs-data-table-container">
+    <TableContainer className="vs-data-table-container" {...restProps}>
       <TableTitle>
         <div className="vs-data-table-top-level-header">
           <div>
