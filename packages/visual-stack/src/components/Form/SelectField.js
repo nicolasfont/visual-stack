@@ -23,7 +23,7 @@ export default ({
   placeholder,
   ...restProps
 }) => (
-  <Field htmlFor={id} label={label} error={error} help={help} {...restProps}>
+  <Field {...restProps} htmlFor={id} label={label} error={error} help={help}>
     <FieldContent>
       <Select
         id={id}

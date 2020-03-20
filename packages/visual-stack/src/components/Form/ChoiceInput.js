@@ -18,14 +18,14 @@ export default ({
     className={`vs-choice-input ${className ? className : ''}`}
     style={style}
   >
-    <Label htmlFor={id} fontWeight="normal" {...restProps}>
+    <Label {...restProps} htmlFor={id} fontWeight="normal">
       <Input
+        {...restProps}
         id={id}
         type={type}
         name={name}
         value={value}
         checked={checked}
-        {...restProps}
       />
       {label}
     </Label>

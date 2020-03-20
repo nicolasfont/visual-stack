@@ -16,7 +16,7 @@ const Popover = ({
 }) => {
   return (
     <Manager>
-      <div className="vs-popover-wrapper" {...restProps}>
+      <div {...restProps} className="vs-popover-wrapper">
         <Reference>
           {({ ref }) => (
             <div ref={ref} className="vs-popover-reference">

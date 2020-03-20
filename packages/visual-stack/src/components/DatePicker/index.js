@@ -118,9 +118,10 @@ const DatePickerSidebar = ({
   rangeConfig,
   selectedSidebarRanges,
   onNamedRangeSelect,
+  ...restProps
 }) => {
   return (
-    <div className={'vs-date-picker-sidebar'}>
+    <div {...restProps} className={'vs-date-picker-sidebar'}>
       {R.addIndex(R.zipWith)(
         (config, selected, index) => (
           <SidebarRangeSection

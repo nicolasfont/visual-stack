@@ -4,13 +4,13 @@ import './Panel.css';
 import { deprecated } from 'prop-types-extra';
 
 export const Panel = ({ children, ...restProps }) => (
-  <div className="cj-panel panel vs-panel-default" {...restProps}>
+  <div {...restProps} className="cj-panel panel vs-panel-default">
     {children}
   </div>
 );
 
 export const Footer = ({ children, ...restProps }) => (
-  <div className="cj-panel panel-footer" {...restProps}>
+  <div {...restProps} className="cj-panel panel-footer">
     {children}
   </div>
 );
@@ -29,8 +29,8 @@ export const Body = ({ children, paddingSize, padding, ...restProps }) => {
     : '';
   return (
     <div
-      className={`cj-panel panel-body ${paddingSizeClass} ${paddingClass}`}
       {...restProps}
+      className={`cj-panel panel-body ${paddingSizeClass} ${paddingClass}`}
     >
       {children}
     </div>
@@ -38,7 +38,7 @@ export const Body = ({ children, paddingSize, padding, ...restProps }) => {
 };
 
 export const Header = ({ title, children, ...restProps }) => (
-  <div className="cj-panel panel-heading" {...restProps}>
+  <div {...restProps} className="cj-panel panel-heading">
     {title && <legend>{title}</legend>}
     {children}
   </div>

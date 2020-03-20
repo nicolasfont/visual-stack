@@ -3,43 +3,43 @@ import cn from 'classnames';
 import './Table.css';
 
 export const TableContainer = ({ className, children, ...restProps }) => (
-  <div className={cn('vs-table-container', className)} {...restProps}>
+  <div {...restProps} className={cn('vs-table-container', className)}>
     {children}
   </div>
 );
 
 export const TableTitle = ({ className, children, ...restProps }) => (
-  <div className={cn('vs-table-title', className)} {...restProps}>
+  <div {...restProps} className={cn('vs-table-title', className)}>
     {children}
   </div>
 );
 
 export const Table = ({ className, children, ...restProps }) => (
-  <table className={cn('vs-table', className)} {...restProps}>
+  <table {...restProps} className={cn('vs-table', className)}>
     {children}
   </table>
 );
 
 export const TBody = ({ className, children, ...restProps }) => (
-  <tbody className={cn('vs-tbody', className)} {...restProps}>
+  <tbody {...restProps} className={cn('vs-tbody', className)}>
     {children}
   </tbody>
 );
 
 export const THead = ({ className, children, ...restProps }) => (
-  <thead className={cn('vs-thead', className)} {...restProps}>
+  <thead {...restProps} className={cn('vs-thead', className)}>
     {children}
   </thead>
 );
 
 export const TFoot = ({ className, children, ...restProps }) => (
-  <tfoot className={cn('vs-tfoot', className)} {...restProps}>
+  <tfoot {...restProps} className={cn('vs-tfoot', className)}>
     {children}
   </tfoot>
 );
 
 export const Tr = ({ className, children, ...restProps }) => (
-  <tr className={cn('vs-row', className)} {...restProps}>
+  <tr {...restProps} className={cn('vs-row', className)}>
     {children}
   </tr>
 );
@@ -63,13 +63,13 @@ export const Th = ({
   ...restProps
 }) => (
   <th
+    {...restProps}
     className={`${buildCellClasses(
       center,
       className,
       nowrap,
       right
     )} vs-table-header`}
-    {...restProps}
   >
     {children}
   </th>
@@ -84,8 +84,8 @@ export const Td = ({
   ...restProps
 }) => (
   <td
-    className={buildCellClasses(center, className, nowrap, right)}
     {...restProps}
+    className={buildCellClasses(center, className, nowrap, right)}
   >
     {children}
   </td>

@@ -6,7 +6,7 @@ const Spinner = ({ size, ...restProps }) => {
   const className = `vs-spinner vs-spinner-${size || 'small'}`;
 
   return (
-    <span className={className} {...restProps}>
+    <span {...restProps} className={className}>
       <i className="fa fa-spinner fa-spin" />
     </span>
   );

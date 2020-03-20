@@ -13,10 +13,10 @@ const FormGroup = ({
   ...restProps
 }) => (
   <div
+    {...restProps}
     className={`form-group ${classes ? classes : ''} ${
       error ? 'has-error' : ''
     }`}
-    {...restProps}
   >
     {label ? (
       <Label

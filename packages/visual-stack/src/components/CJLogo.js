@@ -7,9 +7,9 @@ import './CJLogo.css';
 
 const CJLogo = ({ className, ...restProps }) => (
   <SVG
+    {...restProps}
     src={logoSvg}
     className={classNames('vs-cj-logo', 'vs-cj-logo-svg', className)}
-    {...restProps}
   />
 );
 

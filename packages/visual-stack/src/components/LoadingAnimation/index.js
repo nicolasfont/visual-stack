@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './styles.css';
 
 const LoadingAnimation = ({ loadingMessage = 'Loading...', restProps }) => (
-  <div className="loading-animation loading-container" {...restProps}>
+  <div {...restProps} className="loading-animation loading-container">
     <div className="loading-animation loading-bars">
       <div />
       <div />

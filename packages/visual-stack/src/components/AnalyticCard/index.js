@@ -38,13 +38,13 @@ export const AnalyticCard = ({
 };
 
 export const AnalyticCardTitle = ({ children, className, ...restProps }) => (
-  <div className={`vs-analytic-card-title ${className}`} {...restProps}>
+  <div {...restProps} className={`vs-analytic-card-title ${className}`}>
     {children}
   </div>
 );
 
 export const AnalyticCardValue = ({ children, className, ...restProps }) => (
-  <div className={`vs-analytic-card-value ${className}`} {...restProps}>
+  <div {...restProps} className={`vs-analytic-card-value ${className}`}>
     {children}
   </div>
 );
@@ -55,15 +55,15 @@ export const AnalyticCardTrendContainer = ({
   ...restProps
 }) => (
   <div
-    className={`vs-analytic-card-trend-container ${className}`}
     {...restProps}
+    className={`vs-analytic-card-trend-container ${className}`}
   >
     {children}
   </div>
 );
 
 export const AnalyticCardTrend = ({ children, className, ...restProps }) => (
-  <div className={`vs-analytic-card-trend ${className}`} {...restProps}>
+  <div {...restProps} className={`vs-analytic-card-trend ${className}`}>
     {children}
   </div>
 );
@@ -73,7 +73,7 @@ export const AnalyticCardTrendValue = ({
   className,
   ...restProps
 }) => (
-  <div className={`vs-analytic-card-trend-value ${className}`} {...restProps}>
+  <div {...restProps} className={`vs-analytic-card-trend-value ${className}`}>
     {children}
   </div>
 );
@@ -84,8 +84,8 @@ export const AnalyticCardNegativeTrendValue = ({
   ...restProps
 }) => (
   <div
-    className={`vs-analytic-card-trend-value vs-analytic-card-trend-negative ${className}`}
     {...restProps}
+    className={`vs-analytic-card-trend-value vs-analytic-card-trend-negative ${className}`}
   >
     <TrendDown />
     {children}
@@ -98,8 +98,8 @@ export const AnalyticCardPositiveTrendValue = ({
   ...restProps
 }) => (
   <div
-    className={`vs-analytic-card-trend-value vs-analytic-card-trend-positive ${className}`}
     {...restProps}
+    className={`vs-analytic-card-trend-value vs-analytic-card-trend-positive ${className}`}
   >
     <TrendUp />
     {children}
@@ -111,7 +111,7 @@ export const AnalyticCardTrendLabel = ({
   className,
   ...restProps
 }) => (
-  <div className={`vs-analytic-card-trend-label ${className}`} {...restProps}>
+  <div {...restProps} className={`vs-analytic-card-trend-label ${className}`}>
     {children}
   </div>
 );
@@ -121,7 +121,7 @@ export const AnalyticCardValueUnit = ({
   className,
   ...restProps
 }) => (
-  <span className={`vs-analytic-card-value-unit ${className}`} {...restProps}>
+  <span {...restProps} className={`vs-analytic-card-value-unit ${className}`}>
     {children}
   </span>
 );
@@ -132,10 +132,10 @@ export const ViewDetailButton = ({
   ...restProps
 }) => (
   <Button
+    {...restProps}
     type="outline-secondary"
     className="vs-analytic-card-view-detail-button"
     onClick={onClick}
-    {...restProps}
   >
     {label}
   </Button>

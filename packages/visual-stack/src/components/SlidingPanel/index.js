@@ -17,10 +17,10 @@ export const ToggleIcon = ({
 
   return (
     <a
+      {...restProps}
       className={`vs-sliding-panel-toggle-icon ${className}`}
       onClick={onClick}
       title={hoverText}
-      {...restProps}
     >
       <Button type="inline-outline-secondary">
         <Icon className="vs-sliding-panel-section-icon" />

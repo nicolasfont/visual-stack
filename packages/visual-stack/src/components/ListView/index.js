@@ -50,7 +50,7 @@ const ListView = ({
     <div className="vs-list-view-footer">{renderFooter()}</div>
   );
   return (
-    <div className="vs-list-view-container" {...restProps}>
+    <div {...restProps} className="vs-list-view-container">
       {header}
       {isLoading && spinner}
       {isDataEmpty && renderEmptyState()}

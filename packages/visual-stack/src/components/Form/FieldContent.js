@@ -3,8 +3,8 @@ import './Form.css';
 
 export default ({ className, children, ...restProps }) => (
   <div
-    className={`vs-field-content ${className ? className : ''}`}
     {...restProps}
+    className={`vs-field-content ${className ? className : ''}`}
   >
     {children}
   </div>

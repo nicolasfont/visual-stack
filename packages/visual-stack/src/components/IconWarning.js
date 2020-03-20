@@ -7,9 +7,9 @@ import './CJLogo.css';
 
 const IconWarning = ({ className, ...restProps }) => (
   <SVG
+    {...restProps}
     src={iconWarningSvg}
     className={classNames('vs-icon', className)}
-    {...restProps}
   />
 );
 

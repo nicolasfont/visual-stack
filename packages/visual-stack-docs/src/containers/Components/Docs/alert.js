@@ -45,7 +45,7 @@ const connectButton = button =>
   )(button);
 /* s3:end */
 
-/*s4:start*/
+/* s4:start */
 const SuccessAlertWithIconCloseButton = createButton({
   buttonType: 'solid-primary',
   buttonMessage: 'Alert with Close Icon',

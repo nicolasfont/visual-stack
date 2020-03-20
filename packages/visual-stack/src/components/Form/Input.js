@@ -4,9 +4,9 @@ import './Form.css';
 
 const Input = ({ className, type, ...restProps }) => (
   <input
+    {...restProps}
     type={type || 'text'}
     className={`form-control ${className || ''}`}
-    {...restProps}
   />
 );
 Input.propTypes = {

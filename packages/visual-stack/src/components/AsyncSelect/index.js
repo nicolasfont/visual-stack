@@ -5,9 +5,9 @@ import './AsyncSelect.css';
 
 const AsyncSelect = ({ className, ...restProps }) => (
   <ReactAsyncSelect
+    {...restProps}
     className={cn('vs-default-react-select-async', className)}
     classNamePrefix={'vs-react-select-async'}
-    {...restProps}
   />
 );
 export default AsyncSelect;

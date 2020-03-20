@@ -125,7 +125,7 @@ export const DataTable = ({
     : data;
 
   return (
-    <TableContainer className="vs-data-table-container" {...restProps}>
+    <TableContainer {...restProps} className="vs-data-table-container">
       <TableTitle>
         <div className="vs-data-table-top-level-header">
           <div>

@@ -65,8 +65,8 @@ class SideNavP extends React.Component {
       : null;
     return (
       <ul
-        className={'vs-sidenav' + (collapsed ? ' collapsed' : ' active')}
         {...restProps}
+        className={'vs-sidenav' + (collapsed ? ' collapsed' : ' active')}
       >
         <li className="vs-sideNav-left-logo">
           <a

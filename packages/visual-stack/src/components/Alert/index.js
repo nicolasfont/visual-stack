@@ -46,7 +46,7 @@ const makeAlert = () => ({
   };
 
   return (
-    <div className={classes.join(' ')} {...restProps}>
+    <div {...restProps} className={classes.join(' ')}>
       <div className="vs-alert-icon-container">
         {iconMap[type] || iconMap.info}
       </div>

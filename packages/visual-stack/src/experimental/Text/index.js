@@ -6,13 +6,13 @@ import './Text.css';
 const Text = ({ children, className, italic, type, ...restProps }) => {
   return (
     <span
+      {...restProps}
       className={classNames(
         'vs-text',
         `vs-text-type-${type}`,
         italic && 'vs-text-italic',
         className
       )}
-      {...restProps}
     >
       {children}
     </span>

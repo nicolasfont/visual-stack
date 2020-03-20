@@ -23,7 +23,7 @@ export const ExpandingInputButton = ({
   return (
     <div className={containerClassName} onFocus={onFocus} onBlur={onBlur}>
       <span className="vs-expanding-input-button-icon">{icon}</span>
-      <Input type="text" onChange={onChange} value={value} {...restProps} />
+      <Input {...restProps} type="text" onChange={onChange} value={value} />
       {expanded && (
         <WindowCloseIcon className="vs-window-close-icon" onClick={onClear} />
       )}

@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css';
 
 export const Loader = ({ props }) => (
-  <div className="loading-container" {...props}>
+  <div {...props} className="loading-container">
     <div className="loading-bars">
       <div />
       <div />

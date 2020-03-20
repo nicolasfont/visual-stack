@@ -83,6 +83,7 @@ class TabLabel extends React.Component {
       onSelectClick,
       isSelected,
       themeColor,
+      ...restProps
     } = this.props;
     const selected = isSelected(tabIndex);
 
@@ -109,6 +110,7 @@ class TabLabel extends React.Component {
 
     return (
       <div
+        {...restProps}
         className={labelClassName}
         onClick={event => {
           if (!disabled) {
@@ -130,23 +132,23 @@ export const TabLabelContent = props => (
   <div className="vs-tab-label-content standard">{props.children}</div>
 );
 
-const TabHeader = ({ children, floatingHeader, headerWidth }) => {
+const TabHeader = ({ children, floatingHeader, headerWidth, ...restProps }) => {
   const floatingClassName = floatingHeader ? 'vs-tab-header-floating' : '';
   const headerClassName = `vs-tab-header ${floatingClassName}`;
   const headerCss = floatingHeader ? { width: `${headerWidth}` } : {};
   return (
-    <div className={headerClassName} style={headerCss}>
+    <div {...restProps} className={headerClassName} style={headerCss}>
       {children}
     </div>
   );
 };
 
-const TabBody = ({ children, floatingHeader, headerHeight }) => {
+const TabBody = ({ children, floatingHeader, headerHeight, ...restProps }) => {
   const headerHeightCss = floatingHeader
     ? { paddingTop: `${headerHeight}` }
     : {};
   return (
-    <div className="vs-tab-body" style={headerHeightCss}>
+    <div {...restProps} className="vs-tab-body" style={headerHeightCss}>
       {children}
     </div>
   );

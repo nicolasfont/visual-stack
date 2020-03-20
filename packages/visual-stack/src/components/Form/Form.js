@@ -3,8 +3,8 @@ import './Form.css';
 
 export default ({ children, vertical, ...restProps }) => (
   <form
-    className={vertical ? 'form-vertical' : 'form-horizontal'}
     {...restProps}
+    className={vertical ? 'form-vertical' : 'form-horizontal'}
   >
     {children}
   </form>

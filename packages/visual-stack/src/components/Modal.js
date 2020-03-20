@@ -10,19 +10,19 @@ const backgroundClick = (event, onBackgroundClick) => {
 
 export const Modal = ({ children, onBackgroundClick, ...restProps }) => (
   <div
+    {...restProps}
     className="modal"
     style={{ display: 'block' }}
     onClick={event =>
       onBackgroundClick ? backgroundClick(event, onBackgroundClick) : {}
     }
-    {...restProps}
   >
     {children}
   </div>
 );
 
 export const Header = ({ title, children, ...restProps }) => (
-  <div className="modal-header" {...restProps}>
+  <div {...restProps} className="modal-header">
     {title && <h1>{title}</h1>}
     {children}
   </div>
@@ -33,29 +33,29 @@ Header.propTypes = {
 };
 
 export const Dialog = ({ children, ...restProps }) => (
-  <div className="modal-dialog" {...restProps}>
+  <div {...restProps} className="modal-dialog">
     {children}
   </div>
 );
 
 export const Content = ({ children, ...restProps }) => (
-  <div className="modal-content" {...restProps}>
+  <div {...restProps} className="modal-content">
     {children}
   </div>
 );
 
 export const Body = ({ children, ...restProps }) => (
-  <div className="modal-body" {...restProps}>
+  <div {...restProps} className="modal-body">
     {children}
   </div>
 );
 
 export const Footer = ({ children, ...restProps }) => (
-  <div className="modal-footer" {...restProps}>
+  <div {...restProps} className="modal-footer">
     {children}
   </div>
 );
 
 export const Backdrop = props => (
-  <div className="modal-backdrop fade in" {...props} />
+  <div {...props} className="modal-backdrop fade in" />
 );

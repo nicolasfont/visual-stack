@@ -65,7 +65,7 @@ const Pagination = ({
   };
 
   return (
-    <div className={`vs-pagination ${className}`} {...restProps}>
+    <div {...restProps} className={`vs-pagination ${className}`}>
       <div className="vs-rows-per-page-container">
         <Select
           name="rows-per-page"

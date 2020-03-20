@@ -4,10 +4,12 @@ import { map, omit } from 'ramda';
 
 import './List.css';
 
-export const List = ({ children }) => <div>{children}</div>;
+export const List = ({ children, ...restProps }) => (
+  <div {...restProps}>{children}</div>
+);
 
-export const Toolbar = ({ title, children }) => (
-  <div className="vs-list-toolbar vs-toolbar-widget-header">
+export const Toolbar = ({ title, children, ...restProps }) => (
+  <div {...restProps} className="vs-list-toolbar vs-toolbar-widget-header">
     {title && <span className="vs-list-toolbar-title">{title}</span>}
     {children}
   </div>
@@ -16,8 +18,10 @@ Toolbar.propTypes = {
   title: PropTypes.string,
 };
 
-export const ActionButton = ({ icon, className, onClick }) => {
-  return <span className={`${icon} ${className}`} onClick={onClick} />;
+export const ActionButton = ({ icon, className, onClick, ...restProps }) => {
+  return (
+    <span {...restProps} className={`${icon} ${className}`} onClick={onClick} />
+  );
 };
 ActionButton.propTypes = {
   icon: PropTypes.string.isRequired,
@@ -29,7 +33,7 @@ ActionButton.defaultProps = {
 };
 
 const renderHeaderCell = ({ width, alignment, text, ...restProps }) => (
-  <Cell key={text} width={width} {...restProps}>
+  <Cell {...restProps} key={text} width={width}>
     <div className={`vs-list-header-label text-${alignment || 'left'}`}>
       {text}
     </div>
@@ -69,13 +73,13 @@ export const Row = props => (
 );
 
 const ExpandedRowPanel = ({ children, ...restProps }) => (
-  <div className="vs-list-row-expanded" {...restProps}>
+  <div {...restProps} className="vs-list-row-expanded">
     {children}
   </div>
 );
 
 export const Cell = ({ width, children, ...restProps }) => (
-  <div className={`vs-list-cell col-xs-${width || 1}`} {...restProps}>
+  <div {...restProps} className={`vs-list-cell col-xs-${width || 1}`}>
     {children}
   </div>
 );

@@ -2,7 +2,7 @@ import React from 'react';
 import './PageContent.css';
 
 const PageContent = ({ children, ...restProps }) => (
-  <div className="vs-page-content" {...restProps}>
+  <div {...restProps} className="vs-page-content">
     {children}
   </div>
 );

@@ -21,7 +21,7 @@ const mkButton = buttonType => ({
   );
 
   return (
-    <button type={buttonType} {...restProps} className={classes.join(' ')}>
+    <button {...restProps} type={buttonType} className={classes.join(' ')}>
       {children}
     </button>
   );

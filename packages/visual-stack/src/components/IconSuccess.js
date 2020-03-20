@@ -7,9 +7,9 @@ import './CJLogo.css';
 
 const IconSuccess = ({ className, ...restProps }) => (
   <SVG
+    {...restProps}
     src={iconSuccessSvg}
     className={classNames('vs-icon', className)}
-    {...restProps}
   />
 );
 

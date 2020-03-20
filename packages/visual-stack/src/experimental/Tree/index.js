@@ -50,6 +50,7 @@ export class Tree extends React.Component {
 
     return (
       <div
+        {...restProps}
         className={`${
           _nodeId === props.treeStructure.rootId() ? 'vs-tree' : ''
         } ${
@@ -57,7 +58,6 @@ export class Tree extends React.Component {
             ? `vs-hidden ${props.className}`
             : props.className
         }`}
-        {...restProps}
       >
         {rootVisible ? (
           children(_nodeId).length > 0 ? (

@@ -43,7 +43,7 @@ const Box = ({
     className
   );
   return (
-    <div className={classes} {...restProps}>
+    <div {...restProps} className={classes}>
       {children}
     </div>
   );
