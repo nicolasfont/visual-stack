@@ -63,20 +63,24 @@ export class HoverPopover extends React.Component {
     super(props);
   }
 
-  onMouseOver = () => {
+  onMouseOver() {
     this.setState({ shown: true });
-  };
+  }
 
-  onMouseLeave = () => {
+  onMouseLeave() {
     this.setState({ shown: false });
-  };
+  }
 
   render() {
     return (
       <Popover
         shown={this.state.shown}
-        onMouseOver={this.onMouseOver}
-        onMouseLeave={this.onMouseLeave}
+        onMouseOver={() => {
+          this.onMouseOver();
+        }}
+        onMouseLeave={() => {
+          this.onMouseLeave();
+        }}
         {...this.props}
       >
         {this.props.children}
