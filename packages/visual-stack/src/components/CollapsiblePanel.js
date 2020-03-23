@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button } from './Button';
 import ChevronRightIcon from 'mdi-react/ChevronRightIcon';
 import ChevronDownIcon from 'mdi-react/ChevronDownIcon';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import './CollapsiblePanel.css';
 import PropTypes from 'prop-types';
 
@@ -28,19 +28,22 @@ export class CollapsiblePanel extends React.Component {
   }
 
   render() {
-    const displayLargePadding = this.props.padding === paddingSize.LARGE;
-
-    const panelClassNames = classnames({
-      'vs-collapsible-panel': true,
-      'vs-collapsible-panel-padding-large': displayLargePadding,
-    });
+    const {
+      children,
+      className,
+      initializedCollapsed,
+      padding,
+      title,
+      titleIcon,
+      ...restProps
+    } = this.props;
 
     return (
       <div
-        {...this.props}
-        className={`${panelClassNames} ${
-          this.props.className ? this.props.className : ''
-        }`}
+        {...restProps}
+        className={classNames(className, 'vs-collapsible-panel', {
+          'vs-collapsible-panel-padding-large': padding === paddingSize.LARGE,
+        })}
       >
         <div className="vs-collapsible-panel-header">
           <Button
@@ -50,24 +53,20 @@ export class CollapsiblePanel extends React.Component {
           >
             {this.state.collapsed ? <ChevronRightIcon /> : <ChevronDownIcon />}
           </Button>
-          <div className="vs-collapsible-panel-icon-container">
-            {this.props.titleIcon}
-          </div>
+          <div className="vs-collapsible-panel-icon-container">{titleIcon}</div>
           <span
             className="vs-collapsible-panel-header-title"
             onClick={this.toggleCollapsed}
           >
-            {this.props.title}
+            {title}
           </span>
         </div>
         {!this.state.collapsed && (
           <div className="vs-collapsible-panel-item">
-            {this.props.titleIcon && (
+            {titleIcon && (
               <div className="vs-collapsible-panel-icon-placeholder" />
             )}
-            <div className="vs-collapsible-panel-item-content">
-              {this.props.children}
-            </div>
+            <div className="vs-collapsible-panel-item-content">{children}</div>
           </div>
         )}
       </div>
@@ -76,7 +75,12 @@ export class CollapsiblePanel extends React.Component {
 }
 
 CollapsiblePanel.prototypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  initializedCollapsed: PropTypes.bool,
   padding: PropTypes.oneOf([paddingSize.LARGE]),
+  title: PropTypes.node,
+  titleIcon: PropTypes.node,
 };
 
 export default CollapsiblePanel;
