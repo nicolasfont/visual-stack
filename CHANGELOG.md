@@ -1,3 +1,9 @@
+# 6.7.2
+## Bug Fix
+- Spread only rest props in CollapsiblePanel
+## Updates
+- Refactor to use classNames in CollapsiblePanel
+
 # 6.7.1
 ## New Feature
 - Added a new Button Type - Raised Solid White
