@@ -1,3 +1,4 @@
+import * as R from 'ramda';
 import React from 'react';
 import { Demo, Snippet } from '../../../components/Demo';
 import { Panel, Body, Header } from '@cjdev/visual-stack/lib/components/Panel';
@@ -396,6 +397,24 @@ export default () => {
               </Box>
               {/* s33:end */}
               <Snippet tag="s33" src={snippets} />
+            </Body>
+          </Panel>
+          <Panel>
+            <Header>Wrap</Header>
+            <Body>
+              {/* s34:start */}
+              <Box wrap>
+                {R.times(
+                  () => (
+                    <Box padding>
+                      <Text>Lorem Ipsum</Text>
+                    </Box>
+                  ),
+                  40
+                )}
+              </Box>
+              {/* s34:end */}
+              <Snippet tag="s34" src={snippets} />
             </Body>
           </Panel>
         </div>

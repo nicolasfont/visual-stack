@@ -160,13 +160,13 @@ describe('Box', () => {
   it('should render with alignItems start', () => {
     const wrapper = mount(<Box alignItems="start">Lorem ipsum</Box>);
     expect(wrapper.find('.vs-box.vs-box-align-items-start').text()).toEqual(
-        'Lorem ipsum'
+      'Lorem ipsum'
     );
   });
   it('should render with alignItems end', () => {
     const wrapper = mount(<Box alignItems="end">Lorem ipsum</Box>);
     expect(wrapper.find('.vs-box.vs-box-align-items-end').text()).toEqual(
-        'Lorem ipsum'
+      'Lorem ipsum'
     );
   });
   it('should render with justifyContent center', () => {
@@ -177,19 +177,23 @@ describe('Box', () => {
   });
   it('should render with justifyContent start', () => {
     const wrapper = mount(<Box justifyContent="start">Lorem ipsum</Box>);
-    expect(
-        wrapper.find('.vs-box.vs-box-justify-content-start').text()
-    ).toEqual('Lorem ipsum');
+    expect(wrapper.find('.vs-box.vs-box-justify-content-start').text()).toEqual(
+      'Lorem ipsum'
+    );
   });
   it('should render with justifyContent end', () => {
     const wrapper = mount(<Box justifyContent="end">Lorem ipsum</Box>);
-    expect(
-        wrapper.find('.vs-box.vs-box-justify-content-end').text()
-    ).toEqual('Lorem ipsum');
+    expect(wrapper.find('.vs-box.vs-box-justify-content-end').text()).toEqual(
+      'Lorem ipsum'
+    );
   });
   it('should render with grow', () => {
     const wrapper = mount(<Box grow>Lorem ipsum</Box>);
     expect(wrapper.find('.vs-box.vs-box-grow').text()).toEqual('Lorem ipsum');
+  });
+  it('should render with wrap', () => {
+    const wrapper = mount(<Box wrap>Lorem ipsum</Box>);
+    expect(wrapper.find('.vs-box.vs-box-wrap').text()).toEqual('Lorem ipsum');
   });
   it('should render with arbitrary data-id prop', () => {
     const wrapper = mount(

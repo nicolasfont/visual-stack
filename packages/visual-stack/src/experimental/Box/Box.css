@@ -126,3 +126,7 @@
 .vs-box.vs-box-grow {
   flex-grow: 1;
 }
+
+.vs-box.vs-box-wrap {
+  flex-wrap: wrap;
+}
