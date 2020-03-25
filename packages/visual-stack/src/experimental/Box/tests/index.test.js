@@ -157,10 +157,34 @@ describe('Box', () => {
       'Lorem ipsum'
     );
   });
+  it('should render with alignItems start', () => {
+    const wrapper = mount(<Box alignItems="start">Lorem ipsum</Box>);
+    expect(wrapper.find('.vs-box.vs-box-align-items-start').text()).toEqual(
+        'Lorem ipsum'
+    );
+  });
+  it('should render with alignItems end', () => {
+    const wrapper = mount(<Box alignItems="end">Lorem ipsum</Box>);
+    expect(wrapper.find('.vs-box.vs-box-align-items-end').text()).toEqual(
+        'Lorem ipsum'
+    );
+  });
   it('should render with justifyContent center', () => {
     const wrapper = mount(<Box justifyContent="center">Lorem ipsum</Box>);
     expect(
       wrapper.find('.vs-box.vs-box-justify-content-center').text()
+    ).toEqual('Lorem ipsum');
+  });
+  it('should render with justifyContent start', () => {
+    const wrapper = mount(<Box justifyContent="start">Lorem ipsum</Box>);
+    expect(
+        wrapper.find('.vs-box.vs-box-justify-content-start').text()
+    ).toEqual('Lorem ipsum');
+  });
+  it('should render with justifyContent end', () => {
+    const wrapper = mount(<Box justifyContent="end">Lorem ipsum</Box>);
+    expect(
+        wrapper.find('.vs-box.vs-box-justify-content-end').text()
     ).toEqual('Lorem ipsum');
   });
   it('should render with grow', () => {

@@ -103,8 +103,24 @@
   align-items: center;
 }
 
+.vs-box.vs-box-align-items-start {
+  align-items: flex-start;
+}
+
+.vs-box.vs-box-align-items-end {
+  align-items: flex-end;
+}
+
 .vs-box.vs-box-justify-content-center {
   justify-content: center;
+}
+
+.vs-box.vs-box-justify-content-start {
+  justify-content: flex-start;
+}
+
+.vs-box.vs-box-justify-content-end {
+  justify-content: flex-end;
 }
 
 .vs-box.vs-box-grow {

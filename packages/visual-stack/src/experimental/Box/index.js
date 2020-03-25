@@ -54,14 +54,14 @@ Box.defaultProps = {
 };
 
 Box.propTypes = {
-  alignItems: PropTypes.oneOf(['center']),
-  border: PropTypes.bool,
-  className: PropTypes.string,
   children: PropTypes.node,
+  className: PropTypes.string,
   direction: PropTypes.oneOf(['column', 'row']),
+  alignItems: PropTypes.oneOf(['start', 'center', 'end']),
+  justifyContent: PropTypes.oneOf(['start', 'center', 'end']),
+  border: PropTypes.bool,
   gap: PropTypes.oneOf([true, 'small', 'large']),
   grow: PropTypes.bool,
-  justifyContent: PropTypes.oneOf(['center']),
   padding: PropTypes.oneOf([true, 'small', 'large']),
   paddingBottom: PropTypes.oneOf([true, 'small', 'large']),
   paddingLeft: PropTypes.oneOf([true, 'small', 'large']),

@@ -316,13 +316,9 @@ export default () => {
               </Box>
               {/* s27:end */}
               <Snippet tag="s27" src={snippets} />
-            </Body>
-          </Panel>
-          <Panel>
-            <Header>Justify Content</Header>
-            <Body>
+
               {/* s28:start */}
-              <Box gap justifyContent="center">
+              <Box direction="column" gap alignItems="start">
                 <Box border padding>
                   <Text>Lorem Ipsum</Text>
                 </Box>
@@ -332,12 +328,64 @@ export default () => {
               </Box>
               {/* s28:end */}
               <Snippet tag="s28" src={snippets} />
+
+              {/* s29:start */}
+              <Box direction="column" gap alignItems="end">
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+              </Box>
+              {/* s29:end */}
+              <Snippet tag="s29" src={snippets} />
+            </Body>
+          </Panel>
+          <Panel>
+            <Header>Justify Content</Header>
+            <Body>
+              {/* s30:start */}
+              <Box gap justifyContent="center">
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+              </Box>
+              {/* s30:end */}
+              <Snippet tag="s30" src={snippets} />
+
+              {/* s31:start */}
+              <Box gap justifyContent="start">
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+              </Box>
+              {/* s31:end */}
+              <Snippet tag="s31" src={snippets} />
+
+              {/* s32:start */}
+              <Box gap justifyContent="end">
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+              </Box>
+              {/* s32:end */}
+              <Snippet tag="s32" src={snippets} />
             </Body>
           </Panel>
           <Panel>
             <Header>Grow</Header>
             <Body>
-              {/* s29:start */}
+              {/* s33:start */}
               <Box gap>
                 <Box border padding>
                   <Text>Lorem Ipsum</Text>
@@ -346,8 +394,8 @@ export default () => {
                   <Text>Lorem Ipsum</Text>
                 </Box>
               </Box>
-              {/* s29:end */}
-              <Snippet tag="s29" src={snippets} />
+              {/* s33:end */}
+              <Snippet tag="s33" src={snippets} />
             </Body>
           </Panel>
         </div>
