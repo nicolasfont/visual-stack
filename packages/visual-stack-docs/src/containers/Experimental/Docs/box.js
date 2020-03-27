@@ -81,11 +81,7 @@ export default () => {
               </Box>
               {/* s8:end */}
               <Snippet tag="s8" src={snippets} />
-            </Body>
-          </Panel>
-          <Panel>
-            <Header>Padding Left</Header>
-            <Body>
+
               {/* s9:start */}
               <Box border paddingLeft>
                 Lorem Ipsum
@@ -106,11 +102,7 @@ export default () => {
               </Box>
               {/* s11:end */}
               <Snippet tag="s11" src={snippets} />
-            </Body>
-          </Panel>
-          <Panel>
-            <Header>Padding Right</Header>
-            <Body>
+
               {/* s12:start */}
               <Box direction="row">
                 <Box border paddingRight>
@@ -140,11 +132,7 @@ export default () => {
               </Box>
               {/* s14:end */}
               <Snippet tag="s14" src={snippets} />
-            </Body>
-          </Panel>
-          <Panel>
-            <Header>Padding Bottom</Header>
-            <Body>
+
               {/* s15:start */}
               <Box border paddingBottom>
                 Lorem Ipsum
@@ -165,11 +153,7 @@ export default () => {
               </Box>
               {/* s17:end */}
               <Snippet tag="s17" src={snippets} />
-            </Body>
-          </Panel>
-          <Panel>
-            <Header>Padding Top</Header>
-            <Body>
+
               {/* s18:start */}
               <Box border paddingTop>
                 Lorem Ipsum
