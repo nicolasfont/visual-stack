@@ -1,3 +1,8 @@
+# 6.7.3
+## Updates
+- Box component: Add more accepted values for alignItems and justifyContent props
+- Box component: Add wrap prop
+
 # 6.7.2
 ## Bug Fix
 - Spread only rest props in CollapsiblePanel
