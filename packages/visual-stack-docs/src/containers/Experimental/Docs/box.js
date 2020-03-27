@@ -439,7 +439,7 @@ export default () => {
             <Header>Wrap</Header>
             <Body>
               {/* s37:start */}
-              <Box wrap>
+              <Box gap wrap>
                 {R.times(
                   i => (
                     <Box border padding key={i}>
