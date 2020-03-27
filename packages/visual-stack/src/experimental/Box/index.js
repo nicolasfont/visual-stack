@@ -17,6 +17,7 @@ const Box = ({
   paddingLeft,
   paddingRight,
   paddingTop,
+  wrap,
   ...restProps
 }) => {
   const classes = classNames(
@@ -40,6 +41,7 @@ const Box = ({
     alignItems && `vs-box-align-items-${alignItems}`,
     justifyContent && `vs-box-justify-content-${justifyContent}`,
     grow && 'vs-box-grow',
+    wrap && 'vs-box-wrap',
     className
   );
   return (
@@ -54,14 +56,22 @@ Box.defaultProps = {
 };
 
 Box.propTypes = {
-  alignItems: PropTypes.oneOf(['center']),
-  border: PropTypes.bool,
-  className: PropTypes.string,
   children: PropTypes.node,
+  className: PropTypes.string,
   direction: PropTypes.oneOf(['column', 'row']),
+  alignItems: PropTypes.oneOf(['start', 'center', 'end']),
+  justifyContent: PropTypes.oneOf([
+    'start',
+    'center',
+    'end',
+    'space-around',
+    'space-between',
+    'space-evenly',
+  ]),
+  border: PropTypes.bool,
   gap: PropTypes.oneOf([true, 'small', 'large']),
   grow: PropTypes.bool,
-  justifyContent: PropTypes.oneOf(['center']),
+  wrap: PropTypes.bool,
   padding: PropTypes.oneOf([true, 'small', 'large']),
   paddingBottom: PropTypes.oneOf([true, 'small', 'large']),
   paddingLeft: PropTypes.oneOf([true, 'small', 'large']),

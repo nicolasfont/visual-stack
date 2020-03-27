@@ -1,3 +1,4 @@
+import * as R from 'ramda';
 import React from 'react';
 import { Demo, Snippet } from '../../../components/Demo';
 import { Panel, Body, Header } from '@cjdev/visual-stack/lib/components/Panel';
@@ -80,11 +81,7 @@ export default () => {
               </Box>
               {/* s8:end */}
               <Snippet tag="s8" src={snippets} />
-            </Body>
-          </Panel>
-          <Panel>
-            <Header>Padding Left</Header>
-            <Body>
+
               {/* s9:start */}
               <Box border paddingLeft>
                 Lorem Ipsum
@@ -105,11 +102,7 @@ export default () => {
               </Box>
               {/* s11:end */}
               <Snippet tag="s11" src={snippets} />
-            </Body>
-          </Panel>
-          <Panel>
-            <Header>Padding Right</Header>
-            <Body>
+
               {/* s12:start */}
               <Box direction="row">
                 <Box border paddingRight>
@@ -139,11 +132,7 @@ export default () => {
               </Box>
               {/* s14:end */}
               <Snippet tag="s14" src={snippets} />
-            </Body>
-          </Panel>
-          <Panel>
-            <Header>Padding Bottom</Header>
-            <Body>
+
               {/* s15:start */}
               <Box border paddingBottom>
                 Lorem Ipsum
@@ -164,11 +153,7 @@ export default () => {
               </Box>
               {/* s17:end */}
               <Snippet tag="s17" src={snippets} />
-            </Body>
-          </Panel>
-          <Panel>
-            <Header>Padding Top</Header>
-            <Body>
+
               {/* s18:start */}
               <Box border paddingTop>
                 Lorem Ipsum
@@ -316,13 +301,9 @@ export default () => {
               </Box>
               {/* s27:end */}
               <Snippet tag="s27" src={snippets} />
-            </Body>
-          </Panel>
-          <Panel>
-            <Header>Justify Content</Header>
-            <Body>
+
               {/* s28:start */}
-              <Box gap justifyContent="center">
+              <Box direction="column" gap alignItems="start">
                 <Box border padding>
                   <Text>Lorem Ipsum</Text>
                 </Box>
@@ -332,12 +313,100 @@ export default () => {
               </Box>
               {/* s28:end */}
               <Snippet tag="s28" src={snippets} />
+
+              {/* s29:start */}
+              <Box direction="column" gap alignItems="end">
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+              </Box>
+              {/* s29:end */}
+              <Snippet tag="s29" src={snippets} />
+            </Body>
+          </Panel>
+          <Panel>
+            <Header>Justify Content</Header>
+            <Body>
+              {/* s30:start */}
+              <Box gap justifyContent="center">
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+              </Box>
+              {/* s30:end */}
+              <Snippet tag="s30" src={snippets} />
+
+              {/* s31:start */}
+              <Box gap justifyContent="start">
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+              </Box>
+              {/* s31:end */}
+              <Snippet tag="s31" src={snippets} />
+
+              {/* s32:start */}
+              <Box gap justifyContent="end">
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+              </Box>
+              {/* s32:end */}
+              <Snippet tag="s32" src={snippets} />
+
+              {/* s33:start */}
+              <Box gap justifyContent="space-around">
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+              </Box>
+              {/* s33:end */}
+              <Snippet tag="s33" src={snippets} />
+
+              {/* s34:start */}
+              <Box gap justifyContent="space-between">
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+              </Box>
+              {/* s34:end */}
+              <Snippet tag="s34" src={snippets} />
+
+              {/* s35:start */}
+              <Box gap justifyContent="space-evenly">
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+                <Box border padding>
+                  <Text>Lorem Ipsum</Text>
+                </Box>
+              </Box>
+              {/* s35:end */}
+              <Snippet tag="s35" src={snippets} />
             </Body>
           </Panel>
           <Panel>
             <Header>Grow</Header>
             <Body>
-              {/* s29:start */}
+              {/* s36:start */}
               <Box gap>
                 <Box border padding>
                   <Text>Lorem Ipsum</Text>
@@ -346,8 +415,26 @@ export default () => {
                   <Text>Lorem Ipsum</Text>
                 </Box>
               </Box>
-              {/* s29:end */}
-              <Snippet tag="s29" src={snippets} />
+              {/* s36:end */}
+              <Snippet tag="s36" src={snippets} />
+            </Body>
+          </Panel>
+          <Panel>
+            <Header>Wrap</Header>
+            <Body>
+              {/* s37:start */}
+              <Box gap wrap>
+                {R.times(
+                  i => (
+                    <Box border padding key={i}>
+                      <Text>Lorem Ipsum</Text>
+                    </Box>
+                  ),
+                  40
+                )}
+              </Box>
+              {/* s37:end */}
+              <Snippet tag="s37" src={snippets} />
             </Body>
           </Panel>
         </div>
