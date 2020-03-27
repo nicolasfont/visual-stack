@@ -123,8 +123,20 @@
   justify-content: flex-end;
 }
 
+.vs-box.vs-box-justify-content-space-around {
+  justify-content: space-around;
+}
+
+.vs-box.vs-box-justify-content-space-between {
+  justify-content: space-between;
+}
+
+.vs-box.vs-box-justify-content-space-evenly {
+  justify-content: space-evenly;
+}
+
 .vs-box.vs-box-grow {
-  flex-grow: 1;
+  flex: 1;
 }
 
 .vs-box.vs-box-wrap {

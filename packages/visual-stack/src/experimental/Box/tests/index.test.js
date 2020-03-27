@@ -187,6 +187,26 @@ describe('Box', () => {
       'Lorem ipsum'
     );
   });
+  it('should render with justifyContent space-around', () => {
+    const wrapper = mount(<Box justifyContent="space-around">Lorem ipsum</Box>);
+    expect(
+      wrapper.find('.vs-box.vs-box-justify-content-space-around').text()
+    ).toEqual('Lorem ipsum');
+  });
+  it('should render with justifyContent space-between', () => {
+    const wrapper = mount(
+      <Box justifyContent="space-between">Lorem ipsum</Box>
+    );
+    expect(
+      wrapper.find('.vs-box.vs-box-justify-content-space-between').text()
+    ).toEqual('Lorem ipsum');
+  });
+  it('should render with justifyContent space-evenly', () => {
+    const wrapper = mount(<Box justifyContent="space-evenly">Lorem ipsum</Box>);
+    expect(
+      wrapper.find('.vs-box.vs-box-justify-content-space-evenly').text()
+    ).toEqual('Lorem ipsum');
+  });
   it('should render with grow', () => {
     const wrapper = mount(<Box grow>Lorem ipsum</Box>);
     expect(wrapper.find('.vs-box.vs-box-grow').text()).toEqual('Lorem ipsum');
