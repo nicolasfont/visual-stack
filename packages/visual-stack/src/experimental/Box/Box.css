@@ -75,28 +75,28 @@
   padding-top: 16px;
 }
 
-.vs-box.vs-box-gap-default > * {
-  margin: 4px;
+.vs-box.vs-box-direction-row.vs-box-gap-default > :not(:last-child) {
+  margin-right: 8px;
 }
 
-.vs-box.vs-box-gap-default {
-  margin: -4px;
+.vs-box.vs-box-direction-row.vs-box-gap-small > :not(:last-child) {
+  margin-right: 4px;
 }
 
-.vs-box.vs-box-gap-small > * {
-  margin: 2px;
+.vs-box.vs-box-direction-row.vs-box-gap-large > :not(:last-child) {
+  margin-right: 16px;
 }
 
-.vs-box.vs-box-gap-small {
-  margin: -2px;
+.vs-box.vs-box-direction-column.vs-box-gap-default > :not(:last-child) {
+  margin-bottom: 8px;
 }
 
-.vs-box.vs-box-gap-large > * {
-  margin: 8px;
+.vs-box.vs-box-direction-column.vs-box-gap-small > :not(:last-child) {
+  margin-bottom: 4px;
 }
 
-.vs-box.vs-box-gap-large {
-  margin: -8px;
+.vs-box.vs-box-direction-column.vs-box-gap-large > :not(:last-child) {
+  margin-bottom: 16px;
 }
 
 .vs-box.vs-box-align-items-center {
@@ -137,8 +137,4 @@
 
 .vs-box.vs-box-grow {
   flex: 1;
-}
-
-.vs-box.vs-box-wrap {
-  flex-wrap: wrap;
 }

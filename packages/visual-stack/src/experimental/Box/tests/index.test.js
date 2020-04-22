@@ -211,10 +211,6 @@ describe('Box', () => {
     const wrapper = mount(<Box grow>Lorem ipsum</Box>);
     expect(wrapper.find('.vs-box.vs-box-grow').text()).toEqual('Lorem ipsum');
   });
-  it('should render with wrap', () => {
-    const wrapper = mount(<Box wrap>Lorem ipsum</Box>);
-    expect(wrapper.find('.vs-box.vs-box-wrap').text()).toEqual('Lorem ipsum');
-  });
   it('should render with arbitrary data-id prop', () => {
     const wrapper = mount(
       <Box data-id="test" id="test">

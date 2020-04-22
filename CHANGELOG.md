@@ -1,3 +1,8 @@
+# Upcoming
+## Updates
+- Box: Remove wrap prop since it doesn't work well with gap
+- Box: Add nested boxes example
+
 # 6.7.3
 ## Updates
 - Box component: Add more accepted values for alignItems and justifyContent props

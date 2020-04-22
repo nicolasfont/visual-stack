@@ -1,4 +1,3 @@
-import * as R from 'ramda';
 import React from 'react';
 import { Demo, Snippet } from '../../../components/Demo';
 import { Panel, Body, Header } from '@cjdev/visual-stack/lib/components/Panel';
@@ -420,18 +419,24 @@ export default () => {
             </Body>
           </Panel>
           <Panel>
-            <Header>Wrap</Header>
+            <Header>Nested Boxes</Header>
             <Body>
               {/* s37:start */}
-              <Box gap wrap>
-                {R.times(
-                  i => (
-                    <Box border padding key={i}>
-                      <Text>Lorem Ipsum</Text>
-                    </Box>
-                  ),
-                  40
-                )}
+              <Box gap>
+                <Box border padding>
+                  A
+                </Box>
+                <Box direction="column" gap grow>
+                  <Box border padding>
+                    B
+                  </Box>
+                  <Box border padding>
+                    C
+                  </Box>
+                </Box>
+                <Box border padding>
+                  D
+                </Box>
               </Box>
               {/* s37:end */}
               <Snippet tag="s37" src={snippets} />
