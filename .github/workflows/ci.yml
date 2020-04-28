@@ -1,0 +1,20 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      - github-action
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - name: Install
+        run: npm ci
+      - name: Bootstrap
+        run: npm run bootstrap
+      - name: Test
+        run: npm test
+      
