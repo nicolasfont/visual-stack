@@ -15,6 +15,16 @@ jobs:
         run: npm ci
       - name: Bootstrap
         run: npm run bootstrap
-      - name: Test
+      - name: Run Tests
         run: npm test
+      - name: Build visual-stack-docs
+        run: cd packages/visual-stack-docs && npm run build
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Deploy visual-stack-docs to S3
+        run: aws s3 sync ./build/ s3://visual-stack-docs --delete
       
